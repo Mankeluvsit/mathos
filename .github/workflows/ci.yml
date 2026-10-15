@@ -17,20 +17,8 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
-      - name: Regenerate lockfile for toolchain upgrade
-        run: |
-          rm package-lock.json
-          npm install
-      - name: Capture updated lockfile
-        run: |
-          python - <<'PYTHON'
-          import base64, gzip
-          from pathlib import Path
-          data=base64.b64encode(gzip.compress(Path('package-lock.json').read_bytes())).decode()
-          for i in range(0,len(data),1000):
-              print('MATHOS_LOCK_CHUNK:' + data[i:i+1000])
-          PYTHON
-      - run: npm audit --audit-level=moderate
+          cache: npm
+      - run: npm ci
       - run: npm run check
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
