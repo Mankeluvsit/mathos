@@ -19,6 +19,9 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      - name: Dependency audit diagnostic
+        run: npm audit --json
+        continue-on-error: true
       - run: npm run check
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
