@@ -1,0 +1,132 @@
+import { useRef, useState } from 'react';
+import { PixelPreview } from '../components/PixelPreview';
+import { DEFAULT_EXPERIMENT, MAX_IMPORT_BYTES, parseExperiment, serializeExperiment, validateExperiment, type Experiment } from '../domain/experiment';
+import { loadExperiment, saveExperiment } from '../storage/experiment-storage';
+
+function makeDraft(value: Experiment) {
+  return { name: value.name, seed: String(value.seed), width: String(value.universe.width), height: String(value.universe.height), mode: value.genesis.mode };
+}
+
+function numeric(value: string): number {
+  return value.trim() === '' ? NaN : Number(value);
+}
+
+function previewDimension(value: string): number {
+  const n = numeric(value);
+  return Number.isInteger(n) && n >= 8 && n <= 256 ? n : 64;
+}
+
+export function App() {
+  const [draft, setDraft] = useState(() => makeDraft(DEFAULT_EXPERIMENT));
+  const [message, setMessage] = useState('Ready. Your configuration stays on this device.');
+  const [error, setError] = useState(false);
+  const [importing, setImporting] = useState(false);
+  const fileInput = useRef<HTMLInputElement>(null);
+
+  function current(): Experiment {
+    return validateExperiment({
+      format: 'mathos-experiment', schemaVersion: 1, name: draft.name,
+      seed: numeric(draft.seed), universe: { width: numeric(draft.width), height: numeric(draft.height) },
+      genesis: { mode: draft.mode },
+    });
+  }
+
+  function report(action: () => void) {
+    try { action(); setError(false); }
+    catch (cause) { setError(true); setMessage(cause instanceof Error ? cause.message : 'The operation failed. Your draft is unchanged.'); }
+  }
+
+  async function importFile(file: File) {
+    setImporting(true);
+    try {
+      if (file.size > MAX_IMPORT_BYTES) throw new Error('Configuration file exceeds the 64 KiB limit.');
+      const value = parseExperiment(await file.text());
+      setDraft(makeDraft(value));
+      setError(false);
+      setMessage('Configuration imported into the draft. Save locally to keep it in this browser.');
+    } catch (cause) {
+      setError(true);
+      setMessage(cause instanceof Error ? cause.message : 'Could not read the file. Your draft is unchanged.');
+    } finally { setImporting(false); }
+  }
+
+  return (
+    <>
+      <a className="skip-link" href="#configuration">Skip to configuration</a>
+      <header className="masthead">
+        <a className="wordmark" href="#">MATHOS<span>LOCAL LABORATORY</span></a>
+        <span className="phase">Phase 0 · Foundation</span>
+      </header>
+      <main>
+        <section className="intro" aria-labelledby="intro-title">
+          <p className="eyebrow">MATHEMATICS / ARTIFICIAL LIFE</p>
+          <h1 id="intro-title">A universe starts<br />with a question.</h1>
+          <p>Prepare a local experiment. Explore the foundations of a pixel-level world, one deliberate step at a time.</p>
+          <p className="scope">Available now: configuration, local save, and JSON files. Simulation, learning, and evolution are planned.</p>
+        </section>
+        <div className="workspace">
+          <section className="panel configuration" id="configuration" aria-labelledby="config-title" tabIndex={-1}>
+            <p className="eyebrow">01 / DEFINE</p>
+            <h2 id="config-title">Experiment configuration</h2>
+            <form noValidate aria-describedby="feedback" onSubmit={(event) => {
+              event.preventDefault();
+              report(() => {
+                const value = current();
+                saveExperiment(window.localStorage, value);
+                setMessage('Configuration saved in this browser. Export JSON for a portable copy.');
+              });
+            }}>
+              <fieldset disabled={importing}>
+                <label htmlFor="name">Experiment name</label>
+                <input id="name" value={draft.name} onChange={(e) => setDraft({ ...draft, name: e.target.value })} />
+                <label htmlFor="seed">Random seed</label>
+                <input id="seed" type="number" min="0" max="4294967295" step="1" aria-describedby="seed-help" value={draft.seed} onChange={(e) => setDraft({ ...draft, seed: e.target.value })} />
+                <p className="hint" id="seed-help">A whole number from 0 to 4294967295. Recorded for future reproducible runs.</p>
+                <div className="dimensions">
+                  <div><label htmlFor="width">Width (pixels)</label><input id="width" type="number" min="8" max="256" step="1" value={draft.width} onChange={(e) => setDraft({ ...draft, width: e.target.value })} /></div>
+                  <div><label htmlFor="height">Height (pixels)</label><input id="height" type="number" min="8" max="256" step="1" value={draft.height} onChange={(e) => setDraft({ ...draft, height: e.target.value })} /></div>
+                </div>
+                <p className="hint">8–256 pixels per side. Invalid dimensions preview at 64 pixels.</p>
+                <label htmlFor="genesis">Genesis mode <span className="label-note">planned simulation</span></label>
+                <select id="genesis" value={draft.mode} onChange={(e) => setDraft({ ...draft, mode: e.target.value as Experiment['genesis']['mode'] })} aria-describedby="genesis-help">
+                  <option value="primordial">Primordial</option><option value="seeded">Seeded</option>
+                </select>
+                <p className="hint" id="genesis-help">Primordial begins with environmental substrates; seeded begins with authored organisms. This selection records intent only.</p>
+                <div className="actions">
+                  <button type="submit" className="primary">Save locally</button>
+                  <button type="button" onClick={() => report(() => {
+                    const value = loadExperiment(window.localStorage);
+                    setDraft(makeDraft(value)); setMessage('Saved configuration loaded into the draft.');
+                  })}>Load saved</button>
+                  <button type="button" onClick={() => report(() => {
+                    const text = serializeExperiment(current());
+                    const url = URL.createObjectURL(new Blob([text], { type: 'application/json' }));
+                    const anchor = document.createElement('a');
+                    anchor.href = url; anchor.download = 'mathos-experiment.v1.json';
+                    document.body.appendChild(anchor); anchor.click(); anchor.remove();
+                    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+                    setMessage('JSON export requested. Keep the downloaded file as your portable copy.');
+                  })}>Export JSON</button>
+                  <button type="button" onClick={() => fileInput.current?.click()}>Import JSON</button>
+                </div>
+              </fieldset>
+              <input className="file-input" ref={fileInput} type="file" accept=".json,application/json" aria-label="Import configuration file" tabIndex={-1} onChange={(e) => {
+                const file = e.currentTarget.files?.[0];
+                e.currentTarget.value = '';
+                if (file) void importFile(file);
+              }} />
+            </form>
+            <p className="hint">Load and import replace the unsaved draft. Saving replaces the local configuration. Browser storage can be cleared; export a backup.</p>
+            <p id="feedback" role="status" aria-live="polite" aria-atomic="true" className={`feedback ${error ? 'error' : ''}`}>{importing ? 'Reading configuration…' : message}</p>
+          </section>
+          <section className="panel observation" aria-labelledby="preview-title">
+            <div className="panel-heading"><div><p className="eyebrow">02 / OBSERVE</p><h2 id="preview-title">The pixel substrate</h2></div><span className="tag">STATIC</span></div>
+            <PixelPreview width={previewDimension(draft.width)} height={previewDimension(draft.height)} />
+            <div className="next"><h3>A foundation for what comes next</h3><p>Pixel dynamics, two genesis modes, multi-scale worlds, morphogenesis, evolution, neural learning, and autonomous experiments.</p><p>These capabilities are specified for future phases. No simulation is running.</p></div>
+          </section>
+        </div>
+      </main>
+      <footer><span>MATHOS / PHASE 0</span><span>Local by design. Portable by choice.</span></footer>
+    </>
+  );
+}

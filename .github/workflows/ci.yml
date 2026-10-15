@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - run: npm install
+      - name: Capture bootstrap lockfile
+        run: |
+          python - <<'PYTHON'
+          import base64, gzip
+          from pathlib import Path
+          data=base64.b64encode(gzip.compress(Path('package-lock.json').read_bytes())).decode()
+          for i in range(0,len(data),1000):
+              print('MATHOS_LOCK_CHUNK:' + data[i:i+1000])
+          PYTHON
+      - run: npm run check
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
