@@ -25,6 +25,7 @@ Configurations are stored only in this browser and origin. Export JSON for a por
 - [Simulation model](docs/simulation-model.md)
 - [Data format](docs/data-format.md) and [JSON Schema](schemas/experiment.schema.json)
 - [Roadmap](docs/roadmap.md) and [capability status](docs/capability-status.md)
+- [Phase 1 proposal](docs/phase-1-plan.md) — awaiting approval; no implementation
 - [Development instructions](AGENTS.md) and [contributing](CONTRIBUTING.md)
 
 GitHub is the authoritative source of truth. Documentation describes both current behavior and planned capabilities; consult capability status before treating a design as implemented. No license has been selected.
