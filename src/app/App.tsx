@@ -16,6 +16,11 @@ function previewDimension(value: string): number {
   return Number.isInteger(n) && n >= 8 && n <= 256 ? n : 64;
 }
 
+function localStore(): Storage {
+  try { return window.localStorage; }
+  catch { throw new Error('Local storage is unavailable. You can still import or export JSON.'); }
+}
+
 export function App() {
   const [draft, setDraft] = useState(() => makeDraft(DEFAULT_EXPERIMENT));
   const [message, setMessage] = useState('Ready. Your configuration stays on this device.');
@@ -72,7 +77,7 @@ export function App() {
               event.preventDefault();
               report(() => {
                 const value = current();
-                saveExperiment(window.localStorage, value);
+                saveExperiment(localStore(), value);
                 setMessage('Configuration saved in this browser. Export JSON for a portable copy.');
               });
             }}>
@@ -95,7 +100,7 @@ export function App() {
                 <div className="actions">
                   <button type="submit" className="primary">Save locally</button>
                   <button type="button" onClick={() => report(() => {
-                    const value = loadExperiment(window.localStorage);
+                    const value = loadExperiment(localStore());
                     setDraft(makeDraft(value)); setMessage('Saved configuration loaded into the draft.');
                   })}>Load saved</button>
                   <button type="button" onClick={() => report(() => {
