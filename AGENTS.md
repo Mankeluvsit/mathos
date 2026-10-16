@@ -6,6 +6,7 @@
 - Read `docs/specification.md`, `docs/architecture.md`, `docs/capability-status.md`, `docs/product-context.md`, and the relevant model/format/UX documents before changing behavior.
 - Preserve pixel-based artificial life, primordial and seeded genesis, multi-scale simulation, neural learning, evolution, morphogenesis, configurable universe rules, and autonomous experimentation as the confirmed direction.
 - Phase 0 establishes foundations; the approved Phase 1 adds the deterministic reference substrate. The owner subsequently authorized the integrated baseline in docs/integrated-baseline-plan.md; implement that bounded scope without another planning approval. Keep lifetime learning and other deferred systems planned. Follow `docs/roadmap.md` and the user's approved scope.
+- Owner review requires recognizable organisms and observable behavior, drawing on Life Engine and The Bibites. Read docs/observable-life-plan.md. Passing accounting tests or displaying a changing pixel field is insufficient product acceptance. Preserve the mathematical laboratory and both genesis directions; never claim the references’ full feature sets are implemented.
 - Label capabilities implemented, planned, or experimental with evidence. Never present a preview as an active simulation or emergence as a guaranteed result.
 
 ## Engineering

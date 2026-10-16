@@ -59,3 +59,7 @@ The owner approved the [Phase 1 design](phase-1-plan.md) and ADRs 0004–0006.
 ## Integrated baseline acceptance
 
 The owner authorized meshing narrow phase slices into a working skeleton, merging PR #3 and continuing until a working review is needed. [Integrated plan](integrated-baseline-plan.md) and ADR 0007 define the authorized scope and exact model. Preserve prior formats/reference behavior; verify deterministic genesis/lifecycle, exact resource accounting, bounded organism/lineage growth, fixed neural decisions and cancellable local comparisons. Neural lifetime learning and checkpoint resume remain planned. Deliver evidence and a separate unmerged PR for owner review.
+
+## Observable-life review correction
+
+The owner's hands-on review rejected the indistinct pixel-growth experience. The next browser preview opens directly into the [observable ecology plan](observable-life-plan.md). Acceptance includes separated functional pixel bodies, discrete food, actual movement/intake/metabolism, observable reproduction/death, individual selection, inherited traits and explained decisions. Mathematics remains connected to real behavior and available through detailed inspection. These requirements complement deterministic/accounting tests; those tests alone cannot establish product acceptance. Existing reference models/formats remain unchanged and accessible under technical labs.

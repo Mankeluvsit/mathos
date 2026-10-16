@@ -43,3 +43,9 @@ Touch controls are at least 44px high, with safe-area spacing, visible keyboard 
 Desktop, phone viewport, phone setup and phone inspector previews accompany this revision. They show the working Phase 1 reference model, not organisms or future scientific capabilities. Functional browser checks cover both Chromium and Firefox, panel visibility/state preservation, palettes, keyboard controls, storage paths and reflow. The owner can judge visual alignment from multiple device views; an isolated desktop screenshot is not sufficient evidence of the mobile design.
 
 [Review the desktop and three phone captures](previews/README.md).
+
+## Owner review: observable artificial life
+
+After trying the live integrated preview, the owner reported that it looked like pixels turning into mush and supplied [Life Engine](https://thelifeengine.net/) and [The Bibites](https://www.thebibites.com/) / [its channel](https://www.youtube.com/c/TheBibitesDigitalLife). Life Engine explicitly describes colored cells with functions, reproducing/competing/evolving organisms and world/organism controls. The Bibites describes gene-dependent appearances, neural brains and biological/energy processes. These primary references were read; no source code/assets were imported.
+
+The relevant requirement is comprehensible organism behavior: distinguish bodies from food/environment, observe locomotion/intake/survival/offspring, select an organism and understand its traits and decisions. MATHOS also retains its mathematics, reproducibility, pixel basis, configurable-universe direction and local-first constraints. The old proof did not satisfy that experience. [Correction plan](observable-life-plan.md) and ADR 0008 define the new independently versioned model, not a retroactive claim that life-reference@1 already delivered it.

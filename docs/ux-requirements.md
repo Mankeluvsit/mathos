@@ -44,3 +44,9 @@ Open life baseline confirms leaving the reference substrate. A seeded 32×32 wor
 Desktop model/world/inspector panels reflow into mobile Viewport/Setup/Inspect with 44px controls. Canvas clicking is optional: coordinate inputs and organism ID provide a keyboard alternative. Exact field, organism, lineage, controller score and ecosystem accounting share the same sampled tick. Blue resource colors saturate above 2048 and are labeled; HTML values remain exact. A fixed controller is not labeled learning.
 
 Comparisons live under Setup on phones, pause but do not overwrite interactive state, report progress/status, allow cancellation and export partial or completed endpoints. Hidden tabs pause interactive execution and cancel comparisons. No per-tick screen-reader announcements. Full screen-reader/Safari/physical-device conformance remains unverified.
+
+## Observable life first experience
+
+Open directly into the living world, paused, with a short explanation and consistent food/body/mouth/motor legend. Boundaries and directional marks identify bodies. Select through the Canvas or a labeled organism dropdown. Show actual behavior, energy, age, family and inherited traits before technical equations. Describe dead/absent selections honestly. Quantities must come from the same copied sampled tick.
+
+Phone users receive World/Organism/Setup, magnification and optional selected-organism camera follow. Scrolling/panning, selecting and magnification cannot change engine state. Desktop retains a world-first layout. Reset/replacement pauses and confirms discarded progress. Explicit save/load/import/export handles corrupt/oversized files and unavailable storage. Existing technical labs remain reachable with clear scope.

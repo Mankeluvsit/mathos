@@ -21,6 +21,7 @@ jobs:
       - run: npm ci
       - run: python3 scripts/reference-fixtures.py --check
       - run: python3 scripts/life-reference.py --check
+      - run: node scripts/ecology-fixtures.mjs
       - run: npm run check
       - run: npx playwright install --with-deps chromium firefox
       - run: npm run test:browser

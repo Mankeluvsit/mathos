@@ -4,6 +4,7 @@ import { chromium, firefox } from 'playwright';
 import { startServer } from './browser-server.mjs';
 
 const reference = JSON.parse(readFileSync(new URL('../tests/fixtures/substrate/reference.json', import.meta.url)));
+const ecologyReference = JSON.parse(readFileSync(new URL('../tests/fixtures/ecology.json', import.meta.url)));
 const lifeReference = JSON.parse(readFileSync(new URL('../tests/fixtures/life-reference.json', import.meta.url)));
 const lifeExample = JSON.parse(readFileSync(new URL('../examples/life-run.v1.json', import.meta.url)));
 const example = JSON.parse(readFileSync(new URL('../examples/substrate-run.v1.json', import.meta.url)));
@@ -15,7 +16,7 @@ try {
       const page = await browser.newPage();
       await page.goto('http://127.0.0.1:4174');
       // A dev-only test harness imports the real modules; no debug API is shipped.
-      const result = await page.evaluate(async ({ reference, example, lifeReference, lifeExample }) => {
+      const result = await page.evaluate(async ({ reference, example, lifeReference, lifeExample, ecologyReference }) => {
         const { initialize } = await import('/src/simulation/initialize.ts');
         const { step } = await import('/src/simulation/step.ts');
         const { nextRandom } = await import('/src/simulation/rng.ts');
@@ -43,6 +44,16 @@ try {
             while (state.tick < frame.tick) state = stepLife(state);
             const actual = { tick: state.tick, rngState: state.rngState, field: Array.from(state.field), organisms: state.organisms, lineage: state.lineage, dissipated: state.dissipated };
             if (JSON.stringify(normalize(actual)) !== JSON.stringify(normalize(frame))) throw Error('Browser independent life fixture mismatch');
+          }
+        }
+        const { initializeEcology, stepEcology } = await import('/src/ecology/model.ts');
+        for (const fixture of ecologyReference.cases) {
+          let s = initializeEcology({ format: 'mathos-ecology', version: 1, seed: fixture.seed, mode: 'seeded' });
+          for (const frame of fixture.frames) {
+            while (s.tick < frame.tick) s = stepEcology(s);
+            const value = { tick:s.tick, rng:s.rng, food:Array.from(s.food), creatures:s.creatures, lineage:s.lineage, initial:s.initial, sunlight:s.sunlight, dissipated:s.dissipated, events:s.events };
+            const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(value)))), n => n.toString(16).padStart(2,'0')).join('');
+            if (digest !== frame.sha256) throw Error('Ecology golden trajectory mismatch');
           }
         }
         const lifeBenchmarks = [];
@@ -77,8 +88,8 @@ try {
           runtime.dispose(); samples.sort((a, b) => a - b);
           batches.push({ size, callbacks: samples.length, p95Ms: samples[Math.floor(samples.length * .95)], maxMs: samples.at(-1) });
         }
-        return { lifeGoldenPassed: true, lifeBenchmarks, vectorsPassed: true, goldenFieldsPassed: true, userAgent: navigator.userAgent, benchmarks, batches };
-      }, { reference, example, lifeReference, lifeExample });
+        return { ecologyGoldenPassed: true, lifeGoldenPassed: true, lifeBenchmarks, vectorsPassed: true, goldenFieldsPassed: true, userAgent: navigator.userAgent, benchmarks, batches };
+      }, { reference, example, lifeReference, lifeExample, ecologyReference });
       assert.equal(result.vectorsPassed, true); assert.equal(result.goldenFieldsPassed, true);
       console.log(JSON.stringify({ browser: type.name(), version: browser.version(), ...result }));
     } finally { await browser.close(); }

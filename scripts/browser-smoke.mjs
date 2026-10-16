@@ -14,7 +14,7 @@ async function checkPage(browser, browserType) {
   page.on('request', (request) => {
     if (!request.url().startsWith('http://127.0.0.1:4173') && !request.url().startsWith('ws://127.0.0.1:4173')) externalRequests.push(request.url());
   });
-  await page.goto('http://127.0.0.1:4173');
+  await page.goto('http://127.0.0.1:4173/?lab=reference');
   await page.getByRole('heading', { level: 1 }).waitFor();
   await page.keyboard.press('Tab');
   assert.equal(await page.locator(':focus').textContent(), 'Skip to configuration');

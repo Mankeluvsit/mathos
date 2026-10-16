@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { EcologyLab } from '../components/EcologyLab';
 import { LifeLab } from '../components/LifeLab';
 import { PixelPreview } from '../components/PixelPreview';
 import { SubstrateControls } from '../components/SubstrateControls';
@@ -23,7 +24,7 @@ function localStore(): Storage {
   catch { throw new Error('Local storage is unavailable. You can still import or export JSON.'); }
 }
 
-function ReferenceApp({ onLife }: { onLife: () => void }) {
+function ReferenceApp({ onLife, onEcology }: { onLife: () => void; onEcology: () => void }) {
   const [mobileView, setMobileView] = useState<'universe' | 'setup' | 'inspect'>('universe');
   const [focusMode, setFocusMode] = useState(false);
   const [draft, setDraft] = useState(() => makeDraft(DEFAULT_EXPERIMENT));
@@ -67,7 +68,7 @@ function ReferenceApp({ onLife }: { onLife: () => void }) {
         <nav className="desktop-navigation" aria-label="Workspace shortcuts">
           <a href="#substrate-lab">Universe</a><a href="#configuration" onClick={() => setFocusMode(false)}>Model</a><a href="#field-inspector" onClick={() => setFocusMode(false)}>Inspect</a>
         </nav>
-        <div className="header-status"><button type="button" onClick={onLife}>Open life baseline</button><span className="local-badge">LOCAL ONLY</span><span className="phase">Phase 1 · Reference substrate</span><button type="button" className="focus-toggle" aria-pressed={focusMode} onClick={() => setFocusMode(!focusMode)}>{focusMode ? 'Exit focus' : 'Focus viewport'}</button></div>
+        <div className="header-status"><button className="primary" onClick={onEcology}>Explore living world</button><button type="button" onClick={onLife}>Open life baseline</button><span className="local-badge">LOCAL ONLY</span><span className="phase">Phase 1 · Reference substrate</span><button type="button" className="focus-toggle" aria-pressed={focusMode} onClick={() => setFocusMode(!focusMode)}>{focusMode ? 'Exit focus' : 'Focus viewport'}</button></div>
       </header>
       <main className={`dashboard ${focusMode ? 'focus-mode' : ''}`} data-mobile-view={mobileView}>
         <section className="intro" aria-labelledby="intro-title">
@@ -144,7 +145,9 @@ function ReferenceApp({ onLife }: { onLife: () => void }) {
 
 export function App() {
   const [life, setLife] = useState(false);
-  return life ? <LifeLab onExit={() => setLife(false)} /> : <ReferenceApp onLife={() => {
+  const [ecology, setEcology] = useState(() => new URLSearchParams(window.location.search).get('lab') !== 'reference');
+  if (ecology) return <EcologyLab onExit={() => setEcology(false)} />;
+  return life ? <LifeLab onExit={() => setLife(false)} /> : <ReferenceApp onEcology={() => { if (window.confirm('Leave this reference run and open the living world?')) setEcology(true); }} onLife={() => {
     if (window.confirm('Open the experimental life baseline? Any reference-substrate progress will be discarded.')) setLife(true);
   }} />;
 }

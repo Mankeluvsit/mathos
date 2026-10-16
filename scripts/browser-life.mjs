@@ -13,7 +13,7 @@ try {
       page.on('pageerror', e => errors.push(String(e)));
       page.on('request', r => { if (!r.url().startsWith('http://127.0.0.1:4176')) external.push(r.url()); });
       let accept = true; page.on('dialog', d => accept ? d.accept() : d.dismiss());
-      await page.goto('http://127.0.0.1:4176');
+      await page.goto('http://127.0.0.1:4176/?lab=reference');
       await page.getByRole('button', { name: 'Open life baseline', exact: true }).click();
       const tick = page.getByTestId('life-tick'); await tick.waitFor(); assert.equal(await tick.textContent(), '0');
       await page.getByLabel('Life width', { exact: true }).fill('16'); await page.getByLabel('Life height', { exact: true }).fill('16');

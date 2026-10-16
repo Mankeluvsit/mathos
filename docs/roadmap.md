@@ -23,3 +23,7 @@ The [approved Phase 1 design](phase-1-plan.md) specifies the reference substrate
 ## Integrated baseline sequencing
 
 Phase 1 is merged. The [integrated plan](integrated-baseline-plan.md) connects genesis → pixel organisms → growth/reproduction → fixed neural decisions → local comparisons on the next review branch. This does not mark phases 2–6 complete. Primordial chemistry/emergence, sophisticated scale schedules/development, lifetime learning and checkpoint orchestration remain planned. See capability-status.md for delivered slices.
+
+## Owner feedback before further phase depth
+
+The [observable-life correction](observable-life-plan.md) is the current acceptance priority: recognizable functional organisms, movement/food/survival and understandable inspection must work before extending advanced systems. The integrated baseline is a reference, not a completed product experience. The next review should assess the corrected live world rather than additional numerical tables.

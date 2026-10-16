@@ -2,7 +2,9 @@
 
 A fully local-first, browser-based platform for mathematical visualization and pixel-level artificial-life experimentation.
 
-**Status: Phase 1 merged; integrated life baseline on this review branch.** The reference substrate remains available. **Open life baseline** adds an experimental model with seeded/primordial initialization, pixel organisms, resource-bounded growth, asexual reproduction, mutation, lineage, a fixed neural controller and local three-seed comparisons. Lifetime learning, spontaneous organism formation, richer ecology and checkpoints remain planned.
+**Status: observable-life correction on this review branch.** The browser opens into a dark world with separate foragers and food. Organisms sense food, move, eat, spend energy, grow a motor, reproduce with occasional inherited trait changes, and die. Select one to inspect its behavior and family. Earlier reference labs remain accessible. Neural lifetime learning, complex organs, spontaneous genesis and full autonomous ecological experimentation remain planned.
+
+[Open the browser preview](https://mankeluvsit.github.io/mathos/) · [Correction plan](docs/observable-life-plan.md) · [Review evidence](docs/observable-life-verification.md)
 
 ## Run locally
 
@@ -35,7 +37,11 @@ GitHub is the authoritative source of truth. Documentation describes both curren
 
 See the [desktop and phone review captures](docs/previews/README.md) and [shared-concept context](docs/product-context.md). The dark laboratory connects the same rule, field and measurements; phone navigation preserves the run across Viewport, Setup and Inspect.
 
-## Try the testable phase
+## Earlier reference labs
+
+Choose **Open technical reference labs** first. These preserve the earlier mathematical and growth-only models.
+
+## Try the substrate reference
 
 1. Start the app, choose **Open substrate lab** in the central workspace. On a phone, this opens Setup.
 2. Set the experiment draft seed/dimensions above, choose **Center impulse** or **Seeded uniform noise**, then **Prepare substrate from draft**. The run starts paused.
@@ -44,7 +50,7 @@ See the [desktop and phone review captures](docs/previews/README.md) and [shared
 
 The foundation's original experiment files and genesis selection are retained as intent. A substrate run does not execute either organism genesis mode. Integer quantization can leave small gradients unchanged.
 
-## Try the integrated baseline
+## Try the earlier integrated baseline
 
 Choose **Open life baseline** and confirm leaving the reference run. The default 32×32 seeded world starts paused with one center-cell organism. Step or Start to observe connected growth, reproduction and lineage. On phones use Setup for draft configuration/comparisons and Inspect for exact resources, organisms and genomes. Primordial starts with resources only.
 
@@ -56,9 +62,10 @@ Save/load uses a separate life-definition slot. Export active definition restart
 npm run check
 python3 scripts/reference-fixtures.py --check
 python3 scripts/life-reference.py --check
+node scripts/ecology-fixtures.mjs
 npx playwright install chromium firefox
 npm run test:browser
 npm run benchmark
 ```
 
-The browser suite needs a production build (`npm run check` builds it) and free local ports 4173/4174/4176. Linux CI may need `npx playwright install --with-deps chromium firefox`; package installation can require administrator access. Tests compare independent RNG/field fixtures in both browsers and exercise the production UI. No new runtime dependency or network service was added.
+The browser suite needs a production build (`npm run check` builds it) and free local ports 4173/4174/4176/4177. Linux CI may need `npx playwright install --with-deps chromium firefox`; package installation can require administrator access. Tests compare independent RNG/field fixtures in both browsers and exercise the production UI. No new runtime dependency or network service was added.

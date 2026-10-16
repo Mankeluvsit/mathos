@@ -17,3 +17,5 @@ The project owner approved these decisions for the Phase 1 reference substrate. 
 ## Integrated baseline
 
 - [0007: Bounded integrated life reference](0007-integrated-life-baseline.md) — implementation within the owner-authorized skeleton scope.
+
+- [0008: Recognizable, observable ecology](0008-observable-ecology.md) — correction responding to hands-on owner review.

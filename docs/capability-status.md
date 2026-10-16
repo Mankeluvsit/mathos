@@ -41,3 +41,9 @@ The Phase 1 implementation is merged. A separate experimental life lab now conne
 | Experiments | Cancellable three-seed comparisons with exported measured endpoints | Checkpoints/resume, general sweeps and persistent history |
 
 See [plan](integrated-baseline-plan.md), [model decision](decisions/0007-integrated-life-baseline.md) and [verification](integrated-baseline-verification.md). No claim of biological realism, emergence or intelligence.
+
+## Observable ecology correction
+
+Implemented on the new correction review branch: the default living-world experience, eight seeded foragers (or primordial food-only environment), separated body/mouth/motor cells, local food sensing, motor-funded movement, intake, juvenile growth, reproduction cooldown/placement, inherited trait mutations, age/starvation death, lineage/event inspection and explicit sunlight accounting. Magnification/follow and mobile view changes do not affect simulation state. Earlier models remain compatible under technical labs.
+
+This does not implement The Bibites/Life Engine feature sets, predation, arbitrary organ/genome editors, lifetime learning, spontaneous genesis or general autonomous ecological experiments. See [plan](observable-life-plan.md), [decision](decisions/0008-observable-ecology.md) and [verification](observable-life-verification.md).

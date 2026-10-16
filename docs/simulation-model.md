@@ -58,3 +58,9 @@ The current order is tick/limit validation, transport accumulation, commit, tick
 ## Experimental integrated reference
 
 A separate life-reference@1 model now implements the narrow slices specified in [ADR 0007](decisions/0007-integrated-life-baseline.md). Its resource-noise initialization, center-cell template, ordered lifecycle, integer perceptron, connected growth, asexual mutation/lineage and exact accounting are executable. The earlier planned sections retain the broader architecture; they are not claims of full implementation. Organism/neural/ecosystem inspectors all observe the same copied tick. Both genesis modes are reproducible; primordial has no spontaneous organism-generation mechanism.
+
+## Observable ecology reference
+
+[ADR 0008](decisions/0008-observable-ecology.md) defines a separate ecology-reference@1 model: 64×48 closed world, discrete food with measured sunlight input, eight authored founders in seeded mode, functional store/controller + mouth + motor bodies, directional integer food sensing, two-cell juveniles, bounded movement/development, maturation/cooldown/cost-limited reproduction, inherited trait mutation and starvation/age death. Genome variables affect sensing, response, persistence and lifespan; they do not yet encode arbitrary shapes. Stable ID priority and simple local steering are explicit limitations. Primordial is resource-only, not spontaneous organism emergence.
+
+Current equations: food score[d] = foodWeight×sum(floor(food/distance)) + inertia×indicator(previousDirection=d); resource ledger initial+sunlight = food+stored+8×bodyCells+dissipated. Seeded exploration is used when no food is sensed. This is fixed neural evaluation without lifetime weight training. Camera following is a view operation.
