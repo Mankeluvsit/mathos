@@ -14,7 +14,11 @@
       "git log*": "allow",
       "npm run check*": "allow",
       "npm test*": "allow",
-      "npm run build*": "allow"
+      "npm run build*": "allow",
+      "npm run test:browser*": "allow",
+      "git branch --show-current*": "allow",
+      "gh pr list*": "allow",
+      "gh pr view*": "allow"
     },
     "external_directory": "ask"
   },
