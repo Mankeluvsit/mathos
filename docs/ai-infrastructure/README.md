@@ -1,18 +1,19 @@
 # OpenCode development infrastructure
 
-This directory documents a portable development environment for Mathos. It does not add runtime dependencies to the Mathos application.
+Portable development guidance for Mathos; no runtime cloud or backend dependency is added.
 
 ## Quick start
+1. Clone the repository; select the infrastructure branch until PR #5 is reviewed and merged.
+2. Install Node.js 24, npm, Git and OpenCode from trusted sources.
+3. Run `bash scripts/doctor-opencode.sh`. It saves a report under `~/.local/state/mathos/` and tries to copy it to the system clipboard (Wayland `wl-copy` or X11 `xclip`); review before sharing.
+4. Run `npm ci && npm run check`.
+5. Launch `opencode` from the repository root. Keep provider credentials in your own OpenCode configuration, not Git.
+6. Read `AGENTS.md`, `docs/capability-status.md`, and `HANDOFF.md`.
 
-1. Clone the repository and switch to the OpenCode infrastructure branch (or use main after approved merge).
-2. Install Node.js 24, npm, Git and OpenCode using their official instructions.
-3. Run `bash scripts/doctor-opencode.sh` to inspect prerequisites and project health.
-4. Run `npm ci`, then `npm run check`.
-5. Run `opencode` from the repository root. Configure your preferred provider/authentication locally, not in Git.
-6. Read `AGENTS.md`, `docs/capability-status.md`, and `HANDOFF.md` before proposing changes.
+## Optional Playwright browser MCP
+The 2026-10-16 Bazzite acceptance test used a Playwright MCP server already configured globally in `~/.config/opencode/opencode.json`. **It is not provisioned by this repository**. Fresh clones will not automatically have browser MCP tools.
+
+To use browser automation, install a trusted Playwright MCP implementation compatible with your OpenCode version, configure it in your user-level OpenCode MCP settings, and confirm `opencode mcp list` reports it connected. Check `opencode mcp add --help` for your installed version's setup flow. Review its browser/file permissions. Do not copy another user's absolute paths or credentials. Separately, Mathos's existing browser test suite can be run using `npx playwright install chromium firefox` and `npm run test:browser` after the production build; browser binaries and OS dependencies may require installation.
 
 ## Boundaries
-
-OpenCode is an alternative coding interface, not an identical Codex environment. Provider subscriptions and usage limits are separate. No external model or MCP provider is required by the Mathos application itself. The project configuration deliberately ships without pre-enabled remote MCP servers or provider credentials. Add integrations only after reviewing their permissions and validating them locally.
-
-See `capabilities.md` for parity status and `HANDOFF.md` for continuation state.
+OpenCode is not identical to Codex. External providers and MCP integrations are optional **development tools**, not Mathos application dependencies. No credentials or remote MCP services are committed. Confirm any permissions before enabling agents. See `capabilities.md` for status and `HANDOFF.md` for verified continuation state.
