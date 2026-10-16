@@ -28,3 +28,5 @@
 - Do not commit dependencies, build output, credentials, or generated scientific experiment results. UI review screenshots may be stored under docs/previews with their capture state identified. Do not select a project license without the owner's instruction.
 - Work on a dedicated branch, summarize behavior and checks in a pull request, and disclose failed or unavailable checks. Never merge or enable automatic merging unless the user explicitly requests it.
 - Report access failures and blockers immediately. Keep the user informed during ongoing work; do not wait silently on network approvals.
+
+- Heading is scientific state: body occupancy, mouths, sensing, placement, collision, selection and rendering must share transformed geometry. Keep prior engine versions replayable when changing rules. Observe body variation/competition before claiming adaptive success.

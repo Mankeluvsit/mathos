@@ -50,3 +50,13 @@ Comparisons live under Setup on phones, pause but do not overwrite interactive s
 Open directly into the living world, paused, with a short explanation and consistent food/body/mouth/motor legend. Boundaries and directional marks identify bodies. Select through the Canvas or a labeled organism dropdown. Show actual behavior, energy, age, family and inherited traits before technical equations. Describe dead/absent selections honestly. Quantities must come from the same copied sampled tick.
 
 Phone users receive World/Organism/Setup, magnification and optional selected-organism camera follow. Scrolling/panning, selecting and magnification cannot change engine state. Desktop retains a world-first layout. Reset/replacement pauses and confirms discarded progress. Explicit save/load/import/export handles corrupt/oversized files and unavailable storage. Existing technical labs remain reachable with clear scope.
+
+## Physical facing and visible evolution
+
+Body outlines/cells/nose rotate together. A turn remains at the anchor; forward travel follows the nose. Mouth and sensor geometry must match the visible cells, including collision, Canvas click selection, magnification and follow. Text names the selected heading, body plan, forward distance and turn count. Slow playback makes individual actions inspectable.
+
+Inherited plans and added sensor color have text equivalents. Show the selected family path, exact mutation before/after and children, plus real plan/population history and family intake/birth/death outcomes. All graph samples have an HTML table. State that initial plans are authored, children inherit/mutate them, and lifetime learning is planned. Explicit model selector distinguishes the old fixed-facing replay from v2; changing it changes only draft settings until preparation.
+
+Export observations downloads the current measured histories/family records with model provenance. Keep this separate from starting-setting export and label it as non-resumable.
+
+On phones, starting playback focuses the world viewport; bottom navigation keeps a Start/Pause action reachable while viewing bodies or inspecting. Enabling camera follow focuses the world without changing simulation state.

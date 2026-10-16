@@ -4,6 +4,7 @@ import { chromium, firefox } from 'playwright';
 import { startServer } from './browser-server.mjs';
 
 const reference = JSON.parse(readFileSync(new URL('../tests/fixtures/substrate/reference.json', import.meta.url)));
+const orientedReference = JSON.parse(readFileSync(new URL('../tests/fixtures/ecology-v2.json', import.meta.url)));
 const ecologyReference = JSON.parse(readFileSync(new URL('../tests/fixtures/ecology.json', import.meta.url)));
 const lifeReference = JSON.parse(readFileSync(new URL('../tests/fixtures/life-reference.json', import.meta.url)));
 const lifeExample = JSON.parse(readFileSync(new URL('../examples/life-run.v1.json', import.meta.url)));
@@ -16,7 +17,7 @@ try {
       const page = await browser.newPage();
       await page.goto('http://127.0.0.1:4174');
       // A dev-only test harness imports the real modules; no debug API is shipped.
-      const result = await page.evaluate(async ({ reference, example, lifeReference, lifeExample, ecologyReference }) => {
+      const result = await page.evaluate(async ({ reference, example, lifeReference, lifeExample, ecologyReference, orientedReference }) => {
         const { initialize } = await import('/src/simulation/initialize.ts');
         const { step } = await import('/src/simulation/step.ts');
         const { nextRandom } = await import('/src/simulation/rng.ts');
@@ -56,6 +57,31 @@ try {
             if (digest !== frame.sha256) throw Error('Ecology golden trajectory mismatch');
           }
         }
+        const oriented = await import('/src/ecology/oriented-model.ts');
+        for (const fixture of orientedReference.cases) {
+          let s = oriented.initialize({ format: 'mathos-ecology', version: 2, seed: fixture.seed, mode: 'seeded' });
+          for (const frame of fixture.frames) {
+            while (s.tick < frame.tick) s = oriented.step(s);
+            const value = { tick:s.tick, rng:s.rng, food:Array.from(s.food), creatures:s.creatures, lineage:s.lineage, initial:s.initial, sunlight:s.sunlight, dissipated:s.dissipated, events:s.events, history:s.history };
+            const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(value)))), n => n.toString(16).padStart(2,'0')).join('');
+            if (digest !== frame.sha256) throw Error('Oriented ecology golden trajectory mismatch');
+          }
+        }
+        // The renderer must color the same rotated functional cells used by the engine.
+        const { drawEcology } = await import('/src/rendering/ecology-renderer.ts');
+        const canvas = document.createElement('canvas'); canvas.width = 768; canvas.height = 576;
+        const ctx = canvas.getContext('2d');
+        const colors = { body:[99,198,255], mouth:[244,183,95], motor:[207,136,233], sensor:[124,224,208] };
+        const renderWorld = oriented.initialize({ format:'mathos-ecology', version:2, seed:42, mode:'seeded' });
+        renderWorld.food.fill(0); renderWorld.creatures = [renderWorld.creatures[2]];
+        for (let direction=0; direction<4; direction++) {
+          const c=renderWorld.creatures[0]; c.x=20; c.y=20; c.direction=direction;
+          drawEcology(ctx,renderWorld,c.id);
+          for (const part of oriented.parts(c)) {
+            const pixel=ctx.getImageData(part.x*12+3,part.y*12+3,1,1).data;
+            if (colors[part.role].some((v,i)=>pixel[i]!==v)) throw Error('Rendered cell did not follow physical body orientation');
+          }
+        }
         const lifeBenchmarks = [];
         for (const size of [16, 64]) {
           let state = initializeLife({ ...lifeExample, universe: { width: size, height: size } }); const times = [];
@@ -88,8 +114,8 @@ try {
           runtime.dispose(); samples.sort((a, b) => a - b);
           batches.push({ size, callbacks: samples.length, p95Ms: samples[Math.floor(samples.length * .95)], maxMs: samples.at(-1) });
         }
-        return { ecologyGoldenPassed: true, lifeGoldenPassed: true, lifeBenchmarks, vectorsPassed: true, goldenFieldsPassed: true, userAgent: navigator.userAgent, benchmarks, batches };
-      }, { reference, example, lifeReference, lifeExample, ecologyReference });
+        return { orientedGoldenPassed: true, orientedRenderingPassed: true, ecologyGoldenPassed: true, lifeGoldenPassed: true, lifeBenchmarks, vectorsPassed: true, goldenFieldsPassed: true, userAgent: navigator.userAgent, benchmarks, batches };
+      }, { reference, example, lifeReference, lifeExample, ecologyReference, orientedReference });
       assert.equal(result.vectorsPassed, true); assert.equal(result.goldenFieldsPassed, true);
       console.log(JSON.stringify({ browser: type.name(), version: browser.version(), ...result }));
     } finally { await browser.close(); }

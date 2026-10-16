@@ -57,3 +57,11 @@ Life results are export-only JSON: format mathos-life-results, schemaVersion 1, 
 Separate envelope {format: mathos-ecology, version: 1, seed: uint32, mode: seeded|primordial}, all four fields required, no extra keys/coercion, 64 KiB UTF-8 import cap. The named ecology-reference@1 model fixes its 64×48 closed world and all lifecycle rules in ADR 0008. These bounds/settings are deliberately not an arbitrary universe-rule editor. Runtime constructs a frozen canonical definition. Local key mathos.ecology.v1; existing slots and models remain unchanged. Files restart at step zero, not checkpoints. No implicit migrations or result importer.
 
 The ecology envelope has a [JSON schema](../schemas/ecology.schema.json) and [example](../examples/ecology.v1.json).
+
+## Ecology definition v2
+
+[Schema](../schemas/ecology-v2.schema.json) and [example](../examples/ecology.v2.json): same four required keys as v1, but version2 selects ecology-reference@2 / ADR0009. Imports never migrate silently. New default slot mathos.ecology.v2; model1 can explicitly read its original mathos.ecology.v1 slot. A stored definition must match the selected slot version. Exports name their version and restart at step0. Checkpoints and large result persistence remain planned.
+
+## Ecology observation export v1
+
+Export observations produces mathos-ecology-observations version1: ecology-reference@2/mulberry32@1 provenance, validated version2 definition, current sampled tick and reason sampled|tick-limit, exact current metrics,20-step history samples and bounded lineage with birth genes, mutation before/after, roots and measured intake/movement/death outcomes. History samples can precede the current tick. Arrays/records are copied; no current food grid or resume-state is included. This export-only format is not a checkpoint, import contract or persistent history store.

@@ -27,3 +27,7 @@ Phase 1 is merged. The [integrated plan](integrated-baseline-plan.md) connects g
 ## Owner feedback before further phase depth
 
 The [observable-life correction](observable-life-plan.md) is the current acceptance priority: recognizable functional organisms, movement/food/survival and understandable inspection must work before extending advanced systems. The integrated baseline is a reference, not a completed product experience. The next review should assess the corrected live world rather than additional numerical tables.
+
+## Current approved increment
+
+Turning and body geometry → bounded inherited cell layouts → actual food/space/energy tradeoffs → family/trait/population observations are delivered together in ecology-reference@2. The next planned increment is lifetime neural learning, with explicit observations/actions, training budget, inheritance policy and baseline comparisons before claiming improvement. The current preview is an owner review point, not completion of all phases.

@@ -2,9 +2,9 @@
 
 A fully local-first, browser-based platform for mathematical visualization and pixel-level artificial-life experimentation.
 
-**Status: observable-life correction on this review branch.** The browser opens into a dark world with separate foragers and food. Organisms sense food, move, eat, spend energy, grow a motor, reproduce with occasional inherited trait changes, and die. Select one to inspect its behavior and family. Earlier reference labs remain accessible. Neural lifetime learning, complex organs, spontaneous genesis and full autonomous ecological experimentation remain planned.
+**Status: turning bodies and inherited body plans on this review branch.** Organisms rotate their entire body before moving forward. Mouths and sensing rotate too. Dart, grazer and scout body plans are inherited and can mutate, with resource-funded development and different costs/capabilities. Select an organism for heading, family and traits, or inspect measured population/body-plan histories. Earlier models remain replayable. Lifetime neural learning, arbitrary organs, predation and spontaneous genesis remain planned.
 
-[Open the browser preview](https://mankeluvsit.github.io/mathos/) · [Correction plan](docs/observable-life-plan.md) · [Review evidence](docs/observable-life-verification.md)
+[Open the browser preview](https://mankeluvsit.github.io/mathos/) · [Correction plan](docs/observable-life-plan.md) · [Review evidence](docs/turning-body-verification.md)
 
 ## Run locally
 
@@ -63,6 +63,7 @@ npm run check
 python3 scripts/reference-fixtures.py --check
 python3 scripts/life-reference.py --check
 node scripts/ecology-fixtures.mjs
+node scripts/oriented-fixtures.mjs
 npx playwright install chromium firefox
 npm run test:browser
 npm run benchmark

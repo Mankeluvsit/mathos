@@ -18,3 +18,11 @@ it('pauses the new world when the tab is hidden',()=>{
  window.history.replaceState({},'','/');render(<App/>);fireEvent.click(screen.getByRole('button',{name:'Start world'}));expect(screen.getByTestId('ecology-status')).toHaveTextContent('running');
  Object.defineProperty(document,'hidden',{configurable:true,value:true});fireEvent(document,new Event('visibilitychange'));expect(screen.getByTestId('ecology-status')).toHaveTextContent('paused');Object.defineProperty(document,'hidden',{configurable:true,value:false});
 });
+
+it('keeps legacy starting files runnable and shows their fixed-facing limitation',()=>{
+ window.history.replaceState({},'','/');render(<App/>);
+ fireEvent.change(screen.getByLabelText('Simulation model'),{target:{value:'1'}});
+ fireEvent.click(screen.getByRole('button',{name:'Prepare new world'}));
+ expect(screen.getByText(/Legacy model 1: fixed-facing sliding bodies/)).toBeInTheDocument();
+ fireEvent.click(screen.getByRole('button',{name:'One step'}));expect(screen.getByTestId('ecology-tick')).toHaveTextContent('1');
+});

@@ -269,3 +269,16 @@ footer { display: flex; justify-content: space-between; gap: 12px; max-width: 18
 
 .ecology-camera label { display: flex; align-items: center; gap: .5rem; margin: .3rem 0; }.ecology-camera label:first-child { flex: 1 1 170px; }.ecology-camera label:last-child { flex: 1 1 190px; }.ecology-camera label select { width: auto; min-width: 0; flex: 1; margin: 0; }.ecology-camera input[type="checkbox"] { display: inline-block; flex: none; margin: 0; }
 @media(max-width:900px) { .ecology-stats { gap: .5rem 1rem; }.ecology-stats p { font-size: .8rem; }.ecology-stats strong { font-size: 1.2rem; }.ecology-playback { gap: .4rem; }.ecology-playback label { width: 100%; margin: 0; display: flex; align-items: center; gap: .5rem; }.ecology-playback select { width: auto; flex: 1; margin: 0; }.ecology-guide { font-size: .8rem; padding: .5rem; } }
+
+.sensor-cell { background: #7ce0d0; }
+.ecology-evolution { grid-column: 1; }
+.evolution-chart { width: 100%; height: auto; background: #060d16; margin: .6rem 0; border: 1px solid #26374d; }
+.family-path { display: flex; flex-wrap: wrap; gap: .5rem; padding-left: 1.2rem; }
+.family-path li { margin: .25rem .5rem; }.family-path span { display: block; font-size: .8rem; color: #a0b2c9; }
+@media(max-width:900px) {
+ .ecology-dashboard[data-view="inspect"] .ecology-evolution, .ecology-dashboard[data-view="setup"] .ecology-evolution { display: none; }
+}
+@media(max-width:900px) {
+ .ecology-dashboard .mobile-navigation { gap: 4px; padding-left: 8px; padding-right: 8px; }
+ .ecology-dashboard .mobile-navigation button { padding-inline: 6px; min-width: 0; }
+}

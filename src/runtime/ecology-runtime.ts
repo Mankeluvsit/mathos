@@ -1,5 +1,5 @@
-import type { EcologyDefinition } from '../ecology/model.ts';
-import { initializeEcology as initialize, stepEcology as step, ecologyMetrics, copyEcology, END as MAX_TICKS, type Ecology as WorldState } from '../ecology/model.ts';
+import type { EcologyDefinition } from '../ecology/world.ts';
+import { initializeEcology as initialize, stepEcology as step, ecologyMetrics, copyEcology, END as MAX_TICKS, type Ecology as WorldState } from '../ecology/world.ts';
 
 export interface Scheduler {
   request(callback: (time: number) => void): number;
@@ -66,7 +66,7 @@ export class EcologyRuntime {
         if (this.scheduler.now() - started >= 8) break;
       }
       if (count) this.draw();
-      if (time - this.published >= 250 || this.status !== 'running') { this.published = time; this.publish(); }
+      if ((this.state.definition.version === 2 ? count > 0 && time - this.published >= 80 : time - this.published >= 250) || this.status !== 'running') { this.published = time; this.publish(); }
       if (this.status === 'running') this.schedule();
       else this.cancel();
     });

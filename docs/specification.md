@@ -63,3 +63,7 @@ The owner authorized meshing narrow phase slices into a working skeleton, mergin
 ## Observable-life review correction
 
 The owner's hands-on review rejected the indistinct pixel-growth experience. The next browser preview opens directly into the [observable ecology plan](observable-life-plan.md). Acceptance includes separated functional pixel bodies, discrete food, actual movement/intake/metabolism, observable reproduction/death, individual selection, inherited traits and explained decisions. Mathematics remains connected to real behavior and available through detailed inspection. These requirements complement deterministic/accounting tests; those tests alone cannot establish product acceptance. Existing reference models/formats remain unchanged and accessible under technical labs.
+
+## Oriented bodies and visible inheritance milestone
+
+The owner approved continuing the plan with turning added. Ecology-reference@2 now makes heading physical: rotate whole bodies, turn before forward movement, reject swept collisions, and rotate mouths/front sensing. Inherited dart/grazer/scout layouts develop functional cells with different intake/range/cost tradeoffs. Family provenance, mutation details and measured population/plan histories connect visible behavior to evolution. See ADR0009 and turning-body-plan.md. This implements the next bounded body/competition/observation milestone; lifetime learning remains the subsequent experimental milestone, not a delivered feature.
