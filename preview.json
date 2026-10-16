@@ -1,11 +1,12 @@
 {
   "format": "mathos-preview-build",
   "sourceRepository": "Mankeluvsit/mathos",
-  "sourceCommit": "008fb03592952becd23ff5f816b05ecfb8a1ae69",
+  "sourceCommit": "4556456d5a8771bdb89ae61835e90dec6b7a99b5",
   "experimental": true,
+  "openingExperience": "observable-ecology@1",
   "files": {
-    "index.html": "8c4dbb0a4a3b199c408319587c3618b5a6a35bddb98663949872ee0e3df18d4a",
-    "assets/index-Ap2xkKWx.css": "c9439cadd1eddaf1604316b94468df49d2aff672802b75e51eeb5739776f96ed",
-    "assets/index-c838bbM3.js": "e4330a63c51cfacd4e7fa7be154c624fadf93c459a1a854a28a27cd9dbbc4eb0"
+    "index.html": "c0b3d1cd58b9c1ca1382fe251eb667129c3f41d1552bb8c9de0ef3ab9d69c8ef",
+    "assets/index-d5_amtAl.js": "73c0b429ec856f77f744250c250154e3b88e6afcc3c3169d09275242aa897460",
+    "assets/index-Bk2dEoXq.css": "9faa489b066578e9aedf79c69c39014f1ffaa1be7dd2c1222e207baa407582dd"
   }
 }
