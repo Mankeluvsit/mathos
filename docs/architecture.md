@@ -2,7 +2,7 @@
 
 ## Implemented foundation and reference substrate
 
-Static React application built with Vite and strict TypeScript. Foundation controls retain experiment-v1 editing, validation, JSON and localStorage. The dark dashboard’s explicitly opened substrate lab adds a versioned integer transport reference model. Primordial/seeded organism genesis and later life systems remain planned.
+Static React application built with Vite and strict TypeScript. Foundation controls retain experiment-v1 editing, validation, JSON and localStorage. The dark dashboard’s explicitly opened substrate lab adds a versioned integer transport reference model. The separate integrated life section below describes the new experimental baseline; full later life systems remain planned.
 
 ```text
 React configuration controls → domain validation → small localStorage/JSON definitions
@@ -40,3 +40,9 @@ Reproducibility is scoped to named engine/rule/RNG/initializer versions and know
 ## Responsive presentation boundary
 
 Desktop model/viewport/inspection regions share one runtime. Mobile Viewport/Setup/Inspect switches presentation through CSS while keeping the components and runtime mounted. Focus mode is scoped to desktop widths. View-only palette lookup tables change Canvas colors, never engine values or configuration formats. The owner-provided shared conversation is recorded in product-context.md as contextual design evidence; it does not add remote services or unimplemented subsystems.
+
+## Integrated life reference
+
+The header explicitly switches between the preserved substrate laboratory and a separate life-reference@1 lab, confirming discarded progress. Only one runtime is active. src/domain/life-run.ts validates frozen small definitions; src/life/engine.ts owns initialization, fixed-tick lifecycle and accounting; src/runtime/life-runtime.ts owns bounded scheduling and deep copied snapshots. React/Canvas never mutate the live model. The runtime pauses immediately on detach and defers final disposal through a microtask so React StrictMode effect replay can reattach safely.
+
+The life storage adapter uses mathos.life-run.v1 without migrating either previous slot. The life experiment runner shares the pure engine and yields after four transitions. It retains only endpoint metrics/partial termination information for three seeds, not full world histories. Views remain mounted across mobile navigation. Replacement/unmount aborts comparison work and prevents stale UI publication. No worker or new runtime dependency. ADR 0007 documents sequential organism-ID bias and reference equations.

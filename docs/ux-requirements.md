@@ -36,3 +36,11 @@ Save/load and JSON import/export use separate run-definition actions and explain
 The owner-provided [product context](product-context.md) establishes the dark, colorized laboratory direction. Desktop uses model inputs, central field and contextual inspection; tablet widths reflow inspection below the field. Mobile uses Viewport / Setup / Inspect buttons with pressed state and preserved runtime state. Preparing explicitly focuses the new viewport. Desktop focus mode, mobile view changes and palette changes never reset the active run.
 
 Use the documented neutral/blue surfaces with cyan/blue model accents, purple inspection, green exact totals and amber status. Fixed-scale Spectrum/Thermal/Grayscale palettes affect rendering only. Show the actual transport equation next to its measured field information; do not imitate concept charts with invented data. The previous light-theme image represented implementation progress, not an approved final visual design.
+
+## Integrated experimental life lab
+
+Open life baseline confirms leaving the reference substrate. A seeded 32×32 world starts paused, with working Start/Step/Reset. Life draft fields do not change the active definition. Reset/replacement pauses and uses native keyboard-operable discard confirmation; cancelling preserves the run. Save/load/import/export have separate life labels and a separate storage slot. Failed import/load preserves valid state; blocked storage keeps export available.
+
+Desktop model/world/inspector panels reflow into mobile Viewport/Setup/Inspect with 44px controls. Canvas clicking is optional: coordinate inputs and organism ID provide a keyboard alternative. Exact field, organism, lineage, controller score and ecosystem accounting share the same sampled tick. Blue resource colors saturate above 2048 and are labeled; HTML values remain exact. A fixed controller is not labeled learning.
+
+Comparisons live under Setup on phones, pause but do not overwrite interactive state, report progress/status, allow cancellation and export partial or completed endpoints. Hidden tabs pause interactive execution and cancel comparisons. No per-tick screen-reader announcements. Full screen-reader/Safari/physical-device conformance remains unverified.

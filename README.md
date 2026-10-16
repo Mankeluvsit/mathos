@@ -2,7 +2,7 @@
 
 A fully local-first, browser-based platform for mathematical visualization and pixel-level artificial-life experimentation.
 
-**Status: Phase 1 reference substrate on this review branch.** Configure and inspect deterministic integer pixel transport, with seeded initialization, fixed ticks, pause/step/reset, exact metrics, and portable local definitions. Organism genesis, neural learning, evolution, morphogenesis, multi-scale dynamics and autonomous experimentation remain planned.
+**Status: Phase 1 merged; integrated life baseline on this review branch.** The reference substrate remains available. **Open life baseline** adds an experimental model with seeded/primordial initialization, pixel organisms, resource-bounded growth, asexual reproduction, mutation, lineage, a fixed neural controller and local three-seed comparisons. Lifetime learning, spontaneous organism formation, richer ecology and checkpoints remain planned.
 
 ## Run locally
 
@@ -25,6 +25,7 @@ Configurations are stored only in this browser and origin. Export JSON for a por
 - [Simulation model](docs/simulation-model.md)
 - [Data format](docs/data-format.md) and [JSON Schema](schemas/experiment.schema.json)
 - [Roadmap](docs/roadmap.md) and [capability status](docs/capability-status.md)
+- [Integrated baseline plan](docs/integrated-baseline-plan.md) and [verification](docs/integrated-baseline-verification.md)
 - [Approved Phase 1 design](docs/phase-1-plan.md) and [verification](docs/phase-1-verification.md)
 - [Development instructions](AGENTS.md) and [contributing](CONTRIBUTING.md)
 
@@ -43,14 +44,21 @@ See the [desktop and phone review captures](docs/previews/README.md) and [shared
 
 The foundation's original experiment files and genesis selection are retained as intent. A substrate run does not execute either organism genesis mode. Integer quantization can leave small gradients unchanged.
 
+## Try the integrated baseline
+
+Choose **Open life baseline** and confirm leaving the reference run. The default 32×32 seeded world starts paused with one center-cell organism. Step or Start to observe connected growth, reproduction and lineage. On phones use Setup for draft configuration/comparisons and Inspect for exact resources, organisms and genomes. Primordial starts with resources only.
+
+Save/load uses a separate life-definition slot. Export active definition restarts at tick zero. Compare three seeds runs at most 3×500 ticks locally, supports cancellation and exports measured results; it does not alter the interactive world. Model equations, biases and limits are in [ADR 0007](docs/decisions/0007-integrated-life-baseline.md).
+
 ## Verify
 
 ```sh
 npm run check
 python3 scripts/reference-fixtures.py --check
+python3 scripts/life-reference.py --check
 npx playwright install chromium firefox
 npm run test:browser
 npm run benchmark
 ```
 
-The browser suite needs a production build (`npm run check` builds it) and free local ports 4173/4174. Linux CI may need `npx playwright install --with-deps chromium firefox`; package installation can require administrator access. Tests compare independent RNG/field fixtures in both browsers and exercise the production UI. No new runtime dependency or network service was added.
+The browser suite needs a production build (`npm run check` builds it) and free local ports 4173/4174/4176. Linux CI may need `npx playwright install --with-deps chromium firefox`; package installation can require administrator access. Tests compare independent RNG/field fixtures in both browsers and exercise the production UI. No new runtime dependency or network service was added.

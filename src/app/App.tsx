@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { LifeLab } from '../components/LifeLab';
 import { PixelPreview } from '../components/PixelPreview';
 import { SubstrateControls } from '../components/SubstrateControls';
 import { DEFAULT_EXPERIMENT, MAX_IMPORT_BYTES, parseExperiment, serializeExperiment, validateExperiment, type Experiment } from '../domain/experiment';
@@ -22,7 +23,7 @@ function localStore(): Storage {
   catch { throw new Error('Local storage is unavailable. You can still import or export JSON.'); }
 }
 
-export function App() {
+function ReferenceApp({ onLife }: { onLife: () => void }) {
   const [mobileView, setMobileView] = useState<'universe' | 'setup' | 'inspect'>('universe');
   const [focusMode, setFocusMode] = useState(false);
   const [draft, setDraft] = useState(() => makeDraft(DEFAULT_EXPERIMENT));
@@ -66,7 +67,7 @@ export function App() {
         <nav className="desktop-navigation" aria-label="Workspace shortcuts">
           <a href="#substrate-lab">Universe</a><a href="#configuration" onClick={() => setFocusMode(false)}>Model</a><a href="#field-inspector" onClick={() => setFocusMode(false)}>Inspect</a>
         </nav>
-        <div className="header-status"><span className="local-badge">LOCAL ONLY</span><span className="phase">Phase 1 · Reference substrate</span><button type="button" className="focus-toggle" aria-pressed={focusMode} onClick={() => setFocusMode(!focusMode)}>{focusMode ? 'Exit focus' : 'Focus viewport'}</button></div>
+        <div className="header-status"><button type="button" onClick={onLife}>Open life baseline</button><span className="local-badge">LOCAL ONLY</span><span className="phase">Phase 1 · Reference substrate</span><button type="button" className="focus-toggle" aria-pressed={focusMode} onClick={() => setFocusMode(!focusMode)}>{focusMode ? 'Exit focus' : 'Focus viewport'}</button></div>
       </header>
       <main className={`dashboard ${focusMode ? 'focus-mode' : ''}`} data-mobile-view={mobileView}>
         <section className="intro" aria-labelledby="intro-title">
@@ -139,4 +140,11 @@ export function App() {
       <footer><span>MATHOS / PHASE 1</span><span>Local by design. Portable by choice.</span></footer>
     </>
   );
+}
+
+export function App() {
+  const [life, setLife] = useState(false);
+  return life ? <LifeLab onExit={() => setLife(false)} /> : <ReferenceApp onLife={() => {
+    if (window.confirm('Open the experimental life baseline? Any reference-substrate progress will be discarded.')) setLife(true);
+  }} />;
 }

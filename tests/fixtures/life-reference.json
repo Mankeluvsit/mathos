@@ -1,0 +1,3623 @@
+{
+  "oracle": "python-integer-life-v1",
+  "cases": [
+    {
+      "boundary": "closed",
+      "seed": 42,
+      "frames": [
+        {
+          "tick": 0,
+          "rngState": 1256095082,
+          "field": [
+            1639,
+            1483,
+            1896,
+            1709,
+            1203,
+            1563,
+            1303,
+            1663,
+            1910,
+            1507,
+            1279,
+            1927,
+            1787,
+            1338,
+            1225,
+            1536,
+            1727,
+            1649,
+            1027,
+            1506,
+            1881,
+            1076,
+            1630,
+            1056,
+            1297,
+            1087,
+            1214,
+            1826,
+            1567,
+            1051,
+            1201,
+            1886,
+            1523,
+            1852,
+            1351,
+            1484,
+            774,
+            1076,
+            1593,
+            1635,
+            1275,
+            1685,
+            1238,
+            1334,
+            1780,
+            1903,
+            1544,
+            1233,
+            1315,
+            1324,
+            1100,
+            1699,
+            1721,
+            1733,
+            1974,
+            1114,
+            1990,
+            1465,
+            1988,
+            1164,
+            1137,
+            1040,
+            1393,
+            1517
+          ],
+          "organisms": [
+            {
+              "id": 1,
+              "cells": [
+                36
+              ],
+              "energy": 256,
+              "score": 0,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            }
+          ],
+          "lineage": [
+            {
+              "id": 1,
+              "parent": null,
+              "born": 0,
+              "died": null,
+              "mutated": false
+            }
+          ],
+          "dissipated": 0
+        },
+        {
+          "tick": 1,
+          "rngState": 1256095082,
+          "field": [
+            1653,
+            1556,
+            1745,
+            1696,
+            1384,
+            1458,
+            1371,
+            1603,
+            1805,
+            1543,
+            1434,
+            1750,
+            1686,
+            1376,
+            1336,
+            1453,
+            1687,
+            1494,
+            1217,
+            1585,
+            1685,
+            1274,
+            1387,
+            1290,
+            1352,
+            1293,
+            1269,
+            1636,
+            1475,
+            1139,
+            1370,
+            1667,
+            1505,
+            1634,
+            1398,
+            1404,
+            1091,
+            1203,
+            1479,
+            1611,
+            1362,
+            1554,
+            1302,
+            1440,
+            1608,
+            1720,
+            1609,
+            1307,
+            1395,
+            1357,
+            1330,
+            1516,
+            1654,
+            1697,
+            1712,
+            1285,
+            1841,
+            1578,
+            1709,
+            1330,
+            1201,
+            1182,
+            1436,
+            1452
+          ],
+          "organisms": [
+            {
+              "id": 1,
+              "cells": [
+                36,
+                44
+              ],
+              "energy": 254,
+              "score": 12,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            }
+          ],
+          "lineage": [
+            {
+              "id": 1,
+              "parent": null,
+              "born": 0,
+              "died": null,
+              "mutated": false
+            }
+          ],
+          "dissipated": 2
+        },
+        {
+          "tick": 10,
+          "rngState": 1823989555,
+          "field": [
+            1622,
+            1604,
+            1586,
+            1566,
+            1522,
+            1470,
+            1447,
+            1453,
+            1590,
+            1568,
+            1552,
+            1537,
+            1499,
+            1455,
+            1433,
+            1438,
+            1535,
+            1514,
+            1497,
+            1489,
+            1459,
+            1429,
+            1418,
+            1431,
+            1485,
+            1467,
+            1451,
+            1435,
+            1406,
+            1404,
+            1423,
+            1409,
+            1463,
+            1448,
+            1427,
+            1397,
+            1312,
+            1375,
+            1415,
+            1395,
+            1473,
+            1458,
+            1438,
+            1400,
+            1302,
+            1307,
+            1343,
+            1372,
+            1513,
+            1493,
+            1430,
+            1378,
+            1331,
+            1322,
+            1349,
+            1425,
+            1555,
+            1527,
+            1488,
+            1444,
+            1412,
+            1404,
+            1419,
+            1434
+          ],
+          "organisms": [
+            {
+              "id": 1,
+              "cells": [
+                36,
+                44,
+                45,
+                53
+              ],
+              "energy": 316,
+              "score": 21,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 2,
+              "cells": [
+                54,
+                46,
+                47,
+                39,
+                31
+              ],
+              "energy": 290,
+              "score": 21,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 3,
+              "cells": [
+                52,
+                51,
+                50,
+                49
+              ],
+              "energy": 340,
+              "score": 14,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 4,
+              "cells": [
+                28
+              ],
+              "energy": 256,
+              "score": 0,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 5,
+              "cells": [
+                23
+              ],
+              "energy": 256,
+              "score": 0,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            }
+          ],
+          "lineage": [
+            {
+              "id": 1,
+              "parent": null,
+              "born": 0,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 2,
+              "parent": 1,
+              "born": 5,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 3,
+              "parent": 1,
+              "born": 7,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 4,
+              "parent": 1,
+              "born": 10,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 5,
+              "parent": 2,
+              "born": 10,
+              "died": null,
+              "mutated": false
+            }
+          ],
+          "dissipated": 110
+        },
+        {
+          "tick": 100,
+          "rngState": 3463731777,
+          "field": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "organisms": [
+            {
+              "id": 1,
+              "cells": [
+                36,
+                44,
+                45,
+                53
+              ],
+              "energy": 4898,
+              "score": 151,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 2,
+              "cells": [
+                54,
+                46,
+                47,
+                39,
+                31
+              ],
+              "energy": 5813,
+              "score": 179,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 3,
+              "cells": [
+                52,
+                51,
+                50,
+                49
+              ],
+              "energy": 5017,
+              "score": 154,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 4,
+              "cells": [
+                28,
+                20,
+                12,
+                11
+              ],
+              "energy": 4812,
+              "score": 148,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 5,
+              "cells": [
+                23,
+                15,
+                7,
+                6,
+                5
+              ],
+              "energy": 6458,
+              "score": 199,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 6,
+              "cells": [
+                35,
+                34,
+                26,
+                18
+              ],
+              "energy": 4899,
+              "score": 151,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 7,
+              "cells": [
+                30,
+                22,
+                14,
+                13,
+                21
+              ],
+              "energy": 6161,
+              "score": 190,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 8,
+              "cells": [
+                57,
+                56,
+                58,
+                59,
+                60
+              ],
+              "energy": 6441,
+              "score": 199,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 9,
+              "cells": [
+                62,
+                63
+              ],
+              "energy": 2589,
+              "score": 78,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 10,
+              "cells": [
+                48,
+                40,
+                32,
+                24
+              ],
+              "energy": 5272,
+              "score": 162,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 11,
+              "cells": [
+                61
+              ],
+              "energy": 1441,
+              "score": 43,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 12,
+              "cells": [
+                3,
+                2,
+                1,
+                0
+              ],
+              "energy": 5330,
+              "score": 164,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 13,
+              "cells": [
+                4
+              ],
+              "energy": 1542,
+              "score": 46,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 14,
+              "cells": [
+                55
+              ],
+              "energy": 1396,
+              "score": 41,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 15,
+              "cells": [
+                43,
+                42
+              ],
+              "energy": 2575,
+              "score": 78,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 16,
+              "cells": [
+                41,
+                33
+              ],
+              "energy": 2638,
+              "score": 80,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 17,
+              "cells": [
+                10,
+                9,
+                8
+              ],
+              "energy": 3940,
+              "score": 121,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 18,
+              "cells": [
+                17,
+                16
+              ],
+              "energy": 2739,
+              "score": 83,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 19,
+              "cells": [
+                29,
+                37
+              ],
+              "energy": 2518,
+              "score": 75,
+              "genome": {
+                "maxCells": 5,
+                "bias": -3,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 20,
+              "cells": [
+                38
+              ],
+              "energy": 1362,
+              "score": 40,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 21,
+              "cells": [
+                25
+              ],
+              "energy": 1447,
+              "score": 42,
+              "genome": {
+                "maxCells": 4,
+                "bias": -3,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 22,
+              "cells": [
+                19,
+                27
+              ],
+              "energy": 2455,
+              "score": 74,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            }
+          ],
+          "lineage": [
+            {
+              "id": 1,
+              "parent": null,
+              "born": 0,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 2,
+              "parent": 1,
+              "born": 5,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 3,
+              "parent": 1,
+              "born": 7,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 4,
+              "parent": 1,
+              "born": 10,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 5,
+              "parent": 2,
+              "born": 10,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 6,
+              "parent": 1,
+              "born": 12,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 7,
+              "parent": 2,
+              "born": 12,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 8,
+              "parent": 3,
+              "born": 12,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 9,
+              "parent": 2,
+              "born": 14,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 10,
+              "parent": 3,
+              "born": 14,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 11,
+              "parent": 1,
+              "born": 15,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 12,
+              "parent": 4,
+              "born": 15,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 13,
+              "parent": 5,
+              "born": 15,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 14,
+              "parent": 2,
+              "born": 16,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 15,
+              "parent": 1,
+              "born": 17,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 16,
+              "parent": 3,
+              "born": 17,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 17,
+              "parent": 4,
+              "born": 17,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 18,
+              "parent": 6,
+              "born": 17,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 19,
+              "parent": 7,
+              "born": 17,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 20,
+              "parent": 2,
+              "born": 18,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 21,
+              "parent": 6,
+              "born": 19,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 22,
+              "parent": 4,
+              "born": 20,
+              "died": null,
+              "mutated": false
+            }
+          ],
+          "dissipated": 11100
+        },
+        {
+          "tick": 500,
+          "rngState": 3463731777,
+          "field": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "organisms": [
+            {
+              "id": 1,
+              "cells": [
+                36,
+                44,
+                45,
+                53
+              ],
+              "energy": 1698,
+              "score": 51,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 2,
+              "cells": [
+                54,
+                46,
+                47,
+                39,
+                31
+              ],
+              "energy": 1813,
+              "score": 54,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 3,
+              "cells": [
+                52,
+                51,
+                50,
+                49
+              ],
+              "energy": 1817,
+              "score": 54,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 4,
+              "cells": [
+                28,
+                20,
+                12,
+                11
+              ],
+              "energy": 1612,
+              "score": 48,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 5,
+              "cells": [
+                23,
+                15,
+                7,
+                6,
+                5
+              ],
+              "energy": 2458,
+              "score": 74,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 6,
+              "cells": [
+                35,
+                34,
+                26,
+                18
+              ],
+              "energy": 1699,
+              "score": 51,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 7,
+              "cells": [
+                30,
+                22,
+                14,
+                13,
+                21
+              ],
+              "energy": 2161,
+              "score": 65,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 8,
+              "cells": [
+                57,
+                56,
+                58,
+                59,
+                60
+              ],
+              "energy": 2441,
+              "score": 74,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 9,
+              "cells": [
+                62,
+                63
+              ],
+              "energy": 989,
+              "score": 28,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 10,
+              "cells": [
+                48,
+                40,
+                32,
+                24
+              ],
+              "energy": 2072,
+              "score": 62,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 11,
+              "cells": [
+                61
+              ],
+              "energy": 641,
+              "score": 18,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 12,
+              "cells": [
+                3,
+                2,
+                1,
+                0
+              ],
+              "energy": 2130,
+              "score": 64,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 13,
+              "cells": [
+                4
+              ],
+              "energy": 742,
+              "score": 21,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 14,
+              "cells": [
+                55
+              ],
+              "energy": 596,
+              "score": 16,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 15,
+              "cells": [
+                43,
+                42
+              ],
+              "energy": 975,
+              "score": 28,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 16,
+              "cells": [
+                41,
+                33
+              ],
+              "energy": 1038,
+              "score": 30,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 17,
+              "cells": [
+                10,
+                9,
+                8
+              ],
+              "energy": 1540,
+              "score": 46,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 18,
+              "cells": [
+                17,
+                16
+              ],
+              "energy": 1139,
+              "score": 33,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 19,
+              "cells": [
+                29,
+                37
+              ],
+              "energy": 918,
+              "score": 25,
+              "genome": {
+                "maxCells": 5,
+                "bias": -3,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 20,
+              "cells": [
+                38
+              ],
+              "energy": 562,
+              "score": 15,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 21,
+              "cells": [
+                25
+              ],
+              "energy": 647,
+              "score": 17,
+              "genome": {
+                "maxCells": 4,
+                "bias": -3,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 22,
+              "cells": [
+                19,
+                27
+              ],
+              "energy": 855,
+              "score": 24,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            }
+          ],
+          "lineage": [
+            {
+              "id": 1,
+              "parent": null,
+              "born": 0,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 2,
+              "parent": 1,
+              "born": 5,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 3,
+              "parent": 1,
+              "born": 7,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 4,
+              "parent": 1,
+              "born": 10,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 5,
+              "parent": 2,
+              "born": 10,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 6,
+              "parent": 1,
+              "born": 12,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 7,
+              "parent": 2,
+              "born": 12,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 8,
+              "parent": 3,
+              "born": 12,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 9,
+              "parent": 2,
+              "born": 14,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 10,
+              "parent": 3,
+              "born": 14,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 11,
+              "parent": 1,
+              "born": 15,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 12,
+              "parent": 4,
+              "born": 15,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 13,
+              "parent": 5,
+              "born": 15,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 14,
+              "parent": 2,
+              "born": 16,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 15,
+              "parent": 1,
+              "born": 17,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 16,
+              "parent": 3,
+              "born": 17,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 17,
+              "parent": 4,
+              "born": 17,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 18,
+              "parent": 6,
+              "born": 17,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 19,
+              "parent": 7,
+              "born": 17,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 20,
+              "parent": 2,
+              "born": 18,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 21,
+              "parent": 6,
+              "born": 19,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 22,
+              "parent": 4,
+              "born": 20,
+              "died": null,
+              "mutated": false
+            }
+          ],
+          "dissipated": 62300
+        },
+        {
+          "tick": 2000,
+          "rngState": 2831896107,
+          "field": [
+            3,
+            9,
+            14,
+            18,
+            13,
+            7,
+            7,
+            7,
+            9,
+            16,
+            20,
+            25,
+            18,
+            13,
+            9,
+            14,
+            7,
+            14,
+            14,
+            18,
+            13,
+            9,
+            14,
+            21,
+            6,
+            7,
+            14,
+            12,
+            8,
+            15,
+            21,
+            27,
+            12,
+            10,
+            13,
+            14,
+            11,
+            11,
+            18,
+            23,
+            19,
+            17,
+            14,
+            21,
+            18,
+            16,
+            11,
+            18,
+            26,
+            23,
+            18,
+            20,
+            22,
+            22,
+            17,
+            11,
+            30,
+            23,
+            21,
+            22,
+            28,
+            28,
+            22,
+            17
+          ],
+          "organisms": [],
+          "lineage": [
+            {
+              "id": 1,
+              "parent": null,
+              "born": 0,
+              "died": 721,
+              "mutated": false
+            },
+            {
+              "id": 2,
+              "parent": 1,
+              "born": 5,
+              "died": 682,
+              "mutated": true
+            },
+            {
+              "id": 3,
+              "parent": 1,
+              "born": 7,
+              "died": 728,
+              "mutated": false
+            },
+            {
+              "id": 4,
+              "parent": 1,
+              "born": 10,
+              "died": 702,
+              "mutated": false
+            },
+            {
+              "id": 5,
+              "parent": 2,
+              "born": 10,
+              "died": 717,
+              "mutated": false
+            },
+            {
+              "id": 6,
+              "parent": 1,
+              "born": 12,
+              "died": 713,
+              "mutated": false
+            },
+            {
+              "id": 7,
+              "parent": 2,
+              "born": 12,
+              "died": 717,
+              "mutated": false
+            },
+            {
+              "id": 8,
+              "parent": 3,
+              "born": 12,
+              "died": 750,
+              "mutated": true
+            },
+            {
+              "id": 9,
+              "parent": 2,
+              "born": 14,
+              "died": 720,
+              "mutated": false
+            },
+            {
+              "id": 10,
+              "parent": 3,
+              "born": 14,
+              "died": 790,
+              "mutated": false
+            },
+            {
+              "id": 11,
+              "parent": 1,
+              "born": 15,
+              "died": 752,
+              "mutated": true
+            },
+            {
+              "id": 12,
+              "parent": 4,
+              "born": 15,
+              "died": 731,
+              "mutated": false
+            },
+            {
+              "id": 13,
+              "parent": 5,
+              "born": 15,
+              "died": 735,
+              "mutated": false
+            },
+            {
+              "id": 14,
+              "parent": 2,
+              "born": 16,
+              "died": 732,
+              "mutated": false
+            },
+            {
+              "id": 15,
+              "parent": 1,
+              "born": 17,
+              "died": 750,
+              "mutated": false
+            },
+            {
+              "id": 16,
+              "parent": 3,
+              "born": 17,
+              "died": 735,
+              "mutated": false
+            },
+            {
+              "id": 17,
+              "parent": 4,
+              "born": 17,
+              "died": 740,
+              "mutated": true
+            },
+            {
+              "id": 18,
+              "parent": 6,
+              "born": 17,
+              "died": 770,
+              "mutated": false
+            },
+            {
+              "id": 19,
+              "parent": 7,
+              "born": 17,
+              "died": 742,
+              "mutated": true
+            },
+            {
+              "id": 20,
+              "parent": 2,
+              "born": 18,
+              "died": 732,
+              "mutated": false
+            },
+            {
+              "id": 21,
+              "parent": 6,
+              "born": 19,
+              "died": 748,
+              "mutated": true
+            },
+            {
+              "id": 22,
+              "parent": 4,
+              "born": 20,
+              "died": 725,
+              "mutated": false
+            },
+            {
+              "id": 23,
+              "parent": 5,
+              "born": 682,
+              "died": 755,
+              "mutated": false
+            },
+            {
+              "id": 24,
+              "parent": 12,
+              "born": 702,
+              "died": 785,
+              "mutated": false
+            }
+          ],
+          "dissipated": 93873
+        }
+      ]
+    },
+    {
+      "boundary": "periodic",
+      "seed": 42,
+      "frames": [
+        {
+          "tick": 0,
+          "rngState": 1256095082,
+          "field": [
+            1639,
+            1483,
+            1896,
+            1709,
+            1203,
+            1563,
+            1303,
+            1663,
+            1910,
+            1507,
+            1279,
+            1927,
+            1787,
+            1338,
+            1225,
+            1536,
+            1727,
+            1649,
+            1027,
+            1506,
+            1881,
+            1076,
+            1630,
+            1056,
+            1297,
+            1087,
+            1214,
+            1826,
+            1567,
+            1051,
+            1201,
+            1886,
+            1523,
+            1852,
+            1351,
+            1484,
+            774,
+            1076,
+            1593,
+            1635,
+            1275,
+            1685,
+            1238,
+            1334,
+            1780,
+            1903,
+            1544,
+            1233,
+            1315,
+            1324,
+            1100,
+            1699,
+            1721,
+            1733,
+            1974,
+            1114,
+            1990,
+            1465,
+            1988,
+            1164,
+            1137,
+            1040,
+            1393,
+            1517
+          ],
+          "organisms": [
+            {
+              "id": 1,
+              "cells": [
+                36
+              ],
+              "energy": 256,
+              "score": 0,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            }
+          ],
+          "lineage": [
+            {
+              "id": 1,
+              "parent": null,
+              "born": 0,
+              "died": null,
+              "mutated": false
+            }
+          ],
+          "dissipated": 0
+        },
+        {
+          "tick": 1,
+          "rngState": 1256095082,
+          "field": [
+            1699,
+            1554,
+            1756,
+            1628,
+            1376,
+            1393,
+            1382,
+            1582,
+            1759,
+            1543,
+            1434,
+            1750,
+            1686,
+            1376,
+            1336,
+            1499,
+            1604,
+            1494,
+            1217,
+            1585,
+            1685,
+            1274,
+            1387,
+            1373,
+            1425,
+            1293,
+            1269,
+            1636,
+            1475,
+            1139,
+            1370,
+            1594,
+            1519,
+            1634,
+            1398,
+            1404,
+            1091,
+            1203,
+            1479,
+            1597,
+            1357,
+            1554,
+            1302,
+            1440,
+            1608,
+            1720,
+            1609,
+            1312,
+            1370,
+            1357,
+            1330,
+            1516,
+            1654,
+            1697,
+            1712,
+            1310,
+            1739,
+            1580,
+            1698,
+            1398,
+            1209,
+            1247,
+            1425,
+            1529
+          ],
+          "organisms": [
+            {
+              "id": 1,
+              "cells": [
+                36,
+                44
+              ],
+              "energy": 254,
+              "score": 12,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            }
+          ],
+          "lineage": [
+            {
+              "id": 1,
+              "parent": null,
+              "born": 0,
+              "died": null,
+              "mutated": false
+            }
+          ],
+          "dissipated": 2
+        },
+        {
+          "tick": 10,
+          "rngState": 1823989555,
+          "field": [
+            1541,
+            1551,
+            1538,
+            1515,
+            1476,
+            1454,
+            1467,
+            1503,
+            1525,
+            1533,
+            1526,
+            1512,
+            1482,
+            1449,
+            1457,
+            1492,
+            1495,
+            1494,
+            1486,
+            1479,
+            1451,
+            1427,
+            1439,
+            1471,
+            1472,
+            1462,
+            1448,
+            1435,
+            1403,
+            1404,
+            1426,
+            1455,
+            1463,
+            1449,
+            1429,
+            1398,
+            1314,
+            1375,
+            1419,
+            1457,
+            1465,
+            1458,
+            1442,
+            1411,
+            1310,
+            1314,
+            1357,
+            1443,
+            1480,
+            1486,
+            1475,
+            1449,
+            1354,
+            1342,
+            1363,
+            1404,
+            1484,
+            1529,
+            1515,
+            1456,
+            1406,
+            1435,
+            1452,
+            1441
+          ],
+          "organisms": [
+            {
+              "id": 1,
+              "cells": [
+                36,
+                44,
+                45,
+                53
+              ],
+              "energy": 316,
+              "score": 21,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 2,
+              "cells": [
+                54,
+                46,
+                55,
+                63,
+                56
+              ],
+              "energy": 290,
+              "score": 22,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 3,
+              "cells": [
+                52,
+                60,
+                59,
+                3
+              ],
+              "energy": 340,
+              "score": 14,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 4,
+              "cells": [
+                61
+              ],
+              "energy": 256,
+              "score": 0,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 5,
+              "cells": [
+                0
+              ],
+              "energy": 256,
+              "score": 0,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            }
+          ],
+          "lineage": [
+            {
+              "id": 1,
+              "parent": null,
+              "born": 0,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 2,
+              "parent": 1,
+              "born": 5,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 3,
+              "parent": 1,
+              "born": 7,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 4,
+              "parent": 1,
+              "born": 10,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 5,
+              "parent": 2,
+              "born": 10,
+              "died": null,
+              "mutated": false
+            }
+          ],
+          "dissipated": 110
+        },
+        {
+          "tick": 100,
+          "rngState": 1000330294,
+          "field": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "organisms": [
+            {
+              "id": 1,
+              "cells": [
+                36,
+                44,
+                45,
+                53
+              ],
+              "energy": 4731,
+              "score": 145,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 2,
+              "cells": [
+                54,
+                46,
+                55,
+                63,
+                56
+              ],
+              "energy": 5839,
+              "score": 180,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 3,
+              "cells": [
+                52,
+                60,
+                59,
+                3
+              ],
+              "energy": 5036,
+              "score": 155,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 4,
+              "cells": [
+                61,
+                5,
+                6,
+                7
+              ],
+              "energy": 4992,
+              "score": 154,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 5,
+              "cells": [
+                0,
+                1,
+                9,
+                10,
+                8
+              ],
+              "energy": 6607,
+              "score": 204,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 6,
+              "cells": [
+                28,
+                20,
+                19,
+                18
+              ],
+              "energy": 4802,
+              "score": 148,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 7,
+              "cells": [
+                57,
+                58,
+                49,
+                41,
+                33
+              ],
+              "energy": 6274,
+              "score": 194,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 8,
+              "cells": [
+                2
+              ],
+              "energy": 1600,
+              "score": 48,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 9,
+              "cells": [
+                48,
+                40,
+                32,
+                24
+              ],
+              "energy": 5151,
+              "score": 158,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 10,
+              "cells": [
+                11,
+                12,
+                13,
+                21
+              ],
+              "energy": 5109,
+              "score": 157,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 11,
+              "cells": [
+                35,
+                34,
+                42,
+                50
+              ],
+              "energy": 4999,
+              "score": 154,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 12,
+              "cells": [
+                15,
+                23,
+                31,
+                22
+              ],
+              "energy": 5042,
+              "score": 155,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 13,
+              "cells": [
+                17,
+                16
+              ],
+              "energy": 2742,
+              "score": 83,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 14,
+              "cells": [
+                47,
+                39
+              ],
+              "energy": 2647,
+              "score": 80,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 15,
+              "cells": [
+                43,
+                51
+              ],
+              "energy": 2566,
+              "score": 78,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 16,
+              "cells": [
+                4
+              ],
+              "energy": 1437,
+              "score": 42,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 17,
+              "cells": [
+                14
+              ],
+              "energy": 1453,
+              "score": 43,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 18,
+              "cells": [
+                26,
+                27
+              ],
+              "energy": 2603,
+              "score": 79,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 19,
+              "cells": [
+                25
+              ],
+              "energy": 1470,
+              "score": 42,
+              "genome": {
+                "maxCells": 5,
+                "bias": -3,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 20,
+              "cells": [
+                38,
+                30
+              ],
+              "energy": 2527,
+              "score": 76,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 21,
+              "cells": [
+                37
+              ],
+              "energy": 1383,
+              "score": 40,
+              "genome": {
+                "maxCells": 4,
+                "bias": -3,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 22,
+              "cells": [
+                29
+              ],
+              "energy": 1390,
+              "score": 41,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 23,
+              "cells": [
+                62
+              ],
+              "energy": 1349,
+              "score": 40,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            }
+          ],
+          "lineage": [
+            {
+              "id": 1,
+              "parent": null,
+              "born": 0,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 2,
+              "parent": 1,
+              "born": 5,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 3,
+              "parent": 1,
+              "born": 7,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 4,
+              "parent": 1,
+              "born": 10,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 5,
+              "parent": 2,
+              "born": 10,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 6,
+              "parent": 1,
+              "born": 12,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 7,
+              "parent": 2,
+              "born": 12,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 8,
+              "parent": 3,
+              "born": 12,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 9,
+              "parent": 2,
+              "born": 14,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 10,
+              "parent": 3,
+              "born": 14,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 11,
+              "parent": 1,
+              "born": 15,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 12,
+              "parent": 4,
+              "born": 15,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 13,
+              "parent": 5,
+              "born": 15,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 14,
+              "parent": 2,
+              "born": 16,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 15,
+              "parent": 1,
+              "born": 17,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 16,
+              "parent": 3,
+              "born": 17,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 17,
+              "parent": 4,
+              "born": 17,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 18,
+              "parent": 6,
+              "born": 17,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 19,
+              "parent": 7,
+              "born": 17,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 20,
+              "parent": 2,
+              "born": 18,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 21,
+              "parent": 1,
+              "born": 19,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 22,
+              "parent": 6,
+              "born": 19,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 23,
+              "parent": 2,
+              "born": 20,
+              "died": null,
+              "mutated": false
+            }
+          ],
+          "dissipated": 11094
+        },
+        {
+          "tick": 500,
+          "rngState": 1000330294,
+          "field": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "organisms": [
+            {
+              "id": 1,
+              "cells": [
+                36,
+                44,
+                45,
+                53
+              ],
+              "energy": 1531,
+              "score": 45,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 2,
+              "cells": [
+                54,
+                46,
+                55,
+                63,
+                56
+              ],
+              "energy": 1839,
+              "score": 55,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 3,
+              "cells": [
+                52,
+                60,
+                59,
+                3
+              ],
+              "energy": 1836,
+              "score": 55,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 4,
+              "cells": [
+                61,
+                5,
+                6,
+                7
+              ],
+              "energy": 1792,
+              "score": 54,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 5,
+              "cells": [
+                0,
+                1,
+                9,
+                10,
+                8
+              ],
+              "energy": 2607,
+              "score": 79,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 6,
+              "cells": [
+                28,
+                20,
+                19,
+                18
+              ],
+              "energy": 1602,
+              "score": 48,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 7,
+              "cells": [
+                57,
+                58,
+                49,
+                41,
+                33
+              ],
+              "energy": 2274,
+              "score": 69,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 8,
+              "cells": [
+                2
+              ],
+              "energy": 800,
+              "score": 23,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 9,
+              "cells": [
+                48,
+                40,
+                32,
+                24
+              ],
+              "energy": 1951,
+              "score": 58,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 10,
+              "cells": [
+                11,
+                12,
+                13,
+                21
+              ],
+              "energy": 1909,
+              "score": 57,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 11,
+              "cells": [
+                35,
+                34,
+                42,
+                50
+              ],
+              "energy": 1799,
+              "score": 54,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 12,
+              "cells": [
+                15,
+                23,
+                31,
+                22
+              ],
+              "energy": 1842,
+              "score": 55,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 13,
+              "cells": [
+                17,
+                16
+              ],
+              "energy": 1142,
+              "score": 33,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 14,
+              "cells": [
+                47,
+                39
+              ],
+              "energy": 1047,
+              "score": 30,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 15,
+              "cells": [
+                43,
+                51
+              ],
+              "energy": 966,
+              "score": 28,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 16,
+              "cells": [
+                4
+              ],
+              "energy": 637,
+              "score": 17,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 17,
+              "cells": [
+                14
+              ],
+              "energy": 653,
+              "score": 18,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 18,
+              "cells": [
+                26,
+                27
+              ],
+              "energy": 1003,
+              "score": 29,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 19,
+              "cells": [
+                25
+              ],
+              "energy": 670,
+              "score": 17,
+              "genome": {
+                "maxCells": 5,
+                "bias": -3,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 20,
+              "cells": [
+                38,
+                30
+              ],
+              "energy": 927,
+              "score": 26,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 21,
+              "cells": [
+                37
+              ],
+              "energy": 583,
+              "score": 15,
+              "genome": {
+                "maxCells": 4,
+                "bias": -3,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 22,
+              "cells": [
+                29
+              ],
+              "energy": 590,
+              "score": 16,
+              "genome": {
+                "maxCells": 4,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            },
+            {
+              "id": 23,
+              "cells": [
+                62
+              ],
+              "energy": 549,
+              "score": 15,
+              "genome": {
+                "maxCells": 5,
+                "bias": -2,
+                "resourceWeight": 1,
+                "energyWeight": 1
+              }
+            }
+          ],
+          "lineage": [
+            {
+              "id": 1,
+              "parent": null,
+              "born": 0,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 2,
+              "parent": 1,
+              "born": 5,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 3,
+              "parent": 1,
+              "born": 7,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 4,
+              "parent": 1,
+              "born": 10,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 5,
+              "parent": 2,
+              "born": 10,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 6,
+              "parent": 1,
+              "born": 12,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 7,
+              "parent": 2,
+              "born": 12,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 8,
+              "parent": 3,
+              "born": 12,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 9,
+              "parent": 2,
+              "born": 14,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 10,
+              "parent": 3,
+              "born": 14,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 11,
+              "parent": 1,
+              "born": 15,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 12,
+              "parent": 4,
+              "born": 15,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 13,
+              "parent": 5,
+              "born": 15,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 14,
+              "parent": 2,
+              "born": 16,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 15,
+              "parent": 1,
+              "born": 17,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 16,
+              "parent": 3,
+              "born": 17,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 17,
+              "parent": 4,
+              "born": 17,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 18,
+              "parent": 6,
+              "born": 17,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 19,
+              "parent": 7,
+              "born": 17,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 20,
+              "parent": 2,
+              "born": 18,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 21,
+              "parent": 1,
+              "born": 19,
+              "died": null,
+              "mutated": true
+            },
+            {
+              "id": 22,
+              "parent": 6,
+              "born": 19,
+              "died": null,
+              "mutated": false
+            },
+            {
+              "id": 23,
+              "parent": 2,
+              "born": 20,
+              "died": null,
+              "mutated": false
+            }
+          ],
+          "dissipated": 62294
+        },
+        {
+          "tick": 2000,
+          "rngState": 2831896107,
+          "field": [
+            13,
+            20,
+            26,
+            21,
+            14,
+            15,
+            15,
+            14,
+            14,
+            19,
+            23,
+            17,
+            14,
+            17,
+            20,
+            20,
+            18,
+            21,
+            17,
+            11,
+            14,
+            19,
+            24,
+            17,
+            21,
+            24,
+            18,
+            12,
+            8,
+            15,
+            17,
+            15,
+            15,
+            18,
+            13,
+            7,
+            14,
+            21,
+            18,
+            11,
+            8,
+            11,
+            7,
+            13,
+            7,
+            14,
+            11,
+            5,
+            7,
+            7,
+            13,
+            8,
+            7,
+            7,
+            7,
+            9,
+            6,
+            13,
+            20,
+            14,
+            13,
+            13,
+            8,
+            7
+          ],
+          "organisms": [],
+          "lineage": [
+            {
+              "id": 1,
+              "parent": null,
+              "born": 0,
+              "died": 695,
+              "mutated": false
+            },
+            {
+              "id": 2,
+              "parent": 1,
+              "born": 5,
+              "died": 684,
+              "mutated": true
+            },
+            {
+              "id": 3,
+              "parent": 1,
+              "born": 7,
+              "died": 731,
+              "mutated": false
+            },
+            {
+              "id": 4,
+              "parent": 1,
+              "born": 10,
+              "died": 731,
+              "mutated": false
+            },
+            {
+              "id": 5,
+              "parent": 2,
+              "born": 10,
+              "died": 751,
+              "mutated": false
+            },
+            {
+              "id": 6,
+              "parent": 1,
+              "born": 12,
+              "died": 703,
+              "mutated": false
+            },
+            {
+              "id": 7,
+              "parent": 2,
+              "born": 12,
+              "died": 732,
+              "mutated": false
+            },
+            {
+              "id": 8,
+              "parent": 3,
+              "born": 12,
+              "died": 787,
+              "mutated": true
+            },
+            {
+              "id": 9,
+              "parent": 2,
+              "born": 14,
+              "died": 747,
+              "mutated": false
+            },
+            {
+              "id": 10,
+              "parent": 3,
+              "born": 14,
+              "died": 740,
+              "mutated": false
+            },
+            {
+              "id": 11,
+              "parent": 1,
+              "born": 15,
+              "died": 735,
+              "mutated": true
+            },
+            {
+              "id": 12,
+              "parent": 4,
+              "born": 15,
+              "died": 732,
+              "mutated": false
+            },
+            {
+              "id": 13,
+              "parent": 5,
+              "born": 15,
+              "died": 740,
+              "mutated": false
+            },
+            {
+              "id": 14,
+              "parent": 2,
+              "born": 16,
+              "died": 718,
+              "mutated": false
+            },
+            {
+              "id": 15,
+              "parent": 1,
+              "born": 17,
+              "died": 724,
+              "mutated": false
+            },
+            {
+              "id": 16,
+              "parent": 3,
+              "born": 17,
+              "died": 771,
+              "mutated": false
+            },
+            {
+              "id": 17,
+              "parent": 4,
+              "born": 17,
+              "died": 758,
+              "mutated": true
+            },
+            {
+              "id": 18,
+              "parent": 6,
+              "born": 17,
+              "died": 730,
+              "mutated": false
+            },
+            {
+              "id": 19,
+              "parent": 7,
+              "born": 17,
+              "died": 769,
+              "mutated": true
+            },
+            {
+              "id": 20,
+              "parent": 2,
+              "born": 18,
+              "died": 734,
+              "mutated": false
+            },
+            {
+              "id": 21,
+              "parent": 1,
+              "born": 19,
+              "died": 754,
+              "mutated": true
+            },
+            {
+              "id": 22,
+              "parent": 6,
+              "born": 19,
+              "died": 742,
+              "mutated": false
+            },
+            {
+              "id": 23,
+              "parent": 2,
+              "born": 20,
+              "died": 708,
+              "mutated": false
+            },
+            {
+              "id": 24,
+              "parent": 5,
+              "born": 684,
+              "died": 727,
+              "mutated": false
+            }
+          ],
+          "dissipated": 93986
+        }
+      ]
+    }
+  ]
+}

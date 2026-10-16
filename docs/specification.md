@@ -1,6 +1,6 @@
 # MATHOS master specification
 
-Status: authoritative product direction; Phase 1 reference-substrate implementation baseline on the review branch. Requirements below are planned unless identified as implemented in `capability-status.md`. Changes are reviewed in GitHub pull requests.
+Status: authoritative product direction; Phase 1 merged, integrated experimental baseline on the review branch. Requirements below are planned unless identified as implemented in `capability-status.md`. Changes are reviewed in GitHub pull requests.
 
 ## Purpose
 
@@ -55,3 +55,7 @@ The owner approved the [Phase 1 design](phase-1-plan.md) and ADRs 0004–0006.
 4. Preserve experiment v1 and its storage slot; add separately validated substrate-run v1 definitions, schema/example, portable JSON, and failure-safe local persistence. Exports restart, not resume.
 5. Preserve the original 36 tests and verify the new model against independent fixtures. Compare production UI and full reference trajectories in Chromium and Firefox. Record measured performance and remaining limits in [verification](phase-1-verification.md).
 6. Propose the implementation in an unmerged PR. Organism genesis, multi-scale dynamics, neural learning, evolution, morphogenesis, autonomous batches and checkpoints remain planned.
+
+## Integrated baseline acceptance
+
+The owner authorized meshing narrow phase slices into a working skeleton, merging PR #3 and continuing until a working review is needed. [Integrated plan](integrated-baseline-plan.md) and ADR 0007 define the authorized scope and exact model. Preserve prior formats/reference behavior; verify deterministic genesis/lifecycle, exact resource accounting, bounded organism/lineage growth, fixed neural decisions and cancellable local comparisons. Neural lifetime learning and checkpoint resume remain planned. Deliver evidence and a separate unmerged PR for owner review.

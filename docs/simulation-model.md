@@ -1,6 +1,6 @@
 # Simulation model specification
 
-Status: **Phase 1 reference transport implemented on the review branch; organism/life contracts remain planned**. This document preserves architecture while identifying scientific choices that require later proposals and experiments.
+Status: **Phase 1 merged; the integrated experimental reference below implements narrow life slices. Broader contracts remain planned.** This document preserves architecture while identifying scientific choices that require later proposals and experiments.
 
 ## Universe and pixels
 
@@ -54,3 +54,7 @@ Uniform-noise initialization consumes one mulberry32@1 uint32 draw per pixel in 
 For each undirected right/down edge exactly once, compute q = trunc((a - b) / d) from the old field, where d is 8 or 16. Subtract/add paired signed deltas, commit synchronously, then increment tick. Exact total is conserved, and results remain in bounds without clamping. Small gradients can stop changing due to integer quantization. Totals use a JavaScript Number without uint32 coercion.
 
 The current order is tick/limit validation, transport accumulation, commit, tick increment and observation. Full organism lifecycle ordering above remains planned. State contains frozen versioned configuration, tick, RNG state, field and exact sum/min/max; runtime snapshots copy field data. A run definition alone restarts at tick zero. See [verification](phase-1-verification.md) for independent fixtures and tested compatibility.
+
+## Experimental integrated reference
+
+A separate life-reference@1 model now implements the narrow slices specified in [ADR 0007](decisions/0007-integrated-life-baseline.md). Its resource-noise initialization, center-cell template, ordered lifecycle, integer perceptron, connected growth, asexual mutation/lineage and exact accounting are executable. The earlier planned sections retain the broader architecture; they are not claims of full implementation. Organism/neural/ecosystem inspectors all observe the same copied tick. Both genesis modes are reproducible; primordial has no spontaneous organism-generation mechanism.

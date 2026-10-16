@@ -206,3 +206,36 @@ footer { display: flex; justify-content: space-between; gap: 12px; max-width: 18
   .dashboard[data-mobile-view="setup"] .playback-actions { display: none; }
   .dashboard[data-mobile-view="setup"] .playback-bar { grid-row: 1; }
 }
+
+/* The integrated life lab keeps the same visual language and an independent model. */
+.life-dashboard { max-width: 1800px; margin: auto; padding: 1.5rem; }
+.life-grid { display: grid; grid-template-columns: minmax(240px, 290px) minmax(300px, 1fr) minmax(270px, 350px); gap: 1rem; align-items: start; }
+.life-setup { grid-column: 1; grid-row: 1 / span 2; }
+.life-viewport { grid-column: 2; }
+.life-inspect { grid-column: 3; grid-row: 1 / span 2; }
+.life-batch { grid-column: 2; }
+.life-canvas { width: 100%; height: auto; image-rendering: pixelated; display: block; background: #060c14; border: 1px solid #55718f; cursor: crosshair; }
+.life-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; font-variant-numeric: tabular-nums; }
+.life-metrics div { border-bottom: 1px solid #26374d; padding: .3rem 0; min-width: 0; }
+.life-metrics dt { color: #a0b2c9; overflow-wrap: anywhere; }
+.life-metrics dd { margin: .2rem 0; color: #81dfb5; overflow-wrap: anywhere; }
+.life-table-scroll { overflow: auto; max-height: 22rem; }
+.life-table-scroll table { width: 100%; font-size: .85rem; border-collapse: collapse; }
+.life-table-scroll td, .life-table-scroll th { text-align: left; padding: .5rem; border-bottom: 1px solid #26374d; }
+.life-dashboard label { display: block; margin-top: .65rem; }
+.life-dashboard form > button { margin-top: 1rem; }
+@media (min-width: 901px) and (max-width: 1250px) {
+  .life-grid { grid-template-columns: minmax(240px, 290px) minmax(0, 1fr); }
+  .life-inspect { grid-column: 2; grid-row: 2; }
+  .life-batch { grid-column: 2; }
+}
+@media (max-width: 900px) {
+  .life-dashboard { padding: .75rem .75rem 6rem; }
+  .life-grid { display: block; }
+  .life-grid > .panel { margin-bottom: 1rem; }
+  .life-dashboard[data-view="viewport"] .life-setup, .life-dashboard[data-view="viewport"] .life-inspect, .life-dashboard[data-view="viewport"] .life-batch,
+  .life-dashboard[data-view="setup"] .life-viewport, .life-dashboard[data-view="setup"] .life-inspect,
+  .life-dashboard[data-view="inspect"] .life-setup, .life-dashboard[data-view="inspect"] .life-viewport, .life-dashboard[data-view="inspect"] .life-batch { display: none; }
+  .life-canvas { max-height: none; }
+  .header-status { flex-wrap: wrap; }
+}
