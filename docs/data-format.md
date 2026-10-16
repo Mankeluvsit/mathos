@@ -28,3 +28,20 @@ No migration is needed for v1. Future versions require explicit migration functi
 Keep configuration, checkpoint, command log, and results distinct. A future runnable configuration will include versioned rules, genesis recipe/template references, numerical assumptions, and run limits. A checkpoint will additionally contain engine version, current tick, all pixel/organism/controller/development state, generator algorithm/version/state, and queued commands. Results will include experiment plan, configuration, seeds, engine/rule versions, metrics definitions, command provenance, and termination reason.
 
 Specify typed-array encoding, compression, checksums, large-file limits, and migrations before adding checkpoint import. Do not claim cross-version replay without golden fixtures. Timestamps may annotate provenance but cannot participate in deterministic transitions. Browser/engine metadata records a compatibility context; bitwise cross-platform equivalence remains unverified.
+
+## Implemented: substrate-run version 1
+
+A separate envelope, schema and example live in `schemas/substrate-run.schema.json` and `examples/substrate-run.v1.json`. It is not a migration of experiment v1 and does not execute its genesis intent.
+
+| Field | Contract |
+| --- | --- |
+| `format`, `schemaVersion` | `mathos-substrate-run`, integer 1 |
+| `name`, `seed`, `universe` | Same name, uint32 seed and 8–256 grid bounds as experiment v1 |
+| `engine` | `{ id: substrate-reference, version: 1 }` |
+| `rng` | `{ id: mulberry32, version: 1 }` |
+| `initializer` | `{ id: uniform-noise or center-impulse, version: 1 }` |
+| `rules` | `{ id: conservative-transport, version: 1, boundary: periodic or closed, transferDivisor: 8 or 16 }` |
+
+The table abbreviates JSON strings; the actual JSON example is authoritative syntax. All fields are required, and unknown keys, IDs, versions, coercible arrays, non-finite values, and invalid bounds are rejected. The 64 KiB UTF-8 import cap applies. Canonical order is format/version/name/seed/universe/engine/RNG/initializer/rules.
+
+Local key: `mathos.substrate-run.v1`, separate from the original slot. Save validates before writing; load/import validates before replacement and requires progress-discard confirmation if needed. Storage failure leaves definition export available. Imported and exported definitions restart at tick zero. They contain no current field, tick, resume state, or checkpoint. Rates and other view preferences are not model inputs. Both slots are explicit, origin-local, single-configuration storage, not a backup.

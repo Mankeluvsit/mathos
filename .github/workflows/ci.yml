@@ -19,6 +19,7 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
+      - run: python3 scripts/reference-fixtures.py --check
       - run: npm run check
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps chromium firefox
       - run: npm run test:browser

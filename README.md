@@ -2,7 +2,7 @@
 
 A fully local-first, browser-based platform for mathematical visualization and pixel-level artificial-life experimentation.
 
-**Status: Phase 0 foundation.** The application edits, validates, saves, imports, and exports experiment configurations. Its pixel canvas is a static preview. There is no simulation engine, neural learning, evolution, morphogenesis, or autonomous experimentation yet.
+**Status: Phase 1 reference substrate on this review branch.** Configure and inspect deterministic integer pixel transport, with seeded initialization, fixed ticks, pause/step/reset, exact metrics, and portable local definitions. Organism genesis, neural learning, evolution, morphogenesis, multi-scale dynamics and autonomous experimentation remain planned.
 
 ## Run locally
 
@@ -21,10 +21,36 @@ Configurations are stored only in this browser and origin. Export JSON for a por
 
 - [Master specification](docs/specification.md)
 - [Architecture](docs/architecture.md) and [design decisions](docs/decisions/README.md)
-- [UX requirements](docs/ux-requirements.md)
+- [UX requirements](docs/ux-requirements.md) and [product context / visual direction](docs/product-context.md)
 - [Simulation model](docs/simulation-model.md)
 - [Data format](docs/data-format.md) and [JSON Schema](schemas/experiment.schema.json)
 - [Roadmap](docs/roadmap.md) and [capability status](docs/capability-status.md)
+- [Approved Phase 1 design](docs/phase-1-plan.md) and [verification](docs/phase-1-verification.md)
 - [Development instructions](AGENTS.md) and [contributing](CONTRIBUTING.md)
 
 GitHub is the authoritative source of truth. Documentation describes both current behavior and planned capabilities; consult capability status before treating a design as implemented. No license has been selected.
+
+## Dashboard previews
+
+See the [desktop and phone review captures](docs/previews/README.md) and [shared-concept context](docs/product-context.md). The dark laboratory connects the same rule, field and measurements; phone navigation preserves the run across Viewport, Setup and Inspect.
+
+## Try the testable phase
+
+1. Start the app, choose **Open substrate lab** in the central workspace. On a phone, this opens Setup.
+2. Set the experiment draft seed/dimensions above, choose **Center impulse** or **Seeded uniform noise**, then **Prepare substrate from draft**. The run starts paused.
+3. Use **Step** for one tick or **Start/Pause** for animation. Total resource units remain constant while the field redistributes. Inspect any pixel through its x/y controls.
+4. Reset to reproduce the initial field. Saving/exporting a **run definition** preserves inputs and restarts at tick zero; it is not a checkpoint.
+
+The foundation's original experiment files and genesis selection are retained as intent. A substrate run does not execute either organism genesis mode. Integer quantization can leave small gradients unchanged.
+
+## Verify
+
+```sh
+npm run check
+python3 scripts/reference-fixtures.py --check
+npx playwright install chromium firefox
+npm run test:browser
+npm run benchmark
+```
+
+The browser suite needs a production build (`npm run check` builds it) and free local ports 4173/4174. Linux CI may need `npx playwright install --with-deps chromium firefox`; package installation can require administrator access. Tests compare independent RNG/field fixtures in both browsers and exercise the production UI. No new runtime dependency or network service was added.

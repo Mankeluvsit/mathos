@@ -1,6 +1,6 @@
 # Simulation model specification
 
-Status: **planned contracts**, no engine implemented. This document preserves architecture while identifying scientific choices that require later proposals and experiments.
+Status: **Phase 1 reference transport implemented on the review branch; organism/life contracts remain planned**. This document preserves architecture while identifying scientific choices that require later proposals and experiments.
 
 ## Universe and pixels
 
@@ -44,3 +44,13 @@ Autonomous local runners execute explicit experiment plans: seed lists, paramete
 ## Phase gates
 
 Each later subsystem requires invariants, bounded reference fixtures, deterministic replay tests where applicable, numerical assumptions, performance measurements, and clear scientific limitations. Exact equations, neural algorithm, genome encoding, and emergent-life criteria remain open decisions.
+
+## Implemented Phase 1 reference model
+
+The accepted [Phase 1 design](phase-1-plan.md) and ADRs 0004–0006 define one Uint16 scalar field in abstract resource units. There is no physical-energy or organism claim. The grid uses top-left coordinates, four orthogonal neighbors, and explicit periodic or closed/no-flux boundaries.
+
+Uniform-noise initialization consumes one mulberry32@1 uint32 draw per pixel in row-major order and uses its upper 16 bits. Center-impulse initialization sets the center site to 65535 and consumes no draws. Transport uses no randomness.
+
+For each undirected right/down edge exactly once, compute q = trunc((a - b) / d) from the old field, where d is 8 or 16. Subtract/add paired signed deltas, commit synchronously, then increment tick. Exact total is conserved, and results remain in bounds without clamping. Small gradients can stop changing due to integer quantization. Totals use a JavaScript Number without uint32 coercion.
+
+The current order is tick/limit validation, transport accumulation, commit, tick increment and observation. Full organism lifecycle ordering above remains planned. State contains frozen versioned configuration, tick, RNG state, field and exact sum/min/max; runtime snapshots copy field data. A run definition alone restarts at tick zero. See [verification](phase-1-verification.md) for independent fixtures and tested compatibility.

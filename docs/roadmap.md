@@ -15,3 +15,7 @@ Status is tracked in `capability-status.md`. Every phase requires its own review
 Mathematical visualization grows alongside each phase: field values and functions first, then structure, trajectories, distributions, and experiment comparisons. Use browser-native rendering and accessible numerical summaries.
 
 Before each phase, resolve its open model choices in ADRs, define acceptance fixtures and performance budgets, and update the master specification. GPU acceleration, PWA caching, large-data formats, and advanced editors need demonstrated requirements. No mandatory backend, login, external API, or cloud orchestration enters through a later phase implicitly.
+
+## Phase 1 design review
+
+The [approved Phase 1 design](phase-1-plan.md) specifies the reference substrate, RNG, conservative integer transport, run-definition compatibility, UX, verification gates, and implementation sequence. The owner approved it and ADRs 0004–0006. Phase 0 is merged; the reference substrate is implemented on the review branch. See [verification](phase-1-verification.md). Later phases require their own approved scope.
