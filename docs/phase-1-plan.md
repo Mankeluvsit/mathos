@@ -1,6 +1,6 @@
-# Phase 1 proposal: deterministic pixel substrate
+# Phase 1 design: deterministic pixel substrate
 
-Status: **proposed; awaiting user approval**. This is a design and implementation plan, not an implemented feature. Phase 0 was accepted and merged in PR #1. Approval of that merge does not authorize building this phase.
+Status: **approved by the project owner**. Phase 0 was merged in PR #1. The owner subsequently approved the decisions needed for a testable Phase 1. The reference substrate is implemented on the Phase 1 review branch; see [verification](phase-1-verification.md). Neither Phase 1 PR is merged automatically.
 
 ## Goal and limits
 
@@ -8,11 +8,11 @@ Deliver a small, reproducible mathematical substrate on which later artificial-l
 
 Preserve the confirmed direction: pixel artificial life; primordial and seeded genesis; multi-scale processes; neural lifetime learning; evolution; morphogenesis; configurable rules; autonomous local experiments. Phase 1 implements only their deterministic substrate. Organisms, genesis execution, neural controllers, evolution, development, workers, GPU rendering, checkpoints, and experiment batches stay in their later roadmap phases. The reference transport rule is a mathematical test model, not a claim about biological or physical realism.
 
-## Proposed decisions
+## Accepted decisions
 
-Companion ADRs 0004–0006 are proposed, not accepted.
+Companion ADRs 0004–0006 are accepted.
 
-| Topic | Proposal |
+| Topic | Decision |
 | --- | --- |
 | Grid | 2D, top-left origin, x right/y down, row-major index y * width + x; retain 8–256 pixels per side |
 | Field | One unsigned 16-bit scalar, 0–65535 abstract resource units per site; no physical energy units yet |
@@ -77,9 +77,9 @@ Start/pause/speed changes schedule ticks but do not modify field dynamics or con
 
 Keep mathos-experiment schemaVersion 1, its schema/example, import behavior, storage key, and genesis intent untouched. Do not silently reinterpret v1 files as runnable organism experiments.
 
-Propose a distinct JSON envelope: format mathos-substrate-run, schemaVersion 1; name; seed; universe width/height; engine id/version; RNG id/version; initializer id/version; and rules id/version/boundary/transferDivisor. Fix concrete IDs in fixtures before implementation: engine substrate-reference@1, RNG mulberry32@1, initializer uniform-noise@1 or center-impulse@1, rules conservative-transport@1.
+Use a distinct JSON envelope: format mathos-substrate-run, schemaVersion 1; name; seed; universe width/height; engine id/version; RNG id/version; initializer id/version; and rules id/version/boundary/transferDivisor. Fix concrete IDs in fixtures before implementation: engine substrate-reference@1, RNG mulberry32@1, initializer uniform-noise@1 or center-impulse@1, rules conservative-transport@1.
 
-Accept only known keys/IDs/versions and validated bounds. Keep the 64 KiB import cap. Canonical serialization orders fields explicitly. Proposed local key: mathos.substrate-run.v1. Save/load/import/export remain explicit and errors leave valid data intact.
+Accept only known keys/IDs/versions and validated bounds. Keep the 64 KiB import cap. Canonical serialization orders fields explicitly. Local key: mathos.substrate-run.v1. Save/load/import/export remain explicit and errors leave valid data intact.
 
 A run-definition export restarts at tick zero. It contains no field buffers, learned state, resume position, or claimed checkpoint support. Keep display preferences outside the deterministic model. Display the current tick for inspecting a repeated run; do not add a misleading saved-state button.
 
@@ -111,9 +111,9 @@ docs/phase-1-plan.md
 docs/decisions/0004-*.md through 0006-*.md
 ```
 
-These are planned paths, not directories or placeholder code to create in this proposal. Reuse existing UI/storage helpers only when actual shared behavior warrants extraction. No new runtime dependency is expected.
+These paths describe the intended boundaries; implementation details may combine small components. Reuse existing UI/storage helpers only when actual shared behavior warrants extraction. No new runtime dependency is expected.
 
-## Implementation sequence after approval
+## Approved implementation sequence
 
 | Step | Work | Reviewable completion evidence |
 | --- | --- | --- |
@@ -140,6 +140,6 @@ Prefer one focused implementation branch/PR with these logical commits; split on
 - Check disposal/hidden-tab behavior, 320px reflow, 200% zoom, focus visibility, and explicit no-autostart. Automated accessibility checks do not substitute for keyboard/manual inspection.
 - Update master specification, architecture, UX, simulation/data-format documents, roadmap, and capability status alongside implementation. Only label Phase 1 implemented after evidence exists.
 
-## Approval requested
+## Review status
 
-Approve the reference field/rule, RNG, run-definition separation, runtime limits, and sequence above, or request changes. Current application behavior remains Phase 0 until a separately reviewed implementation is completed.
+The owner approved the reference model and implementation scope. Review the implementation PR and verification report before merging. Later artificial-life systems remain outside this phase.

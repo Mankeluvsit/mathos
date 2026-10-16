@@ -18,4 +18,4 @@ Before each phase, resolve its open model choices in ADRs, define acceptance fix
 
 ## Phase 1 design review
 
-The [Phase 1 proposal](phase-1-plan.md) specifies the reference substrate, RNG, conservative integer transport, run-definition compatibility, UX, verification gates, and implementation sequence. It and ADRs 0004–0006 are proposed and awaiting approval. Phase 0 is merged; no Phase 1 simulation is implemented or authorized by this planning document alone.
+The [approved Phase 1 design](phase-1-plan.md) specifies the reference substrate, RNG, conservative integer transport, run-definition compatibility, UX, verification gates, and implementation sequence. The owner approved it and ADRs 0004–0006. Phase 0 is merged; the reference substrate is implemented on the review branch. See [verification](phase-1-verification.md). Later phases require their own approved scope.

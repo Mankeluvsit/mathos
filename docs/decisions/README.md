@@ -6,9 +6,9 @@ Accepted decisions describe the approved foundation. New material choices need a
 - [0002: Simulation and rendering boundaries](0002-simulation-and-rendering-boundaries.md)
 - [0003: Persistence and reproducibility](0003-persistence-and-reproducibility.md)
 
-## Proposed for Phase 1
+## Accepted for Phase 1
 
-These records are proposals awaiting approval; they do not change implemented behavior.
+The project owner approved these decisions for the Phase 1 reference substrate. See the implementation PR and verification report for delivery status.
 
 - [0004: Versioned deterministic random initialization](0004-versioned-random-initialization.md)
 - [0005: Conservative integer reference substrate](0005-conservative-integer-substrate.md)

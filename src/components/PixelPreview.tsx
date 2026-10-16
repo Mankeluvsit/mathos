@@ -9,11 +9,11 @@ export function PixelPreview({ width, height }: { width: number; height: number 
   return (
     <figure className="preview">
       <div className="canvas-frame">
-        <canvas ref={ref} role="img" aria-label={`Static ${width} by ${height} pixel checkerboard. No simulation is running.`}>
-          Static pixel checkerboard; simulation not implemented.
+        <canvas ref={ref} role="img" aria-label={`Static ${width} by ${height} pixel checkerboard. Configuration preview only.`}>
+          Static pixel checkerboard; configuration only.
         </canvas>
       </div>
-      <figcaption>Static pixel preview — simulation not implemented. {width} × {height} pixels.</figcaption>
+      <figcaption>Static pixel preview — configuration only. {width} × {height} pixels.</figcaption>
     </figure>
   );
 }

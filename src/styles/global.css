@@ -283,3 +283,17 @@ footer {
     scroll-behavior:auto!important;
   }
 }
+
+.substrate-lab { margin-top: 24px; }
+.substrate-settings { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+.run-view { border-top: 1px solid #c5cebf; padding-top: 16px; margin-top: 20px; }
+.metrics { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; }
+.metrics div { background: #e5eddf; padding: 12px; border-radius: 4px; }
+.metrics dt { font-size: .75rem; }
+.metrics dd { margin: 5px 0 0; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; font-weight: 650; }
+.inline-label { margin: 0 0 5px; font-size: .75rem; }
+.confirmation { padding: 14px; border: 2px solid #a14917; border-radius: 4px; }
+button:disabled { opacity: .6; cursor: not-allowed; }
+@media (max-width: 600px) { .substrate-settings { grid-template-columns: 1fr; gap: 0; } .metrics { grid-template-columns: 1fr 1fr; } }
+
+.lab-link { display: inline-block; padding: 12px 0; font-weight: 650; text-underline-offset: 4px; }

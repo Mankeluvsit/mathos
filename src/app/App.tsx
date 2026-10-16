@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { PixelPreview } from '../components/PixelPreview';
+import { SubstrateControls } from '../components/SubstrateControls';
 import { DEFAULT_EXPERIMENT, MAX_IMPORT_BYTES, parseExperiment, serializeExperiment, validateExperiment, type Experiment } from '../domain/experiment';
 import { loadExperiment, saveExperiment } from '../storage/experiment-storage';
 
@@ -60,14 +61,15 @@ export function App() {
       <a className="skip-link" href="#configuration">Skip to configuration</a>
       <header className="masthead">
         <a className="wordmark" href="#">MATHOS<span>LOCAL LABORATORY</span></a>
-        <span className="phase">Phase 0 · Foundation</span>
+        <span className="phase">Phase 1 · Pixel substrate</span>
       </header>
       <main>
         <section className="intro" aria-labelledby="intro-title">
           <p className="eyebrow">MATHEMATICS / ARTIFICIAL LIFE</p>
           <h1 id="intro-title">A universe starts<br />with a question.</h1>
           <p>Prepare a local experiment. Explore the foundations of a pixel-level world, one deliberate step at a time.</p>
-          <p className="scope">Available now: configuration, local save, and JSON files. Simulation, learning, and evolution are planned.</p>
+          <a className="lab-link" href="#substrate-lab">Go to substrate lab ↓</a>
+          <p className="scope">Available now: local configurations and deterministic pixel transport. Organism genesis, learning, and evolution are planned.</p>
         </section>
         <div className="workspace">
           <section className="panel configuration" id="configuration" aria-labelledby="config-title" tabIndex={-1}>
@@ -127,11 +129,12 @@ export function App() {
           <section className="panel observation" aria-labelledby="preview-title">
             <div className="panel-heading"><div><p className="eyebrow">02 / OBSERVE</p><h2 id="preview-title">The pixel substrate</h2></div><span className="tag">STATIC</span></div>
             <PixelPreview width={previewDimension(draft.width)} height={previewDimension(draft.height)} />
-            <div className="next"><h3>A foundation for what comes next</h3><p>Pixel dynamics, two genesis modes, multi-scale worlds, morphogenesis, evolution, neural learning, and autonomous experiments.</p><p>These capabilities are specified for future phases. No simulation is running.</p></div>
+            <div className="next"><h3>A foundation for what comes next</h3><p>Two genesis modes, multi-scale worlds, morphogenesis, evolution, neural learning, and autonomous experiments remain planned.</p><p>This preview stays static. Open the substrate lab below to test mathematical pixel transport.</p></div>
           </section>
         </div>
+        <SubstrateControls getExperiment={current} />
       </main>
-      <footer><span>MATHOS / PHASE 0</span><span>Local by design. Portable by choice.</span></footer>
+      <footer><span>MATHOS / PHASE 1</span><span>Local by design. Portable by choice.</span></footer>
     </>
   );
 }

@@ -5,7 +5,7 @@
 - GitHub repository `Mankeluvsit/mathos` is the source of truth. Keep specifications, decisions, code, and tests versioned together.
 - Read `docs/specification.md`, `docs/architecture.md`, `docs/capability-status.md`, and the relevant model/format/UX documents before changing behavior.
 - Preserve pixel-based artificial life, primordial and seeded genesis, multi-scale simulation, neural learning, evolution, morphogenesis, configurable universe rules, and autonomous experimentation as the confirmed direction.
-- Phase 0 establishes foundations only. Do not implement advanced simulation as incidental scope. Follow `docs/roadmap.md` and the user's approved scope.
+- Phase 0 establishes foundations; the approved Phase 1 adds the deterministic reference substrate. Do not implement later life systems as incidental scope. Follow `docs/roadmap.md` and the user's approved scope.
 - Label capabilities implemented, planned, or experimental with evidence. Never present a preview as an active simulation or emergence as a guaranteed result.
 
 ## Engineering

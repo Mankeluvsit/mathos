@@ -1,6 +1,6 @@
 # MATHOS master specification
 
-Status: authoritative product direction; Phase 0 implementation baseline. Requirements below are planned unless identified as implemented in `capability-status.md`. Changes are reviewed in GitHub pull requests.
+Status: authoritative product direction; Phase 1 reference-substrate implementation baseline on the review branch. Requirements below are planned unless identified as implemented in `capability-status.md`. Changes are reviewed in GitHub pull requests.
 
 ## Purpose
 
@@ -32,7 +32,7 @@ Primordial and seeded describe genesis methods, not random-number seed handling:
 - Users own and can export their data. Do not add telemetry or remote dependencies to runtime without an explicit product decision.
 - Every capability has a status and evidence. A configured future feature is not an implemented engine.
 
-## Phase 0 acceptance
+## Phase 0 acceptance (historical baseline)
 
 1. A fresh checkout supports `npm ci`, `npm run dev`, and passing `npm run check`.
 2. An accessible configuration editor supports name, uint32 random seed, bounded width/height, and primordial/seeded selection.
@@ -43,4 +43,15 @@ Primordial and seeded describe genesis methods, not random-number seed handling:
 
 ## Exclusions and unresolved questions
 
-Phase 0 excludes life dynamics, workers, neural training, evolutionary operators, morphogenesis execution, batch runners, charts of fabricated results, and checkpoint storage. GPU acceleration, installed offline/PWA support, large-data persistence, learning algorithms, physical units, and detailed biological parameter values require later evidence and decisions. They do not alter the confirmed direction.
+Phase 0 excluded life dynamics, workers, neural training, evolutionary operators, morphogenesis execution, batch runners, charts of fabricated results, and checkpoint storage. GPU acceleration, installed offline/PWA support, large-data persistence, learning algorithms, physical units, and detailed biological parameter values require later evidence and decisions. They do not alter the confirmed direction.
+
+## Phase 1 acceptance
+
+The owner approved the [Phase 1 design](phase-1-plan.md) and ADRs 0004–0006.
+
+1. Deliver the versioned integer reference field, seeded initialization, periodic/closed boundaries, synchronous conservative transfers, exact metrics, and immutable state/snapshot contracts.
+2. Provide explicit prepare/start/pause/step/reset, rates 1/10/30, bounded batches, a 10,000-tick stop, hidden-tab pause, and disposal without stale callbacks.
+3. Keep active definitions separate from draft edits; confirm lost progress and preserve keyboard focus. Offer fixed-scale Canvas and HTML pixel/metric inspection at a shared sampled tick.
+4. Preserve experiment v1 and its storage slot; add separately validated substrate-run v1 definitions, schema/example, portable JSON, and failure-safe local persistence. Exports restart, not resume.
+5. Preserve the original 36 tests and verify the new model against independent fixtures. Compare production UI and full reference trajectories in Chromium and Firefox. Record measured performance and remaining limits in [verification](phase-1-verification.md).
+6. Propose the implementation in an unmerged PR. Organism genesis, multi-scale dynamics, neural learning, evolution, morphogenesis, autonomous batches and checkpoints remain planned.
