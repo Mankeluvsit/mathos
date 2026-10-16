@@ -1,22 +1,21 @@
 # Mathos development handoff
 
 ## Authority
-Repository: Mankeluvsit/mathos. Read AGENTS.md and docs/specification.md first. The current branch for infrastructure review is `chore/opencode-infrastructure-handoff`.
+Repository: Mankeluvsit/mathos. Read AGENTS.md, docs/specification.md, and docs/capability-status.md first. Infrastructure review branch: `chore/opencode-infrastructure-handoff`.
 
-## Last known project state
-Documentation on the default branch reports Phase 0 merged, with Phase 1 deterministic substrate and dark dashboard work on a review branch. Confirm current PR/merge status before asserting that these features are in main. Phases 2–6 remain planned per docs/roadmap.md.
+## Verified project state (2026-10-16)
+Phase 0 and Phase 1 are merged into main. Phase 1 substrate implementation was merged in PR #3; the acceptance tester verified its ancestry and presence in main. PR #4 (`codex/integrated-life-baseline`, organism evolution) remains open and unapproved. Do not merge PR #4 or begin Phase 2 implementation without explicit approval.
 
-## Infrastructure changes proposed
-- OpenCode project configuration, no provider credentials and no pre-enabled MCP services.
-- Read-only reviewer agent and reusable handoff skill.
-- Setup guidance, capability matrix and a diagnostic script.
+## OpenCode acceptance test (user-supplied, 2026-10-16)
+- OpenCode v2.0.22 loaded project config and discovered the reviewer agent and mathos-handoff skill.
+- Node v24.22.0, npm, Git and authenticated gh CLI available on Bazzite.
+- `npm run check` passed: lint, typecheck, 83 tests, production build.
+- Playwright MCP was available through the user's **global** OpenCode configuration, not this repository. Browser inspection exercised a 64×64 seeded substrate, simulation progression, and mobile layout without retained source changes.
+- BrowserOS Neo and local MCP Sandbox were unavailable at the time; neither blocks Mathos development.
+- The user's local provider/model catalog was enumerated, but individual model execution was not verified by this acceptance test.
 
-## Verification needed on Bazzite
-- OpenCode installed and can load project instructions, reviewer agent and skill.
-- Model provider authentication works for the chosen provider.
-- Node.js 24, npm, git, and optionally gh and Playwright browser dependencies available.
-- npm ci, npm run check, browser checks and optional benchmarks pass.
-- GitHub permissions permit branch and PR workflows.
+## Infrastructure boundaries
+This repository deliberately does not include credentials or enable remote MCP servers. A fresh clone needs local OpenCode provider authentication and optional browser tooling setup. See README.md and capabilities.md in this directory.
 
 ## Continuation
-Do not implement Phase 2 until approved. Inspect open PRs and status before modifying simulation code. Keep Mathos application offline/local-first. Never commit secrets, merge without approval, or equate configuration presence with verified tool functionality.
+Fix any new diagnostic issues before merging infrastructure PR #5. Confirm PR and branch state afresh before development. Preserve offline/local-first application behavior. Never commit secrets or merge without explicit approval.
