@@ -1,8 +1,0 @@
-{
-  "format": "mathos-experiment",
-  "schemaVersion": 1,
-  "name": "First universe",
-  "seed": 42,
-  "universe": { "width": 64, "height": 64 },
-  "genesis": { "mode": "primordial" }
-}

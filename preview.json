@@ -1,0 +1,11 @@
+{
+  "format": "mathos-preview-build",
+  "sourceRepository": "Mankeluvsit/mathos",
+  "sourceCommit": "008fb03592952becd23ff5f816b05ecfb8a1ae69",
+  "experimental": true,
+  "files": {
+    "index.html": "8c4dbb0a4a3b199c408319587c3618b5a6a35bddb98663949872ee0e3df18d4a",
+    "assets/index-Ap2xkKWx.css": "c9439cadd1eddaf1604316b94468df49d2aff672802b75e51eeb5739776f96ed",
+    "assets/index-c838bbM3.js": "e4330a63c51cfacd4e7fa7be154c624fadf93c459a1a854a28a27cd9dbbc4eb0"
+  }
+}
