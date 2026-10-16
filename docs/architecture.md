@@ -2,7 +2,7 @@
 
 ## Implemented foundation and reference substrate
 
-Static React application built with Vite and strict TypeScript. Foundation controls retain experiment-v1 editing, validation, JSON and localStorage. The explicitly opened substrate lab adds a versioned integer transport reference model. Primordial/seeded organism genesis and later life systems remain planned.
+Static React application built with Vite and strict TypeScript. Foundation controls retain experiment-v1 editing, validation, JSON and localStorage. The dark dashboard’s explicitly opened substrate lab adds a versioned integer transport reference model. Primordial/seeded organism genesis and later life systems remain planned.
 
 ```text
 React configuration controls → domain validation → small localStorage/JSON definitions
@@ -36,3 +36,7 @@ A worker may host the same reference semantics after profiling justifies it. Wor
 No external requests, remote fonts, authentication, analytics or cloud runtime dependencies. npm and GitHub Actions are development infrastructure. Static assets use relative URLs; a local HTTP server is sufficient. Offline installation/reload caching is deferred.
 
 Reproducibility is scoped to named engine/rule/RNG/initializer versions and known fixtures. Node, Chromium and Firefox match the independent reference fixtures; this does not establish equivalence for untested future algorithms or every browser/platform. See [Phase 1 verification](phase-1-verification.md) for timings, memory measurements and practical limits. Bound dimensions, import size, ticks, callback batches and UI sampling before adding performance infrastructure.
+
+## Responsive presentation boundary
+
+Desktop model/viewport/inspection regions share one runtime. Mobile Viewport/Setup/Inspect switches presentation through CSS while keeping the components and runtime mounted. Focus mode is scoped to desktop widths. View-only palette lookup tables change Canvas colors, never engine values or configuration formats. The owner-provided shared conversation is recorded in product-context.md as contextual design evidence; it does not add remote services or unimplemented subsystems.

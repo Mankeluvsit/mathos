@@ -21,7 +21,7 @@ Configurations are stored only in this browser and origin. Export JSON for a por
 
 - [Master specification](docs/specification.md)
 - [Architecture](docs/architecture.md) and [design decisions](docs/decisions/README.md)
-- [UX requirements](docs/ux-requirements.md)
+- [UX requirements](docs/ux-requirements.md) and [product context / visual direction](docs/product-context.md)
 - [Simulation model](docs/simulation-model.md)
 - [Data format](docs/data-format.md) and [JSON Schema](schemas/experiment.schema.json)
 - [Roadmap](docs/roadmap.md) and [capability status](docs/capability-status.md)
@@ -30,9 +30,13 @@ Configurations are stored only in this browser and origin. Export JSON for a por
 
 GitHub is the authoritative source of truth. Documentation describes both current behavior and planned capabilities; consult capability status before treating a design as implemented. No license has been selected.
 
+## Dashboard previews
+
+See the [desktop and phone review captures](docs/previews/README.md) and [shared-concept context](docs/product-context.md). The dark laboratory connects the same rule, field and measurements; phone navigation preserves the run across Viewport, Setup and Inspect.
+
 ## Try the testable phase
 
-1. Start the app, follow **Go to substrate lab**, and choose **Open substrate lab**.
+1. Start the app, choose **Open substrate lab** in the central workspace. On a phone, this opens Setup.
 2. Set the experiment draft seed/dimensions above, choose **Center impulse** or **Seeded uniform noise**, then **Prepare substrate from draft**. The run starts paused.
 3. Use **Step** for one tick or **Start/Pause** for animation. Total resource units remain constant while the field redistributes. Inspect any pixel through its x/y controls.
 4. Reset to reproduce the initial field. Saving/exporting a **run definition** preserves inputs and restarts at tick zero; it is not a checkpoint.

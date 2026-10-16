@@ -22,3 +22,7 @@ This table describes code on this branch; it becomes the default-branch baseline
 ## Phase 1 delivery boundary
 
 The owner approved Phase 1 implementation. Its code is on the implementation review branch until explicitly merged. See [verification](phase-1-verification.md). Seeded noise is an initializer, not seeded organism genesis. The scalar field is a mathematical reference substrate, not artificial life. Phase 0 files remain compatible. Learning, evolution, morphogenesis, organism genesis, multi-scale coupling, checkpoints and autonomous experiments are still planned.
+
+## Dashboard presentation revision
+
+Implemented on the review branch: dark colorized dashboard, desktop model/viewport/inspector arrangement, intermediate-width reflow, mobile Viewport/Setup/Inspect navigation, desktop focus mode, and three render-only palettes. See [product context](product-context.md) for the connection to the owner-provided concepts. Simulation state is preserved across presentation changes; future life-system mockup panels are not presented as implemented.

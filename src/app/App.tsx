@@ -23,6 +23,8 @@ function localStore(): Storage {
 }
 
 export function App() {
+  const [mobileView, setMobileView] = useState<'universe' | 'setup' | 'inspect'>('universe');
+  const [focusMode, setFocusMode] = useState(false);
   const [draft, setDraft] = useState(() => makeDraft(DEFAULT_EXPERIMENT));
   const [message, setMessage] = useState('Ready. Your configuration stays on this device.');
   const [error, setError] = useState(false);
@@ -58,23 +60,23 @@ export function App() {
 
   return (
     <>
-      <a className="skip-link" href="#configuration">Skip to configuration</a>
+      <a className="skip-link" href="#configuration" onClick={() => setMobileView('setup')}>Skip to configuration</a>
       <header className="masthead">
-        <a className="wordmark" href="#">MATHOS<span>LOCAL LABORATORY</span></a>
-        <span className="phase">Phase 1 · Pixel substrate</span>
+        <a className="wordmark" href="#substrate-lab" onClick={() => setMobileView('universe')}><span className="brand-mark" aria-hidden="true">⬡</span><span>MATHOS<small>MATHEMATICS → LIVING SYSTEMS</small></span></a>
+        <nav className="desktop-navigation" aria-label="Workspace shortcuts">
+          <a href="#substrate-lab">Universe</a><a href="#configuration" onClick={() => setFocusMode(false)}>Model</a><a href="#field-inspector" onClick={() => setFocusMode(false)}>Inspect</a>
+        </nav>
+        <div className="header-status"><span className="local-badge">LOCAL ONLY</span><span className="phase">Phase 1 · Reference substrate</span><button type="button" className="focus-toggle" aria-pressed={focusMode} onClick={() => setFocusMode(!focusMode)}>{focusMode ? 'Exit focus' : 'Focus viewport'}</button></div>
       </header>
-      <main>
+      <main className={`dashboard ${focusMode ? 'focus-mode' : ''}`} data-mobile-view={mobileView}>
         <section className="intro" aria-labelledby="intro-title">
-          <p className="eyebrow">MATHEMATICS / ARTIFICIAL LIFE</p>
-          <h1 id="intro-title">A universe starts<br />with a question.</h1>
-          <p>Prepare a local experiment. Explore the foundations of a pixel-level world, one deliberate step at a time.</p>
-          <a className="lab-link" href="#substrate-lab">Go to substrate lab ↓</a>
-          <p className="scope">Available now: local configurations and deterministic pixel transport. Organism genesis, learning, and evolution are planned.</p>
+          <div><p className="eyebrow">THE MATHEMATICAL LIFE LABORATORY</p><h1 id="intro-title">One model. A world to explore.</h1></div>
+          <p className="scope">Observe → interact → understand.<br />A deterministic pixel substrate; organism systems are planned.</p>
         </section>
-        <div className="workspace">
+        <div className="dashboard-grid">
           <section className="panel configuration" id="configuration" aria-labelledby="config-title" tabIndex={-1}>
-            <p className="eyebrow">01 / DEFINE</p>
-            <h2 id="config-title">Experiment configuration</h2>
+            <p className="eyebrow">01 / MODEL</p>
+            <h2 id="config-title">Experiment configuration</h2><p className="panel-description">Define the inputs. Prepare the world.</p>
             <form noValidate aria-describedby="feedback" onSubmit={(event) => {
               event.preventDefault();
               report(() => {
@@ -126,13 +128,13 @@ export function App() {
             <p className="hint">Load and import replace the unsaved draft. Saving replaces the local configuration. Browser storage can be cleared; export a backup.</p>
             <p id="feedback" role="status" aria-live="polite" aria-atomic="true" className={`feedback ${error ? 'error' : ''}`}>{importing ? 'Reading configuration…' : message}</p>
           </section>
-          <section className="panel observation" aria-labelledby="preview-title">
-            <div className="panel-heading"><div><p className="eyebrow">02 / OBSERVE</p><h2 id="preview-title">The pixel substrate</h2></div><span className="tag">STATIC</span></div>
-            <PixelPreview width={previewDimension(draft.width)} height={previewDimension(draft.height)} />
-            <div className="next"><h3>A foundation for what comes next</h3><p>Two genesis modes, multi-scale worlds, morphogenesis, evolution, neural learning, and autonomous experiments remain planned.</p><p>This preview stays static. Open the substrate lab below to test mathematical pixel transport.</p></div>
-          </section>
+          <SubstrateControls getExperiment={current} preview={<PixelPreview width={previewDimension(draft.width)} height={previewDimension(draft.height)} />} onPrepared={() => setMobileView('universe')} onSetup={() => setMobileView('setup')} />
         </div>
-        <SubstrateControls getExperiment={current} />
+        <nav className="mobile-navigation" aria-label="Mobile workspace">
+          <button type="button" aria-pressed={mobileView === 'universe'} onClick={() => setMobileView('universe')}>Viewport</button>
+          <button type="button" aria-pressed={mobileView === 'setup'} onClick={() => setMobileView('setup')}>Setup</button>
+          <button type="button" aria-pressed={mobileView === 'inspect'} onClick={() => setMobileView('inspect')}>Inspect</button>
+        </nav>
       </main>
       <footer><span>MATHOS / PHASE 1</span><span>Local by design. Portable by choice.</span></footer>
     </>

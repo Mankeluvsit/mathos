@@ -68,3 +68,11 @@ At maximum dimensions, one field is 131,072 bytes and one signed delta buffer is
 This is one abstract conservative transport field. Integer rounding may leave small gradients stationary; neither physical diffusion accuracy nor spontaneous life is claimed. Initializer noise is not organism genesis. No neural learning, reproduction, evolution, morphogenesis, multi-scale coupling, arbitrary imported code, autonomous batches, checkpoints, IndexedDB, worker/GPU execution, authentication or backend is implemented.
 
 Definition export preserves reproducible inputs and always restarts at tick zero. It cannot resume the displayed tick. Browser storage is best effort and origin-specific; export a portable copy. Existing experiment v1 data is not migrated or overwritten by substrate storage.
+
+## Dashboard alignment revision
+
+The owner supplied the shared concept conversation and requested a dark colorized dashboard with device-specific UI. See [product context](product-context.md) and [four review captures](previews/README.md). The earlier light screenshot documented working substrate progress, not an approved final design.
+
+The revision uses a central desktop field, adjacent model controls and contextual inspection, an intermediate-width stacked inspector, desktop focus mode, and phone Viewport/Setup/Inspect views. Mobile playback stays in normal flow; secondary display controls move to Setup. Preparing a run focuses the viewport. Spectrum/Thermal/Grayscale are render-only palettes.
+
+All 83 existing tests, lint, types and production build pass. Chromium/Firefox workflow checks additionally verify palette changes, focus mode, desktop-to-phone resizing and mobile panel visibility without changing a paused tick or total. The core engine, RNG, rule versions, formats and independent trajectory fixtures are unchanged. The numeric transport benchmarks above remain measurements of that same engine; they do not measure the new dashboard's full drawing cost. The owner can judge visual alignment from the new multi-device captures. Screen-reader and real-mobile-device certification remain unclaimed.
