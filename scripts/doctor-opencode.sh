@@ -41,13 +41,13 @@ failed=0
 } 2>&1 | tee "$log"
 # wl-copy forks by default; avoid holding non-interactive tool sessions open.
 if command -v wl-copy >/dev/null 2>&1; then
-  if wl-copy --foreground < "$log" >/dev/null 2>&1 & clipboard_pid=$!; then
-    sleep 0.2
-    if kill -0 "$clipboard_pid" 2>/dev/null; then
-      echo "Clipboard handoff started (Wayland)."
-    else
-      echo "Clipboard transfer ended; report remains on disk."
-    fi
+  wl-copy --foreground < "$log" >/dev/null 2>&1 &
+  clipboard_pid=$!
+  sleep 0.2
+  if kill -0 "$clipboard_pid" 2>/dev/null; then
+    echo "Clipboard handoff started (Wayland)."
+  else
+    echo "Clipboard transfer ended; report remains on disk."
   fi
 elif command -v xclip >/dev/null 2>&1; then
   xclip -selection clipboard < "$log" >/dev/null 2>&1 && echo "Clipboard handoff started (X11)." || true
