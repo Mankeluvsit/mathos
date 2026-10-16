@@ -65,3 +65,7 @@ The ecology envelope has a [JSON schema](../schemas/ecology.schema.json) and [ex
 ## Ecology observation export v1
 
 Export observations produces mathos-ecology-observations version1: ecology-reference@2/mulberry32@1 provenance, validated version2 definition, current sampled tick and reason sampled|tick-limit, exact current metrics,20-step history samples and bounded lineage with birth genes, mutation before/after, roots and measured intake/movement/death outcomes. History samples can precede the current tick. Arrays/records are copied; no current food grid or resume-state is included. This export-only format is not a checkpoint, import contract or persistent history store.
+
+## Development measurement export v1
+
+`scripts/ecology-baseline.mjs` writes export-only `mathos-ecology-baseline` version1. It records ecology-reference@2/mulberry32@1, fixed-controller identity and `learning:false`, source commit/dirty flag, Node version, the six declared seeds and 1,600-step horizon. Each run has its validated starting definition, actual ticks/termination, first extinction tick (or null), peak population, total lineage intake, exact endpoint metrics, and populationTicks (sum of living population after ticks1 through the horizon, excluding tick0). It reports every seed and continues to the declared horizon after extinction. Results are local development measurements, not a checkpoint, imported format, learning comparison or proof of improvement. Output files must be new and stay out of source control. [Task/evidence contract](handoff/NEXT.md).

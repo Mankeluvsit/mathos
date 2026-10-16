@@ -6,6 +6,8 @@ A fully local-first, browser-based platform for mathematical visualization and p
 
 [Open the browser preview](https://mankeluvsit.github.io/mathos/) · [Correction plan](docs/observable-life-plan.md) · [Review evidence](docs/turning-body-verification.md)
 
+**Continuing in OpenCode:** [resume here](RESUME.md) · [handoff and free-model choices](HANDOFF.md) · [Bazzite/macOS/Linux/Windows setup](docs/handoff/SETUP.md). The project is mid-development; lifetime learning is the next milestone. The handoff also supplies a six-seed fixed-controller measurement baseline, without changing the live simulation.
+
 ## Run locally
 
 Use Node.js 24 and npm. Installation needs access to the npm registry; the running application uses no network services.

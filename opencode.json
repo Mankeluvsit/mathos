@@ -1,0 +1,43 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "share": "disabled",
+  "default_agent": "mathos",
+  "model": "opencode/deepseek-v4.1-flash-free",
+  "small_model": "opencode/deepseek-v4.1-flash-free",
+  "enabled_providers": ["opencode"],
+  "provider": {
+    "opencode": {
+      "whitelist": ["deepseek-v4.1-flash-free", "longcat-2.5-preview-free", "big-pickle"],
+      "options": { "apiKey": "public" }
+    }
+  },
+  "subagent_depth": 1,
+  "instructions": ["RESUME.md", "docs/handoff/WORKFLOW.md"],
+  "compaction": { "auto": true, "prune": true, "reserved": 12000 },
+  "watcher": { "ignore": ["node_modules/**", "dist/**", ".artifacts/**", ".git/**"] },
+  "permission": {
+    "edit": "allow",
+    "bash": {
+      "*": "ask",
+      "git status*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
+      "git show*": "allow",
+      "git branch --show-current": "allow",
+      "npm run *": "allow",
+      "npm test*": "allow",
+      "node scripts/*": "allow",
+      "python3 scripts/*": "allow",
+      "python scripts/*": "allow",
+      "py -3 scripts/*": "allow",
+      "git push*": "ask",
+      "gh pr merge*": "deny",
+      "git reset --hard*": "deny",
+      "git clean*": "deny"
+    },
+    "task": { "*": "deny", "mathos-review": "ask", "mathos-scout": "ask" },
+    "external_directory": "ask",
+    "doom_loop": "ask"
+  }
+}

@@ -5,7 +5,7 @@
 - GitHub repository `Mankeluvsit/mathos` is the source of truth. Keep specifications, decisions, code, and tests versioned together.
 - Read `docs/specification.md`, `docs/architecture.md`, `docs/capability-status.md`, `docs/product-context.md`, and the relevant model/format/UX documents before changing behavior.
 - Preserve pixel-based artificial life, primordial and seeded genesis, multi-scale simulation, neural learning, evolution, morphogenesis, configurable universe rules, and autonomous experimentation as the confirmed direction.
-- Phase 0 establishes foundations; the approved Phase 1 adds the deterministic reference substrate. The owner subsequently authorized the integrated baseline in docs/integrated-baseline-plan.md; implement that bounded scope without another planning approval. Keep lifetime learning and other deferred systems planned. Follow `docs/roadmap.md` and the user's approved scope.
+- Phase 0 establishes foundations; Phase 1 and the integrated/oriented baselines are delivered as described in the roadmap. The owner authorized continuing to a bounded lifetime-learning milestone and preparing an OpenCode handoff. Follow `docs/handoff/NEXT.md`: learning is still unimplemented, and its explicit contract/oracle precede integration. Keep other deferred systems planned.
 - Owner review requires recognizable organisms and observable behavior, drawing on Life Engine and The Bibites. Read docs/observable-life-plan.md. Passing accounting tests or displaying a changing pixel field is insufficient product acceptance. Preserve the mathematical laboratory and both genesis directions; never claim the references’ full feature sets are implemented.
 - Label capabilities implemented, planned, or experimental with evidence. Never present a preview as an active simulation or emergence as a guaranteed result.
 
@@ -30,3 +30,12 @@
 - Report access failures and blockers immediately. Keep the user informed during ongoing work; do not wait silently on network approvals.
 
 - Heading is scientific state: body occupancy, mouths, sensing, placement, collision, selection and rendering must share transformed geometry. Keep prior engine versions replayable when changing rules. Observe body variation/competition before claiming adaptive success.
+
+## Continuation in OpenCode
+
+- Read `RESUME.md`, `docs/handoff/STATE.md` and the current task card in `docs/handoff/NEXT.md`. Update written state before ending or compacting; chat memory is not authoritative.
+- Owner environment: Bazzite Linux. Use the documented Ubuntu Distrobox setup for development dependencies. Model access must be free and require no personal API key. Use `npm run agent`; do not enroll in paid services or silently fall back to a paid model.
+- Owner selected automatic local edits/checks and review before publishing. Complete concrete local work before asking to publish future changes. This handoff package itself was explicitly requested for repository commit. Never merge automatically.
+- Keep one writer and one bounded task. Subagents are optional and require an explicit request (such as `/mathos-review`) or permission; no recursive or automatic parallel writers.
+- Run `npm run verify` for complete delivery evidence; `npm run verify:core` omits real browsers. For handoff/config edits also run `npm run handoff:check` and the actual OpenCode parser via `npm run opencode:check` with version 1.19.2.
+- Distinguish catalog/configuration validation from successful model inference. The preparation workspace's free inference probe returned HTTP 403; do not claim that hosted or local inference was tested on the owner's machine.

@@ -31,3 +31,7 @@ The [observable-life correction](observable-life-plan.md) is the current accepta
 ## Current approved increment
 
 Turning and body geometry → bounded inherited cell layouts → actual food/space/energy tradeoffs → family/trait/population observations are delivered together in ecology-reference@2. The next planned increment is lifetime neural learning, with explicit observations/actions, training budget, inheritance policy and baseline comparisons before claiming improvement. The current preview is an owner review point, not completion of all phases.
+
+## Continuation and handoff
+
+The owner authorized continued local work and an OpenCode handoff. [Task cards](handoff/NEXT.md) break the learning milestone into contract → pure controller/oracle → v3 integration → paired comparison → inspection → evidence. L0 now provides a bounded six-seed v2 measurement command; it does not implement lifetime learning or a v3 learning ablation. [Resume](../RESUME.md) and [state](handoff/STATE.md) carry progress between agents. Publish subsequent feature work only after owner review; keep merges manual.

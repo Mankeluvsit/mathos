@@ -1,0 +1,11 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "browser": {
+      "type": "local",
+      "command": ["npx", "--yes", "@playwright/mcp@0.0.83", "--headless", "--browser", "firefox", "--isolated"],
+      "enabled": true
+    }
+  },
+  "permission": { "browser_*": "ask" }
+}

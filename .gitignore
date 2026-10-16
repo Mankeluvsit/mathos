@@ -10,3 +10,10 @@ coverage/
 
 __pycache__/
 *.pyc
+
+.artifacts/
+.playwright-mcp/
+.opencode/node_modules/
+.opencode/package.json
+.opencode/bun.lock
+.opencode/bun.lockb

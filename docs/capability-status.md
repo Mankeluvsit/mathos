@@ -16,6 +16,7 @@ This table describes code on this branch; it becomes the default-branch baseline
 | Multi-scale simulation | Experimental baseline | Pixel/organism/ecosystem inspection; full Phase 3 remains planned |
 | Morphogenesis and evolution | Experimental baseline | Bounded growth/reproduction/mutation; full Phase 4 remains planned |
 | Neural lifetime learning | Planned | Phase 5 |
+| OpenCode continuation and fixed-controller measurements | Implemented development tooling | Pinned agent configuration, setup/verification workflow, six-seed v2 CLI measurements; no learning treatment or app runtime service |
 | Autonomous experiments and checkpoints | Partial baseline | Local seed comparisons implemented; checkpoints and full Phase 6 planned |
 | Worker execution, IndexedDB, installed offline caching | Planned decisions | Add only with evidence; not shipped |
 
