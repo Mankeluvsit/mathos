@@ -1,6 +1,6 @@
 # MATHOS master specification
 
-Status: authoritative product direction; Phase 1 reference-substrate implementation baseline on the review branch. Requirements below are planned unless identified as implemented in `capability-status.md`. Changes are reviewed in GitHub pull requests.
+Status: authoritative product direction; Phase 1 merged, integrated experimental baseline on the review branch. Requirements below are planned unless identified as implemented in `capability-status.md`. Changes are reviewed in GitHub pull requests.
 
 ## Purpose
 
@@ -55,3 +55,31 @@ The owner approved the [Phase 1 design](phase-1-plan.md) and ADRs 0004–0006.
 4. Preserve experiment v1 and its storage slot; add separately validated substrate-run v1 definitions, schema/example, portable JSON, and failure-safe local persistence. Exports restart, not resume.
 5. Preserve the original 36 tests and verify the new model against independent fixtures. Compare production UI and full reference trajectories in Chromium and Firefox. Record measured performance and remaining limits in [verification](phase-1-verification.md).
 6. Propose the implementation in an unmerged PR. Organism genesis, multi-scale dynamics, neural learning, evolution, morphogenesis, autonomous batches and checkpoints remain planned.
+
+## Integrated baseline acceptance
+
+The owner authorized meshing narrow phase slices into a working skeleton, merging PR #3 and continuing until a working review is needed. [Integrated plan](integrated-baseline-plan.md) and ADR 0007 define the authorized scope and exact model. Preserve prior formats/reference behavior; verify deterministic genesis/lifecycle, exact resource accounting, bounded organism/lineage growth, fixed neural decisions and cancellable local comparisons. Neural lifetime learning and checkpoint resume remain planned. Deliver evidence and a separate unmerged PR for owner review.
+
+## Observable-life review correction
+
+The owner's hands-on review rejected the indistinct pixel-growth experience. The next browser preview opens directly into the [observable ecology plan](observable-life-plan.md). Acceptance includes separated functional pixel bodies, discrete food, actual movement/intake/metabolism, observable reproduction/death, individual selection, inherited traits and explained decisions. Mathematics remains connected to real behavior and available through detailed inspection. These requirements complement deterministic/accounting tests; those tests alone cannot establish product acceptance. Existing reference models/formats remain unchanged and accessible under technical labs.
+
+## Oriented bodies and visible inheritance milestone
+
+The owner approved continuing the plan with turning added. Ecology-reference@2 now makes heading physical: rotate whole bodies, turn before forward movement, reject swept collisions, and rotate mouths/front sensing. Inherited dart/grazer/scout layouts develop functional cells with different intake/range/cost tradeoffs. Family provenance, mutation details and measured population/plan histories connect visible behavior to evolution. See ADR0009 and turning-body-plan.md. This implements the next bounded body/competition/observation milestone; lifetime learning remains the subsequent experimental milestone, not a delivered feature.
+
+## Learning preparation boundary
+
+The owner authorized continued development here while maintaining the OpenCode handoff. The [learning plan](learning-plan.md) and ADR0010 establish the next bounded milestone. L1/L2 delivered its contract and independently checked controller. The local L3–L5 implementation now connects v3 lifecycles, frozen-versus-learning comparisons and readable inspection. L6 verification and owner review remain the delivery gate. Initial outcomes are mixed; no general improvement claim follows.
+
+## Current inherited-body increment
+
+The owner authorized continuing from richer-body development. ADR0011 and inherited-body-plan.md define a new bounded v4 implementation: inherited3–6-cell connected-prefix genomes, real organ effects, resource-funded development, structural birth mutations, readable blueprint/growth/ancestry and version-correct learning comparisons. Old v1–3 remain replayable. The implementation status and evidence are in capability-status/handoff/STATE; historical phase exclusions above do not mean later delivered features are absent. Primordial spontaneous life, arbitrary anatomy editing, predation, general universe rules, workers, checkpoints and open-ended research remain planned.
+
+## Owner-approved configurable testing increment
+
+The owner approved the desktop/mobile concept and requested optional JSON, dashboard controls and a test field prepared for hands-on testing with copy/paste analytics for the agent. ADR0012 is the exact contract. Acceptance includes valid JSON/control synchronization with hidden draft preservation; bounded live-safe edits and explicit reset-only settings; four prepared cases and accessible field tools; exact resource accounting and deterministic edit replay; completed/partial/edited labels; useful metrics/notes and one-action report copy/download with fallback; desktop and short-phone verification. This is a bounded local laboratory, not a completed arbitrary universe editor or autonomous research system.
+
+## Readable inherited-body differences
+
+Living world model4 and Test field show read-only north-facing parent/offspring birth blueprints, explicit ordered-locus differences and a bounded recent accepted-change list. Growth, learning and inherited changes remain distinct; selection cannot alter scientific state. Missing parents and dead selections are handled explicitly. Family map accents, lineage trees and new effects remain planned. [Visual contract and verification](evolution-visuals.md); actual delivery status is in handoff/STATE.md.

@@ -36,3 +36,67 @@ Save/load and JSON import/export use separate run-definition actions and explain
 The owner-provided [product context](product-context.md) establishes the dark, colorized laboratory direction. Desktop uses model inputs, central field and contextual inspection; tablet widths reflow inspection below the field. Mobile uses Viewport / Setup / Inspect buttons with pressed state and preserved runtime state. Preparing explicitly focuses the new viewport. Desktop focus mode, mobile view changes and palette changes never reset the active run.
 
 Use the documented neutral/blue surfaces with cyan/blue model accents, purple inspection, green exact totals and amber status. Fixed-scale Spectrum/Thermal/Grayscale palettes affect rendering only. Show the actual transport equation next to its measured field information; do not imitate concept charts with invented data. The previous light-theme image represented implementation progress, not an approved final visual design.
+
+## Integrated experimental life lab
+
+Open life baseline confirms leaving the reference substrate. A seeded 32×32 world starts paused, with working Start/Step/Reset. Life draft fields do not change the active definition. Reset/replacement pauses and uses native keyboard-operable discard confirmation; cancelling preserves the run. Save/load/import/export have separate life labels and a separate storage slot. Failed import/load preserves valid state; blocked storage keeps export available.
+
+Desktop model/world/inspector panels reflow into mobile Viewport/Setup/Inspect with 44px controls. Canvas clicking is optional: coordinate inputs and organism ID provide a keyboard alternative. Exact field, organism, lineage, controller score and ecosystem accounting share the same sampled tick. Blue resource colors saturate above 2048 and are labeled; HTML values remain exact. A fixed controller is not labeled learning.
+
+Comparisons live under Setup on phones, pause but do not overwrite interactive state, report progress/status, allow cancellation and export partial or completed endpoints. Hidden tabs pause interactive execution and cancel comparisons. No per-tick screen-reader announcements. Full screen-reader/Safari/physical-device conformance remains unverified.
+
+## Observable life first experience
+
+Open directly into the living world, paused, with a short explanation and consistent food/body/mouth/motor legend. Boundaries and directional marks identify bodies. Select through the Canvas or a labeled organism dropdown. Show actual behavior, energy, age, family and inherited traits before technical equations. Describe dead/absent selections honestly. Quantities must come from the same copied sampled tick.
+
+Phone users receive World/Organism/Results/Setup, magnification and optional selected-organism camera follow. Scrolling/panning, selecting and magnification cannot change engine state. Desktop retains a world-first layout. Reset/replacement pauses and confirms discarded progress. Explicit save/load/import/export handles corrupt/oversized files and unavailable storage. Existing technical labs remain reachable with clear scope.
+
+## Physical facing and visible evolution
+
+Body outlines/cells/nose rotate together. A turn remains at the anchor; forward travel follows the nose. Mouth and sensor geometry must match the visible cells, including collision, Canvas click selection, magnification and follow. Text names the selected heading, body plan, forward distance and turn count. Slow playback makes individual actions inspectable.
+
+Inherited plans and added sensor color have text equivalents. Show the selected family path, exact mutation before/after and children, plus real plan/population history and family intake/birth/death outcomes. All graph samples have an HTML table. State that initial plans are authored, children inherit/mutate them, and v1/v2 controllers stay fixed. Explicit model selector distinguishes the old fixed-facing replay from v2; changing it changes only draft settings until preparation.
+
+Export observations downloads the current measured histories/family records with model provenance. Keep this separate from starting-setting export and label it as non-resumable.
+
+On phones, starting playback from World focuses the world viewport; a single fixed playback dock above the four-destination navigation keeps Start/Pause, One step, speed and current step reachable in every view. Enabling camera follow focuses the world without changing simulation state.
+
+## Connected learning inspection and comparisons (local v3)
+
+Default local setup uses model3 with learning on. Show its active on/off status beside the model identity. The labeled Enable lifetime learning checkbox edits starting settings only; Prepare new world applies it after confirming discarded progress. V1/v2 remain selectable for replay. Children inherit traits but not learned weights.
+
+In Organism, show the measured intent, actual action, reward breakdown and update count before optional detailed tables. Distinguish exploring from highest estimated value, blocked actions from intent, juvenile waiting from inactive failure, and terminal transitions from continuing ones. Explain that changed weights do not prove improved survival. Detailed inputs, four rows of weights and actual clipped changes use accessible tables and horizontal table scrolling, never page overflow.
+
+The Results tab on phones provides an explicit twelve-world learning comparison, alongside population/family history and recent events, separate from the interactive world; desktop retains these panels together. Pause/preserve that world when starting; support cancel, hidden-tab cancellation and export of partial/completed results. Show every seed and signed on-minus-off differences only for completed pairs. Report extinction, update counts and device-dependent compute times in detailed results. No seed filtering or manufactured success message. Static captures and automated320/390px checks supplement numerical tests; full assistive-technology/device certification is not claimed.
+
+## Terminal life appearance
+
+The local default world appearance is Terminal glyphs; Classic cells preserves the prior map rendering. Appearance and Activity highlights are labeled, keyboard-operable controls inside View controls, below the world. Explain that highlights only decorate actual observed changes during playback and do not start or pause the organisms. Organ roles have distinct shapes as well as colors. The main legend and anatomy colors agree with the active presentation. Selection brackets/ID and heading glyphs reflect the actual shared geometry.
+
+Brief travel/turn/feeding/birth/weight cues derive from observed transitions. Faster sampled playback may omit intermediate motion cues; the inspector remains authoritative for exact values. Pause produces a still exact world. Reduced motion, effects off and Classic disable the animation loop; the OS preference is respected even if changed while running. No per-frame live-region announcements or flashing full-screen effects. [Research and acceptance](visual-direction-cogmind.md).
+
+## Mobile organization correction
+
+The first phone screen prioritizes the world and selected-organism summary. Keep view preferences and the reading guide in separate disclosures below the map. Organism shows the selected body and learning; Results holds comparisons/history/events; Setup groups new-world settings, Save & transfer, restart and technical references. Do not scatter these panels through World or silently start playback when changing an effect.
+
+Switching destinations preserves runtime, selection, comparisons and view preferences. Move focus to the destination heading and return to the top on phones. Prepare/restart retain explicit discard confirmation. Keep Start/Pause, One step and speed visible above a four-button bottom navigation, with44px touch targets, safe-area padding, scroll margins and no overlay-covered controls. Support320px phones,390/430px phones and landscape; reflow to the desktop workspace without losing state. Reduced motion disables cosmetic highlights while explicit playback can still advance the scientific world.
+
+Native touch/browser checks are in scripts/browser-mobile.mjs. These verify actual progression with effects on/off, exported Node replay equality, navigation/state preservation, independent comparison cancellation, control reachability, viewport placement and zero external runtime requests. Headless checks do not establish physical-device or Safari certification.
+
+## Inherited-body inspection
+
+Model4 is the new verified default;1–3 remain explicit replay options. Learning and structural mutation settings edit drafts only. Show active mutation on/off beside model/learning, and label founder tags as origins, not current anatomy. Organism shows north-facing birth blueprint, developed versus waiting cells, actual role counts, upkeep/move costs and accepted/rejected birth proposal. A dead selection retains its last developed count and death status. World physical orientation continues to use the shared parts.
+
+Setup’s optional body-change example loads a labeled starting draft only, with explicit Prepare/discard behavior. Results can inspect the latest actual accepted body change without advancing/resetting the world. The illustrative seed is disclosed separately from six-seed outcomes; it does not inject a successful mutation. Learning comparisons explicitly run model3 or4 as selected. Preserve all four phone destinations and single playback dock.
+
+## Owner-run controlled testing
+
+Living world and Test field are separate preserved/paused workspaces. Desktop quick controls, field and optional JSON; phone Field/Controls/Results plus one persistent playback dock. JSON is hidden by default, available from Field/Controls and can be hidden without losing draft text. Invalid text never mutates active state. Label reset-required fields and make Apply/Prepare distinct. Prepared test → Run/Step/Edit → notes → Copy test report is the owner workflow. Copy denial exposes selectable text; downloadable JSON is an alternative. Analytics show actual behavior and exact accounting, not a fabricated fitness verdict. Pointer tools have coordinate and keyboard alternatives. Keep the actual map above the dock on tested short phones.
+
+## Independent desktop life columns
+
+Living world and its results stack independently of the organism/setup sidebar. Expanding an inspector must not insert a blank grid row below the world. Retain the bounded desktop content width; zooming out naturally makes it visually smaller. On phones, the existing four destinations remain separate with preserved state. Native layout regression checks cover1024,1600 and6400 CSS-pixel widths plus phone navigation.
+
+## Readable inherited-body differences
+
+Living world model4 and Test field show read-only north-facing parent/offspring birth blueprints, explicit ordered-locus differences and a bounded recent accepted-change list. Growth, learning and inherited changes remain distinct; selection cannot alter scientific state. Missing parents and dead selections are handled explicitly. Family map accents, lineage trees and new effects remain planned. [Visual contract and verification](evolution-visuals.md); actual delivery status is in handoff/STATE.md.

@@ -24,7 +24,7 @@ The pixel-life concept is the relevant visual reference. The earlier illustrated
 
 - Dark by default: background `#060c14`, panel `#0c1725`, raised surfaces `#101f31`.
 - Primary text `#e0eaf6`, secondary text `#a0b2c9`, cyan `#6cdaee`, purple `#bfa5ff`, green `#81dfb5`, amber `#f5c47d`.
-- Thin panel boundaries, compact labeled controls, restrained color, and system fonts. Mathematical values use monospace. No external font/CDN or decorative animation.
+- Thin panel boundaries, compact labeled controls, restrained color, and system fonts. Mathematical values use monospace. No external font/CDN. The later Cogmind-inspired life pass permits brief optional event cues tied to observed model changes; no ambient decorative loop.
 - Spectrum, Thermal and Grayscale are view-only palettes with a fixed 0–65535 legend. A palette change cannot alter the seed, tick, active definition or values.
 - Light mode, arbitrary panel docking, advanced equation editors and other concept controls are not added merely to imitate the mockups.
 
@@ -43,3 +43,21 @@ Touch controls are at least 44px high, with safe-area spacing, visible keyboard 
 Desktop, phone viewport, phone setup and phone inspector previews accompany this revision. They show the working Phase 1 reference model, not organisms or future scientific capabilities. Functional browser checks cover both Chromium and Firefox, panel visibility/state preservation, palettes, keyboard controls, storage paths and reflow. The owner can judge visual alignment from multiple device views; an isolated desktop screenshot is not sufficient evidence of the mobile design.
 
 [Review the desktop and three phone captures](previews/README.md).
+
+## Owner review: observable artificial life
+
+After trying the live integrated preview, the owner reported that it looked like pixels turning into mush and supplied [Life Engine](https://thelifeengine.net/) and [The Bibites](https://www.thebibites.com/) / [its channel](https://www.youtube.com/c/TheBibitesDigitalLife). Life Engine explicitly describes colored cells with functions, reproducing/competing/evolving organisms and world/organism controls. The Bibites describes gene-dependent appearances, neural brains and biological/energy processes. These primary references were read; no source code/assets were imported.
+
+The relevant requirement is comprehensible organism behavior: distinguish bodies from food/environment, observe locomotion/intake/survival/offspring, select an organism and understand its traits and decisions. MATHOS also retains its mathematics, reproducibility, pixel basis, configurable-universe direction and local-first constraints. The old proof did not satisfy that experience. [Correction plan](observable-life-plan.md) and ADR 0008 define the new independently versioned model, not a retroactive claim that life-reference@1 already delivered it.
+
+## Owner feedback: facing and organism movement
+
+The owner observed that bodies moved but always faced horizontally. The approved correction makes orientation functional, rather than changing the arrow alone. The next body-evolution/competition/observability milestones are connected to it. The point remains recognizable artificial life with mathematics that explains the world. No lifetime-learning claim is introduced by fixed directional controller evaluation.
+
+## Owner-requested Cogmind visual translation
+
+The owner requested a review of Cogmind's colors and animation and a translation into pixel life. The [researched visual direction](visual-direction-cogmind.md) records primary sources and actual frame inspection. The local build now offers original terminal-like geometric organ glyphs, a quieter dark/green world and bounded observation-driven effects, alongside Classic cells. This extends the established dark/colorized dashboard and keeps the Life Engine/Bibites requirement for recognizable functional organisms. [Actual review captures](previews/terminal/README.md); public deployment remains unchanged pending approval.
+
+## Owner feedback: phone controls and organization
+
+The owner reported that tapping Animate appeared to do nothing and the phone UI felt scattered. The former checkbox controlled cosmetic activity cues only, not simulation playback. The correction makes that distinction explicit as Activity highlights, keeps a single Start/Pause/One step/speed dock reachable, puts the map first, and separates World / Organism / Results / Setup. View controls and guidance are disclosed below the map; comparisons/history/events belong in Results and save/transfer/restart/technical references in Setup. This changes presentation, not organism rules or the learning objective.

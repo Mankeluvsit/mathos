@@ -8,7 +8,7 @@ const stop = await startServer('preview', 4175);
 const browser = await chromium.launch({ headless: true });
 try {
   const page = await browser.newPage({ viewport: { width: 1600, height: 1040 } });
-  await page.goto('http://127.0.0.1:4175');
+  await page.goto('http://127.0.0.1:4175/?lab=reference');
   await page.getByLabel('Experiment name').fill('Substrate experiment 01');
   await page.getByRole('button', { name: 'Open substrate lab' }).click();
   await page.getByRole('button', { name: 'Prepare substrate from draft' }).click();

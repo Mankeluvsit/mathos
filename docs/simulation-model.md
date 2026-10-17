@@ -1,6 +1,6 @@
 # Simulation model specification
 
-Status: **Phase 1 reference transport implemented on the review branch; organism/life contracts remain planned**. This document preserves architecture while identifying scientific choices that require later proposals and experiments.
+Status: **Phase 1 merged; the integrated experimental reference below implements narrow life slices. Broader contracts remain planned.** This document preserves architecture while identifying scientific choices that require later proposals and experiments.
 
 ## Universe and pixels
 
@@ -54,3 +54,31 @@ Uniform-noise initialization consumes one mulberry32@1 uint32 draw per pixel in 
 For each undirected right/down edge exactly once, compute q = trunc((a - b) / d) from the old field, where d is 8 or 16. Subtract/add paired signed deltas, commit synchronously, then increment tick. Exact total is conserved, and results remain in bounds without clamping. Small gradients can stop changing due to integer quantization. Totals use a JavaScript Number without uint32 coercion.
 
 The current order is tick/limit validation, transport accumulation, commit, tick increment and observation. Full organism lifecycle ordering above remains planned. State contains frozen versioned configuration, tick, RNG state, field and exact sum/min/max; runtime snapshots copy field data. A run definition alone restarts at tick zero. See [verification](phase-1-verification.md) for independent fixtures and tested compatibility.
+
+## Experimental integrated reference
+
+A separate life-reference@1 model now implements the narrow slices specified in [ADR 0007](decisions/0007-integrated-life-baseline.md). Its resource-noise initialization, center-cell template, ordered lifecycle, integer perceptron, connected growth, asexual mutation/lineage and exact accounting are executable. The earlier planned sections retain the broader architecture; they are not claims of full implementation. Organism/neural/ecosystem inspectors all observe the same copied tick. Both genesis modes are reproducible; primordial has no spontaneous organism-generation mechanism.
+
+## Observable ecology reference
+
+[ADR 0008](decisions/0008-observable-ecology.md) defines a separate ecology-reference@1 model: 64×48 closed world, discrete food with measured sunlight input, eight authored founders in seeded mode, functional store/controller + mouth + motor bodies, directional integer food sensing, two-cell juveniles, bounded movement/development, maturation/cooldown/cost-limited reproduction, inherited trait mutation and starvation/age death. Genome variables affect sensing, response, persistence and lifespan; they do not yet encode arbitrary shapes. Stable ID priority and simple local steering are explicit limitations. Primordial is resource-only, not spontaneous organism emergence.
+
+Current equations: food score[d] = foodWeight×sum(floor(food/distance)) + inertia×indicator(previousDirection=d); resource ledger initial+sunlight = food+stored+8×bodyCells+dissipated. Seeded exploration is used when no food is sensed. This is fixed neural evaluation without lifetime weight training. Camera following is a view operation.
+
+## Ecology-reference@2
+
+[ADR0009](decisions/0009-oriented-evolving-bodies.md) defines the functional heading change and three inherited body layouts. Directions0/1/2/3 are north/east/south/west. Front mouth, controller, motor and optional accessory rotate about the controller. A tick turns90degrees or moves forward one site, never strafes or combines the two. Sensing is relative to the front mouth with a blind rear half-plane. Turn sweeps conservatively reject occupied rectangles between part positions.
+
+Dart has3 mature cells, grazer adds a mouth, scout adds a sensor. Juveniles develop these through inherited plan rules and resource-funded cell addition. Additional mouths/sensors provide intake/range benefits while larger bodies pay higher upkeep/movement cost. Mutation may change plan or inherited numerical traits. Recorded families/history are measured outcomes, not a biological/adaptation guarantee. Version1 is preserved without migration; version2 defines new trajectories.
+
+## Bounded learning contract and isolated implementation
+
+[ADR0010](decisions/0010-bounded-lifetime-learning.md) now fixes linear-td@1 observations, relative intents, measured reward, integer updates, separate seeded streams, terminal transitions and newborn reset. Its pure controller is independently checked and the separate ecology-reference@3 lifecycle/data integration is now implemented locally. V1/v2 retain fixed controllers. V3 finalizes eligible transitions before death disposal or after development/reproduction; the last permitted tick uses terminal bootstrap. Newborns start fresh. The ADR's immediate post-actor bootstrap is a declared approximation in a partially observed, sequential world; learned updates are not proof of improved survival or reproduction.
+
+## Ecology-reference@4 / cell-layout@1
+
+ADR0011 is the exact model contract:3–6 ordered connected loci, fixed core/front-mouth/first-motor scaffold, functional mouth/motor/sensor additions, conservative shared geometry, resource-funded prefix development and bounded structural mutation at birth. Extra mouths increase intake capacity, sensors increase bounded range, extra motors reduce forward cost while every grown cell pays upkeep. A rejected structural proposal is recorded separately from an accepted change. V4 retains bounded lifetime learning, child reset and the old ledger; its measurement adapter permits the larger organ/cost ranges without changing linear-td@1 or any old version. See inherited-body-verification.md for mixed structural outcomes and the difference between natural five-cell development and controlled six-cell support.
+
+## Separate configurable test field
+
+Test-field-reference@1 is an isolated dimension-aware variant of the v4 lifecycle under ADR0012, not a reinterpretation of old ecology definitions. Grid16–64×16–48, configured new-food energy/spawn attempts, per-cell upkeep and explicit learning/body-mutation settings; shared genome/controller arithmetic remains versioned. Authored food/organisms and removals have externalIn/externalOut accounts. Initial+sunlight+externalIn = food+stores+structure+dissipated+externalOut. Accepted commands apply at recorded tick boundaries and replay in array order; seed/size/preset require new preparation. Prepared scenarios are demonstrations, not guaranteed adaptation. Full-state report hashes sort object keys recursively before SHA256.

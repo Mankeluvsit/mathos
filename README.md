@@ -2,7 +2,23 @@
 
 A fully local-first, browser-based platform for mathematical visualization and pixel-level artificial-life experimentation.
 
-**Status: Phase 1 reference substrate on this review branch.** Configure and inspect deterministic integer pixel transport, with seeded initialization, fixed ticks, pause/step/reset, exact metrics, and portable local definitions. Organism genesis, neural learning, evolution, morphogenesis, multi-scale dynamics and autonomous experimentation remain planned.
+**Status: bounded inherited bodies and lifetime learning.** Model4 uses3–6-cell connected genomes, resource-funded growth and structural birth mutations. Mouths, motors and sensors affect real feeding, movement, sensing and upkeep; all geometry turns together. The inspector shows the birth blueprint versus developed cells and actual changes. Learning is bounded and resets in children. Earlier models remain replayable. Six-seed outcomes are mixed; arbitrary anatomy, predation, spontaneous genesis and checkpoints remain planned.
+
+[Open MATHOS](https://mankeluvsit.github.io/mathos/?v=genomes4) · [Simple learning plan](docs/learning-plan.md) · [Connected learning review](docs/learning-verification.md)
+
+Routine delivery is authorized. See RESUME.md and docs/handoff/STATE.md for the exact saved source, deployed revision and verification evidence.
+
+**Developer evaluation:** a frozen24-run v4 learning/body-mutation protocol is at [evaluation plan](docs/evaluation-plan-v4-01.md). It adds measurement tooling, not a new browser mode. From clean committed source, run `npm run experiment:evaluate -- evaluations/v4-untuned-01.json .artifacts/v4-untuned-01-new.json`; output must be new and remains local. [All24 outcomes](docs/evaluation-results-v4-01.md) and current source/CI status are recorded in the handoff.
+
+**Controlled testing:** Open MATHOS → **Open test field**. Choose a prepared scenario, Prepare, Run/Step/Edit, then **Copy test report** and paste it into the project chat. JSON is optional and hideable. [Simple workflow and configuration limits](docs/test-field-guide.md) · [Verification](docs/test-field-verification.md). The test field is separate from the preserved living world; publication evidence is in STATE.
+
+**Continuing in OpenCode:** [resume here](RESUME.md) · [handoff and free-model choices](HANDOFF.md) · [Bazzite/macOS/Linux/Windows setup](docs/handoff/SETUP.md). The project is mid-development. The handoff records connected learning, tests, mixed experimental outcomes and the current review/publication gate. Use one active development environment at a time.
+
+**New visual review:** [Cogmind-inspired life presentation](docs/visual-direction-cogmind.md) · [actual activity animation](docs/previews/terminal/activity.gif). Terminal glyphs is the new default; Classic cells and reduced-motion/static viewing remain available. Scientific state is unchanged by the visual style.
+
+**Phone controls:** World / Organism / Results / Setup. **Start world** moves the organisms; **Activity highlights** only adds visual cues. Start/Pause, One step and speed stay reachable across all four views. [Mobile changes and verification](docs/mobile-ux-verification.md) · [Actual phone captures](docs/previews/mobile/README.md).
+
+**Try an inherited change:** Setup → Try a body-change example → Load body-change example → Prepare new world. Around step40, use Results → Inspect latest body change. Organism9 inherits a relocated mouth; by63 its fourth cell has developed. This is a labeled illustration, not representative survival evidence. [Rules and plan](docs/inherited-body-plan.md) · [Checks and six-seed outcomes](docs/inherited-body-verification.md) · [Actual captures](docs/previews/genomes/README.md).
 
 ## Run locally
 
@@ -25,6 +41,7 @@ Configurations are stored only in this browser and origin. Export JSON for a por
 - [Simulation model](docs/simulation-model.md)
 - [Data format](docs/data-format.md) and [JSON Schema](schemas/experiment.schema.json)
 - [Roadmap](docs/roadmap.md) and [capability status](docs/capability-status.md)
+- [Integrated baseline plan](docs/integrated-baseline-plan.md) and [verification](docs/integrated-baseline-verification.md)
 - [Approved Phase 1 design](docs/phase-1-plan.md) and [verification](docs/phase-1-verification.md)
 - [Development instructions](AGENTS.md) and [contributing](CONTRIBUTING.md)
 
@@ -34,7 +51,11 @@ GitHub is the authoritative source of truth. Documentation describes both curren
 
 See the [desktop and phone review captures](docs/previews/README.md) and [shared-concept context](docs/product-context.md). The dark laboratory connects the same rule, field and measurements; phone navigation preserves the run across Viewport, Setup and Inspect.
 
-## Try the testable phase
+## Earlier reference labs
+
+Choose **Open technical reference labs** first. These preserve the earlier mathematical and growth-only models.
+
+## Try the substrate reference
 
 1. Start the app, choose **Open substrate lab** in the central workspace. On a phone, this opens Setup.
 2. Set the experiment draft seed/dimensions above, choose **Center impulse** or **Seeded uniform noise**, then **Prepare substrate from draft**. The run starts paused.
@@ -43,14 +64,23 @@ See the [desktop and phone review captures](docs/previews/README.md) and [shared
 
 The foundation's original experiment files and genesis selection are retained as intent. A substrate run does not execute either organism genesis mode. Integer quantization can leave small gradients unchanged.
 
+## Try the earlier integrated baseline
+
+Choose **Open life baseline** and confirm leaving the reference run. The default 32×32 seeded world starts paused with one center-cell organism. Step or Start to observe connected growth, reproduction and lineage. On phones use Setup for draft configuration/comparisons and Inspect for exact resources, organisms and genomes. Primordial starts with resources only.
+
+Save/load uses a separate life-definition slot. Export active definition restarts at tick zero. Compare three seeds runs at most 3×500 ticks locally, supports cancellation and exports measured results; it does not alter the interactive world. Model equations, biases and limits are in [ADR 0007](docs/decisions/0007-integrated-life-baseline.md).
+
 ## Verify
 
 ```sh
 npm run check
 python3 scripts/reference-fixtures.py --check
+python3 scripts/life-reference.py --check
+node scripts/ecology-fixtures.mjs
+node scripts/oriented-fixtures.mjs
 npx playwright install chromium firefox
 npm run test:browser
 npm run benchmark
 ```
 
-The browser suite needs a production build (`npm run check` builds it) and free local ports 4173/4174. Linux CI may need `npx playwright install --with-deps chromium firefox`; package installation can require administrator access. Tests compare independent RNG/field fixtures in both browsers and exercise the production UI. No new runtime dependency or network service was added.
+The browser suite needs a production build (`npm run check` builds it) and free local ports 4173/4174/4176/4177. Linux CI may need `npx playwright install --with-deps chromium firefox`; package installation can require administrator access. Tests compare independent RNG/field fixtures in both browsers and exercise the production UI. No new runtime dependency or network service was added.

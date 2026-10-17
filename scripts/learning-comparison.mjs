@@ -1,0 +1,11 @@
+import { execFileSync } from 'node:child_process';
+import { mkdirSync, writeFileSync } from 'node:fs';
+import { dirname } from 'node:path';
+import { compareLearning, pairedDifferences } from '../src/ecology/learning-experiments.ts';
+if (process.argv.length !== 3) throw Error('Usage: node scripts/learning-comparison.mjs NEW_OUTPUT.json');
+const source = { revision: execFileSync('git', ['rev-parse', 'HEAD'], {encoding: 'utf8'}).trim(), dirty: Boolean(execFileSync('git', ['status', '--porcelain'], {encoding: 'utf8'}).trim()) };
+const result = await compareLearning(source, new AbortController().signal, () => {}, async () => {});
+mkdirSync(dirname(process.argv[2]), {recursive: true});
+writeFileSync(process.argv[2], JSON.stringify({...result, runtime: process.version}, null, 2) + '\n', {flag: 'wx'});
+console.log(JSON.stringify({status: result.status, pairs: pairedDifferences(result).map(p => ({seed:p.seed,off:p.off?.metrics.population,on:p.on?.metrics.population,difference:p.difference}))}, null, 2));
+if (result.status !== 'completed') process.exitCode = 1;

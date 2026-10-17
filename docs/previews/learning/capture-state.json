@@ -1,0 +1,15 @@
+{
+  "engine": "ecology-reference@3",
+  "seed": 42,
+  "learning": true,
+  "tick": 20,
+  "status": "paused",
+  "selected": 1,
+  "browser": "Chromium",
+  "views": [
+    "desktop",
+    "phone-world",
+    "phone-organism",
+    "phone-setup"
+  ]
+}

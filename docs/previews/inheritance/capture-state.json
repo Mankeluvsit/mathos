@@ -1,0 +1,16 @@
+{
+  "engine": "ecology-reference@4",
+  "seed": 4294967295,
+  "tick": 63,
+  "selected": 9,
+  "parent": 8,
+  "born": 40,
+  "status": "paused",
+  "browser": "Chromium",
+  "diagrams": "complete inherited north-facing targets, not current world poses",
+  "context": "Existing illustrative development seed, not held-out evaluation. Local precommit capture; dirty source recorded honestly.",
+  "source": {
+    "revision": "4c775e0ce54bcea54f7b8a53e8cb8acb17b9a926",
+    "dirty": true
+  }
+}

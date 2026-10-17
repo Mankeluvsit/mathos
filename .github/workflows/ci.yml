@@ -19,7 +19,28 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
-      - run: python3 scripts/reference-fixtures.py --check
-      - run: npm run check
       - run: npx playwright install --with-deps chromium firefox
-      - run: npm run test:browser
+      - run: npm run verify
+      - run: npm run handoff:check
+      - run: npm exec --yes --package=opencode-ai@1.19.2 -- node scripts/check-opencode.mjs
+
+  portability:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: node scripts/setup.mjs
+      - run: node scripts/verify.mjs
+      - run: npm run handoff:check
+      - run: npm exec --yes --package=opencode-ai@1.19.2 -- node scripts/check-opencode.mjs

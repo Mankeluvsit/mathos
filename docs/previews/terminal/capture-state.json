@@ -1,0 +1,8 @@
+{
+  "engine": "ecology-reference@3",
+  "seed": 42,
+  "learning": true,
+  "stillTick": 20,
+  "videoEndingTick": 65,
+  "videoDescription": "Last four seconds of real Chromium playback, 10 ticks/s, 3x view following organism1. Native viewport recording cropped to the visible world; no simulated or painted frames."
+}

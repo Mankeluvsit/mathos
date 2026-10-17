@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MATHOS ecology v3 starting definition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "seed",
+    "mode",
+    "learning"
+  ],
+  "properties": {
+    "format": {
+      "const": "mathos-ecology"
+    },
+    "version": {
+      "type": "integer",
+      "const": 3
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "mode": {
+      "enum": [
+        "seeded",
+        "primordial"
+      ]
+    },
+    "learning": {
+      "type": "boolean"
+    }
+  },
+  "$id": "https://mathos.local/schemas/ecology-v3.schema.json"
+}
