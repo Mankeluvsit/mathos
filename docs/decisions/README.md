@@ -25,3 +25,4 @@ The project owner approved these decisions for the Phase 1 reference substrate. 
 - [0010: Bounded learning during a lifetime](0010-bounded-lifetime-learning.md) — accepted numerical/lifecycle design; see learning plan for implementation status.
 
 - [0011 — Bounded inherited cell genomes](0011-inherited-cell-genomes.md)
+- [0012 — Configurable, replayable test field](0012-configurable-test-field.md)

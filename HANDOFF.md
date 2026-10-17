@@ -136,13 +136,17 @@ Remaining gaps and compensations:
 
 After setup, **`npm run verify`** is the complete local gate. It must exit zero; every reference must match, lint has zero warnings, TypeScript has zero errors, every test passes, Vite builds, and both real browsers finish their workflows. [Commands, expected output and limits](docs/handoff/VERIFICATION.md). Running these commands directly costs no ChatGPT/model allowance; having a model repeatedly read the logs does consume its allowance.
 
-App development needs a normal computer capable of Node and two test browsers, free localhost ports 5173 and 4173/4174 and4176–4182, internet for installation and GitHub, and local disk for dependencies/browsers. No database, Docker, GPU, Python package dependencies, mandatory backend, API key or authentication is needed for the app. A local **AI model** is the only optional part with materially larger RAM/VRAM requirements; evaluate your hardware before downloading it. No cross-hardware model performance guarantee is made.
+App development needs a normal computer capable of Node and two test browsers, free localhost ports 5173 and 4173/4174 and4176–4183, internet for installation and GitHub, and local disk for dependencies/browsers. No database, Docker, GPU, Python package dependencies, mandatory backend, API key or authentication is needed for the app. A local **AI model** is the only optional part with materially larger RAM/VRAM requirements; evaluate your hardware before downloading it. No cross-hardware model performance guarantee is made.
 
 Public preview is [GitHub Pages](https://mankeluvsit.github.io/mathos/?v=genomes4). Application source/deployment and checks are recorded in STATE.md; documentation-only changes do not require redeploying identical application code. Use `npm run dev` locally. Production hosting stays optional; do not create new infrastructure. Source truth is the review branch/PR, not compiled files on `gh-pages`. Browser storage is origin-specific; export starting definitions before changing origins. No guaranteed offline reload or resume-from-checkpoint exists.
 
 ## Current evaluation continuation
 
 The latest tool-only milestone is a frozen24-run v4 factorial evaluation. Read [all outcomes](docs/evaluation-results-v4-01.md), [protocol](docs/evaluation-plan-v4-01.md), STATE and NEXT; do not infer a new browser feature. Reproduction requires clean source and a new output path: `npm run experiment:evaluate -- evaluations/v4-untuned-01.json .artifacts/v4-untuned-01-new.json`. No extra installation or key is required. Full local gate now has173 tests/20 files; source CI conclusions are separate in STATE. All24 runs accounted exactly; body/learning effects were mixed and no rules were tuned. Keep raw outputs ignored. The next task is bounded actual-behavior diagnosis, not reward search or another infrastructure setup.
+
+## Owner-operated test field
+
+The approved configurable test-field milestone is separate from the old living-world engine. Read [owner workflow/configuration bounds](docs/test-field-guide.md), ADR0012 and STATE before modifying it. Owners can run prepared cases or make recorded edits, then copy/paste or download analytics plus the complete replay recipe. Use `npm run test:replay -- path/to/report.json` on their JSON or clipboard .txt. Investigate actual settings/edits/notes and replay mismatches before proposing model changes. No mandatory API, account or additional installation. This does not complete arbitrary universe editing or broader autonomous research. Current verification/publication evidence belongs in STATE, not earlier test-count snapshots.
 
 ## Consolidated owner placeholders — the only unresolved personal inputs
 

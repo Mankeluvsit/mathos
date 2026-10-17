@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { EcologyLab } from '../components/EcologyLab';
+import { TestFieldLab } from '../components/TestFieldLab';
 import { LifeLab } from '../components/LifeLab';
 import { PixelPreview } from '../components/PixelPreview';
 import { SubstrateControls } from '../components/SubstrateControls';
@@ -146,7 +147,11 @@ function ReferenceApp({ onLife, onEcology }: { onLife: () => void; onEcology: ()
 export function App() {
   const [life, setLife] = useState(false);
   const [ecology, setEcology] = useState(() => new URLSearchParams(window.location.search).get('lab') !== 'reference');
-  if (ecology) return <EcologyLab onExit={() => setEcology(false)} />;
+  const [testField,setTestField]=useState(false),[testOpened,setTestOpened]=useState(false);
+  if (ecology) return <>
+    <div hidden={testField}><EcologyLab onExit={() => setEcology(false)} onTestField={()=>{setTestOpened(true);setTestField(true);}} /></div>
+    {testOpened&&<div hidden={!testField}><TestFieldLab active={testField} onExit={()=>setTestField(false)}/></div>}
+  </>;
   return life ? <LifeLab onExit={() => setLife(false)} /> : <ReferenceApp onEcology={() => { if (window.confirm('Leave this reference run and open the living world?')) setEcology(true); }} onLife={() => {
     if (window.confirm('Open the experimental life baseline? Any reference-substrate progress will be discarded.')) setLife(true);
   }} />;

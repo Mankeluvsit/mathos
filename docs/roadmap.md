@@ -45,3 +45,7 @@ The owner authorized and continued the richer-body milestone after the completed
 ## Untuned evaluation and next diagnosis
 
 The separate24-run v4 learning/body-mutation evaluation completed without tuning, with exact accounting and mixed effects. See evaluation-results-v4-01.md for every seed/treatment and NEXT for the bounded decision/energy diagnostic task. The next step is to explain observed tradeoffs before changing reward or anatomy parameters; the full original phase tracks remain incomplete. Developer tooling does not imply a new browser experiment UI or completed autonomous research.
+
+## Current configurable testing milestone
+
+Owner approved the dashboard/test-field direction, adding hidden-by-default JSON and prepared owner-run tests with easily shared analytics. ADR0012 and test-field-guide.md define the bounded delivered slice. Current work connects configuration → controlled trial → actual metrics → replayable owner feedback, preserving old models. Advanced controller/rule editors, checkpoints, arbitrary anatomy and broader research remain later work; full phases2–6 are not marked complete.

@@ -80,3 +80,7 @@ Genes retain the old bodyPlan field strictly as a founder-origin tag; it no long
 ## Developer factorial evaluation
 
 Separate src/ecology/evaluation.ts validates small copied/frozen plans and sequentially measures unchanged v4 worlds in fixed eight-step chunks. It never imports React, storage or rendering, never changes the browser comparison defaults and records per-world failures/partial cancellation. scripts/evaluate-ecology.mjs owns Node-only file/Git/hash provenance, graceful interruption and exclusive output; no new application service/dependency. The frozen evaluation protocol and all outcomes live in evaluation-plan-v4-01.md and evaluation-results-v4-01.md. This does not add a runtime autonomous-research loop.
+
+## Configurable test workspace
+
+ADR0012 adds separate src/testfield configuration, dimension-aware lifecycle/mechanics, tick-addressed session edits and report/replay modules. It shares bounded genome geometry and controller arithmetic with the preserved ecology, not its mutable state. React's TestFieldLab owns bounded playback scheduling and copied rendering/analytics snapshots; Node replay verifies copied or downloaded recipes. App preserves and pauses Living world/Test field independently. Local small config saving uses its own slot; reports download rather than entering browser persistence. No runtime API, backend or dependency.

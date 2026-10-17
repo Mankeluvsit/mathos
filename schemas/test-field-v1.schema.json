@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MATHOS controlled test field version1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "name",
+    "seed",
+    "world",
+    "rules",
+    "organisms",
+    "test"
+  ],
+  "properties": {
+    "format": {
+      "const": "mathos-test-field"
+    },
+    "version": {
+      "const": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "\\S"
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "world": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 16,
+          "maximum": 64
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 16,
+          "maximum": 48
+        }
+      }
+    },
+    "rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "foodEnergy",
+        "sunlight",
+        "upkeep"
+      ],
+      "properties": {
+        "foodEnergy": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 96
+        },
+        "sunlight": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8
+        },
+        "upkeep": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        }
+      }
+    },
+    "organisms": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "startingEnergy",
+        "learning",
+        "structuralMutation"
+      ],
+      "properties": {
+        "startingEnergy": {
+          "type": "integer",
+          "minimum": 40,
+          "maximum": 300
+        },
+        "learning": {
+          "type": "boolean"
+        },
+        "structuralMutation": {
+          "type": "boolean"
+        }
+      }
+    },
+    "test": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "preset",
+        "steps"
+      ],
+      "properties": {
+        "preset": {
+          "enum": [
+            "feeding",
+            "growth",
+            "inheritance",
+            "empty"
+          ]
+        },
+        "steps": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1600
+        }
+      }
+    }
+  }
+}

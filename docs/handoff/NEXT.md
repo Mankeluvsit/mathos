@@ -2,9 +2,16 @@
 
 > Current delivery policy (2026-10-17): The owner authorized autonomous routine delivery on 2026-10-17: plan → implement → verify → self-review → commit/push to the existing review branch → update the existing preview → verify the live result → refresh handoff. This supersedes earlier local-only/review-before-publication wording. Do not ask again for routine publication within the approved scope. Stop for a real blocker, a change of direction, new cost or destructive action. Never merge automatically. Keep one writer; no automatic delegation or paid model fallback.
 
-## Owner priority: approve the live-configuration/test-field design
+## Current priority: approved configurable owner testing
 
-The owner requested an image before accepting the dashboard implementation. Concept: docs/previews/configuration-proposal/README.md and desktop-mobile-proposal.png. It shows easy controls synchronized with JSON/file editing and a small editable test field on desktop/phone. It is **proposed, not implemented**. Await design approval, then specify live-edit/restart fields and versioned tick-addressed edits before coding; preserve old replay, exact resources, local-first operation and phone accessibility. Do not start the diagnostic-trace task below ahead of this owner priority. Current evaluation/source CI recording may finish independently.
+Owner approved the design and requested hideable JSON, simple live settings, prepared tests, analytics and a report they can copy/paste back to the agent. ADR0012, docs/test-field-guide.md and current STATE are authoritative. No new design approval is pending.
+
+- T0 contract complete: strict config/schema; live versus explicit-reset fields; exact ledger; bounded tick-addressed edits/undo; report recipe and final hash.
+- T1 engine/replay complete: separate dimension-aware model, four presets, author tools, checks and Node report verifier. Preserve old ecology1–4 and fixtures.
+- T2 UI complete locally: Living world/Test field preserve paused state; desktop controls/optional JSON; phone Field/Controls/Results with reachable playback; files/browser saving, analytics/notes and Copy/Save report with fallback.
+- T3 publication active: full185-test gate, all references/old replays, both native suites and actual Node report replay passed. Read STATE for source/deploy/CI evidence before calling delivered. Capture real screens, never relabel the concept as a screenshot. Routine verified publication remains authorized; no automatic merge.
+
+After delivery, guide the owner through prepared testing and replay their returned report before diagnosing. The later trace task below stays lower priority than specific hands-on feedback. Do not expand to arbitrary rule/code editors or retune old evaluation seeds silently.
 
 ## Current starting point
 

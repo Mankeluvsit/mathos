@@ -72,3 +72,7 @@ Implemented on the review branch and published preview (v4 default):3–6 ordere
 ## Untuned factorial evaluation
 
 Developer tooling now validates explicit seed/horizon plans and runs all four learning/body-mutation treatments under unchanged v4 rules. The frozen six-seed24-run evaluation completed with exact accounting and mixed effects; all outcomes are in evaluation-results-v4-01.md. Honest partial/failure reporting, source/plan hashes and exclusive output are implemented. This is developer tooling, not a new browser mode, resumable checkpoint or open-ended researcher. Source CI evidence is in handoff/STATE.md.
+
+## Controlled owner testing (implemented locally; delivery in STATE)
+
+Separate prepared test-field workspace with bounded live-safe environment/organism/test controls, optional synchronized JSON/files, author tools and undo, measured analytics and copy/download reports. Reports carry exact edit recipes, observed outcomes and final-state fingerprints and replay in Node. Existing living-world behavior is preserved. This is a bounded configurable laboratory, not arbitrary scientific code, anatomy editing, checkpoint resume or open-ended research. See test-field-guide.md and test-field-verification.md.

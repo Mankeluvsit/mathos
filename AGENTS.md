@@ -10,6 +10,12 @@
 - Owner review requires recognizable organisms and observable behavior, drawing on Life Engine and The Bibites. Read docs/observable-life-plan.md. Passing accounting tests or displaying a changing pixel field is insufficient product acceptance. Preserve the mathematical laboratory and both genesis directions; never claim the references’ full feature sets are implemented.
 - Label capabilities implemented, planned, or experimental with evidence. Never present a preview as an active simulation or emergence as a guaranteed result.
 
+## Controlled owner testing
+
+- Owner approved the dashboard/test-field proposal and requested hideable JSON, simple live controls, prepared owner-run tests, analytics and copy/paste reports. ADR0012 and docs/test-field-guide.md govern this increment; routine implementation/delivery is authorized.
+- Keep test-field-reference@1 isolated from old ecology1–4. Version rules/config/commands/reports together; preserve exact external-input/output accounting and deterministic edit replay. Do not silently apply reset-required settings or discard invalid JSON drafts.
+- When the owner supplies test output, save/replay their JSON or complete clipboard text with `npm run test:replay -- path/to/report.json` before proposing fixes. Inspect notes, actual tick/status, seed/settings/edits and measured behavior; resource/replay checks are not proof of adaptive success. Keep reports local unless the owner shares them; no telemetry or automatic transmission.
+
 ## Engineering
 
 - Use TypeScript with strict checks, React, Vite, native browser APIs, and local persistence. No mandatory backend, account, external API, analytics, remote fonts, or cloud service.

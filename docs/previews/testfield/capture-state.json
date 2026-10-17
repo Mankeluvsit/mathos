@@ -1,0 +1,55 @@
+{
+  "engine": "test-field-reference@1",
+  "initial": {
+    "format": "mathos-test-field",
+    "version": 1,
+    "name": "Empty test",
+    "seed": 42,
+    "world": {
+      "width": 32,
+      "height": 24
+    },
+    "rules": {
+      "foodEnergy": 24,
+      "sunlight": 2,
+      "upkeep": 1
+    },
+    "organisms": {
+      "startingEnergy": 120,
+      "learning": true,
+      "structuralMutation": false
+    },
+    "test": {
+      "preset": "empty",
+      "steps": 16
+    }
+  },
+  "tick": 1,
+  "edits": [
+    {
+      "tick": 0,
+      "kind": "add",
+      "x": 8,
+      "y": 8,
+      "direction": 1,
+      "bodyPlan": "grazer"
+    },
+    {
+      "tick": 0,
+      "kind": "rotate",
+      "id": 1,
+      "turn": "right"
+    },
+    {
+      "tick": 0,
+      "kind": "food",
+      "x": 10,
+      "y": 8
+    }
+  ],
+  "source": {
+    "revision": "772cdeabf63eb995fc61d86a161e9956583b9635",
+    "dirty": true
+  },
+  "note": "Actual browser workflows; images are not the proposal."
+}

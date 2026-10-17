@@ -185,10 +185,12 @@ function EcologySession({
   runtime,
   prepare,
   onExit,
+  onTestField,
 }: {
   runtime: EcologyRuntime;
   prepare: (d: EcologyDefinition) => void;
   onExit: () => void;
+  onTestField?: () => void;
 }) {
   const [world, setWorld] = useState(() => runtime.snapshot()),
     [summary, setSummary] = useState(() => runtime.summary());
@@ -298,7 +300,7 @@ function EcologySession({
         <div className="wordmark">
           MATHOS <small>OBSERVABLE ARTIFICIAL LIFE</small>
         </div>
-        <span className="local-badge">Local sandbox</span>
+        <span className="local-badge">Local sandbox</span>{onTestField&&<button onClick={()=>{runtime.pause();onTestField();}}>Open test field</button>}
       </header>
       <main className="ecology-dashboard" data-view={view} data-appearance={appearance}>
         <section className="intro">
@@ -856,7 +858,7 @@ function EcologySession({
     </>
   );
 }
-export function EcologyLab({ onExit }: { onExit: () => void }) {
+export function EcologyLab({ onExit,onTestField }: { onExit: () => void;onTestField?:()=>void }) {
   const [session, setSession] = useState(() => ({
     runtime: new EcologyRuntime(
       validateEcology({
@@ -875,6 +877,7 @@ export function EcologyLab({ onExit }: { onExit: () => void }) {
       key={session.revision}
       runtime={session.runtime}
       onExit={onExit}
+      onTestField={onTestField}
       prepare={(d) => {
         const next = new EcologyRuntime(d);
         session.runtime.dispose();

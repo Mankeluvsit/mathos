@@ -10,6 +10,8 @@ Routine delivery is authorized. See RESUME.md and docs/handoff/STATE.md for the 
 
 **Developer evaluation:** a frozen24-run v4 learning/body-mutation protocol is at [evaluation plan](docs/evaluation-plan-v4-01.md). It adds measurement tooling, not a new browser mode. From clean committed source, run `npm run experiment:evaluate -- evaluations/v4-untuned-01.json .artifacts/v4-untuned-01-new.json`; output must be new and remains local. [All24 outcomes](docs/evaluation-results-v4-01.md) and current source/CI status are recorded in the handoff.
 
+**Controlled testing:** Open MATHOS → **Open test field**. Choose a prepared scenario, Prepare, Run/Step/Edit, then **Copy test report** and paste it into the project chat. JSON is optional and hideable. [Simple workflow and configuration limits](docs/test-field-guide.md) · [Verification](docs/test-field-verification.md). The test field is separate from the preserved living world; publication evidence is in STATE.
+
 **Continuing in OpenCode:** [resume here](RESUME.md) · [handoff and free-model choices](HANDOFF.md) · [Bazzite/macOS/Linux/Windows setup](docs/handoff/SETUP.md). The project is mid-development. The handoff records connected learning, tests, mixed experimental outcomes and the current review/publication gate. Use one active development environment at a time.
 
 **New visual review:** [Cogmind-inspired life presentation](docs/visual-direction-cogmind.md) · [actual activity animation](docs/previews/terminal/activity.gif). Terminal glyphs is the new default; Classic cells and reduced-motion/static viewing remain available. Scientific state is unchanged by the visual style.

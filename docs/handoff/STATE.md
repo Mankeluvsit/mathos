@@ -4,11 +4,17 @@
 
 Snapshot date: 2026-10-17. This file is repository memory, not a claim of project completion. Check the actual branch and remote before continuing.
 
-## Current owner review: live configuration and controlled test field
+## Active unit: approved configurable test field — verification
 
-Owner steered the task after evaluation completion: configuration must be editable on the fly through JSON/files and easy dashboard controls, and the workflow needs an easily controlled test field. They explicitly require an image before accepting implementation. [Desktop/mobile proposal](../previews/configuration-proposal/README.md) is prepared and shown in chat; it is an AI-generated concept, not running software. **Await layout approval before implementing the new configuration/schema/editor/sandbox.** No application/rule changes were made for this request. New task status: concept complete; owner review pending; schema/command contract and implementation planned. Exact live-edit versus restart semantics and resource accounting must be specified before code. Preserve old1–4 replay and local-first constraints.
+Owner approved the image and added hideable JSON, accessible live controls, prepared tests, analytics and easy report sharing. ADR0012 fixes the contract. T0 specification, T1 isolated engine/session/replay and T2 responsive UI are implemented locally. No design approval is pending. T3 local verification is complete; publication/live verification is active under standing authorization.
 
-Overall project: local-first baseline live,24-run evaluation complete, proposed dashboard controls awaiting design review; full phases2–6 remain partial. Finish recording current tooling CI separately; do not let this proposed interface be mistaken for an implemented feature. Communication preference remains task-level useful progress/completion plus a short project-wide status.
+Local evidence:12 new focused tests passed, including four1600-tick maximal-resource scenarios and hand-worked input/output ledger; native Chromium/Firefox workflows passed prepared completion, JSON hide/draft/validation/sync, real live learning freeze, field editing/undo, Node replay of every copied/downloaded report, clipboard denial fallback, preserved living world and390×844/320×568 map/dock reachability. Full npm run verify passed185 tests/21 files, four independent references, all old/new regression fixtures, lint/types/build and every Chromium/Firefox browser workflow, including the new test-field report/replay path. OpenCode parser/handoff checks passed before final memory edits. Logs /tmp/mathos-testfield-verify.log, /tmp/mathos-testfield-focused.log and /tmp/mathos-testfield-browser-final.log.
+
+A report test exposed property-order differences in live versus copied controller objects; canonical hashes now sort keys recursively (no physics tuning). A strict short-phone map-fit assertion failed; compact labels/layout and measured proportional canvas sizing fixed it without weakening the check. Unknown/invalid edits leave state/log untouched; lower-than-current horizons reject explicitly. Old ecology files/fixtures remain unchanged.
+
+Actual captures inspected; older milestone captures restored. Next: commit/push clean source, build/deploy existing preview, verify public report replay/source hashes and remote CI, update memory and existing PR. Owner workflow is docs/test-field-guide.md: Prepare → Run/Step/Edit → observations → Copy test report; use npm run test:replay on owner output before diagnosing. No auto merge, paid service, new dependency, checkpoint or arbitrary code/rule editor.
+
+Overall project: working local-first baseline plus controlled-testing workspace; full phases2–6 remain partial. Existing public app remains06dd544/fac4d2f until this source is delivered. Previous evaluation CI39051532773 has passed all three systems; older pending snapshots below are historical.
 
 ## Completed evaluation work — published report, final CI pending
 

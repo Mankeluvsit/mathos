@@ -1,6 +1,6 @@
 # Live configuration and controlled test field — proposal
 
-Status: **design proposal, awaiting owner approval; not implemented**. The owner requested dashboard-accessible configuration through synchronized easy controls, editable JSON and JSON files, plus a test field controllable on the fly. They explicitly require reviewing an image before accepting implementation.
+Status: **owner-approved design direction; implementation in progress under ADR0012**. The owner requested dashboard-accessible configuration through synchronized easy controls, editable JSON and JSON files, plus a test field controllable on the fly. The owner reviewed and approved the image, adding a hideable JSON panel and prepared tests with copyable analytics/replay reports.
 
 [Desktop/mobile concept](desktop-mobile-proposal.png) is an AI-generated design illustration based on the current dark MATHOS dashboard, not a capture of functioning software. The JSON shape, sliders, field tools and mobile navigation are illustrative; no new schema, rule version or editable sandbox is implemented by this image. Existing app remains unchanged.
 

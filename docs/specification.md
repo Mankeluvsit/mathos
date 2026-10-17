@@ -75,3 +75,7 @@ The owner authorized continued development here while maintaining the OpenCode h
 ## Current inherited-body increment
 
 The owner authorized continuing from richer-body development. ADR0011 and inherited-body-plan.md define a new bounded v4 implementation: inherited3–6-cell connected-prefix genomes, real organ effects, resource-funded development, structural birth mutations, readable blueprint/growth/ancestry and version-correct learning comparisons. Old v1–3 remain replayable. The implementation status and evidence are in capability-status/handoff/STATE; historical phase exclusions above do not mean later delivered features are absent. Primordial spontaneous life, arbitrary anatomy editing, predation, general universe rules, workers, checkpoints and open-ended research remain planned.
+
+## Owner-approved configurable testing increment
+
+The owner approved the desktop/mobile concept and requested optional JSON, dashboard controls and a test field prepared for hands-on testing with copy/paste analytics for the agent. ADR0012 is the exact contract. Acceptance includes valid JSON/control synchronization with hidden draft preservation; bounded live-safe edits and explicit reset-only settings; four prepared cases and accessible field tools; exact resource accounting and deterministic edit replay; completed/partial/edited labels; useful metrics/notes and one-action report copy/download with fallback; desktop and short-phone verification. This is a bounded local laboratory, not a completed arbitrary universe editor or autonomous research system.
