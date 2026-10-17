@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { inputs, initialWeights, values, choose, update, rewardFromOutcome } from '../src/ecology/learning-controller.ts';
+import { inputs, initialWeights, choose, update, rewardFromOutcome } from '../src/ecology/learning-controller.ts';
 const zero = () => Array.from({length:4},()=>Array(6).fill(0));
 const obs = [64,0,0,0,0,0];
 describe('experimental bounded learning controller', () => {
