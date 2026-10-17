@@ -1,7 +1,7 @@
 {
   "format": "mathos-preview-build",
   "sourceRepository": "Mankeluvsit/mathos",
-  "sourceCommit": "406fd65e192d346ebf83a5b66788e07a34a2d265",
+  "sourceCommit": "ed7c46b25d1d388b3ded0c6f81a460191bfe8cc9",
   "experimental": true,
   "openingExperience": "mathos-world@1",
   "bodyGenome": "cell-layout@1",
@@ -9,12 +9,15 @@
   "appearance": "terminal-glyphs / classic",
   "mobile": "World / Rules / Results; persistent playback",
   "files": {
-    "assets/index-BpOMBYH2.css": "10d0d26e40ba9334f7c51f72e057df4df66aa24a1c4f24491fad3f6f96dccc87",
-    "assets/index-CE6HTzb1.js": "752456706b024067d57c0d19870f716960bbedd52135d08ef91fc1e2a841b2e9",
-    "index.html": "d02cc74efd285056e470a6953c98fae4965704cb9303d661fdc96725770c40d9"
+    "assets/index-BavXb1ma.js": "715553878ca2cf308701d0b37b9b4ce09671d76d8e54e8fbac1a6d5528d612bc",
+    "assets/index-DCDaOfYG.css": "a4e2a5c60d14aaa823a6eba3315a44073eae3006dd318870ccf987faf573f0df",
+    "index.html": "801c6994e2e65fe17fdbc087c8f454e82801bae39f763891745999542cbe01a7"
   },
   "testField": "tools on the same active world/session",
   "testConfiguration": "mathos-world@1",
   "testReport": "mathos-world-report@1",
-  "streams": "world-streams@1"
+  "streams": "world-streams@1",
+  "presentation": "mathos-presentation@1",
+  "interface": "calm dashboard / reversible world-only",
+  "designContract": "docs/design-system.md"
 }
