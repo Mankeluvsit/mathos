@@ -1,3 +1,4 @@
+import { ShadowLearningDemo } from "./ShadowLearningDemo";
 import { useEffect, useRef, useState } from "react";
 import {
   body,
@@ -252,6 +253,7 @@ function EcologySession({
             An experimental artificial-life model.
           </p>
         </section>
+        <ShadowLearningDemo />
         <div className="ecology-grid">
           <section
             className="panel ecology-world"
