@@ -92,3 +92,7 @@ Setup’s optional body-change example loads a labeled starting draft only, with
 ## Owner-run controlled testing
 
 Living world and Test field are separate preserved/paused workspaces. Desktop quick controls, field and optional JSON; phone Field/Controls/Results plus one persistent playback dock. JSON is hidden by default, available from Field/Controls and can be hidden without losing draft text. Invalid text never mutates active state. Label reset-required fields and make Apply/Prepare distinct. Prepared test → Run/Step/Edit → notes → Copy test report is the owner workflow. Copy denial exposes selectable text; downloadable JSON is an alternative. Analytics show actual behavior and exact accounting, not a fabricated fitness verdict. Pointer tools have coordinate and keyboard alternatives. Keep the actual map above the dock on tested short phones.
+
+## Independent desktop life columns
+
+Living world and its results stack independently of the organism/setup sidebar. Expanding an inspector must not insert a blank grid row below the world. Retain the bounded desktop content width; zooming out naturally makes it visually smaller. On phones, the existing four destinations remain separate with preserved state. Native layout regression checks cover1024,1600 and6400 CSS-pixel widths plus phone navigation.

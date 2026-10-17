@@ -242,8 +242,7 @@ footer { display: flex; justify-content: space-between; gap: 12px; max-width: 18
 
 .ecology-dashboard { max-width: 1800px; margin: auto; padding: 1.25rem; }
 .ecology-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(290px, 350px); gap: 1rem; align-items: start; }
-.ecology-world { grid-row: 1; }
-.ecology-inspect, .ecology-setup { grid-column: 2; }
+.ecology-main-column, .ecology-side-column { display: grid; gap: 1rem; min-width: 0; }
 .ecology-events { grid-column: 1; }
 .ecology-heading { display: flex; justify-content: space-between; align-items: start; gap: .5rem; }
 .ecology-stats { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; }
@@ -258,7 +257,8 @@ footer { display: flex; justify-content: space-between; gap: 12px; max-width: 18
 .ecology-action { font-weight: 700; color: #f4b75f; }
 .ecology-events ol { padding-left: 1.2rem; }.ecology-events li { overflow-wrap: anywhere; margin: .5rem 0; font-size: .85rem; color: #a0b2c9; }
 @media(max-width:900px) {
- .ecology-dashboard { padding: .75rem .75rem 6rem; }.ecology-grid { display: block; }.ecology-grid>.panel { margin-bottom: 1rem; }
+ .ecology-dashboard { padding: .75rem .75rem 6rem; }.ecology-grid { display: block; }.ecology-grid :is(.ecology-world, .ecology-inspect, .ecology-setup) { margin-bottom: 1rem; }
+ .ecology-main-column, .ecology-side-column { display: contents; }
  .ecology-dashboard[data-view="world"] .ecology-inspect, .ecology-dashboard[data-view="world"] .ecology-setup,
  .ecology-dashboard[data-view="inspect"] .ecology-world, .ecology-dashboard[data-view="inspect"] .ecology-setup, .ecology-dashboard[data-view="inspect"] .ecology-events,
  .ecology-dashboard[data-view="setup"] .ecology-world, .ecology-dashboard[data-view="setup"] .ecology-inspect, .ecology-dashboard[data-view="setup"] .ecology-events { display: none; }
@@ -326,7 +326,7 @@ footer { display: flex; justify-content: space-between; gap: 12px; max-width: 18
   .ecology-dashboard > .intro { padding: .6rem .25rem; }
   .ecology-dashboard > .intro h1 { font-size: 1.05rem; margin: 0; }
   .ecology-dashboard > .intro .eyebrow, .ecology-dashboard > .intro .scope { display: none; }
-  .ecology-grid > .panel { padding: .7rem; }
+  .ecology-grid :is(.ecology-world, .ecology-inspect, .ecology-setup) { padding: .7rem; }
   .ecology-heading h2 { font-size: 1rem; margin: 0 0 .25rem; }
   .ecology-heading .hint { font-size: .7rem; margin: 0; }
   .ecology-stats { justify-content: space-between; gap: .35rem; }

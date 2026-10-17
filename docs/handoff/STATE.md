@@ -1,5 +1,14 @@
 # Current development state
 
+## Latest checkpoint: owner-reported desktop spacing (2026-10-17)
+
+Test field source bf94feb4e1c540589e310d7da9dc672bb406455a is published at deployment21a7b0140b3902bc27a675ccd70fa483b4058768. Public Chromium verified prepared completion, JSON controls, copied/downloaded report replay, short-phone reachability and preserved Living world; all current asset hashes matched the clean source. Local full verification passed185 tests and all Chromium/Firefox workflows. CI39054243438 passed on Linux, Windows and macOS. Open PR4 remains unmerged.
+
+Owner then reported a large blank space below Living world at30% browser zoom. Cause: shared CSS grid rows made results wait for the inspector and setup. Fix implemented: independent main/sidebar stacks, mobile wrappers flattened without resetting state. New native-browser regression checks verify16px adjacency at1024/1600/6400 CSS-pixel widths, inspector expansion, no overflow and all four phone destinations.6400 approximates the screenshot’s zoomed-out layout; it is not a physical browser-zoom certification. Full npm run verify passed (185 tests, independent references, old fixtures, lint/types/build and all Chromium/Firefox workflows). Handoff and actual OpenCode1.19.2 parser passed. Final mobile-selector preservation polish is checked again against a fresh build with native layout and mobile workflows. Publication/live checks are next; do not call the spacing fix live until their checkpoint is recorded. Logs: /tmp/mathos-spacing-verify.log, /tmp/mathos-spacing-final-layout.log and /tmp/mathos-spacing-final-mobile.log.
+
+The public test-field harness now reads preview.json through browser fetch because its separate APIRequest network path was unreachable in this workspace; clean-source/hash assertions remain. Historical snapshots below are superseded by this checkpoint. Overall project remains a working experimental baseline with controlled owner testing, not completed phases2–6.
+
+
 > Current delivery policy (2026-10-17): The owner authorized autonomous routine delivery on 2026-10-17: plan → implement → verify → self-review → commit/push to the existing review branch → update the existing preview → verify the live result → refresh handoff. This supersedes earlier local-only/review-before-publication wording. Do not ask again for routine publication within the approved scope. Stop for a real blocker, a change of direction, new cost or destructive action. Never merge automatically. Keep one writer; no automatic delegation or paid model fallback.
 
 Snapshot date: 2026-10-17. This file is repository memory, not a claim of project completion. Check the actual branch and remote before continuing.

@@ -347,6 +347,7 @@ function EcologySession({
             </div>
         </section>
         <div className="ecology-grid">
+          <div className="ecology-main-column">
           <section
             className="panel ecology-world"
             aria-labelledby="ecology-world-title"
@@ -434,6 +435,25 @@ function EcologySession({
             )}
             {summary.error && <p role="alert">{summary.error}</p>}
           </section>
+          <div className="ecology-results" role="region" aria-label="World results">
+            <div className="results-intro"><h2 id="ecology-results-title" tabIndex={-1}>Results & experiments</h2><p>Review this world’s history, or compare learning in separate worlds.</p></div>
+          {isLearning(world) && <LearningComparison pause={() => runtime.pause()} model={isGenome(world)?{version:4,structuralMutation:world.definition.structuralMutation}:{version:3}} />}
+          <EvolutionPanel world={world} inspect={choose} />
+          <section className="panel ecology-events">
+            <h2>Recent life events</h2>
+            <p className="hint">
+              Births and deaths observed in this run. Up to 40 recent events are
+              retained.
+            </p>
+            <ol>
+              {world.events.slice(0, 8).map((text, i) => (
+                <li key={`${world.tick}-${i}`}>{text}</li>
+              ))}
+            </ol>
+          </section>
+          </div>
+          </div>
+          <div className="ecology-side-column">
           <section
             className="panel ecology-inspect"
             aria-labelledby="ecology-inspect-title"
@@ -810,22 +830,6 @@ function EcologySession({
           Open technical reference labs
         </button>
             </details>
-          </section>
-          <div className="ecology-results" role="region" aria-label="World results">
-            <div className="results-intro"><h2 id="ecology-results-title" tabIndex={-1}>Results & experiments</h2><p>Review this world’s history, or compare learning in separate worlds.</p></div>
-          {isLearning(world) && <LearningComparison pause={() => runtime.pause()} model={isGenome(world)?{version:4,structuralMutation:world.definition.structuralMutation}:{version:3}} />}
-          <EvolutionPanel world={world} inspect={choose} />
-          <section className="panel ecology-events">
-            <h2>Recent life events</h2>
-            <p className="hint">
-              Births and deaths observed in this run. Up to 40 recent events are
-              retained.
-            </p>
-            <ol>
-              {world.events.slice(0, 8).map((text, i) => (
-                <li key={`${world.tick}-${i}`}>{text}</li>
-              ))}
-            </ol>
           </section>
           </div>
         </div>

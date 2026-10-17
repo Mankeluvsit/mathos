@@ -33,7 +33,7 @@ try{
    const report=JSON.parse(readFileSync(await (await downloaded).path(),'utf8'));
    const verified=await verifyReport(report,async text=>createHash('sha256').update(text).digest('hex'));
    assert.equal(verified.world.tick,16);assert(verified.metrics.exact);assert(verified.metrics.updates>0);assert(verified.metrics.moves>0);
-   if(publicReview){const manifest=await (await page.request.get('https://mankeluvsit.github.io/mathos/preview.json?v=testfield1')).json();assert.equal(report.source.revision,manifest.sourceCommit);assert.equal(report.source.dirty,false);}
+   if(publicReview){const manifest=await page.evaluate(async()=>{const response=await fetch(new URL('preview.json?v=testfield1',location.href));if(!response.ok)throw Error('Preview manifest unavailable.');return response.json();});assert.equal(report.source.revision,manifest.sourceCommit);assert.equal(report.source.dirty,false);}
    const updates=report.metrics.updates;
    await lab.getByRole('checkbox',{name:'Learning',exact:true}).uncheck();await lab.getByLabel('Test step limit',{exact:true}).fill('32');
    await lab.getByRole('button',{name:'Apply live settings',exact:true}).click();await lab.getByRole('button',{name:'Run prepared test',exact:true}).click();

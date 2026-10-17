@@ -9,6 +9,8 @@ The test field is a separate local workspace. Open MATHOS → **Open test field*
 3. Press **Run prepared test**, or use **One test step**. It stops at the chosen step limit. You can pause, add food/organisms, erase, select or rotate a body while inspecting. Coordinate controls and keyboard arrows/Enter offer the same tools as tapping the canvas.
 4. Open **Results**, add **My observations**, then **Copy test report**. Paste the whole copied text into the project chat. Alternatively **Save test report** and attach that JSON file. If clipboard access is unavailable, select/copy the report text shown below the buttons.
 
+Switching workspaces or hiding the browser tab pauses playback. Press Run again to continue. A report copied before the limit is reached is a valid partial observation, not a completed test.
+
 A test report includes actual settings, seed, preset, complete accepted edits with their steps, observed outcomes, recent errors, your notes, build identity and a final-state fingerprint. It gives the next agent a reproducible test instead of requiring a screenshot or remembered conversation. It stays local until you share it. Saving a test report differs from saving starting configuration.
 
 ## Configuration scope
