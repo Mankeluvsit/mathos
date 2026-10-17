@@ -70,3 +70,9 @@ The ecology runtime publishes v2 snapshots at up to12.5Hz while advancing so nor
 ## Ecology mobile presentation
 
 EcologySession keeps one shared playback control surface outside the mobile-hidden panels. World / Organism / Results / Setup are presentation destinations, not routes or new runtimes. Results groups the mounted comparison, history and event components; switching views does not cancel work, reset selected IDs or mutate world state. Only view navigation updates focus/scroll. Display preferences live in the mounted canvas component; Activity highlights never call runtime start/step. Setup keeps explicit replacement confirmation and separates starting settings from live controls. No scientific model, persistence version or dependency changed for this correction.
+
+## Inherited-body v4 boundary
+
+Pure body-genome.ts validates cell-layout@1 and supplies prefix geometry, sweeps, role counts and deterministic structural proposals. genome-mechanics.ts uses that geometry for sensing/action and a wider physical reward-input adapter, retaining linear-td@1 arithmetic. genome-model.ts is a separate lifecycle module; old engines and controller remain unchanged. world.ts dispatches every operation, including rendering/selection parts, by actual model/genome. V4 snapshots/archive/export deep-copy locus arrays and diagnostics.
+
+Genes retain the old bodyPlan field strictly as a founder-origin tag; it no longer determines anatomy in v4. Blueprint inspection and observed birth/growth records are separate from ancestry charts. The shared comparison runner defaults to v3 for compatibility, accepts explicit v4 settings, initializes both treatments under the same chosen rules and exports distinct provenance/version. Phone organization/playback remain shared and view-only. No new runtime dependency or service.

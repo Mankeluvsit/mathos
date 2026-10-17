@@ -63,3 +63,7 @@ Next refinement follows the roadmap, measured behavior and any owner visual feed
 ## Owner-requested visual review
 
 The Cogmind-inspired presentation is implemented locally on top of connected v3 learning. Review [sources/translation](../visual-direction-cogmind.md) and [actual animation](../previews/terminal/README.md). Keep scientific acceptance and visual feedback separate: changing glyphs/effects does not tune the controller or improve comparison results. Current next action is recorded in STATE; routine verified publication is authorized, not restarting L1 or importing PR #6's parallel controller.
+
+## G0–G4 — inherited-body milestone (current)
+
+Owner explicitly said Continue after the richer-body development outline. Exact scope is ADR0011/inherited-body-plan.md; older learning cards are completed history, not the current starting point. G0 contract/independent anchors, G1 pure genome/mechanics and isolated v4 lifecycle, G2 data/UI/versioned comparison integration are implemented locally. G3 full verification/capture self-review is active; G4 publication/live evidence/handoff follows automatically after gates. Do not silently retune on six development seeds or merge. See STATE for actual commands/results and source status.

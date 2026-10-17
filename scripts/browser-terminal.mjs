@@ -22,6 +22,8 @@ try {
       page.on('request',r=>{if(!r.url().startsWith('http://127.0.0.1:4179/'))external.push(r.url());});
       page.on('dialog',d=>d.accept());
       await page.goto('http://127.0.0.1:4179/');
+      await page.getByLabel('Simulation model',{exact:true}).selectOption('3');
+      await page.getByRole('button',{name:'Prepare new world',exact:true}).click();
       await page.getByText('View controls',{exact:true}).click();
       const canvas=page.getByRole('img',{name:/Living world/});
       const pixels=()=>canvas.evaluate(c=>c.toDataURL());
@@ -92,6 +94,8 @@ try {
       const page=await context.newPage();
       await page.emulateMedia({reducedMotion:'no-preference'});
       await page.goto('http://127.0.0.1:4179/');
+      await page.getByLabel('Simulation model',{exact:true}).selectOption('3');
+      await page.getByRole('button',{name:'Prepare new world',exact:true}).click();
       await page.getByText('View controls',{exact:true}).click();
       await page.getByLabel('World magnification',{exact:true}).selectOption('3');
       await page.getByRole('checkbox',{name:'Follow selected organism'}).check();

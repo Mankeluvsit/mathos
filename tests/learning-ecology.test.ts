@@ -4,7 +4,7 @@ import schema from '../schemas/ecology-v3.schema.json';
 import example from '../examples/ecology.v3.json';
 import { initialize, step, copy, validate, assertWorld, type World } from '../src/ecology/learning-model';
 import { createController, deriveStreams, learn, observe } from '../src/ecology/learning-controller';
-import { ecologyMetrics, initializeEcology, parseEcology, isLearning, copyEcology } from '../src/ecology/world';
+import { ecologyMetrics, initializeEcology, parseEcology, isLearning, isGenome, copyEcology } from '../src/ecology/world';
 import { saveEcology, loadEcology } from '../src/ecology/storage';
 import { exportObservations } from '../src/ecology/observations';
 import { compareLearning, pairedDifferences } from '../src/ecology/learning-experiments';
@@ -103,7 +103,7 @@ it('finalizes blocked/death transitions once and uses terminal bootstrap at the 
 
 it('deep-copies runtime snapshots and observation exports including learned diagnostics', () => {
   const runtime = new EcologyRuntime(definition); runtime.singleStep();
-  const snapshot = runtime.snapshot(); if (!isLearning(snapshot)) throw Error('Wrong model');
+  const snapshot = runtime.snapshot(); if (!isLearning(snapshot) || isGenome(snapshot)) throw Error('Wrong model');
   const original = copy(snapshot);
   snapshot.creatures[0]!.lastDecision!.input[0] = 999;
   (snapshot.creatures[0]!.controller.weights[0] as number[])[0] = 999;

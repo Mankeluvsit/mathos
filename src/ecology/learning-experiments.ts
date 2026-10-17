@@ -1,4 +1,8 @@
-import { initialize, step, validate, END, type World } from './learning-model.ts';
+import * as v3 from './learning-model.ts';
+import * as v4 from './genome-model.ts';
+const END = v3.END;
+type World = v3.World | v4.World;
+export type ComparisonModel = {version:3} | {version:4;structuralMutation:boolean};
 import { ecologyMetrics } from './world.ts';
 import { BASELINE_SEEDS } from './baseline.ts';
 
@@ -16,8 +20,9 @@ export interface Measurements {
 }
 export interface Comparison {
   format: 'mathos-learning-comparison';
-  version: 1;
-  engine: 'ecology-reference@3';
+  version: 1 | 2;
+  engine: 'ecology-reference@3' | 'ecology-reference@4';
+  bodyGenome?: 'cell-layout@1';
   controller: 'linear-td@1';
   rng: 'mulberry32@1';
   streams: 'ecology-streams@1';
@@ -35,10 +40,14 @@ export async function compareLearning(
   progress: (completed: number, total: number) => void,
   yieldWork: () => Promise<void> = () => new Promise(resolve => setTimeout(resolve, 0)),
   ticks = END,
+  model: ComparisonModel = {version:3},
 ): Promise<Comparison> {
+  if(model.version!==3&&model.version!==4)throw Error('Unsupported comparison model.');
+  if(model.version===4&&typeof model.structuralMutation!=='boolean')throw Error('Explicit structuralMutation required.');
   if (!Number.isInteger(ticks) || ticks < 1 || ticks > END) throw Error('Comparison horizon must be 1–1600.');
   const result: Comparison = {
-    format: 'mathos-learning-comparison', version: 1, engine: 'ecology-reference@3',
+    format: 'mathos-learning-comparison', version: model.version===4?2:1, engine: model.version===4?'ecology-reference@4':'ecology-reference@3',
+    ...(model.version===4?{bodyGenome:'cell-layout@1' as const}:{}),
     controller: 'linear-td@1', rng: 'mulberry32@1', streams: 'ecology-streams@1',
     source: { ...source }, seeds: [...BASELINE_SEEDS], ticksPerRun: ticks,
     status: 'completed', reason: 'requested-horizon', runs: [],
@@ -56,13 +65,13 @@ export async function compareLearning(
     for (const seed of BASELINE_SEEDS) {
       for (const learning of [false, true]) {
         if (signal.aborted) break;
-        active = initialize(validate({ format: 'mathos-ecology', version: 3, seed, mode: 'seeded', learning }));
+        active = model.version===4 ? v4.initialize({format:'mathos-ecology',version:4,seed,mode:'seeded',learning,structuralMutation:model.structuralMutation}) : v3.initialize({format:'mathos-ecology',version:3,seed,mode:'seeded',learning});
         populationTicks = 0; peakPopulation = active.creatures.length; firstExtinctionTick = null; computeMs = 0;
         while (active.tick < ticks && !signal.aborted) {
           const start = performance.now();
           let count = 0;
           while (count < 4 && active.tick < ticks && !signal.aborted) {
-            active = step(active); count++;
+            active = active.definition.version===4 ? v4.step(active as v4.World) : v3.step(active as v3.World); count++;
             populationTicks += active.creatures.length;
             peakPopulation = Math.max(peakPopulation, active.creatures.length);
             if (!active.creatures.length && firstExtinctionTick === null) firstExtinctionTick = active.tick;

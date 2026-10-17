@@ -1,8 +1,9 @@
+import type { World as GenomeWorld } from '../ecology/genome-model';
 import type { World } from '../ecology/learning-model';
 
 const actions = ['forward', 'right', 'back', 'left'];
 const features = ['Bias', 'Food ahead', 'Food right', 'Food behind', 'Food left', 'Stored energy'];
-export function LearningPanel({ world, selected }: { world: World; selected: number }) {
+export function LearningPanel({ world, selected }: { world: World | GenomeWorld; selected: number }) {
   const creature = world.creatures.find(c => c.id === selected);
   const ancestor = world.lineage.find(c => c.id === selected);
   const decision = creature?.lastDecision ?? ancestor?.lastDecision;

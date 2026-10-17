@@ -356,3 +356,12 @@ footer { display: flex; justify-content: space-between; gap: 12px; max-width: 18
 .ecology-files { border-top: 1px solid #26374d; margin-top: 1rem; padding-top: .25rem; }
 .ecology-files h3 { font-size: .95rem; margin-bottom: .3rem; }
 .ecology-files .actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.genome-inspector { border-top: 1px solid #35536f; padding-top: .4rem; margin-top: 1rem; }
+.genome-inspector h3 { color: #a9df78; }
+.genome-blueprint { display: grid; grid-template-columns: repeat(5, 30px); grid-template-rows: repeat(5, 30px); gap: 3px; width: max-content; padding: .5rem; background: #050907; border: 1px solid #35536f; }
+.genome-blueprint span { display: flex; justify-content: center; align-items: center; border: 1px solid #dce5f4; color: #06111b; font-weight: 750; }
+.genome-blueprint .undeveloped { border: 2px dashed #c9d5e1; opacity: .45; }
+.genome-inspector p, .family-path span { overflow-wrap: anywhere; }
+
+.genome-example > summary { min-height: 44px; padding: .65rem 0; color: #a9df78; cursor: pointer; }

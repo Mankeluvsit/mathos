@@ -1,0 +1,783 @@
+{
+  "engine": "ecology-reference@4",
+  "bodyGenome": "cell-layout@1",
+  "provenance": "TypeScript production regression captures, not an independent world oracle",
+  "cases": [
+    {
+      "seed": 0,
+      "learning": false,
+      "structuralMutation": false,
+      "frames": [
+        {
+          "tick": 0,
+          "sha256": "e9c44cb2962f63c60585f3a3d10ba8a36e8d6a0d9a31f614f73bd7f181cc5eb9",
+          "metrics": {
+            "population": 8,
+            "pellets": 347,
+            "births": 0,
+            "deaths": 0,
+            "generation": 0,
+            "foodEnergy": 8328,
+            "stores": 960,
+            "structure": 232,
+            "dissipated": 0,
+            "supplied": 9520,
+            "accounted": 9520
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 20,
+          "sha256": "2cf756a756a5725c57f4359751d06fe0225389199dcf0e5a082aab3c9e7604f1",
+          "metrics": {
+            "population": 8,
+            "pellets": 357,
+            "births": 0,
+            "deaths": 0,
+            "generation": 0,
+            "foodEnergy": 8568,
+            "stores": 1039,
+            "structure": 232,
+            "dissipated": 977,
+            "supplied": 10816,
+            "accounted": 10816
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 100,
+          "sha256": "3248b9fdc2945e02dc5d065384d0fc6923dd4eaf058c1331c41fba1222c81ede",
+          "metrics": {
+            "population": 10,
+            "pellets": 362,
+            "births": 4,
+            "deaths": 2,
+            "generation": 1,
+            "foodEnergy": 8688,
+            "stores": 1994,
+            "structure": 264,
+            "dissipated": 4766,
+            "supplied": 15712,
+            "accounted": 15712
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 400,
+          "sha256": "12a68f522dfe0ac506ddd60b0d7c23ccc4646734895cb36ec5e10a15c1896c1b",
+          "metrics": {
+            "population": 12,
+            "pellets": 237,
+            "births": 30,
+            "deaths": 26,
+            "generation": 4,
+            "foodEnergy": 5568,
+            "stores": 1871,
+            "structure": 328,
+            "dissipated": 27025,
+            "supplied": 34792,
+            "accounted": 34792
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 1600,
+          "sha256": "50694e56c21eb2af61d31900c21aa646e50ba722236a2787e19bc07db5a0cc3a",
+          "metrics": {
+            "population": 14,
+            "pellets": 410,
+            "births": 116,
+            "deaths": 110,
+            "generation": 8,
+            "foodEnergy": 8912,
+            "stores": 4158,
+            "structure": 400,
+            "dissipated": 95482,
+            "supplied": 108952,
+            "accounted": 108952
+          },
+          "acceptedStructural": 0
+        }
+      ]
+    },
+    {
+      "seed": 0,
+      "learning": false,
+      "structuralMutation": true,
+      "frames": [
+        {
+          "tick": 0,
+          "sha256": "86154abd20143845f1b4db1c9f2a2148b1dbc98f9b9bafccd04ff17969a78882",
+          "metrics": {
+            "population": 8,
+            "pellets": 347,
+            "births": 0,
+            "deaths": 0,
+            "generation": 0,
+            "foodEnergy": 8328,
+            "stores": 960,
+            "structure": 232,
+            "dissipated": 0,
+            "supplied": 9520,
+            "accounted": 9520
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 20,
+          "sha256": "c1e451ebdde7aed5614c1a0b4ceca07ad539378ee694f84dd4b480169d685dcf",
+          "metrics": {
+            "population": 8,
+            "pellets": 357,
+            "births": 0,
+            "deaths": 0,
+            "generation": 0,
+            "foodEnergy": 8568,
+            "stores": 1039,
+            "structure": 232,
+            "dissipated": 977,
+            "supplied": 10816,
+            "accounted": 10816
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 100,
+          "sha256": "1e5858041f6f48d629ae0efbb849faf1fedec489e112642caad578cde6cc14ca",
+          "metrics": {
+            "population": 10,
+            "pellets": 362,
+            "births": 4,
+            "deaths": 2,
+            "generation": 1,
+            "foodEnergy": 8688,
+            "stores": 1994,
+            "structure": 264,
+            "dissipated": 4766,
+            "supplied": 15712,
+            "accounted": 15712
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 400,
+          "sha256": "249edf4b512f8dce48da7ac3e782ae18114c3d6afde33ca3e4ed88f35adb6806",
+          "metrics": {
+            "population": 11,
+            "pellets": 242,
+            "births": 29,
+            "deaths": 26,
+            "generation": 3,
+            "foodEnergy": 5688,
+            "stores": 1773,
+            "structure": 312,
+            "dissipated": 27019,
+            "supplied": 34792,
+            "accounted": 34792
+          },
+          "acceptedStructural": 2
+        },
+        {
+          "tick": 1600,
+          "sha256": "402f979b7753d0ea265e321447f5edd51aea7a2a47346d6daf345a5dcb36b552",
+          "metrics": {
+            "population": 10,
+            "pellets": 406,
+            "births": 120,
+            "deaths": 118,
+            "generation": 8,
+            "foodEnergy": 9744,
+            "stores": 2393,
+            "structure": 240,
+            "dissipated": 96743,
+            "supplied": 109120,
+            "accounted": 109120
+          },
+          "acceptedStructural": 4
+        }
+      ]
+    },
+    {
+      "seed": 0,
+      "learning": true,
+      "structuralMutation": false,
+      "frames": [
+        {
+          "tick": 0,
+          "sha256": "78584bf16481ed1cb1c046224e3f36ded7af57e4748fc0ef6dc2b70819628450",
+          "metrics": {
+            "population": 8,
+            "pellets": 347,
+            "births": 0,
+            "deaths": 0,
+            "generation": 0,
+            "foodEnergy": 8328,
+            "stores": 960,
+            "structure": 232,
+            "dissipated": 0,
+            "supplied": 9520,
+            "accounted": 9520
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 20,
+          "sha256": "9604e6d346f835f4bd5f816f8dc23ececb63baf81cc614e69e6a89d76408be64",
+          "metrics": {
+            "population": 8,
+            "pellets": 350,
+            "births": 0,
+            "deaths": 0,
+            "generation": 0,
+            "foodEnergy": 8400,
+            "stores": 1199,
+            "structure": 232,
+            "dissipated": 961,
+            "supplied": 10792,
+            "accounted": 10792
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 100,
+          "sha256": "b182f7bec3772272d3fe76b4b8757a5f594bf634c1f2a2ce03a31a7c8e37c08a",
+          "metrics": {
+            "population": 7,
+            "pellets": 404,
+            "births": 3,
+            "deaths": 4,
+            "generation": 1,
+            "foodEnergy": 9696,
+            "stores": 1512,
+            "structure": 192,
+            "dissipated": 4264,
+            "supplied": 15664,
+            "accounted": 15664
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 400,
+          "sha256": "7f0b956302dbfc1237ae8ae853a1caa881c0b9f30dbdd9e285e4759dd5527a37",
+          "metrics": {
+            "population": 11,
+            "pellets": 335,
+            "births": 28,
+            "deaths": 25,
+            "generation": 3,
+            "foodEnergy": 7881,
+            "stores": 2211,
+            "structure": 280,
+            "dissipated": 24252,
+            "supplied": 34624,
+            "accounted": 34624
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 1600,
+          "sha256": "e251dd5f9062dd027e0c063796179eb5452180371e27ccc972075d7f95fff43f",
+          "metrics": {
+            "population": 22,
+            "pellets": 311,
+            "births": 126,
+            "deaths": 112,
+            "generation": 10,
+            "foodEnergy": 7298,
+            "stores": 3785,
+            "structure": 512,
+            "dissipated": 98821,
+            "supplied": 110416,
+            "accounted": 110416
+          },
+          "acceptedStructural": 0
+        }
+      ]
+    },
+    {
+      "seed": 0,
+      "learning": true,
+      "structuralMutation": true,
+      "frames": [
+        {
+          "tick": 0,
+          "sha256": "5eedc199dcdf78e689460ee24b2e83e1eae16842811316752b6d3025c3672ac7",
+          "metrics": {
+            "population": 8,
+            "pellets": 347,
+            "births": 0,
+            "deaths": 0,
+            "generation": 0,
+            "foodEnergy": 8328,
+            "stores": 960,
+            "structure": 232,
+            "dissipated": 0,
+            "supplied": 9520,
+            "accounted": 9520
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 20,
+          "sha256": "fc3564965ff5034a01c6b5c4f5de47b5ce655dc9bb0bc350ca71e0f210fc7323",
+          "metrics": {
+            "population": 8,
+            "pellets": 350,
+            "births": 0,
+            "deaths": 0,
+            "generation": 0,
+            "foodEnergy": 8400,
+            "stores": 1199,
+            "structure": 232,
+            "dissipated": 961,
+            "supplied": 10792,
+            "accounted": 10792
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 100,
+          "sha256": "ba043333840e517fbc0c3b18d7e1f0472cf11486d86d6f12a7fa24ad139c1937",
+          "metrics": {
+            "population": 7,
+            "pellets": 404,
+            "births": 3,
+            "deaths": 4,
+            "generation": 1,
+            "foodEnergy": 9696,
+            "stores": 1512,
+            "structure": 192,
+            "dissipated": 4264,
+            "supplied": 15664,
+            "accounted": 15664
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 400,
+          "sha256": "d5aeadbf11c8109fdf8160b18ccb5471b7234d2dc7026d9020e7e3ca9f34d832",
+          "metrics": {
+            "population": 11,
+            "pellets": 335,
+            "births": 28,
+            "deaths": 25,
+            "generation": 3,
+            "foodEnergy": 7881,
+            "stores": 2211,
+            "structure": 280,
+            "dissipated": 24252,
+            "supplied": 34624,
+            "accounted": 34624
+          },
+          "acceptedStructural": 1
+        },
+        {
+          "tick": 1600,
+          "sha256": "dd7c3af1f9dfe4cc507797a9b3e6b310f253d25371a03c6a46d05b2fbf42959e",
+          "metrics": {
+            "population": 14,
+            "pellets": 308,
+            "births": 119,
+            "deaths": 113,
+            "generation": 8,
+            "foodEnergy": 7318,
+            "stores": 3361,
+            "structure": 328,
+            "dissipated": 99865,
+            "supplied": 110872,
+            "accounted": 110872
+          },
+          "acceptedStructural": 3
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "learning": false,
+      "structuralMutation": false,
+      "frames": [
+        {
+          "tick": 0,
+          "sha256": "8231f2ae4a30d6cd4cc73644bdb015c8af0d767fcd3953312905ae982b2356e1",
+          "metrics": {
+            "population": 8,
+            "pellets": 342,
+            "births": 0,
+            "deaths": 0,
+            "generation": 0,
+            "foodEnergy": 8208,
+            "stores": 960,
+            "structure": 232,
+            "dissipated": 0,
+            "supplied": 9400,
+            "accounted": 9400
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 20,
+          "sha256": "7c826457a83ef4bee6d3fcb6028e5167db0e548763f7d0b97293926b1388a84e",
+          "metrics": {
+            "population": 8,
+            "pellets": 340,
+            "births": 0,
+            "deaths": 0,
+            "generation": 0,
+            "foodEnergy": 8160,
+            "stores": 1344,
+            "structure": 232,
+            "dissipated": 984,
+            "supplied": 10720,
+            "accounted": 10720
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 100,
+          "sha256": "ae9f8d4cfd3291e4a67787c6081935d76992ed6f15ebd596ffb7f0dc9b59eeb5",
+          "metrics": {
+            "population": 11,
+            "pellets": 326,
+            "births": 7,
+            "deaths": 4,
+            "generation": 2,
+            "foodEnergy": 7824,
+            "stores": 1879,
+            "structure": 304,
+            "dissipated": 6065,
+            "supplied": 16072,
+            "accounted": 16072
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 400,
+          "sha256": "101bee0affc1e0aaee36a318bf8f93fc456319fa2bd99e84ccd61aaa742eaf40",
+          "metrics": {
+            "population": 8,
+            "pellets": 364,
+            "births": 28,
+            "deaths": 28,
+            "generation": 4,
+            "foodEnergy": 8736,
+            "stores": 1243,
+            "structure": 200,
+            "dissipated": 25429,
+            "supplied": 35608,
+            "accounted": 35608
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 1600,
+          "sha256": "f5c4b2a7f7e35d4d51d2b1e83014542cd9bb9cd42f7f56ad20e836ded55d81ca",
+          "metrics": {
+            "population": 12,
+            "pellets": 758,
+            "births": 108,
+            "deaths": 104,
+            "generation": 10,
+            "foodEnergy": 17018,
+            "stores": 3921,
+            "structure": 360,
+            "dissipated": 88061,
+            "supplied": 109360,
+            "accounted": 109360
+          },
+          "acceptedStructural": 0
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "learning": false,
+      "structuralMutation": true,
+      "frames": [
+        {
+          "tick": 0,
+          "sha256": "a515e42ae84886e78270227a551f3cc3a0469fc590de465fd5f6f8fec80467e1",
+          "metrics": {
+            "population": 8,
+            "pellets": 342,
+            "births": 0,
+            "deaths": 0,
+            "generation": 0,
+            "foodEnergy": 8208,
+            "stores": 960,
+            "structure": 232,
+            "dissipated": 0,
+            "supplied": 9400,
+            "accounted": 9400
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 20,
+          "sha256": "797818d8d1187d80bc2ddeafe60fcd7b5fb9fc376fa52b12f8ab1528baca5cca",
+          "metrics": {
+            "population": 8,
+            "pellets": 340,
+            "births": 0,
+            "deaths": 0,
+            "generation": 0,
+            "foodEnergy": 8160,
+            "stores": 1344,
+            "structure": 232,
+            "dissipated": 984,
+            "supplied": 10720,
+            "accounted": 10720
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 100,
+          "sha256": "9f84b37bd4e3d44e2225ca6a2672b56cf447232f01336628ec736c117bd6fec4",
+          "metrics": {
+            "population": 11,
+            "pellets": 326,
+            "births": 7,
+            "deaths": 4,
+            "generation": 2,
+            "foodEnergy": 7824,
+            "stores": 1879,
+            "structure": 304,
+            "dissipated": 6065,
+            "supplied": 16072,
+            "accounted": 16072
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 400,
+          "sha256": "d9732a40afe4b895b7d33f7bbe6f4e61c70603c50e2d0401cee84cf6381e3b09",
+          "metrics": {
+            "population": 8,
+            "pellets": 364,
+            "births": 28,
+            "deaths": 28,
+            "generation": 4,
+            "foodEnergy": 8736,
+            "stores": 1243,
+            "structure": 200,
+            "dissipated": 25429,
+            "supplied": 35608,
+            "accounted": 35608
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 1600,
+          "sha256": "17fc0697c7ab99887395f477a81138ae2e8ad46129cb12ee6d21c653c7b75fc4",
+          "metrics": {
+            "population": 10,
+            "pellets": 768,
+            "births": 107,
+            "deaths": 105,
+            "generation": 8,
+            "foodEnergy": 17284,
+            "stores": 4063,
+            "structure": 312,
+            "dissipated": 87677,
+            "supplied": 109336,
+            "accounted": 109336
+          },
+          "acceptedStructural": 4
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "learning": true,
+      "structuralMutation": false,
+      "frames": [
+        {
+          "tick": 0,
+          "sha256": "157eff3c0a9ed0a1074c4db1e45f2af6128233c9488e734cc72bb457ae33e4b8",
+          "metrics": {
+            "population": 8,
+            "pellets": 342,
+            "births": 0,
+            "deaths": 0,
+            "generation": 0,
+            "foodEnergy": 8208,
+            "stores": 960,
+            "structure": 232,
+            "dissipated": 0,
+            "supplied": 9400,
+            "accounted": 9400
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 20,
+          "sha256": "30c0084796ca0c84fc3ee76dfc0ca66787bb7befac331a4ffaaf4f5ec8134055",
+          "metrics": {
+            "population": 8,
+            "pellets": 345,
+            "births": 0,
+            "deaths": 0,
+            "generation": 0,
+            "foodEnergy": 8280,
+            "stores": 1286,
+            "structure": 232,
+            "dissipated": 898,
+            "supplied": 10696,
+            "accounted": 10696
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 100,
+          "sha256": "8c6f8f7c00d8b63248c33e993508a1680c12d1ac0a748aa4571e3bb9338b6f6e",
+          "metrics": {
+            "population": 7,
+            "pellets": 394,
+            "births": 4,
+            "deaths": 5,
+            "generation": 2,
+            "foodEnergy": 9429,
+            "stores": 1664,
+            "structure": 184,
+            "dissipated": 4747,
+            "supplied": 16024,
+            "accounted": 16024
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 400,
+          "sha256": "ca47b353513ab22e49f6c366c233c86748aec907a8ebb9e102793821d948957d",
+          "metrics": {
+            "population": 21,
+            "pellets": 260,
+            "births": 36,
+            "deaths": 23,
+            "generation": 4,
+            "foodEnergy": 6082,
+            "stores": 4166,
+            "structure": 488,
+            "dissipated": 23744,
+            "supplied": 34480,
+            "accounted": 34480
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 1600,
+          "sha256": "b1ba495854770ea91683090377dfcce5ac129b670b3497e48b5683afa1ea2226",
+          "metrics": {
+            "population": 6,
+            "pellets": 365,
+            "births": 118,
+            "deaths": 120,
+            "generation": 8,
+            "foodEnergy": 8653,
+            "stores": 1064,
+            "structure": 144,
+            "dissipated": 101755,
+            "supplied": 111616,
+            "accounted": 111616
+          },
+          "acceptedStructural": 0
+        }
+      ]
+    },
+    {
+      "seed": 42,
+      "learning": true,
+      "structuralMutation": true,
+      "frames": [
+        {
+          "tick": 0,
+          "sha256": "7e861e6bccdb29a2f7dda58f56923272a93db8f8d5ed2118a00507c6f8aa25ba",
+          "metrics": {
+            "population": 8,
+            "pellets": 342,
+            "births": 0,
+            "deaths": 0,
+            "generation": 0,
+            "foodEnergy": 8208,
+            "stores": 960,
+            "structure": 232,
+            "dissipated": 0,
+            "supplied": 9400,
+            "accounted": 9400
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 20,
+          "sha256": "f2a533151abeda0c11c5342ea503198c2087ec3fa7bfa6b055154bc74a56fb51",
+          "metrics": {
+            "population": 8,
+            "pellets": 345,
+            "births": 0,
+            "deaths": 0,
+            "generation": 0,
+            "foodEnergy": 8280,
+            "stores": 1286,
+            "structure": 232,
+            "dissipated": 898,
+            "supplied": 10696,
+            "accounted": 10696
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 100,
+          "sha256": "7c068b72782c47cb707574caa9be20c8a4fe8f1ca19deaa03628a55296dd1a36",
+          "metrics": {
+            "population": 7,
+            "pellets": 394,
+            "births": 4,
+            "deaths": 5,
+            "generation": 2,
+            "foodEnergy": 9429,
+            "stores": 1664,
+            "structure": 184,
+            "dissipated": 4747,
+            "supplied": 16024,
+            "accounted": 16024
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 400,
+          "sha256": "fa5f9d4ab0bc97f939a0627541aceb1ff6f68f3aea6275b9ce5fa2add76286b9",
+          "metrics": {
+            "population": 21,
+            "pellets": 260,
+            "births": 36,
+            "deaths": 23,
+            "generation": 4,
+            "foodEnergy": 6082,
+            "stores": 4166,
+            "structure": 488,
+            "dissipated": 23744,
+            "supplied": 34480,
+            "accounted": 34480
+          },
+          "acceptedStructural": 0
+        },
+        {
+          "tick": 1600,
+          "sha256": "f95fe5cf698a0c002be27272a9429006fa060b6a030c84e348b4d2f806309350",
+          "metrics": {
+            "population": 6,
+            "pellets": 365,
+            "births": 118,
+            "deaths": 120,
+            "generation": 8,
+            "foodEnergy": 8653,
+            "stores": 1022,
+            "structure": 152,
+            "dissipated": 101789,
+            "supplied": 111616,
+            "accounted": 111616
+          },
+          "acceptedStructural": 2
+        }
+      ]
+    }
+  ]
+}

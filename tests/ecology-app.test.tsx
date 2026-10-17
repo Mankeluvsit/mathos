@@ -55,3 +55,19 @@ it('explains highlights separately from playback and preserves the world when to
  fireEvent.click(screen.getByRole('button',{name:'Start world'}));
  expect(screen.getByTestId('playback-summary')).toHaveTextContent('Running');
 });
+
+it('loads the body-change example as a draft and exposes a real inherited structural change',()=>{
+ window.history.replaceState({},'','/');render(<App/>);
+ fireEvent.click(screen.getByText('Try a body-change example'));
+ fireEvent.click(screen.getByRole('button',{name:'Load body-change example'}));
+ expect(screen.getByLabelText('World seed')).toHaveValue(4294967295);
+ expect(screen.getByText(/Seed 42/)).toBeInTheDocument();
+ fireEvent.click(screen.getByRole('button',{name:'Prepare new world'}));
+ for(let i=0;i<63;i++)fireEvent.click(screen.getByRole('button',{name:'One step'}));
+ fireEvent.click(screen.getByRole('button',{name:'Inspect latest body change'}));
+ expect(screen.getByRole('heading',{name:'Organism #9'})).toBeInTheDocument();
+ expect(screen.getByTestId('genome-development')).toHaveTextContent('4 of 4');
+ fireEvent.click(screen.getByText('Body inheritance at birth'));
+ expect(screen.getByTestId('genome-birth')).toHaveTextContent('mouth moved from (1,0) to (1,-1)');
+ expect(screen.getByTestId('ecology-tick')).toHaveTextContent('63');
+});

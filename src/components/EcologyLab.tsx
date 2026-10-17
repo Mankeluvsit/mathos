@@ -4,6 +4,8 @@ import {
   cellParts,
   isOriented,
   isLearning,
+  isGenome,
+  isGenomeCreature,
   isOrientedCreature,
   ecologyMetrics,
   parseEcology,
@@ -18,6 +20,7 @@ import { drawTerminalEcology, observedActivity, ACTIVITY_MS } from "../rendering
 import { drawEcology } from "../rendering/ecology-renderer";
 import { DIRECTIONS } from "../ecology/oriented-geometry";
 import { LearningComparison } from "./LearningComparison";
+import { GenomePanel } from "./GenomePanel";
 import { LearningPanel } from "./LearningPanel";
 import { EvolutionPanel } from "./EvolutionPanel";
 import { saveEcology, loadEcology } from "../ecology/storage";
@@ -195,7 +198,8 @@ function EcologySession({
     [seed, setSeed] = useState(String(world.definition.seed)),
     [mode, setMode] = useState(world.definition.mode),
     [modelVersion, setModelVersion] = useState(world.definition.version),
-    [learning, setLearning] = useState(world.definition.version === 3 ? world.definition.learning : true);
+    [learning, setLearning] = useState(isLearning(world) ? world.definition.learning : true),
+    [structuralMutation, setStructuralMutation] = useState(isGenome(world) ? world.definition.structuralMutation : true);
   const [message, setMessage] = useState(
     "Ready. Press Start world to watch the organisms search for food.",
   );
@@ -256,7 +260,8 @@ function EcologySession({
     return validateEcology({
       format: "mathos-ecology",
       version: modelVersion,
-      ...(modelVersion === 3 ? { learning } : {}),
+      ...(modelVersion >= 3 ? { learning } : {}),
+      ...(modelVersion === 4 ? {structuralMutation} : {}),
       seed: seed.trim() ? Number(seed) : NaN,
       mode,
     });
@@ -354,7 +359,7 @@ function EcologySession({
                   <strong data-testid="ecology-tick">{world.tick}</strong> /{" "}
                   {END} ·{" "}
                   <span data-testid="ecology-status">{summary.status}</span> ·
-                  model {world.definition.version}{isLearning(world) ? ` · learning ${world.definition.learning ? "on" : "off"}` : ""}
+                  model {world.definition.version}{isLearning(world) ? ` · learning ${world.definition.learning ? "on" : "off"}` : ""}{isGenome(world)?` · body mutations ${world.definition.structuralMutation?"on":"off"}`:""}
                 </p>
               </div>
               <span className="local-badge">LOCAL ONLY</span>
@@ -456,7 +461,7 @@ function EcologySession({
             {orientedCreature && (
               <p data-testid="organism-heading">
                 Facing {DIRECTIONS[orientedCreature.direction]} ·{" "}
-                {orientedCreature.genes.bodyPlan} body
+                {isGenomeCreature(orientedCreature) ? `${orientedCreature.size}/${orientedCreature.genes.layout.length} cells` : `${orientedCreature.genes.bodyPlan} body`}
                 <br />
                 Forward moves: {orientedCreature.distance} · turns:{" "}
                 {orientedCreature.turns}
@@ -501,6 +506,7 @@ function EcologySession({
                   The mouth takes nearby food. The motor spends energy to move.
                   The body stores resources and evaluates food signals.
                 </p>
+                {isGenome(world) && <GenomePanel world={world} selected={selected} />}
                 {isLearning(world) && <LearningPanel world={world} selected={selected} />}
                 <details open={!isLearning(world)}>
                   <summary>Inherited traits</summary>
@@ -523,7 +529,7 @@ function EcologySession({
                     </div>
                     {orientedCreature && (
                       <div>
-                        <dt>Inherited body plan</dt>
+                        <dt>{isGenome(world) ? "Founding template" : "Inherited body plan"}</dt>
                         <dd>{orientedCreature.genes.bodyPlan}</dd>
                       </div>
                     )}
@@ -571,6 +577,7 @@ function EcologySession({
                   : "No organisms yet. Seeded mode starts with eight authored foragers; primordial mode has food only."}
               </p>
             )}
+            {!creature && isGenome(world) && <GenomePanel world={world} selected={selected} />}
             {!creature && isLearning(world) && <LearningPanel world={world} selected={selected} />}
             {orientedWorld && (
               <details>
@@ -579,7 +586,7 @@ function EcologySession({
                   {familyPath.map((l) => (
                     <li key={l.id}>
                       <button onClick={() => setSelected(l.id)}>
-                        #{l.id} · {l.genes.bodyPlan}
+                        #{l.id} · {"layout" in l.genes && Array.isArray(l.genes.layout) ? `${l.genes.layout.length}-cell blueprint` : l.genes.bodyPlan}
                       </button>
                       {l.mutation && <span>{l.mutation}</span>}
                     </li>
@@ -618,15 +625,20 @@ function EcologySession({
           >
             <p className="eyebrow">STARTING CONDITIONS</p>
             <h2 id="ecology-setup-title" tabIndex={-1}>Set up a world</h2>
+            <details className="genome-example"><summary>Try a body-change example</summary>
+            <button onClick={()=>{setModelVersion(4);setSeed('4294967295');setMode('seeded');setLearning(true);setStructuralMutation(true);setMessage('Body-change example settings loaded. Prepare new world to apply them.');}}>Load body-change example</button>
+            <p className="hint">An illustration using model4, seed4294967295: organism9 inherits a relocated mouth at step40. Growth still needs food and space; this is not evidence of better survival. Load these settings, then Prepare new world. At step40, Results can inspect the changed offspring.</p>
+            </details>
             <label>
               Simulation model
               <select
                 aria-label="Simulation model"
                 value={modelVersion}
                 onChange={(e) =>
-                  setModelVersion(Number(e.target.value) as 1 | 2 | 3)
+                  setModelVersion(Number(e.target.value) as 1 | 2 | 3 | 4)
                 }
               >
+                <option value="4">Inherited cell genomes · model 4</option>
                 <option value="3">Learning during life · model 3</option>
                 <option value="2">
                   Turning bodies & inheritance · model 2
@@ -636,10 +648,12 @@ function EcologySession({
                 </option>
               </select>
             </label>
-            {modelVersion === 3 && <label className="learning-toggle">
+            {modelVersion >= 3 && <label className="learning-toggle">
               <input type="checkbox" checked={learning} onChange={e => setLearning(e.target.checked)} /> Enable lifetime learning
             </label>}
-            {modelVersion === 3 && <p className="hint">Learning off keeps the same starting controller but disables weight changes. Apply draft changes with Prepare new world; the active world is unchanged until then.</p>}
+            {modelVersion >= 3 && <p className="hint">Learning off keeps the same starting controller but disables weight changes. Apply draft changes with Prepare new world; the active world is unchanged until then.</p>}
+            {modelVersion === 4 && <label className="learning-toggle"><input type="checkbox" checked={structuralMutation} onChange={e=>setStructuralMutation(e.target.checked)} /> Allow structural mutations</label>}
+            {modelVersion === 4 && <p className="hint">Off preserves inherited layouts at birth; numerical trait mutations can still occur. Each new cell always requires space and resources.</p>}
             <label>
               World seed
               <input
@@ -797,8 +811,8 @@ function EcologySession({
           </section>
           <div className="ecology-results" role="region" aria-label="World results">
             <div className="results-intro"><h2 id="ecology-results-title" tabIndex={-1}>Results & experiments</h2><p>Review this world’s history, or compare learning in separate worlds.</p></div>
-          {isLearning(world) && <LearningComparison pause={() => runtime.pause()} />}
-          <EvolutionPanel world={world} />
+          {isLearning(world) && <LearningComparison pause={() => runtime.pause()} model={isGenome(world)?{version:4,structuralMutation:world.definition.structuralMutation}:{version:3}} />}
+          <EvolutionPanel world={world} inspect={choose} />
           <section className="panel ecology-events">
             <h2>Recent life events</h2>
             <p className="hint">
@@ -847,7 +861,8 @@ export function EcologyLab({ onExit }: { onExit: () => void }) {
     runtime: new EcologyRuntime(
       validateEcology({
         format: "mathos-ecology",
-        version: 3,
+        version: 4,
+        structuralMutation: true,
         learning: true,
         seed: 42,
         mode: "seeded",

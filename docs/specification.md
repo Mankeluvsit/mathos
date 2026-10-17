@@ -71,3 +71,7 @@ The owner approved continuing the plan with turning added. Ecology-reference@2 n
 ## Learning preparation boundary
 
 The owner authorized continued development here while maintaining the OpenCode handoff. The [learning plan](learning-plan.md) and ADR0010 establish the next bounded milestone. L1/L2 delivered its contract and independently checked controller. The local L3–L5 implementation now connects v3 lifecycles, frozen-versus-learning comparisons and readable inspection. L6 verification and owner review remain the delivery gate. Initial outcomes are mixed; no general improvement claim follows.
+
+## Current inherited-body increment
+
+The owner authorized continuing from richer-body development. ADR0011 and inherited-body-plan.md define a new bounded v4 implementation: inherited3–6-cell connected-prefix genomes, real organ effects, resource-funded development, structural birth mutations, readable blueprint/growth/ancestry and version-correct learning comparisons. Old v1–3 remain replayable. The implementation status and evidence are in capability-status/handoff/STATE; historical phase exclusions above do not mean later delivered features are absent. Primordial spontaneous life, arbitrary anatomy editing, predation, general universe rules, workers, checkpoints and open-ended research remain planned.

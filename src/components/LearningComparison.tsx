@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { compareLearning, pairedDifferences, type Comparison } from '../ecology/learning-experiments';
+import { compareLearning, pairedDifferences, type Comparison, type ComparisonModel } from '../ecology/learning-experiments';
 
 declare const __MATHOS_SOURCE__: Comparison['source'];
-export function LearningComparison({ pause }: { pause: () => void }) {
+export function LearningComparison({ pause, model = {version:3} }: { pause: () => void; model?: ComparisonModel }) {
   const abort = useRef<AbortController | null>(null);
   const [running, setRunning] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -19,19 +19,19 @@ export function LearningComparison({ pause }: { pause: () => void }) {
     setRunning(true); setProgress(0); setResult(null);
     const output = await compareLearning(__MATHOS_SOURCE__, controller.signal, (done, total) => {
       if (abort.current === controller) setProgress(Math.floor(100 * done / total));
-    });
+    }, undefined, undefined, model);
     if (abort.current !== controller) return;
     abort.current = null; setResult(output); setRunning(false);
   }
   function download() {
     if (!result) return;
     const url = URL.createObjectURL(new Blob([JSON.stringify(result, null, 2) + '\n'], {type: 'application/json'}));
-    const a = document.createElement('a'); a.href = url; a.download = 'mathos-learning-comparison.v1.json'; a.click();
+    const a = document.createElement('a'); a.href = url; a.download = `mathos-learning-comparison.v${result.version}.json`; a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   return <section className="panel ecology-evolution" aria-labelledby="learning-comparison-title">
     <h2 id="learning-comparison-title">Does learning help?</h2>
-    <p>Run six starting seeds twice: learning off, then on. Each world runs for 1,600 steps. Your world pauses and is kept separate. This can take a minute or more; leaving the browser tab cancels the comparison.</p>
+    <p>Run model {model.version} for six starting seeds twice: learning off, then on. Each world runs for 1,600 steps. Your world pauses and is kept separate. This can take a minute or more; leaving the browser tab cancels the comparison.</p>
     <div className="actions"><button disabled={running} onClick={() => void start()}>Compare learning on / off</button>
       {running && <button onClick={() => abort.current?.abort()}>Cancel learning comparison</button>}
       {result && <button onClick={download}>Export learning comparison</button>}</div>

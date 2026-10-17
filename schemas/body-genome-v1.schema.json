@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "cell-layout@1 structural schema; runtime additionally checks unique sites and prefix connectivity",
+  "type": "array",
+  "minItems": 3,
+  "maxItems": 6,
+  "uniqueItems": true,
+  "items": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "x",
+        "y",
+        "role"
+      ],
+      "properties": {
+        "x": {
+          "const": 0
+        },
+        "y": {
+          "const": 0
+        },
+        "role": {
+          "const": "body"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "x",
+        "y",
+        "role"
+      ],
+      "properties": {
+        "x": {
+          "const": 0
+        },
+        "y": {
+          "const": -1
+        },
+        "role": {
+          "const": "mouth"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "x",
+        "y",
+        "role"
+      ],
+      "properties": {
+        "x": {
+          "const": 0
+        },
+        "y": {
+          "const": 1
+        },
+        "role": {
+          "const": "motor"
+        }
+      }
+    }
+  ],
+  "additionalItems": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "x",
+      "y",
+      "role"
+    ],
+    "properties": {
+      "x": {
+        "type": "integer",
+        "minimum": -2,
+        "maximum": 2
+      },
+      "y": {
+        "type": "integer",
+        "minimum": -2,
+        "maximum": 2
+      },
+      "role": {
+        "enum": [
+          "mouth",
+          "motor",
+          "sensor"
+        ]
+      }
+    }
+  }
+}

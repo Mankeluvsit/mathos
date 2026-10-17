@@ -4,6 +4,14 @@
 
 Snapshot date: 2026-10-17. This file is repository memory, not a claim of project completion. Check the actual branch and remote before continuing.
 
+## Active unit: inherited cell genomes (ADR0011)
+
+Owner requested continuation after the richer inherited-body milestone. Starting de1ff08; initially clean, origin fetched. Implemented separate v4/cell-layout@1 geometry, organ mechanics, lifecycle, layouts/development/structural proposals, schemas/example/slot/observation3, blueprint UI, founder-origin labels, labeled example and model-correct paired comparisons. Old engines/controller and replay fixtures remain unchanged. Data/geometry imports route by actual genome. New six-cell measurements use a separate wider adapter after verification caught v3 input bounds; same equation, no parameter tuning.
+
+Independent Python40 frames/12 validation cases and hand anchors are implemented. Full npm run verify passed167 tests/19 files, lint/types/build, all four independent Python references, old/new goldens and every browser workflow. Handoff checks and actual OpenCode1.19.2 parser passed. New native genome workflow already passed in Chromium and Firefox: all eight full-state cases through1600, independent all-prefix/headings geometry, actual organ rendering, real offspring mutation/growth, v4 save/load/import/export, mobile layout, model4 complete12-run comparison in Chromium and cancellation in Firefox. Separate self-review/native capture review checked shared geometry, actual growth, observation/version boundaries, ancestry labeling and phone organization; no second model review. First full six-seed mutation-off/on runs completed with exact accounting and mixed outcomes, no tuning. Raw data stays ignored; summary in inherited-body-verification.md.
+
+Current source is locally verified on top of de1ff08; publication is authorized and in progress. After the full gate, the final plain-language birth story passed another167-test check/build and both native genome workflows. A public-only Chromium branch was added to the same script; it will verify example/persistence/cancellation and clean-source provenance after deployment. Next: publish clean source/existing preview, verify live and record CI. No automatic merge, new service, dependency, genome editor or checkpoint work.
+
 ## Current published checkpoint: organized phone workspace
 
 - Application source: `2ef4ed50021bc0a52aaed01e1e1f16f5d3f9373a` on codex/integrated-life-baseline, PR #4, open/unmerged. Deployment: `c5616fbb9672158d80e5dea1d1a2e8f16c28616f` on gh-pages. [Live MATHOS](https://mankeluvsit.github.io/mathos/?v=mobile4). Later documentation-only commits need not redeploy the identical application.

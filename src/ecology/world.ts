@@ -1,20 +1,25 @@
 /** Dispatch without migrating old experiment semantics. */
 import * as legacy from "./model.ts";
+import * as genome from "./genome-model.ts";
+import { parts as genomeParts } from "./body-genome.ts";
 import * as learning from "./learning-model.ts";
 import * as oriented from "./oriented-model.ts";
 import { parts, type Role } from "./oriented-geometry.ts";
 export const { W, H, END } = legacy;
-export type EcologyDefinition = legacy.EcologyDefinition | oriented.Definition | learning.Definition;
-export type Ecology = legacy.Ecology | oriented.World | learning.World;
-export type Creature = legacy.Creature | oriented.Creature | learning.Creature;
-export function isOriented(s: Ecology): s is oriented.World | learning.World {
-  return s.definition.version === 2 || s.definition.version === 3;
+export type EcologyDefinition = legacy.EcologyDefinition | oriented.Definition | learning.Definition | genome.Definition;
+export type Ecology = legacy.Ecology | oriented.World | learning.World | genome.World;
+export type Creature = legacy.Creature | oriented.Creature | learning.Creature | genome.Creature;
+export function isOriented(s: Ecology): s is oriented.World | learning.World | genome.World {
+  return s.definition.version >= 2;
 }
-export function isOrientedCreature(c: Creature): c is oriented.Creature | learning.Creature {
+export function isOrientedCreature(c: Creature): c is oriented.Creature | learning.Creature | genome.Creature {
   return "bodyPlan" in c.genes;
 }
-export function isLearning(s: Ecology): s is learning.World { return s.definition.version === 3; }
+export function isGenome(s: Ecology): s is genome.World { return s.definition.version === 4; }
+export function isGenomeCreature(c: Creature): c is genome.Creature { return "layout" in c.genes; }
+export function isLearning(s: Ecology): s is learning.World | genome.World { return s.definition.version === 3 || s.definition.version === 4; }
 export function validateEcology(v: unknown): EcologyDefinition {
+  if (v && typeof v === "object" && "version" in v && v.version === 4) return genome.validate(v);
   if (v && typeof v === "object" && "version" in v && v.version === 3) return learning.validate(v);
   return v && typeof v === "object" && "version" in v && v.version === 2
     ? oriented.validate(v)
@@ -32,23 +37,28 @@ export function parseEcology(text: string) {
   return validateEcology(value);
 }
 export function initializeEcology(d: EcologyDefinition): Ecology {
+  if (d.version === 4) return genome.initialize(d);
   if (d.version === 3) return learning.initialize(d);
   return d.version === 2 ? oriented.initialize(d) : legacy.initializeEcology(d);
 }
 export function copyEcology(s: Ecology): Ecology {
+  if (isGenome(s)) return genome.copy(s);
   if (isLearning(s)) return learning.copy(s);
   return isOriented(s) ? oriented.copy(s) : legacy.copyEcology(s);
 }
 export function stepEcology(s: Ecology): Ecology {
+  if (isGenome(s)) return genome.step(s);
   if (isLearning(s)) return learning.step(s);
   return isOriented(s) ? oriented.step(s) : legacy.stepEcology(s);
 }
 export function body(c: Creature): number[] {
+  if (isGenomeCreature(c)) return genome.body(c);
   return isOrientedCreature(c) ? oriented.body(c) : legacy.body(c);
 }
 export function cellParts(
   c: Creature,
 ): Array<{ x: number; y: number; role: Role }> {
+  if (isGenomeCreature(c)) return genomeParts(c);
   return isOrientedCreature(c)
     ? parts(c)
     : legacy

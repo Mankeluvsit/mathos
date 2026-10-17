@@ -1,3 +1,4 @@
+import * as genome from '../src/ecology/genome-model';
 import { expect, it } from 'vitest';
 import { initialize, copy, step } from '../src/ecology/learning-model';
 import { observedActivity, MAX_ACTIVITY_CUES } from '../src/rendering/ecology-terminal';
@@ -55,4 +56,10 @@ it('bounds the cue buffer under dense simultaneous observations', () => {
   next.creatures=before.creatures.map(c=>({...c,x:c.x+1,direction:1,intake:1,
     controller:{...c.controller,updates:1},lastDecision:{...step(initialize(definition)).creatures[0]!.lastDecision!,changes:[1,0,0,0,0,0]}}));
   expect(observedActivity(before,next)).toHaveLength(MAX_ACTIVITY_CUES);
+});
+
+it('does not bridge v4 worlds with different structural-mutation rules',()=>{
+ const d={format:'mathos-ecology',version:4,seed:42,mode:'seeded',learning:true,structuralMutation:true} as const;
+ const before=genome.initialize(d),after=genome.step(genome.initialize({...d,structuralMutation:false}));
+ expect(observedActivity(before,after)).toEqual([]);expect(observedActivity(before,genome.step(before)).length).toBeGreaterThan(0);
 });

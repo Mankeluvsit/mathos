@@ -1,6 +1,8 @@
 # Resume MATHOS here
 
 
+Current work: inherited-body milestone, ADR0011. Separate v4/cell-layout@1, blueprint/development/structural mutation, functional organs and version-correct learning comparisons are implemented locally; full verification is running. Read STATE and inherited-body-plan before proceeding; preserve old engines/fixtures and phone organization. Do not restart learning or claim source/Pages publication before it occurs.
+
 Latest completed unit: corrected the phone playback/organization experience. Shared playback dock, Activity highlights wording, World/Organism/Results/Setup, map-first view and grouped setup are saved and live. Read STATE.md for source/deployment/CI evidence; do not restart learning or change model rules.
 
 MATHOS is mid-development. Read [AGENTS.md](AGENTS.md), [current state](docs/handoff/STATE.md), then [task cards](docs/handoff/NEXT.md). Clean-machine setup: [Bazzite/macOS/Linux/Windows](docs/handoff/SETUP.md). Continuation choices: [HANDOFF.md](HANDOFF.md).

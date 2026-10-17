@@ -64,3 +64,7 @@ Implemented on review branch and preview: original role glyphs, a dark green ter
 ## Phone interaction correction
 
 Implemented on this working branch: world-first layout, compact selected-organism summary, four mobile destinations (World / Organism / Results / Setup), persistent shared playback dock, grouped view controls and explicit Activity highlights wording. Results and configuration no longer spill into mobile World. Actual movement works with highlights off; changing an effect cannot secretly start the run. Setup groups starting settings, file/browser saving, restart and technical labs. [Verification and capture index](mobile-ux-verification.md). Model trajectories and storage formats are unchanged.
+
+## Bounded inherited cell genomes
+
+Implemented in the current v4 working build:3–6 ordered connected loci, inherited prefixes and actual resource-funded growth; structural add/remove/role/relocation proposals, rejection traces, child reset, multiple-mouth/sensor/motor functions and shared physical geometry. The inspector shows actual birth/development and current costs; founder-origin counts are not mislabeled as anatomy. Model-correct learning comparisons, isolated v4 definitions/storage and observation3 preserve older semantics. ADR0011, inherited-body-plan.md and inherited-body-verification.md define scope/evidence. Natural five-cell growth was observed in the six-seed evaluation; six-cell support is controlled-test evidence. Outcomes mixed; no open-ended evolution or general improvement claim. Publication status is in handoff/STATE.md.

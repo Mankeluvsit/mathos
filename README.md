@@ -2,9 +2,9 @@
 
 A fully local-first, browser-based platform for mathematical visualization and pixel-level artificial-life experimentation.
 
-**Status: experimental connected lifetime learning and terminal life presentation.** Organisms rotate their entire body before moving forward. Mouths and sensing rotate too. Dart, grazer and scout body plans are inherited and can mutate, with resource-funded development and different costs/capabilities. Select an organism for heading, family and traits, or inspect measured population/body-plan histories. Earlier models remain replayable. Model3 now adds bounded learning, fresh newborn controllers, readable decision/reward inspection and learning-on/off comparisons. Initial outcomes are mixed. Arbitrary organs, predation and spontaneous genesis remain planned.
+**Status: bounded inherited bodies and lifetime learning.** Model4 uses3–6-cell connected genomes, resource-funded growth and structural birth mutations. Mouths, motors and sensors affect real feeding, movement, sensing and upkeep; all geometry turns together. The inspector shows the birth blueprint versus developed cells and actual changes. Learning is bounded and resets in children. Earlier models remain replayable. Six-seed outcomes are mixed; arbitrary anatomy, predation, spontaneous genesis and checkpoints remain planned.
 
-[Open MATHOS](https://mankeluvsit.github.io/mathos/?v=mobile4) · [Simple learning plan](docs/learning-plan.md) · [Connected learning review](docs/learning-verification.md)
+[Open MATHOS](https://mankeluvsit.github.io/mathos/?v=genomes4) · [Simple learning plan](docs/learning-plan.md) · [Connected learning review](docs/learning-verification.md)
 
 Routine delivery is authorized. See RESUME.md and docs/handoff/STATE.md for the exact saved source, deployed revision and verification evidence.
 
@@ -13,6 +13,8 @@ Routine delivery is authorized. See RESUME.md and docs/handoff/STATE.md for the 
 **New visual review:** [Cogmind-inspired life presentation](docs/visual-direction-cogmind.md) · [actual activity animation](docs/previews/terminal/activity.gif). Terminal glyphs is the new default; Classic cells and reduced-motion/static viewing remain available. Scientific state is unchanged by the visual style.
 
 **Phone controls:** World / Organism / Results / Setup. **Start world** moves the organisms; **Activity highlights** only adds visual cues. Start/Pause, One step and speed stay reachable across all four views. [Mobile changes and verification](docs/mobile-ux-verification.md) · [Actual phone captures](docs/previews/mobile/README.md).
+
+**Try an inherited change:** Setup → Try a body-change example → Load body-change example → Prepare new world. Around step40, use Results → Inspect latest body change. Organism9 inherits a relocated mouth; by63 its fourth cell has developed. This is a labeled illustration, not representative survival evidence. [Rules and plan](docs/inherited-body-plan.md) · [Checks and six-seed outcomes](docs/inherited-body-verification.md) · [Actual captures](docs/previews/genomes/README.md).
 
 ## Run locally
 

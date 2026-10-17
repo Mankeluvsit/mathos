@@ -19,6 +19,7 @@ export const ACTIVITY_MS = 180;
 export function observedActivity(previous: Ecology | null, next: Ecology): ActivityCue[] {
   if (!previous || next.definition.version !== previous.definition.version ||
     next.definition.seed !== previous.definition.seed || next.definition.mode !== previous.definition.mode ||
+    ('structuralMutation' in next.definition && 'structuralMutation' in previous.definition && next.definition.structuralMutation !== previous.definition.structuralMutation) ||
     next.tick <= previous.tick ||
     ('learning' in next.definition && 'learning' in previous.definition && next.definition.learning !== previous.definition.learning)) return [];
   const old = new Map(previous.creatures.map(c => [c.id, c]));

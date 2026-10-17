@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { chromium, firefox } from 'playwright';
 import { startServer } from './browser-server.mjs';
-import { initialize, step } from '../src/ecology/learning-model.ts';
+import { initialize, step } from '../src/ecology/genome-model.ts';
 
 const args = process.argv.slice(2);
 if(args.length>1 || (args.length===1 && args[0]!=='--public'))throw Error('Usage: node scripts/browser-mobile.mjs [--public]');
@@ -21,7 +21,7 @@ try {
       page.on('request', r => {if(!r.url().startsWith(base))external.push(r.url());});
       page.on('dialog', d => d.accept());
       await page.emulateMedia({reducedMotion:'no-preference'});
-      await page.goto(base+(publicReview ? '?v=mobile4' : ''));
+      await page.goto(base+(publicReview ? '?v=genomes4' : ''));
       const nav = page.getByRole('navigation',{name:'Living world views'});
       const tick = async()=>Number(await page.getByTestId('ecology-tick').textContent());
       const canvas = page.getByRole('img',{name:/Living world/});
@@ -56,7 +56,7 @@ try {
       await page.getByRole('button',{name:'Pause world',exact:true}).tap();
       assert.notEqual(await pixels(),image,'Actual world must keep moving with highlights off');
       const off = await snapshot();
-      let expected=initialize({format:'mathos-ecology',version:3,seed:42,mode:'seeded',learning:true});
+      let expected=initialize({format:'mathos-ecology',version:4,seed:42,mode:'seeded',learning:true,structuralMutation:true});
       while(expected.tick<off.tick)expected=step(expected);
       assert.deepEqual(off.lineage,expected.lineage);
       await page.getByRole('checkbox',{name:'Activity highlights',exact:true}).tap();
@@ -101,7 +101,7 @@ try {
       assert(await canvas.isVisible());assert(await page.locator('.ecology-inspect').isVisible());assert(await page.locator('.ecology-setup').isVisible());assert(await page.locator('.ecology-results').isVisible());
       if(type===chromium) {
         await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:`${captures}/desktop.png`,fullPage:true});
-        writeFileSync(`${captures}/capture-state.json`,JSON.stringify({engine:'ecology-reference@3',seed:42,learning:true,tick:capturedTick,selected:1,status:'paused',browser:'Chromium with touch',phone:{width:390,height:844},comparison:'cancelled; interactive world preserved'},null,2)+'\n');
+        writeFileSync(`${captures}/capture-state.json`,JSON.stringify({engine:'ecology-reference@4',seed:42,learning:true,tick:capturedTick,selected:1,status:'paused',browser:'Chromium with touch',phone:{width:390,height:844},comparison:'cancelled; interactive world preserved'},null,2)+'\n');
       }
       assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
       console.log(JSON.stringify({browser:type.name(),mobile:'passed',touchPlayback:'passed',highlights:'independent from actual movement',stateAndReplay:'passed',destinations:'World/Organism/Results/Setup',sizes:'320/390/430/landscape',playbackReachability:'passed',desktop:'passed',externalRequests:0}));

@@ -1,8 +1,9 @@
-import { isOriented, type Ecology } from "../ecology/world";
+import { layoutKey } from "../ecology/body-genome";
+import { isGenome, isOriented, type Ecology } from "../ecology/world";
 import type { Sample } from "../ecology/oriented-model";
 import { exportObservations } from "../ecology/observations";
 import { PLANS } from "../ecology/oriented-geometry";
-function History({ rows }: { rows: Sample[] }) {
+function History({ rows, origins=false }: { rows: Sample[]; origins?:boolean }) {
   const lines = [
     { key: "population" as const, color: "#e0eaf6", label: "All organisms" },
     { key: "dart" as const, color: "#63c6ff", label: "Dart" },
@@ -16,7 +17,7 @@ function History({ rows }: { rows: Sample[] }) {
         className="evolution-chart"
         viewBox="0 0 640 180"
         role="img"
-        aria-label="Measured population and body-plan counts over time. The exact values are in the history table."
+        aria-label={`Measured population and ${origins?"founder-origin":"body-plan"} counts over time. The exact values are in the history table.`}
       >
         <line x1="28" y1="150" x2="630" y2="150" stroke="#55718f" />
         <line x1="28" y1="10" x2="28" y2="150" stroke="#55718f" />
@@ -53,7 +54,7 @@ function History({ rows }: { rows: Sample[] }) {
         </text>
       </svg>
       <p className="hint">
-        White: all organisms · blue: dart · amber: grazer · purple: scout.
+        White: all organisms · blue: dart · amber: grazer · purple: scout. {origins && "These are founder origins, not current body layouts."}
         Samples every 20 steps; current counts may be newer.
       </p>
       <details>
@@ -65,9 +66,9 @@ function History({ rows }: { rows: Sample[] }) {
                 <th>Step</th>
                 <th>Alive</th>
                 <th>Food spots</th>
-                <th>Dart</th>
-                <th>Grazer</th>
-                <th>Scout</th>
+                <th>Dart{origins?" origin":""}</th>
+                <th>Grazer{origins?" origin":""}</th>
+                <th>Scout{origins?" origin":""}</th>
               </tr>
             </thead>
             <tbody>
@@ -88,7 +89,7 @@ function History({ rows }: { rows: Sample[] }) {
     </>
   );
 }
-export function EvolutionPanel({ world }: { world: Ecology }) {
+export function EvolutionPanel({ world, inspect }: { world: Ecology; inspect?: (id:number)=>void }) {
   if (!isOriented(world)) return null;
   function download() {
     if (!isOriented(world)) return;
@@ -99,7 +100,7 @@ export function EvolutionPanel({ world }: { world: Ecology }) {
     );
     const a = document.createElement("a");
     a.href = url;
-    a.download = `mathos-ecology-observations.v${world.definition.version === 3 ? 2 : 1}.json`;
+    a.download = `mathos-ecology-observations.v${world.definition.version === 4 ? 3 : world.definition.version === 3 ? 2 : 1}.json`;
     a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
@@ -128,22 +129,24 @@ export function EvolutionPanel({ world }: { world: Ecology }) {
         observations from this run—not proof that one body plan is universally
         better.
       </p>
+      {isGenome(world) && <p data-testid="genome-population">Living blueprints: {new Set(world.creatures.map(c=>layoutKey(c.genes.layout))).size}. Accepted structural births: {world.lineage.filter(l=>l.layoutMutation).length} of {world.lineage.filter(l=>l.layoutAttempt&&!l.layoutAttempt.includes("disabled")).length} enabled structural proposals. Current body sizes: {[...new Set(world.creatures.map(c=>c.size))].sort((a,b)=>a-b).join(' / ')||'none'}. Counts below group founding templates, not actual anatomy.</p>}
+      {isGenome(world) && inspect && <button disabled={!world.lineage.some(l=>l.layoutMutation)} onClick={()=>{const latest=world.lineage.filter(l=>l.layoutMutation).at(-1);if(latest)inspect(latest.id);}}>Inspect latest body change</button>}
       <div className="ecology-stats">
         {PLANS.map((plan) => (
           <p key={plan}>
             <strong data-testid={`plan-${plan}`}>
               {world.creatures.filter((c) => c.genes.bodyPlan === plan).length}
             </strong>{" "}
-            {plan}
+            {plan}{isGenome(world)?" origin":""}
           </p>
         ))}
       </div>
       <p className="hint">
-        Dart: three cells, lower cost. Grazer: an extra mouth, more possible
+        {isGenome(world)&&"Founding templates only: "}Dart: three cells, lower cost. Grazer: an extra mouth, more possible
         intake. Scout: an extra sensor, longer forward sensing. Four-cell bodies
         cost more to maintain and move.
       </p>
-      <History rows={world.history} />
+      <History rows={world.history} origins={isGenome(world)} />
       <button onClick={download}>Export observations</button>
       <p className="hint">
         Includes these sampled metrics, history, versions and family records. It
@@ -156,7 +159,7 @@ export function EvolutionPanel({ world }: { world: Ecology }) {
             <thead>
               <tr>
                 <th>Founder</th>
-                <th>Starting plan</th>
+                <th>{isGenome(world)?"Founding template":"Starting plan"}</th>
                 <th>Alive</th>
                 <th>Births</th>
                 <th>Deaths</th>
