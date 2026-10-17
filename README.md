@@ -1,7 +1,9 @@
-# MATHOS experimental preview
+# MATHOS inherited-body preview
 
-Application source `2ef4ed50021bc0a52aaed01e1e1f16f5d3f9373a` on the existing unmerged review branch.
+Application source `60fac8298a4474a6b2682e4d5f249a23e4ab2fc9` on the existing unmerged review branch.
 
-Phone layout: World / Organism / Results / Setup, shared playback dock, map-first view and explicit Activity highlights. Start world moves organisms; highlights only decorate observed changes. Engine/controller/format semantics are unchanged. Mixed learning outcomes remain recorded in source.
+Model4 / cell-layout@1:3–6 inherited connected loci, real organ effects and resource-funded development, bounded structural birth mutations, readable blueprints and model-correct learning comparisons. Older models remain replayable. Outcomes are mixed; this is not open-ended evolution or proof of adaptation.
 
-The browser uses no backend or external runtime service. See preview.json for current artifact SHA256 values; older hashed assets are retained for cached HTML.
+Try Setup → Try a body-change example → Load body-change example → Prepare new world. Results can inspect the real changed offspring after40 steps.
+
+No backend/runtime external services. Definitions restart at0, not checkpoints. Current artifact SHA256 values are in preview.json; old hashed assets are retained for cached HTML.

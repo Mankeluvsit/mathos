@@ -1,15 +1,16 @@
 {
   "format": "mathos-preview-build",
   "sourceRepository": "Mankeluvsit/mathos",
-  "sourceCommit": "2ef4ed50021bc0a52aaed01e1e1f16f5d3f9373a",
+  "sourceCommit": "60fac8298a4474a6b2682e4d5f249a23e4ab2fc9",
   "experimental": true,
-  "openingExperience": "ecology-reference@3",
+  "openingExperience": "ecology-reference@4",
+  "bodyGenome": "cell-layout@1",
   "controller": "linear-td@1",
   "appearance": "terminal-glyphs",
-  "mobile": "world-organism-results-setup; persistent playback; activity highlights",
+  "mobile": "world-organism-results-setup; persistent playback",
   "files": {
-    "assets/index-CfKcWrFC.js": "d824f061bd6fe2ddb1a81befffbd95c10893b272f59c0f3743f50de2cd145830",
-    "assets/index-RsPiwIYN.css": "1bcb0ab96e79711e04c672b7c7bf1c19e438bace508ab406b3e6a4f85ac11a98",
-    "index.html": "00d7b2c54c889f54e364454592615c3a25dfc93b3f7066f57e555b8c4a1c60b0"
+    "assets/index-DIuGcYwq.css": "2c4320b82ca0668620fea76e57a1ee79c11026f73d4adb6b56f894e7abbdebb6",
+    "assets/index-KjqZaRvv.js": "2bc140ea3d672960ad84de0d71cf425cdda385b2ff46ecf98691d1df4adf82a4",
+    "index.html": "ddd1e77209f4504106cd34ac265e01b8aa02d074463a22d35fd8e443e26fb50c"
   }
 }
