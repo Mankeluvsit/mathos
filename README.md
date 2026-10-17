@@ -4,7 +4,7 @@ A fully local-first, browser-based platform for mathematical visualization and p
 
 **Status: experimental connected lifetime learning and terminal life presentation.** Organisms rotate their entire body before moving forward. Mouths and sensing rotate too. Dart, grazer and scout body plans are inherited and can mutate, with resource-funded development and different costs/capabilities. Select an organism for heading, family and traits, or inspect measured population/body-plan histories. Earlier models remain replayable. Model3 now adds bounded learning, fresh newborn controllers, readable decision/reward inspection and learning-on/off comparisons. Initial outcomes are mixed. Arbitrary organs, predation and spontaneous genesis remain planned.
 
-[Open MATHOS](https://mankeluvsit.github.io/mathos/?v=learning-terminal3) · [Simple learning plan](docs/learning-plan.md) · [Connected learning review](docs/learning-verification.md)
+[Open MATHOS](https://mankeluvsit.github.io/mathos/?v=mobile4) · [Simple learning plan](docs/learning-plan.md) · [Connected learning review](docs/learning-verification.md)
 
 Routine delivery is authorized. See RESUME.md and docs/handoff/STATE.md for the exact saved source, deployed revision and verification evidence.
 

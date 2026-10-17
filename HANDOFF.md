@@ -18,6 +18,8 @@ Parallel development in the second shared conversation produced [PR #6](https://
 
 Latest owner-requested visual unit: [Cogmind-inspired presentation](docs/visual-direction-cogmind.md), with [real playback/captures](docs/previews/terminal/README.md). Local default glyphs and bounded activity cues are renderer-only; scientific state and previous version replay remain unchanged. Consult STATE.md for completed checks and the authorized delivery checkpoint.
 
+Latest phone correction: map-first World / Organism / Results / Setup, one persistent Start/Pause / One step / speed dock, explicit cosmetic Activity highlights, grouped setup and touch verification. The source and existing preview are updated; [current state](docs/handoff/STATE.md) records150-test local evidence, public touch replay/asset checks and the current source CI link. No scientific model or storage changes.
+
 ## 1. Usage and the practical work budget
 
 **There is no live account-usage API available to this agent.** The owner subsequently supplied a usage screenshot and later reported that allowance had reset. Screenshots and reports describe their capture time, not a continuously observable balance. Keep personal meter values and screenshots out of repository commits; check the live account interface before planning against remaining allowance. Your stated model is “6 Astra max”; that label does not reveal an allowance and is not an OpenCode provider/model ID. The account fields at the end are deliberately unresolved. If the interface still exposes no amount/reset, record “not displayed”; there is no reliable remaining-task calculation.
@@ -134,7 +136,7 @@ After setup, **`npm run verify`** is the complete local gate. It must exit zero;
 
 App development needs a normal computer capable of Node and two test browsers, free localhost ports 5173 and 4173/4174/4176/4177, internet for installation and GitHub, and local disk for dependencies/browsers. No database, Docker, GPU, Python package dependencies, mandatory backend, API key or authentication is needed for the app. A local **AI model** is the only optional part with materially larger RAM/VRAM requirements; evaluate your hardware before downloading it. No cross-hardware model performance guarantee is made.
 
-Public preview is [GitHub Pages](https://mankeluvsit.github.io/mathos/?v=learning-terminal3). Application source/deployment and checks are recorded in STATE.md; documentation-only changes do not require redeploying identical application code. Use `npm run dev` locally. Production hosting stays optional; do not create new infrastructure. Source truth is the review branch/PR, not compiled files on `gh-pages`. Browser storage is origin-specific; export starting definitions before changing origins. No guaranteed offline reload or resume-from-checkpoint exists.
+Public preview is [GitHub Pages](https://mankeluvsit.github.io/mathos/?v=mobile4). Application source/deployment and checks are recorded in STATE.md; documentation-only changes do not require redeploying identical application code. Use `npm run dev` locally. Production hosting stays optional; do not create new infrastructure. Source truth is the review branch/PR, not compiled files on `gh-pages`. Browser storage is origin-specific; export starting definitions before changing origins. No guaranteed offline reload or resume-from-checkpoint exists.
 
 ## Consolidated owner placeholders — the only unresolved personal inputs
 

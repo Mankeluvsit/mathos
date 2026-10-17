@@ -22,3 +22,5 @@ The full gate includes this script in npm run test:browser. Existing terminal/le
 [Actual phone/desktop captures](previews/mobile/README.md). Captures show a real paused run with an actual cancelled comparison; tick and device profile are in capture-state.json.
 
 After deployment, `node scripts/browser-mobile.mjs --public` runs the same touch/organization/replay checks in Chromium against the existing GitHub Pages preview, writing captures only under ignored .artifacts/mobile-public. Normal verification still covers Chromium and Firefox locally; the public-only command does not claim Firefox certificate or physical-device verification.
+
+Published source `2ef4ed50021bc0a52aaed01e1e1f16f5d3f9373a`; [live review](https://mankeluvsit.github.io/mathos/?v=mobile4). Public Chromium touch/replay/organization checks passed, and the public manifest plus all current asset SHA256 values match the clean source build. [Source CI](https://github.com/Mankeluvsit/mathos/actions/runs/38999814373) is running at this recording; current state carries exact deployment and scope.
