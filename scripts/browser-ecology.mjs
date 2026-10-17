@@ -92,15 +92,16 @@ try {
       await page.setViewportSize({ width: 390, height: 844 });
       const nav = page.getByRole("navigation", { name: "Living world views" });
       await nav.getByRole("button", { name: "World", exact: true }).click();
+      await page.getByText('View controls', {exact:true}).click();
       await page
         .getByLabel("World magnification", { exact: true })
         .selectOption("2");
       await page
         .getByRole("checkbox", { name: "Follow selected organism" })
         .check();
-      await nav.getByRole('button',{name:'Start',exact:true}).click();
+      await page.getByRole('button',{name:'Start world',exact:true}).click();
       await page.waitForTimeout(160);
-      await nav.getByRole('button',{name:'Pause',exact:true}).click();
+      await page.getByRole('button',{name:'Pause world',exact:true}).click();
       // The view tests below preserve the new paused tick after testing fixed playback.
       tick = await page.getByTestId('ecology-tick').textContent();
       for (const [button, file] of [
@@ -124,6 +125,8 @@ try {
       }
       await nav.getByRole("button", { name: "World", exact: true }).click();
       accept = false;
+      await nav.getByRole('button', {name:'Setup',exact:true}).click();
+      await page.getByText('Restart current world', {exact:true}).click();
       await page
         .getByRole("button", { name: "Restart world", exact: true })
         .click();
@@ -174,7 +177,7 @@ try {
         "8",
       );
       await page.setViewportSize({ width: 320, height: 720 });
-      for (const name of ["World", "Organism", "Setup"]) {
+      for (const name of ["World", "Organism", "Results", "Setup"]) {
         await nav.getByRole("button", { name, exact: true }).click();
         assert(
           await page.evaluate(

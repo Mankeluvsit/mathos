@@ -66,3 +66,7 @@ The ecology runtime publishes v2 snapshots at up to12.5Hz while advancing so nor
 ## Terminal presentation layer
 
 `rendering/ecology-terminal.ts` consumes immutable snapshots and shared geometry. A bounded observation-difference helper creates up to96 display cues; EcosystemCanvas schedules their180ms fade separately from simulation ticks. View settings, reduced-motion queries and animation timestamps never enter an engine transition or saved definition. Cleanup cancels the frame request; pausing renders an exact still state. Classic continues using the preceding renderer. [Visual contract](visual-direction-cogmind.md).
+
+## Ecology mobile presentation
+
+EcologySession keeps one shared playback control surface outside the mobile-hidden panels. World / Organism / Results / Setup are presentation destinations, not routes or new runtimes. Results groups the mounted comparison, history and event components; switching views does not cancel work, reset selected IDs or mutate world state. Only view navigation updates focus/scroll. Display preferences live in the mounted canvas component; Activity highlights never call runtime start/step. Setup keeps explicit replacement confirmation and separates starting settings from live controls. No scientific model, persistence version or dependency changed for this correction.

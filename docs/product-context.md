@@ -57,3 +57,7 @@ The owner observed that bodies moved but always faced horizontally. The approved
 ## Owner-requested Cogmind visual translation
 
 The owner requested a review of Cogmind's colors and animation and a translation into pixel life. The [researched visual direction](visual-direction-cogmind.md) records primary sources and actual frame inspection. The local build now offers original terminal-like geometric organ glyphs, a quieter dark/green world and bounded observation-driven effects, alongside Classic cells. This extends the established dark/colorized dashboard and keeps the Life Engine/Bibites requirement for recognizable functional organisms. [Actual review captures](previews/terminal/README.md); public deployment remains unchanged pending approval.
+
+## Owner feedback: phone controls and organization
+
+The owner reported that tapping Animate appeared to do nothing and the phone UI felt scattered. The former checkbox controlled cosmetic activity cues only, not simulation playback. The correction makes that distinction explicit as Activity highlights, keeps a single Start/Pause/One step/speed dock reachable, puts the map first, and separates World / Organism / Results / Setup. View controls and guidance are disclosed below the map; comparisons/history/events belong in Results and save/transfer/restart/technical references in Setup. This changes presentation, not organism rules or the learning objective.

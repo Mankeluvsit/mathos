@@ -4,6 +4,12 @@
 
 Snapshot date: 2026-10-17. This file is repository memory, not a claim of project completion. Check the actual branch and remote before continuing.
 
+## Active unit: phone playback and organization
+
+Owner reported that Animate appeared ineffective and the phone UI was scattered. Diagnosed the paused-world/cosmetic-effect mismatch and comparisons/history spilling into mobile World. Implemented one persistent playback surface, Activity highlights explanation, four destinations, map-first controls, selected-organism summary, grouped setup actions and heading/scroll recovery. Pure presentation; no model/storage changes.
+
+New touch workflow checks actual progression with effects on/off, unchanged exports on view toggles, Node replay, state/cancellation preservation, uncovered44px playback controls and320/390/430/landscape layouts in Chromium and Firefox. Full npm run verify passed150 tests/17 files, lint/types/build, three independent Python references, v1/v2/v3 goldens and all Chromium/Firefox workflows, including the new touch checks. Additional lint, handoff links, diff whitespace and actual OpenCode1.19.2 parser passed. Self-review checked actual phone/desktop captures, touch-target coverage, tab visibility/state isolation, disclosures and model boundaries; no second agent or physical-device/Safari test. Original milestone images stay frozen; current captures are under previews/mobile. Next: publish the clean source and existing preview, verify public touch behavior, record CI. Standing authorization applies; no new approval question.
+
 ## Current published checkpoint
 
 - Application source: `d7b631a5f0cf331cdd3d8b6b0fe7ff44e473a942` on `codex/integrated-life-baseline`, [PR #4](https://github.com/Mankeluvsit/mathos/pull/4), open and unmerged.

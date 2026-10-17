@@ -22,6 +22,7 @@ try {
       page.on('request',r=>{if(!r.url().startsWith('http://127.0.0.1:4179/'))external.push(r.url());});
       page.on('dialog',d=>d.accept());
       await page.goto('http://127.0.0.1:4179/');
+      await page.getByText('View controls',{exact:true}).click();
       const canvas=page.getByRole('img',{name:/Living world/});
       const pixels=()=>canvas.evaluate(c=>c.toDataURL());
       assert.equal(await page.getByLabel('World appearance',{exact:true}).inputValue(),'terminal');
@@ -30,16 +31,16 @@ try {
       if(type===chromium) await canvas.screenshot({path:`${captures}/terminal-world.png`});
       await page.getByLabel('World appearance',{exact:true}).selectOption('classic');
       assert.notEqual(await pixels(),terminalImage);
-      assert(await page.getByRole('checkbox',{name:'Animate observed activity'}).isDisabled());
+      assert(await page.getByRole('checkbox',{name:'Activity highlights'}).isDisabled());
       if(type===chromium) await canvas.screenshot({path:`${captures}/classic-world.png`});
       await page.getByLabel('World appearance',{exact:true}).selectOption('terminal');
       assert.equal(await pixels(),terminalImage);
       assert.deepEqual(await observation(page),before);
-      await page.getByRole('checkbox',{name:'Animate observed activity'}).uncheck();
+      await page.getByRole('checkbox',{name:'Activity highlights'}).uncheck();
       await page.getByRole('button',{name:'Start world',exact:true}).click();
       await page.waitForFunction(()=>Number(document.querySelector('[data-testid="ecology-tick"]').textContent)>=23);
       assert.equal(await canvas.getAttribute('data-activity'),'0');
-      await page.getByRole('checkbox',{name:'Animate observed activity'}).check();
+      await page.getByRole('checkbox',{name:'Activity highlights'}).check();
       await page.waitForFunction(()=>Number(document.querySelector('.ecology-canvas').dataset.activity)>0);
       await page.getByRole('button',{name:'Pause world',exact:true}).click();
       const paused=await pixels();await page.waitForTimeout(240);
@@ -47,7 +48,7 @@ try {
       // Live preference changes cancel effects while preserving an advancing world.
       await page.emulateMedia({reducedMotion:'reduce'});
       await page.getByText('Reduced motion: activity animations are off.',{exact:false}).waitFor();
-      assert(await page.getByRole('checkbox',{name:'Animate observed activity'}).isDisabled());
+      assert(await page.getByRole('checkbox',{name:'Activity highlights'}).isDisabled());
       await page.getByRole('button',{name:'Start world',exact:true}).click();await page.waitForTimeout(240);
       assert.equal(await canvas.getAttribute('data-activity'),'0');
       await page.getByRole('button',{name:'Pause world',exact:true}).click();
@@ -57,7 +58,9 @@ try {
       assert.deepEqual(current.lineage,expected.lineage);
       await page.emulateMedia({reducedMotion:'no-preference'});
       // Stable tick20 review captures, identical starting conditions to the comparison above.
+      await page.getByText('Restart current world',{exact:true}).click();
       await page.getByRole('button',{name:'Restart world',exact:true}).click();
+      await page.getByText('View controls',{exact:true}).click();
       for(let i=0;i<20;i++) await page.getByRole('button',{name:'One step',exact:true}).click();
       if(type===chromium) {
         await page.evaluate(()=>scrollTo(0,0));
@@ -89,6 +92,7 @@ try {
       const page=await context.newPage();
       await page.emulateMedia({reducedMotion:'no-preference'});
       await page.goto('http://127.0.0.1:4179/');
+      await page.getByText('View controls',{exact:true}).click();
       await page.getByLabel('World magnification',{exact:true}).selectOption('3');
       await page.getByRole('checkbox',{name:'Follow selected organism'}).check();
       await page.getByRole('button',{name:'Start world',exact:true}).click();

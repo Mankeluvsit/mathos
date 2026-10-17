@@ -60,3 +60,7 @@ Ecology-reference@3 integrates linear-td@1 updates with the actual lifecycle, se
 ## Cogmind-inspired life presentation
 
 Implemented on review branch and preview: original role glyphs, a dark green terminal world, geometry-aligned selection brackets, classic/terminal view selection and bounded cues for observed travel/turns, feeding, births and actual weight changes. Pause/effects off/reduced motion stop the overlay animation. [Research and verification contract](visual-direction-cogmind.md) and [actual captures](previews/terminal/README.md). Simulation rules/trajectories remain unchanged; the published source/deployment is recorded in handoff/STATE.md.
+
+## Phone interaction correction
+
+Implemented on this working branch: world-first layout, compact selected-organism summary, four mobile destinations (World / Organism / Results / Setup), persistent shared playback dock, grouped view controls and explicit Activity highlights wording. Results and configuration no longer spill into mobile World. Actual movement works with highlights off; changing an effect cannot secretly start the run. Setup groups starting settings, file/browser saving, restart and technical labs. [Verification and capture index](mobile-ux-verification.md). Model trajectories and storage formats are unchanged.

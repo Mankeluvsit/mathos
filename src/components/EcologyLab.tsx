@@ -47,6 +47,7 @@ function EcosystemCanvas({
   appearance,
   setAppearance,
   running,
+  inspect,
 }: {
   world: Ecology;
   selected: number;
@@ -54,6 +55,7 @@ function EcosystemCanvas({
   appearance: "terminal" | "classic";
   setAppearance: (value: "terminal" | "classic") => void;
   running: boolean;
+  inspect: () => void;
 }) {
   const ref = useRef<HTMLCanvasElement>(null),
     frame = useRef<HTMLDivElement>(null);
@@ -100,8 +102,41 @@ function EcosystemCanvas({
       });
     }
   }, [world, selected, zoom, follow]);
+  const observedCreature = world.creatures.find(c => c.id === selected);
   return (
     <>
+      <div
+        className="ecology-camera-frame"
+        ref={frame}
+        tabIndex={0}
+        role="region"
+        aria-label="Scrollable organism world"
+        data-zoomed={zoom > 1}
+      >
+        <canvas
+          ref={ref}
+          width={W * 12}
+          height={H * 12}
+          className="ecology-canvas"
+          data-appearance={appearance}
+          style={{ width: `${zoom * 100}%`, maxWidth: "none" }}
+          role="img"
+          aria-label={`Living world, step ${world.tick}, ${world.creatures.length} organisms. Use organism selection to inspect without clicking the world.`}
+          onClick={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect(),
+              x = Math.floor(((e.clientX - rect.left) / rect.width) * W),
+              y = Math.floor(((e.clientY - rect.top) / rect.height) * H);
+            const c = world.creatures.find((c) => body(c).includes(y * W + x));
+            if (c) select(c.id);
+          }}
+        />
+      </div>
+      <div className="world-selection">
+        <div><strong>{observedCreature ? `Organism #${selected}` : 'No living selection'}</strong><span>{observedCreature?.action ?? 'Choose a living organism to inspect'}</span></div>
+        <button onClick={inspect}>Inspect organism</button>
+      </div>
+      <details className="world-view-controls">
+        <summary>View controls</summary>
       <div className="world-appearance">
         <label>World appearance
           <select aria-label="World appearance" value={appearance} onChange={e => setAppearance(e.target.value as 'terminal' | 'classic')}>
@@ -109,8 +144,8 @@ function EcosystemCanvas({
             <option value="classic">Classic cells</option>
           </select>
         </label>
-        <label className="learning-toggle"><input type="checkbox" checked={animate && !reduced && appearance === 'terminal'} disabled={reduced || appearance === 'classic'} onChange={e => setAnimate(e.target.checked)} /> Animate observed activity</label>
-        <p className="hint">{appearance === 'classic' ? 'Classic cells use a still presentation. Choose Terminal glyphs for activity cues.' : reduced ? 'Reduced motion: activity animations are off.' : 'Brief cues mark observed turns, travel, feeding, births and weight changes during playback. Pause gives an exact still view.'} Glyphs: square core · pointed mouth · barred motor · cross sensor.</p>
+        <label className="learning-toggle"><input type="checkbox" aria-describedby="activity-help" checked={animate && !reduced && appearance === 'terminal'} disabled={reduced || appearance === 'classic'} onChange={e => setAnimate(e.target.checked)} /> Activity highlights</label>
+        <p id="activity-help" className="hint">{appearance === 'classic' ? 'Classic cells have no activity highlights. Organisms still move during playback.' : reduced ? 'Reduced motion: activity animations are off.' : 'Highlights mark real turns, travel, feeding, births and weight changes while running. They do not start playback; use Start world to move organisms.'} Glyphs: square core · pointed mouth · barred motor · cross sensor.</p>
       </div>
       <div className="ecology-camera">
         <label>
@@ -138,32 +173,8 @@ function EcosystemCanvas({
           Follow selected organism
         </label>
       </div>
-      <div
-        className="ecology-camera-frame"
-        ref={frame}
-        tabIndex={0}
-        role="region"
-        aria-label="Scrollable organism world"
-        style={{ maxHeight: zoom > 1 ? "55vh" : undefined }}
-      >
-        <canvas
-          ref={ref}
-          width={W * 12}
-          height={H * 12}
-          className="ecology-canvas"
-          data-appearance={appearance}
-          style={{ width: `${zoom * 100}%`, maxWidth: "none" }}
-          role="img"
-          aria-label={`Living world, step ${world.tick}, ${world.creatures.length} organisms. Use organism selection to inspect without clicking the world.`}
-          onClick={(e) => {
-            const rect = e.currentTarget.getBoundingClientRect(),
-              x = Math.floor(((e.clientX - rect.left) / rect.width) * W),
-              y = Math.floor(((e.clientY - rect.top) / rect.height) * H);
-            const c = world.creatures.find((c) => body(c).includes(y * W + x));
-            if (c) select(c.id);
-          }}
-        />
-      </div>
+      </details>
+
     </>
   );
 }
@@ -179,7 +190,7 @@ function EcologySession({
   const [world, setWorld] = useState(() => runtime.snapshot()),
     [summary, setSummary] = useState(() => runtime.summary());
   const [appearance, setAppearance] = useState<"terminal" | "classic">("terminal");
-  const [view, setView] = useState<"world" | "setup" | "inspect">("world");
+  const [view, setView] = useState<"world" | "setup" | "inspect" | "results">("world");
   const [selected, setSelected] = useState(1),
     [seed, setSeed] = useState(String(world.definition.seed)),
     [mode, setMode] = useState(world.definition.mode),
@@ -209,6 +220,12 @@ function EcologySession({
       document.removeEventListener("visibilitychange", hidden);
     };
   }, [runtime]);
+  useEffect(() => {
+    if (window.innerWidth > 900) return;
+    const title = {world: 'ecology-world-title', inspect: 'ecology-inspect-title', setup: 'ecology-setup-title', results: 'ecology-results-title'}[view];
+    document.getElementById(title)?.focus({preventScroll: true});
+    window.scrollTo(0, 0);
+  }, [view]);
   const metrics = ecologyMetrics(world),
     creature = world.creatures.find((c) => c.id === selected),
     ancestor = world.lineage.find((l) => l.id === selected);
@@ -272,19 +289,11 @@ function EcologySession({
   }
   return (
     <>
-      <header className="masthead">
+      <header className="masthead ecology-masthead">
         <div className="wordmark">
           MATHOS <small>OBSERVABLE ARTIFICIAL LIFE</small>
         </div>
-        <button
-          onClick={() => {
-            runtime.pause();
-            if (window.confirm("Leave this world and discard its progress?"))
-              onExit();
-          }}
-        >
-          Open technical reference labs
-        </button>
+        <span className="local-badge">Local sandbox</span>
       </header>
       <main className="ecology-dashboard" data-view={view} data-appearance={appearance}>
         <section className="intro">
@@ -297,6 +306,38 @@ function EcologySession({
             <br />
             An experimental artificial-life model.
           </p>
+        </section>
+        <section className="ecology-playback-dock" aria-label="World playback">
+          <p className="playback-state" data-testid="playback-summary">{summary.status === 'running' ? 'Running' : summary.status === 'paused' ? 'Paused — Start world to move organisms' : summary.status === 'completed' ? 'World finished — restart in Setup' : 'World stopped — see error'} · step {world.tick}</p>
+            <div className="actions ecology-playback">
+              <button
+                className="primary"
+                disabled={!["running", "paused"].includes(summary.status)}
+                onClick={togglePlayback}
+              >
+                {summary.status === "running" ? "Pause world" : "Start world"}
+              </button>
+              <button
+                disabled={summary.status !== "paused"}
+                onClick={() => runtime.singleStep()}
+              >
+                One step
+              </button>
+              <label className="playback-speed">
+                <span>Speed</span>
+                <select
+                  aria-label="World speed"
+                  value={summary.rate}
+                  onChange={(e) =>
+                    runtime.setRate(Number(e.target.value) as Rate)
+                  }
+                >
+                  <option value="1">1 step/s</option>
+                  <option value="10">10 steps/s</option>
+                  <option value="30">30 steps/s</option>
+                </select>
+              </label>
+            </div>
         </section>
         <div className="ecology-grid">
           <section
@@ -336,43 +377,6 @@ function EcologySession({
                 <strong>{metrics.deaths}</strong> deaths
               </p>
             </div>
-            <div className="actions ecology-playback">
-              <button
-                className="primary"
-                disabled={!["running", "paused"].includes(summary.status)}
-                onClick={togglePlayback}
-              >
-                {summary.status === "running" ? "Pause world" : "Start world"}
-              </button>
-              <button
-                disabled={summary.status !== "paused"}
-                onClick={() => runtime.singleStep()}
-              >
-                One step
-              </button>
-              <button onClick={() => replace(world.definition)}>
-                Restart world
-              </button>
-              <label>
-                Speed
-                <select
-                  aria-label="World speed"
-                  value={summary.rate}
-                  onChange={(e) =>
-                    runtime.setRate(Number(e.target.value) as Rate)
-                  }
-                >
-                  <option value="1">Slow · 1 step/s</option>
-                  <option value="10">Normal · 10 steps/s</option>
-                  <option value="30">Fast · 30 steps/s</option>
-                </select>
-              </label>
-            </div>
-            <p className="ecology-guide">
-              {orientedWorld
-                ? "Bodies turn, then move forward. Mouths and sensing turn with them. Select one to follow its family."
-                : "Legacy model 1: fixed-facing sliding bodies. Its original behavior is preserved for replay."}
-            </p>
             <EcosystemCanvas
               world={world}
               selected={selected}
@@ -380,7 +384,14 @@ function EcologySession({
               appearance={appearance}
               setAppearance={setAppearance}
               running={summary.status === "running"}
+              inspect={() => setView("inspect")}
             />
+            <details className="world-reading-guide"><summary>How to read the world</summary>
+            <p className="ecology-guide">
+              {orientedWorld
+                ? "Bodies turn, then move forward. Mouths and sensing turn with them. Select one to follow its family."
+                : "Legacy model 1: fixed-facing sliding bodies. Its original behavior is preserved for replay."}
+            </p>
             <div className="ecology-legend">
               <span>
                 <i className="food-dot" /> Food
@@ -407,6 +418,7 @@ function EcologySession({
               happen in separate steps. The world pauses when you leave this
               browser tab.
             </p>
+            </details>
             {summary.status === "completed" && (
               <p role="status">
                 This bounded experiment has finished. Restart with the same seed
@@ -420,7 +432,7 @@ function EcologySession({
             aria-labelledby="ecology-inspect-title"
           >
             <p className="eyebrow">MEET AN ORGANISM</p>
-            <h2 id="ecology-inspect-title">
+            <h2 id="ecology-inspect-title" tabIndex={-1}>
               {ancestor ? `Organism #${selected}` : "Select an organism"}
             </h2>
             <label>
@@ -605,7 +617,7 @@ function EcologySession({
             aria-labelledby="ecology-setup-title"
           >
             <p className="eyebrow">STARTING CONDITIONS</p>
-            <h2 id="ecology-setup-title">Set up a world</h2>
+            <h2 id="ecology-setup-title" tabIndex={-1}>Set up a world</h2>
             <label>
               Simulation model
               <select
@@ -658,13 +670,19 @@ function EcologySession({
               Primordial currently has no mechanism that creates organisms
               spontaneously.
             </p>
-            <div className="actions">
+            <p className="hint">These are starting settings, not live controls. Prepare new world applies them.</p>
+            <div className="actions prepare-actions">
               <button
                 className="primary"
                 onClick={() => report(() => replace(draft()))}
               >
                 Prepare new world
               </button>
+            </div>
+            <section className="ecology-files" aria-labelledby="ecology-files-title">
+              <h3 id="ecology-files-title">Save & transfer</h3>
+              <p className="hint">Save starting settings in this browser or move them as a file. These do not save your current progress.</p>
+              <div className="actions">
               <button
                 onClick={() =>
                   report(() => {
@@ -689,6 +707,11 @@ function EcologySession({
                 Import settings
               </button>
             </div>
+            </section>
+            <details className="world-restart"><summary>Restart current world</summary>
+              <p>Replay the active seed and settings from step zero. You will be asked before discarding progress.</p>
+              <button onClick={() => replace(world.definition)}>Restart world</button>
+            </details>
             <input
               ref={input}
               type="file"
@@ -759,7 +782,21 @@ function EcologySession({
                 units.
               </p>
             </details>
+            <details className="technical-labs-access"><summary>Technical reference labs</summary>
+              <p className="hint">Earlier mathematical and growth-only models. Opening them asks before leaving this world.</p>
+        <button
+          onClick={() => {
+            runtime.pause();
+            if (window.confirm("Leave this world and discard its progress?"))
+              onExit();
+          }}
+        >
+          Open technical reference labs
+        </button>
+            </details>
           </section>
+          <div className="ecology-results" role="region" aria-label="World results">
+            <div className="results-intro"><h2 id="ecology-results-title" tabIndex={-1}>Results & experiments</h2><p>Review this world’s history, or compare learning in separate worlds.</p></div>
           {isLearning(world) && <LearningComparison pause={() => runtime.pause()} />}
           <EvolutionPanel world={world} />
           <section className="panel ecology-events">
@@ -774,6 +811,7 @@ function EcologySession({
               ))}
             </ol>
           </section>
+          </div>
         </div>
         <nav className="mobile-navigation" aria-label="Living world views">
           <button
@@ -788,17 +826,12 @@ function EcologySession({
           >
             Organism
           </button>
+          <button aria-pressed={view === "results"} onClick={() => setView("results")}>Results</button>
           <button
             aria-pressed={view === "setup"}
             onClick={() => setView("setup")}
           >
             Setup
-          </button>
-          <button
-            disabled={!["running", "paused"].includes(summary.status)}
-            onClick={togglePlayback}
-          >
-            {summary.status === "running" ? "Pause" : "Start"}
           </button>
         </nav>
       </main>

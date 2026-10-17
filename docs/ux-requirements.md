@@ -49,7 +49,7 @@ Comparisons live under Setup on phones, pause but do not overwrite interactive s
 
 Open directly into the living world, paused, with a short explanation and consistent food/body/mouth/motor legend. Boundaries and directional marks identify bodies. Select through the Canvas or a labeled organism dropdown. Show actual behavior, energy, age, family and inherited traits before technical equations. Describe dead/absent selections honestly. Quantities must come from the same copied sampled tick.
 
-Phone users receive World/Organism/Setup, magnification and optional selected-organism camera follow. Scrolling/panning, selecting and magnification cannot change engine state. Desktop retains a world-first layout. Reset/replacement pauses and confirms discarded progress. Explicit save/load/import/export handles corrupt/oversized files and unavailable storage. Existing technical labs remain reachable with clear scope.
+Phone users receive World/Organism/Results/Setup, magnification and optional selected-organism camera follow. Scrolling/panning, selecting and magnification cannot change engine state. Desktop retains a world-first layout. Reset/replacement pauses and confirms discarded progress. Explicit save/load/import/export handles corrupt/oversized files and unavailable storage. Existing technical labs remain reachable with clear scope.
 
 ## Physical facing and visible evolution
 
@@ -59,7 +59,7 @@ Inherited plans and added sensor color have text equivalents. Show the selected 
 
 Export observations downloads the current measured histories/family records with model provenance. Keep this separate from starting-setting export and label it as non-resumable.
 
-On phones, starting playback focuses the world viewport; bottom navigation keeps a Start/Pause action reachable while viewing bodies or inspecting. Enabling camera follow focuses the world without changing simulation state.
+On phones, starting playback from World focuses the world viewport; a single fixed playback dock above the four-destination navigation keeps Start/Pause, One step, speed and current step reachable in every view. Enabling camera follow focuses the world without changing simulation state.
 
 ## Connected learning inspection and comparisons (local v3)
 
@@ -67,10 +67,18 @@ Default local setup uses model3 with learning on. Show its active on/off status 
 
 In Organism, show the measured intent, actual action, reward breakdown and update count before optional detailed tables. Distinguish exploring from highest estimated value, blocked actions from intent, juvenile waiting from inactive failure, and terminal transitions from continuing ones. Explain that changed weights do not prove improved survival. Detailed inputs, four rows of weights and actual clipped changes use accessible tables and horizontal table scrolling, never page overflow.
 
-The World view provides an explicit twelve-world learning comparison, separate from the interactive world. Pause/preserve that world when starting; support cancel, hidden-tab cancellation and export of partial/completed results. Show every seed and signed on-minus-off differences only for completed pairs. Report extinction, update counts and device-dependent compute times in detailed results. No seed filtering or manufactured success message. Static captures and automated320/390px checks supplement numerical tests; full assistive-technology/device certification is not claimed.
+The Results tab on phones provides an explicit twelve-world learning comparison, alongside population/family history and recent events, separate from the interactive world; desktop retains these panels together. Pause/preserve that world when starting; support cancel, hidden-tab cancellation and export of partial/completed results. Show every seed and signed on-minus-off differences only for completed pairs. Report extinction, update counts and device-dependent compute times in detailed results. No seed filtering or manufactured success message. Static captures and automated320/390px checks supplement numerical tests; full assistive-technology/device certification is not claimed.
 
 ## Terminal life appearance
 
-The local default world appearance is Terminal glyphs; Classic cells preserves the prior map rendering. Appearance and Animate observed activity are labeled, keyboard-operable view controls. Organ roles have distinct shapes as well as colors. The main legend and anatomy colors agree with the active presentation. Selection brackets/ID and heading glyphs reflect the actual shared geometry.
+The local default world appearance is Terminal glyphs; Classic cells preserves the prior map rendering. Appearance and Activity highlights are labeled, keyboard-operable controls inside View controls, below the world. Explain that highlights only decorate actual observed changes during playback and do not start or pause the organisms. Organ roles have distinct shapes as well as colors. The main legend and anatomy colors agree with the active presentation. Selection brackets/ID and heading glyphs reflect the actual shared geometry.
 
 Brief travel/turn/feeding/birth/weight cues derive from observed transitions. Faster sampled playback may omit intermediate motion cues; the inspector remains authoritative for exact values. Pause produces a still exact world. Reduced motion, effects off and Classic disable the animation loop; the OS preference is respected even if changed while running. No per-frame live-region announcements or flashing full-screen effects. [Research and acceptance](visual-direction-cogmind.md).
+
+## Mobile organization correction
+
+The first phone screen prioritizes the world and selected-organism summary. Keep view preferences and the reading guide in separate disclosures below the map. Organism shows the selected body and learning; Results holds comparisons/history/events; Setup groups new-world settings, Save & transfer, restart and technical references. Do not scatter these panels through World or silently start playback when changing an effect.
+
+Switching destinations preserves runtime, selection, comparisons and view preferences. Move focus to the destination heading and return to the top on phones. Prepare/restart retain explicit discard confirmation. Keep Start/Pause, One step and speed visible above a four-button bottom navigation, with44px touch targets, safe-area padding, scroll margins and no overlay-covered controls. Support320px phones,390/430px phones and landscape; reflow to the desktop workspace without losing state. Reduced motion disables cosmetic highlights while explicit playback can still advance the scientific world.
+
+Native touch/browser checks are in scripts/browser-mobile.mjs. These verify actual progression with effects on/off, exported Node replay equality, navigation/state preservation, independent comparison cancellation, control reachability, viewport placement and zero external runtime requests. Headless checks do not establish physical-device or Safari certification.

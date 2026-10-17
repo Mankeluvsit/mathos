@@ -12,6 +12,8 @@ Routine delivery is authorized. See RESUME.md and docs/handoff/STATE.md for the 
 
 **New visual review:** [Cogmind-inspired life presentation](docs/visual-direction-cogmind.md) · [actual activity animation](docs/previews/terminal/activity.gif). Terminal glyphs is the new default; Classic cells and reduced-motion/static viewing remain available. Scientific state is unchanged by the visual style.
 
+**Phone controls:** World / Organism / Results / Setup. **Start world** moves the organisms; **Activity highlights** only adds visual cues. Start/Pause, One step and speed stay reachable across all four views. [Mobile changes and verification](docs/mobile-ux-verification.md) · [Actual phone captures](docs/previews/mobile/README.md).
+
 ## Run locally
 
 Use Node.js 24 and npm. Installation needs access to the npm registry; the running application uses no network services.

@@ -1,5 +1,8 @@
 # Resume MATHOS here
 
+
+Current unit: correcting the owner-reported phone playback/organization problems. One shared playback dock, Activity highlights wording, World/Organism/Results/Setup, map-first view and grouped setup are implemented locally. Read STATE.md for verification/publication; do not restart learning or change model rules.
+
 MATHOS is mid-development. Read [AGENTS.md](AGENTS.md), [current state](docs/handoff/STATE.md), then [task cards](docs/handoff/NEXT.md). Clean-machine setup: [Bazzite/macOS/Linux/Windows](docs/handoff/SETUP.md). Continuation choices: [HANDOFF.md](HANDOFF.md).
 
 - **Live review:** [Open MATHOS](https://mankeluvsit.github.io/mathos/?v=learning-terminal3). Ecology-reference@3, learning on, Terminal glyphs by default; Classic cells remains available. Press **Start world** to watch, or **One step** to inspect a single decision. On phone, use World / Organism / Setup.

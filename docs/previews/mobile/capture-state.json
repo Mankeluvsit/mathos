@@ -1,0 +1,14 @@
+{
+  "engine": "ecology-reference@3",
+  "seed": 42,
+  "learning": true,
+  "tick": 12,
+  "selected": 1,
+  "status": "paused",
+  "browser": "Chromium with touch",
+  "phone": {
+    "width": 390,
+    "height": 844
+  },
+  "comparison": "cancelled; interactive world preserved"
+}
