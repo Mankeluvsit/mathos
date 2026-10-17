@@ -1,4 +1,17 @@
 import { spawn } from 'node:child_process';
+import { get } from 'node:http';
+
+// Probe loopback with core HTTP: Node24.21 Undici can throw setTypeOfService EINVAL on macOS.
+function ready(port) {
+  return new Promise(resolve => {
+    const request = get(`http://127.0.0.1:${port}/`, { agent: false }, response => {
+      response.resume();
+      resolve(response.statusCode >= 200 && response.statusCode < 300);
+    });
+    request.on('error', () => resolve(false));
+    request.setTimeout(500, () => request.destroy());
+  });
+}
 
 /** Own a single Vite process; do not leave an npm/shell grandchild behind. */
 export async function startServer(mode, port) {
@@ -12,7 +25,7 @@ export async function startServer(mode, port) {
   try {
     for (let attempt = 0; attempt < 50; attempt++) {
       if (child.exitCode !== null || child.signalCode !== null) throw new Error('Vite exited before startup.');
-      try { if ((await fetch(`http://127.0.0.1:${port}`)).ok) return stop; } catch { /* Starting. */ }
+      if (await ready(port)) return stop;
       await new Promise((resolve) => setTimeout(resolve, 200));
     }
     throw new Error('Vite did not start.');

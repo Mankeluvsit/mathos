@@ -1,0 +1,51 @@
+/* Presentation v1: scoped to the canonical dashboard; legacy renderers retain their layouts. */
+.mathos-shell {
+  color: var(--mathos-text); background: var(--mathos-canvas); min-height: 100vh;
+  --panel: var(--mathos-surface); --surface: var(--mathos-surface-raised);
+  --line: var(--mathos-divider); --muted: var(--mathos-muted);
+  --cyan: var(--mathos-primary); --amber: var(--mathos-warning);
+}
+.mathos-shell [hidden] { display: none !important; }
+.mathos-shell .masthead { background: var(--mathos-canvas); }
+.mathos-shell .panel { border-radius: var(--mathos-radius-panel); }
+.mathos-shell h2, .mathos-shell h4 { color: var(--mathos-text); }
+.mathos-shell button, .mathos-shell input, .mathos-shell select, .mathos-shell textarea {
+  color: var(--mathos-text); background: var(--mathos-surface-raised);
+  border-color: var(--mathos-outline); border-radius: var(--mathos-radius-control);
+  font-size: .875rem;
+}
+.mathos-shell button:hover { background: var(--mathos-surface-active); border-color: var(--mathos-primary); }
+.mathos-shell button.primary { color: var(--mathos-on-primary); background: var(--mathos-primary); border-color: var(--mathos-primary); }
+.mathos-shell button[aria-pressed="true"] { background: var(--mathos-surface-active); border-color: var(--mathos-primary); box-shadow: inset 0 -3px var(--mathos-primary); }
+.mathos-shell label, .mathos-shell legend { color: var(--mathos-text); }
+.mathos-shell .hint, .mathos-shell .test-intro>p, .mathos-shell .test-playback>span { color: var(--mathos-muted); }
+.mathos-shell .hint { font-size: .8125rem; }
+.mathos-shell .test-playback button span { color: inherit; }
+.mathos-shell .test-field canvas { border-radius: 0; }
+.mathos-shell .test-metrics strong { color: var(--mathos-primary); font-variant-numeric: tabular-nums; }
+.mathos-shell .test-history, .mathos-shell .test-metrics { font-variant-numeric: tabular-nums; }
+.mathos-shell .error { color: var(--mathos-error); }
+.mathos-shell input[type="checkbox"] { accent-color: var(--mathos-primary); }
+.mathos-shell :is(button,input,select,textarea,summary,[tabindex]):focus-visible { outline: 3px solid var(--mathos-warning); outline-offset: 3px; }
+.world-view-actions { display: flex; flex-wrap: wrap; justify-content: end; gap: .5rem; }
+.world-context>summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; gap: .5rem; color: var(--mathos-primary); }
+.world-context>summary::before { content: '+'; font: 1.2rem ui-monospace, monospace; }
+.world-context[open]>summary::before { content: '−'; }
+.mathos-shell[data-world-only="true"] .world-lab { max-width: none; padding: .5rem .5rem 15rem; }
+.mathos-shell[data-world-only="true"] .test-layout { display: block; }
+.mathos-shell[data-world-only="true"] .world-main { display: block; }
+.mathos-shell[data-world-only="true"] .test-field { background: transparent; border: 0; padding: .5rem; }
+.mathos-shell[data-world-only="true"] .test-playback {
+  position: fixed; z-index: 25; inset: auto .5rem max(.5rem, env(safe-area-inset-bottom));
+  max-width: 840px; margin: auto; background: var(--mathos-surface);
+}
+.mathos-shell[data-world-only="true"] .test-title-row { margin-bottom: .5rem; }
+.mathos-shell[data-world-only="true"] .test-title-row h2 { font-size: .875rem; color: var(--mathos-muted); }
+@media (prefers-reduced-motion: no-preference) {
+  .mathos-shell button { transition: background-color var(--mathos-motion-feedback) ease-out; }
+}
+@media(max-width:900px) {
+  .mathos-shell .test-playback { background: var(--mathos-surface); }
+  .mathos-shell .test-mobile-nav { background: var(--mathos-canvas); }
+  .mathos-shell .test-tools[role="group"] button { font-size: .75rem; }
+}

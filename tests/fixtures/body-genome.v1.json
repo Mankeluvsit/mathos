@@ -1,0 +1,2254 @@
+{
+  "format": "cell-layout-reference",
+  "version": 1,
+  "provenance": "Independent Python integer matrices and prefix validation; no production imports",
+  "frames": [
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        }
+      ],
+      "size": 2,
+      "direction": 0,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "mouth"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        }
+      ],
+      "size": 2,
+      "direction": 1,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "mouth"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        }
+      ],
+      "size": 2,
+      "direction": 2,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "mouth"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        }
+      ],
+      "size": 2,
+      "direction": 3,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "mouth"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        }
+      ],
+      "size": 3,
+      "direction": 0,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "mouth"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "motor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        }
+      ],
+      "size": 3,
+      "direction": 1,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "motor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        }
+      ],
+      "size": 3,
+      "direction": 2,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "mouth"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "motor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        }
+      ],
+      "size": 3,
+      "direction": 3,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "motor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "role": "sensor"
+        }
+      ],
+      "size": 2,
+      "direction": 0,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "mouth"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "role": "sensor"
+        }
+      ],
+      "size": 2,
+      "direction": 1,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "mouth"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "role": "sensor"
+        }
+      ],
+      "size": 2,
+      "direction": 2,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "mouth"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "role": "sensor"
+        }
+      ],
+      "size": 2,
+      "direction": 3,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "mouth"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "role": "sensor"
+        }
+      ],
+      "size": 3,
+      "direction": 0,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "mouth"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "motor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "role": "sensor"
+        }
+      ],
+      "size": 3,
+      "direction": 1,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "motor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "role": "sensor"
+        }
+      ],
+      "size": 3,
+      "direction": 2,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "mouth"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "motor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "role": "sensor"
+        }
+      ],
+      "size": 3,
+      "direction": 3,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "motor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "role": "sensor"
+        }
+      ],
+      "size": 4,
+      "direction": 0,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "mouth"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "motor"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "sensor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "role": "sensor"
+        }
+      ],
+      "size": 4,
+      "direction": 1,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "motor"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "sensor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "role": "sensor"
+        }
+      ],
+      "size": 4,
+      "direction": 2,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "mouth"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "motor"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "sensor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "role": "sensor"
+        }
+      ],
+      "size": 4,
+      "direction": 3,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "motor"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "sensor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 2,
+      "direction": 0,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "mouth"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 2,
+      "direction": 1,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "mouth"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 2,
+      "direction": 2,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "mouth"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 2,
+      "direction": 3,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "mouth"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 3,
+      "direction": 0,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "mouth"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "motor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 3,
+      "direction": 1,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "motor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 3,
+      "direction": 2,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "mouth"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "motor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 3,
+      "direction": 3,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "motor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 4,
+      "direction": 0,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "mouth"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "motor"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "mouth"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 4,
+      "direction": 1,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "motor"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "mouth"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 4,
+      "direction": 2,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "mouth"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "motor"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "mouth"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 4,
+      "direction": 3,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "motor"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "mouth"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 5,
+      "direction": 0,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "mouth"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "motor"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 9,
+          "y": 9,
+          "role": "motor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 5,
+      "direction": 1,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "motor"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "mouth"
+        },
+        {
+          "x": 11,
+          "y": 9,
+          "role": "motor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 5,
+      "direction": 2,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "mouth"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "motor"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 11,
+          "y": 11,
+          "role": "motor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 5,
+      "direction": 3,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "motor"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "mouth"
+        },
+        {
+          "x": 9,
+          "y": 11,
+          "role": "motor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 6,
+      "direction": 0,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "mouth"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "motor"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 9,
+          "y": 9,
+          "role": "motor"
+        },
+        {
+          "x": 8,
+          "y": 9,
+          "role": "sensor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 6,
+      "direction": 1,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "motor"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "mouth"
+        },
+        {
+          "x": 11,
+          "y": 9,
+          "role": "motor"
+        },
+        {
+          "x": 11,
+          "y": 8,
+          "role": "sensor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 6,
+      "direction": 2,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "mouth"
+        },
+        {
+          "x": 10,
+          "y": 9,
+          "role": "motor"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 11,
+          "y": 11,
+          "role": "motor"
+        },
+        {
+          "x": 12,
+          "y": 11,
+          "role": "sensor"
+        }
+      ]
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "size": 6,
+      "direction": 3,
+      "expected": [
+        {
+          "x": 10,
+          "y": 10,
+          "role": "body"
+        },
+        {
+          "x": 9,
+          "y": 10,
+          "role": "mouth"
+        },
+        {
+          "x": 11,
+          "y": 10,
+          "role": "motor"
+        },
+        {
+          "x": 10,
+          "y": 11,
+          "role": "mouth"
+        },
+        {
+          "x": 9,
+          "y": 11,
+          "role": "motor"
+        },
+        {
+          "x": 9,
+          "y": 12,
+          "role": "sensor"
+        }
+      ]
+    }
+  ],
+  "validation": [
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        }
+      ],
+      "valid": true
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "role": "sensor"
+        }
+      ],
+      "valid": true
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": -1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": -1,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": -2,
+          "y": -1,
+          "role": "sensor"
+        }
+      ],
+      "valid": true
+    },
+    {
+      "layout": [],
+      "valid": false
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        }
+      ],
+      "valid": false
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "role": "body"
+        }
+      ],
+      "valid": false
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 0,
+          "y": 0,
+          "role": "sensor"
+        }
+      ],
+      "valid": false
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 2,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "role": "sensor"
+        }
+      ],
+      "valid": false
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 3,
+          "y": 0,
+          "role": "motor"
+        }
+      ],
+      "valid": false
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "role": "mouth"
+        },
+        {
+          "x": 1,
+          "y": -1,
+          "role": "sensor"
+        },
+        {
+          "x": 2,
+          "y": -1,
+          "role": "motor"
+        },
+        {
+          "x": 2,
+          "y": 0,
+          "role": "mouth"
+        }
+      ],
+      "valid": false
+    },
+    {
+      "layout": [
+        {
+          "x": false,
+          "y": 0,
+          "role": "body"
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        }
+      ],
+      "valid": false
+    },
+    {
+      "layout": [
+        {
+          "x": 0,
+          "y": 0,
+          "role": "body",
+          "extra": true
+        },
+        {
+          "x": 0,
+          "y": -1,
+          "role": "mouth"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "role": "motor"
+        }
+      ],
+      "valid": false
+    }
+  ]
+}

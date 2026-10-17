@@ -1,0 +1,9 @@
+{
+  "format": "mathos-ecology-evaluation-plan",
+  "version": 1,
+  "id": "v4-untuned-01",
+  "engine": "ecology-reference@4",
+  "mode": "seeded",
+  "ticksPerRun": 1600,
+  "seeds": [1790777818, 672296274, 727214190, 34107901, 361179395, 154452819]
+}

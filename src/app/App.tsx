@@ -1,4 +1,8 @@
+import { WorldLab } from '../components/WorldLab';
 import { useRef, useState } from 'react';
+import { EcologyLab } from '../components/EcologyLab';
+import { TestFieldLab } from '../components/TestFieldLab';
+import { LifeLab } from '../components/LifeLab';
 import { PixelPreview } from '../components/PixelPreview';
 import { SubstrateControls } from '../components/SubstrateControls';
 import { DEFAULT_EXPERIMENT, MAX_IMPORT_BYTES, parseExperiment, serializeExperiment, validateExperiment, type Experiment } from '../domain/experiment';
@@ -22,7 +26,7 @@ function localStore(): Storage {
   catch { throw new Error('Local storage is unavailable. You can still import or export JSON.'); }
 }
 
-export function App() {
+function ReferenceApp({ onLife, onEcology }: { onLife: () => void; onEcology: () => void }) {
   const [mobileView, setMobileView] = useState<'universe' | 'setup' | 'inspect'>('universe');
   const [focusMode, setFocusMode] = useState(false);
   const [draft, setDraft] = useState(() => makeDraft(DEFAULT_EXPERIMENT));
@@ -66,7 +70,7 @@ export function App() {
         <nav className="desktop-navigation" aria-label="Workspace shortcuts">
           <a href="#substrate-lab">Universe</a><a href="#configuration" onClick={() => setFocusMode(false)}>Model</a><a href="#field-inspector" onClick={() => setFocusMode(false)}>Inspect</a>
         </nav>
-        <div className="header-status"><span className="local-badge">LOCAL ONLY</span><span className="phase">Phase 1 · Reference substrate</span><button type="button" className="focus-toggle" aria-pressed={focusMode} onClick={() => setFocusMode(!focusMode)}>{focusMode ? 'Exit focus' : 'Focus viewport'}</button></div>
+        <div className="header-status"><button className="primary" onClick={onEcology}>Explore living world</button><button type="button" onClick={onLife}>Open life baseline</button><span className="local-badge">LOCAL ONLY</span><span className="phase">Phase 1 · Reference substrate</span><button type="button" className="focus-toggle" aria-pressed={focusMode} onClick={() => setFocusMode(!focusMode)}>{focusMode ? 'Exit focus' : 'Focus viewport'}</button></div>
       </header>
       <main className={`dashboard ${focusMode ? 'focus-mode' : ''}`} data-mobile-view={mobileView}>
         <section className="intro" aria-labelledby="intro-title">
@@ -139,4 +143,22 @@ export function App() {
       <footer><span>MATHOS / PHASE 1</span><span>Local by design. Portable by choice.</span></footer>
     </>
   );
+}
+
+export function App() {
+  const lab=new URLSearchParams(window.location.search).get('lab');
+  return lab==='reference'||lab==='legacy'?<LegacyApp/>:<WorldLab/>;
+}
+
+function LegacyApp() {
+  const [life, setLife] = useState(false);
+  const [ecology, setEcology] = useState(() => new URLSearchParams(window.location.search).get('lab') !== 'reference');
+  const [testField,setTestField]=useState(false),[testOpened,setTestOpened]=useState(false);
+  if (ecology) return <>
+    <div hidden={testField}><EcologyLab onExit={() => setEcology(false)} onTestField={()=>{setTestOpened(true);setTestField(true);}} /></div>
+    {testOpened&&<div hidden={!testField}><TestFieldLab active={testField} onExit={()=>setTestField(false)}/></div>}
+  </>;
+  return life ? <LifeLab onExit={() => setLife(false)} /> : <ReferenceApp onEcology={() => { if (window.confirm('Leave this reference run and open the living world?')) setEcology(true); }} onLife={() => {
+    if (window.confirm('Open the experimental life baseline? Any reference-substrate progress will be discarded.')) setLife(true);
+  }} />;
 }

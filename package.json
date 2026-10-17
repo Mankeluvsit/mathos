@@ -15,8 +15,18 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "check": "npm run lint && npm run typecheck && npm test && npm run build",
-    "test:browser": "node scripts/browser-smoke.mjs && node scripts/browser-repro.mjs",
-    "benchmark": "node --expose-gc scripts/substrate-benchmark.mjs"
+    "test:browser": "node scripts/browser-smoke.mjs && node scripts/browser-repro.mjs && node scripts/browser-life.mjs && node scripts/browser-ecology.mjs && node scripts/browser-learning.mjs && node scripts/browser-terminal.mjs && node scripts/browser-mobile.mjs && node scripts/browser-genome.mjs && node scripts/browser-testfield.mjs && node scripts/browser-layout.mjs && node scripts/browser-world.mjs",
+    "benchmark": "node --expose-gc scripts/substrate-benchmark.mjs",
+    "setup:local": "node scripts/setup.mjs",
+    "verify": "node scripts/verify.mjs",
+    "verify:core": "node scripts/verify.mjs --core",
+    "handoff:check": "node scripts/check-handoff.mjs",
+    "opencode:check": "node scripts/check-opencode.mjs",
+    "experiment:baseline": "node scripts/ecology-baseline.mjs",
+    "agent": "node scripts/start-opencode.mjs",
+    "experiment:learning": "node scripts/learning-comparison.mjs",
+    "experiment:evaluate": "node scripts/evaluate-ecology.mjs",
+    "test:replay": "node scripts/replay-test-report.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",

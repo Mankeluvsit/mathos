@@ -1,0 +1,35 @@
+{
+  "format": "mathos-world",
+  "version": 1,
+  "name": "Shared world",
+  "seed": 42,
+  "world": {
+    "width": 32,
+    "height": 24
+  },
+  "rules": {
+    "foodEnergy": 24,
+    "spawnAttempts": 2,
+    "upkeep": 1,
+    "initialFood": 150,
+    "replenishment": true,
+    "foodCap": 4096,
+    "supplyBudget": 12000
+  },
+  "organisms": {
+    "startingEnergy": 120,
+    "learning": true,
+    "structuralMutation": false,
+    "reproduction": true,
+    "traitMutation": true,
+    "inheritBody": true,
+    "inheritTraits": true,
+    "inheritWeights": false,
+    "bodyPlan": "dart",
+    "count": 4
+  },
+  "test": {
+    "preset": "neutral",
+    "steps": 1600
+  }
+}

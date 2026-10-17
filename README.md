@@ -2,7 +2,17 @@
 
 A fully local-first, browser-based platform for mathematical visualization and pixel-level artificial-life experimentation.
 
-**Status: Phase 1 reference substrate on this review branch.** Configure and inspect deterministic integer pixel transport, with seeded initialization, fixed ticks, pause/step/reset, exact metrics, and portable local definitions. Organism genesis, neural learning, evolution, morphogenesis, multi-scale dynamics and autonomous experimentation remain planned.
+**Status: one configurable world with shared testing tools.** The default dashboard uses mathos-world@1: neutral starting conditions, optional food caps/supply budgets and stopping steps, independent learning/reproduction/mutation choices, and explicit body/trait/controller inheritance. Testing tools operate this same active run. Old models remain replay-compatible technical references; arbitrary anatomy, predation and spontaneous primordial emergence remain planned.
+
+[Open MATHOS](https://mankeluvsit.github.io/mathos/?v=shared1) · [World controls and reports](docs/shared-world-guide.md) · [Current development progress](docs/handoff/STATE.md)
+
+Choose Rules → edit controls or optional JSON → Apply, or Prepare for starting conditions. **Testing tools · same world** reveals authoring tools. World / Rules / Results on phones preserve the same run. Results → Copy test report shares actual settings, edits, measurements and bounded replay evidence. **Run until paused** is an option; history limits no longer stop reproduction. Reports state whether verification starts at genesis or a later saved boundary.
+
+The running app needs no backend, API key, account, remote font or telemetry. Save small configurations in the browser or export JSON; live runs do not automatically survive reload. Newborn controller weights reset by default; copying them is an explicit experimental option. No learning/evolution success is guaranteed.
+
+Normal development uses `npm run verify` for the automatic test/browser/mobile baseline. The owner does not manage a separate device-check workstream. [Resume](RESUME.md) and [setup/provider reference](HANDOFF.md) use the single progress record; continuity is part of development, not a separate management phase.
+
+Earlier verified biology and evaluation context remain in [inherited-body rules](docs/inherited-body-verification.md), [learning plan](docs/learning-plan.md), [all24 untuned v4 outcomes](docs/evaluation-results-v4-01.md), and [original visual research](docs/visual-direction-cogmind.md). These historical results do not evaluate the new configurable policies. Explicit `?lab=legacy` and `?lab=reference` URLs preserve technical compatibility views; they are not default product workspaces.
 
 ## Run locally
 
@@ -25,6 +35,7 @@ Configurations are stored only in this browser and origin. Export JSON for a por
 - [Simulation model](docs/simulation-model.md)
 - [Data format](docs/data-format.md) and [JSON Schema](schemas/experiment.schema.json)
 - [Roadmap](docs/roadmap.md) and [capability status](docs/capability-status.md)
+- [Integrated baseline plan](docs/integrated-baseline-plan.md) and [verification](docs/integrated-baseline-verification.md)
 - [Approved Phase 1 design](docs/phase-1-plan.md) and [verification](docs/phase-1-verification.md)
 - [Development instructions](AGENTS.md) and [contributing](CONTRIBUTING.md)
 
@@ -34,7 +45,11 @@ GitHub is the authoritative source of truth. Documentation describes both curren
 
 See the [desktop and phone review captures](docs/previews/README.md) and [shared-concept context](docs/product-context.md). The dark laboratory connects the same rule, field and measurements; phone navigation preserves the run across Viewport, Setup and Inspect.
 
-## Try the testable phase
+## Earlier reference labs
+
+Choose **Open technical reference labs** first. These preserve the earlier mathematical and growth-only models.
+
+## Try the substrate reference
 
 1. Start the app, choose **Open substrate lab** in the central workspace. On a phone, this opens Setup.
 2. Set the experiment draft seed/dimensions above, choose **Center impulse** or **Seeded uniform noise**, then **Prepare substrate from draft**. The run starts paused.
@@ -43,14 +58,25 @@ See the [desktop and phone review captures](docs/previews/README.md) and [shared
 
 The foundation's original experiment files and genesis selection are retained as intent. A substrate run does not execute either organism genesis mode. Integer quantization can leave small gradients unchanged.
 
+## Try the earlier integrated baseline
+
+Choose **Open life baseline** and confirm leaving the reference run. The default 32×32 seeded world starts paused with one center-cell organism. Step or Start to observe connected growth, reproduction and lineage. On phones use Setup for draft configuration/comparisons and Inspect for exact resources, organisms and genomes. Primordial starts with resources only.
+
+Save/load uses a separate life-definition slot. Export active definition restarts at tick zero. Compare three seeds runs at most 3×500 ticks locally, supports cancellation and exports measured results; it does not alter the interactive world. Model equations, biases and limits are in [ADR 0007](docs/decisions/0007-integrated-life-baseline.md).
+
 ## Verify
 
 ```sh
 npm run check
 python3 scripts/reference-fixtures.py --check
+python3 scripts/life-reference.py --check
+node scripts/ecology-fixtures.mjs
+node scripts/oriented-fixtures.mjs
 npx playwright install chromium firefox
 npm run test:browser
 npm run benchmark
 ```
 
-The browser suite needs a production build (`npm run check` builds it) and free local ports 4173/4174. Linux CI may need `npx playwright install --with-deps chromium firefox`; package installation can require administrator access. Tests compare independent RNG/field fixtures in both browsers and exercise the production UI. No new runtime dependency or network service was added.
+The browser suite needs a production build (`npm run check` builds it) and free local ports 4173/4174/4176/4177. Linux CI may need `npx playwright install --with-deps chromium firefox`; package installation can require administrator access. Tests compare independent RNG/field fixtures in both browsers and exercise the production UI. No new runtime dependency or network service was added.
+
+Visual language and implementation plan: [unified design system](docs/design-system.md). The default dashboard offers World only / Show dashboard without replacing the running world.

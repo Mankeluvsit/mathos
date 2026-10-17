@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MATHOS oriented ecology starting definition v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "seed",
+    "mode"
+  ],
+  "properties": {
+    "format": {
+      "const": "mathos-ecology"
+    },
+    "version": {
+      "type": "integer",
+      "const": 2
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "mode": {
+      "enum": [
+        "seeded",
+        "primordial"
+      ]
+    }
+  }
+}

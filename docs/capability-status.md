@@ -12,17 +12,83 @@ This table describes code on this branch; it becomes the default-branch baseline
 | Accessibility foundation | Implemented baseline | Semantic controls, labels, focus, status; no conformance certification |
 | Automated tests and CI | Implemented definitions | Vitest/Testing Library, `.github/workflows/ci.yml`; execution evidence in PR |
 | Reference substrate dynamics and field inspection | Implemented on review branch | Versioned integer transport, exact metrics, fixed ticks; see verification |
-| Primordial and seeded genesis | Planned | Mode selection only; Phase 2 |
-| Multi-scale simulation | Planned | Phase 3 |
-| Morphogenesis and evolution | Planned | Phase 4 |
-| Neural lifetime learning | Planned | Phase 5 |
-| Autonomous experiments and checkpoints | Planned | Phase 6 |
+| Primordial and seeded genesis | Experimental baseline | Life lab executes resource recipe/center-cell template; full Phase 2 remains planned |
+| Multi-scale simulation | Experimental baseline | Pixel/organism/ecosystem inspection; full Phase 3 remains planned |
+| Morphogenesis and evolution | Experimental baseline | Bounded growth/reproduction/mutation; full Phase 4 remains planned |
+| Neural lifetime learning | Experimental, on review branch and preview | v3 bounded updates, fresh newborn controllers, on/off inspection and six-seed comparisons; outcomes mixed; source/deployment verification in handoff/STATE.md |
+| OpenCode continuation and fixed-controller measurements | Implemented development tooling | Pinned agent configuration, setup/verification workflow, six-seed v2 CLI measurements; no learning treatment or app runtime service |
+| Autonomous experiments and checkpoints | Partial baseline | Local comparisons plus bounded developer-only four-treatment v4 evaluation implemented; checkpoints, browser evaluation orchestration and full Phase6 planned |
 | Worker execution, IndexedDB, installed offline caching | Planned decisions | Add only with evidence; not shipped |
 
-## Phase 1 delivery boundary
+## Historical Phase 1 delivery boundary
 
-The owner approved Phase 1 implementation. Its code is on the implementation review branch until explicitly merged. See [verification](phase-1-verification.md). Seeded noise is an initializer, not seeded organism genesis. The scalar field is a mathematical reference substrate, not artificial life. Phase 0 files remain compatible. Learning, evolution, morphogenesis, organism genesis, multi-scale coupling, checkpoints and autonomous experiments are still planned.
+The owner approved Phase 1 implementation. Its code was merged in PR #3; this paragraph records its original scope. See [verification](phase-1-verification.md). Seeded noise is an initializer, not seeded organism genesis. The scalar field is a mathematical reference substrate, not artificial life. Phase 0 files remain compatible. Learning, evolution, morphogenesis, organism genesis, multi-scale coupling, checkpoints and autonomous experiments are still planned.
 
 ## Dashboard presentation revision
 
 Implemented on the review branch: dark colorized dashboard, desktop model/viewport/inspector arrangement, intermediate-width reflow, mobile Viewport/Setup/Inspect navigation, desktop focus mode, and three render-only palettes. See [product context](product-context.md) for the connection to the owner-provided concepts. Simulation state is preserved across presentation changes; future life-system mockup panels are not presented as implemented.
+
+## Integrated baseline on this review branch
+
+The Phase 1 implementation is merged. A separate experimental life lab now connects these narrow slices; the original phase table above describes the full capabilities, not completion of these tracks.
+
+| Slice | Implemented behavior | Remaining scope |
+| --- | --- | --- |
+| Genesis | Versioned resource-noise recipe and center-cell template | Primordial material chemistry and spontaneous structures |
+| Scales | Explicit pixels, connected organisms and exact ecosystem totals each tick | Slower-scale process scheduling and validated approximations |
+| Morphogenesis | Genome-limited connected one-pixel growth | Differentiation, repair and richer developmental programs |
+| Evolution | Resource-funded asexual reproduction, bounded mutation, lineage | Broader selection studies and inheritance strategies |
+| Neural control | Fixed integer single-neuron growth gate | Lifetime learning/training remains planned |
+| Experiments | Cancellable three-seed comparisons with exported measured endpoints | Checkpoints/resume, general sweeps and persistent history |
+
+See [plan](integrated-baseline-plan.md), [model decision](decisions/0007-integrated-life-baseline.md) and [verification](integrated-baseline-verification.md). No claim of biological realism, emergence or intelligence.
+
+## Observable ecology correction
+
+Implemented on the new correction review branch: the default living-world experience, eight seeded foragers (or primordial food-only environment), separated body/mouth/motor cells, local food sensing, motor-funded movement, intake, juvenile growth, reproduction cooldown/placement, inherited trait mutations, age/starvation death, lineage/event inspection and explicit sunlight accounting. Magnification/follow and mobile view changes do not affect simulation state. Earlier models remain compatible under technical labs.
+
+This does not implement The Bibites/Life Engine feature sets, predation, arbitrary organ/genome editors, lifetime learning, spontaneous genesis or general autonomous ecological experiments. See [plan](observable-life-plan.md), [decision](decisions/0008-observable-ecology.md) and [verification](observable-life-verification.md).
+
+## Turning, inherited bodies and measured evolution
+
+Implemented on the current review branch: ecology-reference@2 whole-body cardinal rotation, separate quarter-turn/forward actions, conservative turn collision, rotating mouths and front-half-plane sensing, higher-cadence normal playback, heritable dart/grazer/scout plans, juvenile motor/accessory development, per-cell costs, mutation before/after provenance, family path, offspring/deaths/intake and bounded population/body-plan histories. V1 definitions and trajectories remain available explicitly. Three authored plan families are a bounded genome/development encoding, not arbitrary anatomy or proof of open-ended evolution. Lifetime neural learning, predation and broader autonomy remain planned.
+
+## Connected learning (v3, also retained in v4)
+
+Ecology-reference@3 integrates linear-td@1 updates with the actual lifecycle, separate random streams, inherited-trait initialization and fresh child weights. V3 remains selectable; v4 is now the default. The UI exposes learning on/off as starting settings, and shows real intent/action/reward/update/weight diagnostics. A separate cancellable runner compares both arms across six seeds and exports all outcomes/provenance. V1/v2 remain selectable and replayable. See [verification](learning-verification.md) for actual checks and mixed experiment outcomes; this is not proof of intelligence or general improvement; preview publication is recorded in handoff/STATE.md.
+
+## Cogmind-inspired life presentation
+
+Implemented on review branch and preview: original role glyphs, a dark green terminal world, geometry-aligned selection brackets, classic/terminal view selection and bounded cues for observed travel/turns, feeding, births and actual weight changes. Pause/effects off/reduced motion stop the overlay animation. [Research and verification contract](visual-direction-cogmind.md) and [actual captures](previews/terminal/README.md). Simulation rules/trajectories remain unchanged; the published source/deployment is recorded in handoff/STATE.md.
+
+## Phone interaction correction
+
+Implemented on this working branch: world-first layout, compact selected-organism summary, four mobile destinations (World / Organism / Results / Setup), persistent shared playback dock, grouped view controls and explicit Activity highlights wording. Results and configuration no longer spill into mobile World. Actual movement works with highlights off; changing an effect cannot secretly start the run. Setup groups starting settings, file/browser saving, restart and technical labs. [Verification and capture index](mobile-ux-verification.md). Model trajectories and storage formats are unchanged.
+
+## Bounded inherited cell genomes
+
+Implemented on the review branch and published preview (v4 default):3–6 ordered connected loci, inherited prefixes and actual resource-funded growth; structural add/remove/role/relocation proposals, rejection traces, child reset, multiple-mouth/sensor/motor functions and shared physical geometry. The inspector shows actual birth/development and current costs; founder-origin counts are not mislabeled as anatomy. Model-correct learning comparisons, isolated v4 definitions/storage and observation3 preserve older semantics. ADR0011, inherited-body-plan.md and inherited-body-verification.md define scope/evidence. Natural five-cell growth was observed in the six-seed evaluation; six-cell support is controlled-test evidence. Outcomes mixed; no open-ended evolution or general improvement claim. Publication status is in handoff/STATE.md.
+
+## Untuned factorial evaluation
+
+Developer tooling now validates explicit seed/horizon plans and runs all four learning/body-mutation treatments under unchanged v4 rules. The frozen six-seed24-run evaluation completed with exact accounting and mixed effects; all outcomes are in evaluation-results-v4-01.md. Honest partial/failure reporting, source/plan hashes and exclusive output are implemented. This is developer tooling, not a new browser mode, resumable checkpoint or open-ended researcher. Source CI evidence is in handoff/STATE.md.
+
+## Controlled owner testing (implemented locally; delivery in STATE)
+
+Separate prepared test-field workspace with bounded live-safe environment/organism/test controls, optional synchronized JSON/files, author tools and undo, measured analytics and copy/download reports. Reports carry exact edit recipes, observed outcomes and final-state fingerprints and replay in Node. Existing living-world behavior is preserved. This is a bounded configurable laboratory, not arbitrary scientific code, anatomy editing, checkpoint resume or open-ended research. See test-field-guide.md and test-field-verification.md.
+
+## Readable inherited-body differences
+
+Living world model4 and Test field show read-only north-facing parent/offspring birth blueprints, explicit ordered-locus differences and a bounded recent accepted-change list. Growth, learning and inherited changes remain distinct; selection cannot alter scientific state. Missing parents and dead selections are handled explicitly. Family map accents, lineage trees and new effects remain planned. [Visual contract and verification](evolution-visuals.md); actual delivery status is in handoff/STATE.md.
+
+## Current consolidation priority
+
+[ADR0013](decisions/0013-shared-world-and-testing.md) supersedes feature expansion: one shared world/test engine/configuration, explicit food/run limits and feature/inheritance choices. The shared-world increment now implements this direction on the working branch; the preview manifest and PR identify the delivered build. Development maintains one progress record; the handover follows it. Current task/evidence: [STATE](handoff/STATE.md).
+
+## Shared configurable world (ADR0013 implementation)
+
+Default entry now uses one mathos-world@1 engine/session, neutral initialization, explicit food/replenishment/stop policies and independent reproduction/mutation/inheritance choices. Testing tools act on that same state; prior labs are explicit legacy references/replayers. Long-run history is bounded without stopping births; reports verify a recent captured segment and state its limits. [Owner guide and exact boundaries](shared-world-guide.md). Browser/mobile behavior belongs to the automatic baseline. Current delivery facts are in the preview manifest/PR, and progress is recorded once in handoff/STATE.md.
+
+## Unified presentation language
+
+[Design system and staged component plan](design-system.md) defines a calm dashboard by default, shared semantic tokens and a reversible World-only view retaining playback and contextual tools. The first token/style/view slice is implemented; further control grouping, camera navigation and observation overlays remain planned. Presentation remains outside mathos-world configuration/RNG/state/report hashes. Browser/mobile assertions stay in the automatic baseline.

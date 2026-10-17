@@ -1,0 +1,8 @@
+{
+  "format": "mathos-ecology",
+  "version": 4,
+  "seed": 42,
+  "mode": "seeded",
+  "learning": true,
+  "structuralMutation": true
+}

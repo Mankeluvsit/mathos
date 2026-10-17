@@ -2,7 +2,7 @@
 
 ## Implemented foundation and reference substrate
 
-Static React application built with Vite and strict TypeScript. Foundation controls retain experiment-v1 editing, validation, JSON and localStorage. The dark dashboard’s explicitly opened substrate lab adds a versioned integer transport reference model. Primordial/seeded organism genesis and later life systems remain planned.
+Static React application built with Vite and strict TypeScript. Foundation controls retain experiment-v1 editing, validation, JSON and localStorage. The dark dashboard’s explicitly opened substrate lab adds a versioned integer transport reference model. The separate integrated life section below describes the new experimental baseline; full later life systems remain planned.
 
 ```text
 React configuration controls → domain validation → small localStorage/JSON definitions
@@ -40,3 +40,63 @@ Reproducibility is scoped to named engine/rule/RNG/initializer versions and know
 ## Responsive presentation boundary
 
 Desktop model/viewport/inspection regions share one runtime. Mobile Viewport/Setup/Inspect switches presentation through CSS while keeping the components and runtime mounted. Focus mode is scoped to desktop widths. View-only palette lookup tables change Canvas colors, never engine values or configuration formats. The owner-provided shared conversation is recorded in product-context.md as contextual design evidence; it does not add remote services or unimplemented subsystems.
+
+## Integrated life reference
+
+The header explicitly switches between the preserved substrate laboratory and a separate life-reference@1 lab, confirming discarded progress. Only one runtime is active. src/domain/life-run.ts validates frozen small definitions; src/life/engine.ts owns initialization, fixed-tick lifecycle and accounting; src/runtime/life-runtime.ts owns bounded scheduling and deep copied snapshots. React/Canvas never mutate the live model. The runtime pauses immediately on detach and defers final disposal through a microtask so React StrictMode effect replay can reattach safely.
+
+The life storage adapter uses mathos.life-run.v1 without migrating either previous slot. The life experiment runner shares the pure engine and yields after four transitions. It retains only endpoint metrics/partial termination information for three seeds, not full world histories. Views remain mounted across mobile navigation. Replacement/unmount aborts comparison work and prevents stale UI publication. No worker or new runtime dependency. ADR 0007 documents sequential organism-ID bias and reference equations.
+
+## Observable ecology reference
+
+The opening experience now uses a separately versioned ecology-reference@1 engine in src/ecology/model.ts. Its fixed small definition and storage slot do not migrate existing formats. src/runtime/ecology-runtime.ts retains bounded, scheduler-independent ticks and deep snapshots. EcologyLab renders outlined functional bodies and discrete food at higher pixel density, with camera magnification/follow independent of the model. A ?lab=reference URL or the technical-labs button opens earlier references. Desktop world/organism/setup panels become World/Organism/Setup on phones. Mobile defaults to 2× magnification and following the selected organism; the whole-world option and touch/keyboard scrolling remain available.
+
+The model's replenishment is explicit sunlight input in an integer ledger; it is not hidden energy creation. It uses fixed integer directional neural scores, bounded lifespan/cooldown/reproduction and mature three-cell bodies. No workers, APIs, learning service or new dependency. ADR 0008 defines the exact lifecycle.
+
+## Oriented body model and version dispatch
+
+The legacy ecology/model.ts remains unchanged. ecology/oriented-geometry.ts supplies canonical local parts, cardinal transforms, footprint and conservative swept-turn checks. ecology/oriented-model.ts owns v2 lifecycle, inherited plans, family records and bounded history. ecology/world.ts dispatches validate/initialize/step/copy explicitly by definition version. The renderer, selection and camera share cellParts; they cannot invent facing independently. Existing substrate/life/ecology-v1 fixtures remain valid.
+
+The ecology runtime publishes v2 snapshots at up to12.5Hz while advancing so normal10step/s playback exposes individual turn actions; the older v1 sampling behavior remains unchanged. Engine ticks stay independent of that publication cadence. EvolutionPanel consumes recorded20-step samples (81 max), birth genes and measured family outcomes. UI labels avoid treating food intake as fitness or universal plan superiority. Storage uses version-specific slots and rejects a mismatched version in a slot.
+
+## Learning component and connected v3 (local implementation)
+
+`src/ecology/learning-controller.ts` contains pure bounded observation/scoring/exploration/update functions and explicit stream derivation, importing only the versioned RNG. Its inputs are measured integers and copied controller state; it has no world, browser, persistence or clock dependency. Independent Python-generated fixtures verify numerical behavior through the normal test gate. The separate learning-model.ts v3 engine owns controller/RNG state and exact lifecycle timing; world.ts dispatches v3 explicitly while preserving v1/v2. Snapshots and observation exports deep-copy weights/diagnostic arrays as appropriate. LearningComparison runs independent worlds with four-tick/8ms yield budgets, cancellation on hidden tab or disposal, and no mutation of the interactive world. Vite embeds Git revision/dirty metadata at build time for result provenance; no network call is made by the app. [Contract](decisions/0010-bounded-lifetime-learning.md).
+
+## Terminal presentation layer
+
+`rendering/ecology-terminal.ts` consumes immutable snapshots and shared geometry. A bounded observation-difference helper creates up to96 display cues; EcosystemCanvas schedules their180ms fade separately from simulation ticks. View settings, reduced-motion queries and animation timestamps never enter an engine transition or saved definition. Cleanup cancels the frame request; pausing renders an exact still state. Classic continues using the preceding renderer. [Visual contract](visual-direction-cogmind.md).
+
+## Ecology mobile presentation
+
+EcologySession keeps one shared playback control surface outside the mobile-hidden panels. World / Organism / Results / Setup are presentation destinations, not routes or new runtimes. Results groups the mounted comparison, history and event components; switching views does not cancel work, reset selected IDs or mutate world state. Only view navigation updates focus/scroll. Display preferences live in the mounted canvas component; Activity highlights never call runtime start/step. Setup keeps explicit replacement confirmation and separates starting settings from live controls. No scientific model, persistence version or dependency changed for this correction.
+
+## Inherited-body v4 boundary
+
+Pure body-genome.ts validates cell-layout@1 and supplies prefix geometry, sweeps, role counts and deterministic structural proposals. genome-mechanics.ts uses that geometry for sensing/action and a wider physical reward-input adapter, retaining linear-td@1 arithmetic. genome-model.ts is a separate lifecycle module; old engines and controller remain unchanged. world.ts dispatches every operation, including rendering/selection parts, by actual model/genome. V4 snapshots/archive/export deep-copy locus arrays and diagnostics.
+
+Genes retain the old bodyPlan field strictly as a founder-origin tag; it no longer determines anatomy in v4. Blueprint inspection and observed birth/growth records are separate from ancestry charts. The shared comparison runner defaults to v3 for compatibility, accepts explicit v4 settings, initializes both treatments under the same chosen rules and exports distinct provenance/version. Phone organization/playback remain shared and view-only. No new runtime dependency or service.
+
+## Developer factorial evaluation
+
+Separate src/ecology/evaluation.ts validates small copied/frozen plans and sequentially measures unchanged v4 worlds in fixed eight-step chunks. It never imports React, storage or rendering, never changes the browser comparison defaults and records per-world failures/partial cancellation. scripts/evaluate-ecology.mjs owns Node-only file/Git/hash provenance, graceful interruption and exclusive output; no new application service/dependency. The frozen evaluation protocol and all outcomes live in evaluation-plan-v4-01.md and evaluation-results-v4-01.md. This does not add a runtime autonomous-research loop.
+
+## Configurable test workspace
+
+ADR0012 adds separate src/testfield configuration, dimension-aware lifecycle/mechanics, tick-addressed session edits and report/replay modules. It shares bounded genome geometry and controller arithmetic with the preserved ecology, not its mutable state. React's TestFieldLab owns bounded playback scheduling and copied rendering/analytics snapshots; Node replay verifies copied or downloaded recipes. App preserves and pauses Living world/Test field independently. Local small config saving uses its own slot; reports download rather than entering browser persistence. No runtime API, backend or dependency.
+
+## Readable inherited-body differences
+
+Living world model4 and Test field show read-only north-facing parent/offspring birth blueprints, explicit ordered-locus differences and a bounded recent accepted-change list. Growth, learning and inherited changes remain distinct; selection cannot alter scientific state. Missing parents and dead selections are handled explicitly. Family map accents, lineage trees and new effects remain planned. [Visual contract and verification](evolution-visuals.md); actual delivery status is in handoff/STATE.md.
+
+## Current consolidation priority
+
+[ADR0013](decisions/0013-shared-world-and-testing.md) supersedes feature expansion: one shared world/test engine/configuration, explicit food/run limits and feature/inheritance choices. The shared-world increment now implements this direction on the working branch; the preview manifest and PR identify the delivered build. Development maintains one progress record; the handover follows it. Current task/evidence: [STATE](handoff/STATE.md).
+
+## Shared configurable world (ADR0013 implementation)
+
+Default entry now uses one mathos-world@1 engine/session, neutral initialization, explicit food/replenishment/stop policies and independent reproduction/mutation/inheritance choices. Testing tools act on that same state; prior labs are explicit legacy references/replayers. Long-run history is bounded without stopping births; reports verify a recent captured segment and state its limits. [Owner guide and exact boundaries](shared-world-guide.md). Browser/mobile behavior belongs to the automatic baseline. Current delivery facts are in the preview manifest/PR, and progress is recorded once in handoff/STATE.md.
+
+## Unified presentation language
+
+[Design system and staged component plan](design-system.md) defines a calm dashboard by default, shared semantic tokens and a reversible World-only view retaining playback and contextual tools. The first token/style/view slice is implemented; further control grouping, camera navigation and observation overlays remain planned. Presentation remains outside mathos-world configuration/RNG/state/report hashes. Browser/mobile assertions stay in the automatic baseline.
