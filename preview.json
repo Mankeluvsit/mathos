@@ -1,12 +1,14 @@
 {
   "format": "mathos-preview-build",
   "sourceRepository": "Mankeluvsit/mathos",
-  "sourceCommit": "19a52a124a615b51611c4af4acbd6550058c22fd",
+  "sourceCommit": "d7b631a5f0cf331cdd3d8b6b0fe7ff44e473a942",
   "experimental": true,
-  "openingExperience": "oriented-ecology@2",
+  "openingExperience": "ecology-reference@3",
+  "controller": "linear-td@1",
+  "appearance": "terminal-glyphs",
   "files": {
-    "index.html": "2f801606d72d10d40fe95517e635b39ecbc79b4ea02f4ab55e1676fcf4213e81",
-    "assets/index-ararBSZg.js": "b88d569bbe355bc1d7c0b8306b566744bb93b41712ad6f8350cd8c11066d79a2",
-    "assets/index-BIBXj0ij.css": "90636dac1e939a297c66d50d1aee4d461885f1241857924ad0c5a96a6ddd381d"
+    "assets/index-CVHC5vJM.js": "244fa66773cc23362cbd297a165088db68f233deea0a093bb2bb24c99e4852fa",
+    "assets/index-D27rKb-g.css": "b84c7b840f32ea07a94bb6919751ab45028e1a715a7c1e7dbe7abe07dbe51962",
+    "index.html": "ad44e0b715d2b92563067197724478248327ac5353de2bb0827eb852ccadddd6"
   }
 }
