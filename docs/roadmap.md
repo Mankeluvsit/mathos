@@ -41,3 +41,7 @@ Local continuation: L1–L5 are implemented locally, including versioned v3 lear
 ## Current inherited-body milestone
 
 The owner authorized and continued the richer-body milestone after the completed learning and phone corrections. ADR0011/inherited-body-plan.md now define the bounded v4 implementation: ordered connected genomes, real organ/cost/development effects, structural birth mutation, ancestry inspection and model-correct learning comparisons. Old learning milestones above are historical; capability-status and STATE carry current delivery evidence. Keep arbitrary anatomy editing, predation, general configurable universe rules, true scale scheduling, checkpoints and broader autonomous experiments as subsequent work. Do not mark the full original phase tracks complete.
+
+## Untuned evaluation and next diagnosis
+
+The separate24-run v4 learning/body-mutation evaluation completed without tuning, with exact accounting and mixed effects. See evaluation-results-v4-01.md for every seed/treatment and NEXT for the bounded decision/energy diagnostic task. The next step is to explain observed tradeoffs before changing reward or anatomy parameters; the full original phase tracks remain incomplete. Developer tooling does not imply a new browser experiment UI or completed autonomous research.

@@ -140,6 +140,10 @@ App development needs a normal computer capable of Node and two test browsers, f
 
 Public preview is [GitHub Pages](https://mankeluvsit.github.io/mathos/?v=genomes4). Application source/deployment and checks are recorded in STATE.md; documentation-only changes do not require redeploying identical application code. Use `npm run dev` locally. Production hosting stays optional; do not create new infrastructure. Source truth is the review branch/PR, not compiled files on `gh-pages`. Browser storage is origin-specific; export starting definitions before changing origins. No guaranteed offline reload or resume-from-checkpoint exists.
 
+## Current evaluation continuation
+
+The latest tool-only milestone is a frozen24-run v4 factorial evaluation. Read [all outcomes](docs/evaluation-results-v4-01.md), [protocol](docs/evaluation-plan-v4-01.md), STATE and NEXT; do not infer a new browser feature. Reproduction requires clean source and a new output path: `npm run experiment:evaluate -- evaluations/v4-untuned-01.json .artifacts/v4-untuned-01-new.json`. No extra installation or key is required. Full local gate now has173 tests/20 files; source CI conclusions are separate in STATE. All24 runs accounted exactly; body/learning effects were mixed and no rules were tuned. Keep raw outputs ignored. The next task is bounded actual-behavior diagnosis, not reward search or another infrastructure setup.
+
 ## Consolidated owner placeholders — the only unresolved personal inputs
 
 Keep actual values in an ignored local file such as `.artifacts/owner-inputs.md`, not a public commit. No placeholder is embedded in the active OpenCode JSON. Omit optional fields for routes you do not choose.

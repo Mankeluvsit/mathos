@@ -17,7 +17,7 @@ This table describes code on this branch; it becomes the default-branch baseline
 | Morphogenesis and evolution | Experimental baseline | Bounded growth/reproduction/mutation; full Phase 4 remains planned |
 | Neural lifetime learning | Experimental, on review branch and preview | v3 bounded updates, fresh newborn controllers, on/off inspection and six-seed comparisons; outcomes mixed; source/deployment verification in handoff/STATE.md |
 | OpenCode continuation and fixed-controller measurements | Implemented development tooling | Pinned agent configuration, setup/verification workflow, six-seed v2 CLI measurements; no learning treatment or app runtime service |
-| Autonomous experiments and checkpoints | Partial baseline | Local seed comparisons implemented; checkpoints and full Phase 6 planned |
+| Autonomous experiments and checkpoints | Partial baseline | Local comparisons plus bounded developer-only four-treatment v4 evaluation implemented; checkpoints, browser evaluation orchestration and full Phase6 planned |
 | Worker execution, IndexedDB, installed offline caching | Planned decisions | Add only with evidence; not shipped |
 
 ## Historical Phase 1 delivery boundary
@@ -68,3 +68,7 @@ Implemented on this working branch: world-first layout, compact selected-organis
 ## Bounded inherited cell genomes
 
 Implemented on the review branch and published preview (v4 default):3–6 ordered connected loci, inherited prefixes and actual resource-funded growth; structural add/remove/role/relocation proposals, rejection traces, child reset, multiple-mouth/sensor/motor functions and shared physical geometry. The inspector shows actual birth/development and current costs; founder-origin counts are not mislabeled as anatomy. Model-correct learning comparisons, isolated v4 definitions/storage and observation3 preserve older semantics. ADR0011, inherited-body-plan.md and inherited-body-verification.md define scope/evidence. Natural five-cell growth was observed in the six-seed evaluation; six-cell support is controlled-test evidence. Outcomes mixed; no open-ended evolution or general improvement claim. Publication status is in handoff/STATE.md.
+
+## Untuned factorial evaluation
+
+Developer tooling now validates explicit seed/horizon plans and runs all four learning/body-mutation treatments under unchanged v4 rules. The frozen six-seed24-run evaluation completed with exact accounting and mixed effects; all outcomes are in evaluation-results-v4-01.md. Honest partial/failure reporting, source/plan hashes and exclusive output are implemented. This is developer tooling, not a new browser mode, resumable checkpoint or open-ended researcher. Source CI evidence is in handoff/STATE.md.

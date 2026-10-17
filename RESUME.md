@@ -1,5 +1,9 @@
 # Resume MATHOS here
 
+**Latest owner request — review first:** [live configuration/test-field design](docs/previews/configuration-proposal/README.md). The desktop/phone concept image was provided in chat; it is not implemented. Owner wants JSON/files and synchronized easy dashboard controls plus an editable test field. Await their approval before implementing the new interface/schema. Evaluation below is complete and remains separate; check its pending CI without treating the concept as working software.
+
+**Current continuation:** untuned v4 evaluation01 is complete locally and published as tooling; final CI/report delivery is active. Read [all24 outcomes](docs/evaluation-results-v4-01.md) and STATE before new work. Protocol was frozen first; evaluator source6d65a2e ran six new seeds ×four treatments ×1600 ticks from clean source. All24 accounted exactly, with31 accepted body changes/62 proposals and mixed outcomes. No rule tuning or browser UI changes. Local gate now passes173 tests/20 files and both browsers; source CI39051532773 is pending. Existing live app and its verified source below remain unchanged.
+
 MATHOS is mid-development. The inherited-body milestone (ADR0011) is implemented and published; Linux, Windows and macOS verification passed. Read [AGENTS.md](AGENTS.md), [current state](docs/handoff/STATE.md), then [task cards](docs/handoff/NEXT.md). Setup: [Bazzite/macOS/Linux/Windows](docs/handoff/SETUP.md). Continuation choices: [HANDOFF.md](HANDOFF.md).
 
 - **Live review:** [Open MATHOS](https://mankeluvsit.github.io/mathos/?v=genomes4). Model4, learning and body mutation on; original Terminal glyphs and optional Classic cells. **Start world** runs the simulation; **One step** advances once. Activity highlights are cosmetic. Phone views are World / Organism / Results / Setup with persistent playback.

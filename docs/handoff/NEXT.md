@@ -2,16 +2,31 @@
 
 > Current delivery policy (2026-10-17): The owner authorized autonomous routine delivery on 2026-10-17: plan → implement → verify → self-review → commit/push to the existing review branch → update the existing preview → verify the live result → refresh handoff. This supersedes earlier local-only/review-before-publication wording. Do not ask again for routine publication within the approved scope. Stop for a real blocker, a change of direction, new cost or destructive action. Never merge automatically. Keep one writer; no automatic delegation or paid model fallback.
 
+## Owner priority: approve the live-configuration/test-field design
+
+The owner requested an image before accepting the dashboard implementation. Concept: docs/previews/configuration-proposal/README.md and desktop-mobile-proposal.png. It shows easy controls synchronized with JSON/file editing and a small editable test field on desktop/phone. It is **proposed, not implemented**. Await design approval, then specify live-edit/restart fields and versioned tick-addressed edits before coding; preserve old replay, exact resources, local-first operation and phone accessibility. Do not start the diagnostic-trace task below ahead of this owner priority. Current evaluation/source CI recording may finish independently.
+
 ## Current starting point
 
-Inherited-body G0–G3 implementation and full local verification are complete. G4 corrected-source publication/live verification/three-platform CI is complete; exact revisions and evidence are in STATE. The older L0–L6 cards below are completed learning history. Do not restart them.
+Inherited-body G0–G4 and the untuned evaluation E0–E2 are complete. E3 report/handoff publication and tool-source three-platform CI are active; STATE records actual evidence. The older L0–L6 cards are completed learning history. Do not restart them or rerun/tune the frozen evaluation to obtain a better outcome.
 
-After G4, the next bounded unit is an untuned v4 evaluation, not a new scientific engine:
+### Evaluation E0–E3
 
-1. **Predeclare.** Inputs: ADR0011, the current clean source and all development results. Write a versioned evaluation plan with a fixed non-development seed set,1600-tick horizon, both learning flags × both structural flags, measured endpoints and bounded total run count before inspecting outcomes. Done: seeds, variants, metrics and handling of extinction/failure are frozen in Git; no coefficient changes.
-2. **Add a bounded developer runner.** Existing scripts/genome-baseline.mjs hardcodes the six development seeds and learning on; scripts/learning-comparison.mjs defaults to v3 and the same seeds. They cannot already perform this new evaluation. Reuse pure v4 initialization/step/metrics, but add explicit validated evaluation inputs in separate tooling, source/engine/config provenance and refusal to overwrite output. Keep old commands/results unchanged. Done: deterministic small cases, invalid-input/budget rejection, exact accounting and independent result copies pass; no new runtime dependency.
-3. **Run and report.** Run only the predeclared plan from clean committed source; keep raw results ignored. Report every seed/variant, failures/extinction and signed comparisons, including regressions. Done: exact accounting on completed runs, reproducible exports and clear distinction between development and evaluation evidence. Any later tuning invalidates calling those seeds unseen for that tuned model.
-4. **Choose the next behavior improvement from evidence.** Update STATE, capabilities and the roadmap; preserve the immutable old-engine baselines. No general-improvement claim, automatic reward tuning or implementation of all deferred phase tracks. Follow the normal verification/publication loop for any new tool code.
+- **E0 complete:** protocol/source frozen before outcomes; six hash-derived new seeds, all four learning/body-mutation variants and1600 ticks. Authority: evaluations/v4-untuned-01.json and docs/evaluation-plan-v4-01.md.
+- **E1 complete:** bounded pure evaluator/CLI, six meaningful tests, full173-test/browser gate and actual OpenCode parsing. Existing developer commands and model rules are unchanged. Command: `npm run experiment:evaluate -- evaluations/v4-untuned-01.json .artifacts/v4-untuned-01-new.json`. Requires clean source and a new output filename; do not overwrite the original.
+- **E2 complete:**24 outcomes and24 contrasts from clean source6d65a2e. Exact accounting,31 accepted changes/62 enabled proposals, mixed endpoint effects. Read docs/evaluation-results-v4-01.md; all rows and regressions are retained. These seeds become development data if used to tune a later model.
+- **E3 active:** publish the readable report/current memory, verify tool-source CI and refresh the existing review. No runtime change; preserve the already verified preview. Never auto merge.
+
+### Next bounded task: explain decisions and energy tradeoffs
+
+Inputs: immutable model4/ADR0010–0011, existing lastDecision diagnostics and evaluation-results-v4-01.md. The results show that final population and population over time can point in different directions; reward changes are premature without behavioral diagnosis.
+
+1. Freeze a small diagnostic plan before tracing: use documented contrasting evaluation cases, explicitly labeled selected development examples. Fix seed/flags/horizon, sampling rule and record limit; no new holdout or performance claim.
+2. Add separate developer-only bounded traces of actual observations, chosen intent versus executed action, blocked movement, food intake/upkeep/reward and weight updates. Reuse actual world/lineage decisions; do not fabricate unobserved events, alter engines or retain unlimited full snapshots. Define exact attribution/counting before implementation.
+3. Verify trace/Node trajectory agreement, no state mutation, bounded memory/output, cancellation/failure records and clean source/definition provenance. Report a favorable case and a regression under identical interpretation, not only an aggregate score.
+4. Explain the observed cause or document what remains unresolved. Only then propose a specific behavior or inspection improvement, versioning any scientific rule change separately. Run the normal verification/publication/handoff loop for new tooling; no automatic reward tuning, new runtime dependency or model rewrite.
+
+Done: an auditable, bounded explanation of actual behavior, or a precise unresolved question backed by traces. Predation, anatomy editors, checkpoints and open-ended autonomous research remain planned.
 
 User authorization: continue the plan after the turning/body-inheritance milestone, while preparing this handoff. The owner now requests autonomous routine implementation, verification and delivery to the existing review branch and preview. The published package provides measurement preparation; the local continuation connects the learning controller, versioned lifecycle, comparison runner and browser inspection. L6 implementation, verification and publication are complete; owner visual feedback can guide further refinement without becoming a repeated publication gate. Do not restart Phase 0 or rewrite the working ecology.
 
