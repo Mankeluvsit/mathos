@@ -81,3 +81,11 @@ Six activity tests check observation-derived cues, reset/initial behavior, skipp
 5. Are each task's inputs, observable criteria, exact checks and failure stops explicit?
 6. Are the old engine/fixture files unchanged, with measurement results excluded from source?
 7. Are inaccessible/unrun checks disclosed rather than marked passed?
+
+## Published learning/terminal checkpoint — 2026-10-17
+
+Application source d7b631a5f0cf331cdd3d8b6b0fe7ff44e473a942 passed [CI on Linux, macOS and Windows](https://github.com/Mankeluvsit/mathos/actions/runs/38998336843). Workflow/configuration follow-up315beab30e397b20153d631b85f0c766b220ae5f independently passed [all three CI jobs](https://github.com/Mankeluvsit/mathos/actions/runs/38998550830), including parser assertions for authorized routine pushes and denied automatic merges/force pushes. Each complete run passed149 tests in17 files, the build, independent references and all browser workflows. Final evidence recording changes documentation only.
+
+[Live MATHOS](https://mankeluvsit.github.io/mathos/?v=learning-terminal3) serves clean application source d7b631a, deployed as gh-pages088a87b58d1600cc1f2888e1986a7f7f98effeae. Public preview.json and all current artifact SHA256 values match. Public Chromium passed actual playback/activity/stable pause,20 learning updates, Node replay agreement, style invariance, cancelled-comparison clean-source provenance, reduced motion and320/390px navigation with no external runtime requests. Public Firefox could not navigate because the workspace did not trust its HTTPS issuer (SEC_ERROR_UNKNOWN_ISSUER); TLS validation was not disabled. Local and CI Firefox workflows passed separately. No owner-device Bazzite test is claimed.
+
+Full logs remain ignored under .artifacts/release-source-ci.log and live-release-check.log; native public capture is live-terminal-desktop.png. Scientific outcomes remain mixed and unchanged; do not retune or claim general improvement. Source PR #4 stays open/unmerged. Standing authorization now includes routine verified source/preview delivery and handoff refresh.

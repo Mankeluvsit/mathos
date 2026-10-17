@@ -2,7 +2,7 @@
 
 > Current delivery policy (2026-10-17): The owner authorized autonomous routine delivery on 2026-10-17: plan → implement → verify → self-review → commit/push to the existing review branch → update the existing preview → verify the live result → refresh handoff. This supersedes earlier local-only/review-before-publication wording. Do not ask again for routine publication within the approved scope. Stop for a real blocker, a change of direction, new cost or destructive action. Never merge automatically. Keep one writer; no automatic delegation or paid model fallback.
 
-User authorization: continue the plan after the turning/body-inheritance milestone, while preparing this handoff. The owner now requests autonomous routine implementation, verification and delivery to the existing review branch and preview. The published package provides measurement preparation; the local continuation connects the learning controller, versioned lifecycle, comparison runner and browser inspection. L6 verification and owner review govern delivery. Do not restart Phase 0 or rewrite the working ecology.
+User authorization: continue the plan after the turning/body-inheritance milestone, while preparing this handoff. The owner now requests autonomous routine implementation, verification and delivery to the existing review branch and preview. The published package provides measurement preparation; the local continuation connects the learning controller, versioned lifecycle, comparison runner and browser inspection. L6 implementation, verification and publication are complete; owner visual feedback can guide further refinement without becoming a repeated publication gate. Do not restart Phase 0 or rewrite the working ecology.
 
 ## L0 — fixed-controller measurement baseline (implemented in this increment)
 
@@ -48,7 +48,7 @@ Depends on L3; comparison UI also depends on L4. Read EcologyLab/EvolutionPanel/
 
 Done: browser tests for setup/version choice, inspect/update text, paused exact step, mobile navigation/follow/playback, save/import/export, comparison/cancel and zero runtime external requests. Capture actual desktop, 320/390px phone World/Organism/Setup. No invented activity visualization. Keyboard, text alternatives and reduced motion remain usable.
 
-## L6 — evidence and delivery (implemented; see STATE for CI)
+## L6 — evidence and delivery (completed; CI passed)
 
 Inputs: all cards and real verification output. Run full gate, old/new browser replay, declared comparisons and a small measured compute budget. Update specification/model/format/architecture/UX/capabilities, current memory and review description. Distinguish within-life weight updates from heritable variation and measured outcomes from general improvement.
 
@@ -58,7 +58,7 @@ Done: concrete locally testable result, no unexplained failing checks, limitatio
 
 L3 files: learning-model.ts, v3 schema/example, world dispatch, storage and observation version2. L4: learning-experiments.ts, LearningComparison.tsx and scripts/learning-comparison.mjs. L5: LearningPanel.tsx, EcologyLab v3 default/settings, desktop/mobile workflows in browser-learning.mjs. [Verification and initial outcomes](../learning-verification.md). No parameter tuning followed the first mixed six-seed outcomes. Source/preview delivery is authorized and in progress; STATE records the actual deployed revision.
 
-Next refinement must follow the owner's review. Do not silently retune the reward or call the six development seeds held-out. Complete/record L6 checks and deliver the verified result under the standing authorization; no automatic merge.
+Next refinement follows the roadmap, measured behavior and any owner visual feedback. Do not silently retune the reward or call the six development seeds held-out. Complete/record L6 checks and deliver the verified result under the standing authorization; no automatic merge.
 
 ## Owner-requested visual review
 
