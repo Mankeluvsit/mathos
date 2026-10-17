@@ -80,3 +80,7 @@ Separate prepared test-field workspace with bounded live-safe environment/organi
 ## Readable inherited-body differences
 
 Living world model4 and Test field show read-only north-facing parent/offspring birth blueprints, explicit ordered-locus differences and a bounded recent accepted-change list. Growth, learning and inherited changes remain distinct; selection cannot alter scientific state. Missing parents and dead selections are handled explicitly. Family map accents, lineage trees and new effects remain planned. [Visual contract and verification](evolution-visuals.md); actual delivery status is in handoff/STATE.md.
+
+## Current consolidation priority
+
+[ADR0013](decisions/0013-shared-world-and-testing.md) supersedes feature expansion: one shared world/test engine/configuration, explicit food/run limits and feature/inheritance choices. These simulation corrections are planned, not yet live. Development maintains one progress record; the handover follows it. Current task/evidence: [STATE](handoff/STATE.md).

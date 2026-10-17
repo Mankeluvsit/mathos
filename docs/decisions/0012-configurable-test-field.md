@@ -1,5 +1,7 @@
 # ADR0012 — configurable, replayable test field
 
+> Future architecture is superseded by [ADR0013](0013-shared-world-and-testing.md). This record still specifies the delivered version1 behavior for reproducible replay; it does not authorize another separate active product lab.
+
 Accepted under owner approval of the desktop/mobile concept and request for hideable JSON, easy on-the-fly dashboard controls, prepared tests, analytics and copy/paste reports. This is a separate bounded laboratory, not a silent rule change to ecology-reference@1–4. Implementation/evidence status is in STATE.
 
 ## Scientific boundary

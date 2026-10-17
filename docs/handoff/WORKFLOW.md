@@ -1,27 +1,27 @@
 # One unit of work
 
-The owner authorized autonomous routine delivery on 2026-10-17: plan → implement → verify → self-review → commit/push to the existing review branch → update the existing preview → verify the live result → refresh handoff. This supersedes earlier local-only/review-before-publication wording. Do not ask again for routine publication within the approved scope. Stop for a real blocker, a change of direction, new cost or destructive action. Never merge automatically. Keep one writer; no automatic delegation or paid model fallback. Model access must stay free and require no personal API key.
+The owner authorized autonomous routine delivery on 2026-10-17: plan → implement → verify → self-review → commit/push to the existing review branch → update the existing preview → verify the live result, maintaining the single progress record within that same unit. This supersedes earlier local-only/review-before-publication wording. Do not ask again for routine publication within the approved scope. Stop for a real blocker, a change of direction, new cost or destructive action. Never merge automatically. Keep one writer; no automatic delegation or paid model fallback. Model access must stay free and require no personal API key.
 
 ## Switching development environments
 
-ChatGPT/Codex and OpenCode follow the same loop. After each unit, refresh RESUME.md and STATE.md, advance NEXT.md only when its criteria pass, and update affected specifications. Record source commit, local changes, actual test results, remaining blockers and the next action. Do not copy private account usage into GitHub.
+ChatGPT/Codex and OpenCode follow the same loop. Maintain the single STATE.md progress record using the results of the unit itself. RESUME/NEXT remain stable pointers; update setup/HANDOFF only when their instructions change. There is no separate handover milestone. Update affected specifications when contracts change. Record source commit, local changes, actual test results, remaining blockers and the next action. Do not copy private account usage into GitHub.
 
 Use one active writer across environments. Before switching machines, check both working trees for unfinished edits. Save the verified checkpoint to the working GitHub branch under the standing delivery authorization. Fetch that branch on the receiving machine and reconcile any local edits before continuing. A handoff file does not transfer uncommitted source or synchronize machines automatically.
 
 ## Loop
 
-1. **Recover:** read AGENTS.md, RESUME.md and STATE.md; inspect `git status`, recent commits and the actual affected files. Preserve unfinished work. Find the active NEXT.md card. Newer code/GitHub evidence beats a stale handoff statement.
+1. **Recover:** read AGENTS.md, RESUME.md and STATE.md; inspect `git status`, recent commits and the actual affected files. Preserve unfinished work. Find the active task in STATE.md. Newer code/GitHub evidence beats a stale handoff statement.
 2. **Plan:** write a small task card in STATE.md using the template below. Read the relevant ADR and tests. Name exact inputs, allowed files, version boundaries and measurable acceptance. Keep one unit small enough to review in a single diff; split model, runtime, UI and format work when their contracts can be tested separately.
 3. **Implement:** one writer. Keep pure engine changes separate from rendering/time/storage. Retain previous version semantics and fixtures. Validate before replacing active state or storage. Do not add dependencies or services merely to make a weaker model's work easier.
 4. **Verify narrowly:** run the affected test with `npm test -- tests/NAME.test.ts` using the real filename. Read the actual error; write a minimal case when necessary. Do not broaden edits based on guesses. Data/docs/config changes need their corresponding validator/link/config checks.
 5. **Verify fully:** `npm run verify`, plus `npm run handoff:check` for handoff edits and `npm run opencode:check` for agent/config edits. Read every exit code. Never report success based only on a command being started. Save large logs under ignored `.artifacts/`, include concise results in STATE.
 6. **Review:** compare the diff with every criterion. Check cross-file contracts, version isolation, truthful labels and user-visible behavior. `/mathos-review` requests the read-only reviewer in a separate context. Without that explicit delegation, do a separate self-review and label it honestly. The reviewer returns PASS, NEEDS_CHANGES or BLOCKED; it does not run tests or publish.
 7. **Repair or stop:** fix a concrete failure and repeat the affected checks. After two unsuccessful attempts on the same symptom, record a blocker with command, environment, minimal input, expected/actual result, hypotheses tried and next diagnostic. Stop that unit; no infinite agent loop, fixture rewriting, disabled checks or broad speculative refactor.
-8. **Capture and deliver:** update STATE, RESUME and affected model/format/UX/status documents; commit and push the verified coherent unit to the existing PR branch. For application changes, build from a clean committed revision, publish to the existing gh-pages preview, verify the public manifest/assets and actual browser behavior, and record source/deployment/CI evidence. Preserve older hashed assets for cached HTML. Tell the owner what works, what they can try and what remains. Keep PRs unmerged; distinguish local checks, CI, deployment and owner visual acceptance. Docs-only follow-ups need not redeploy identical application code.
+8. **Capture and deliver:** update the single STATE record and affected model/format/UX/status documents; commit and push the verified coherent unit to the existing PR branch. For application changes, build from a clean committed revision, publish to the existing gh-pages preview, verify the public manifest/assets and actual browser behavior, and record source/deployment/CI evidence. Preserve older hashed assets for cached HTML. Tell the owner what works, what they can try and what remains. Keep PRs unmerged; distinguish local checks, CI, deployment and owner visual acceptance. Docs-only follow-ups need not redeploy identical application code.
 
 ## Task-card template
 
-Copy this structure into STATE and fill it with facts from the chosen NEXT card (these are work fields, not personal setup placeholders):
+Copy this structure into STATE and fill it with facts from the current development task (these are work fields, not personal setup placeholders):
 
 ```text
 Task ID / goal:

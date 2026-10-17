@@ -1,14 +1,16 @@
 # MATHOS → OpenCode handoff
 
-> Current delivery policy (2026-10-17): The owner authorized autonomous routine delivery on 2026-10-17: plan → implement → verify → self-review → commit/push to the existing review branch → update the existing preview → verify the live result → refresh handoff. This supersedes earlier local-only/review-before-publication wording. Do not ask again for routine publication within the approved scope. Stop for a real blocker, a change of direction, new cost or destructive action. Never merge automatically. Keep one writer; no automatic delegation or paid model fallback.
+> Current delivery policy (2026-10-17): The owner authorized autonomous routine delivery on 2026-10-17: plan → implement → verify → self-review → commit/push to the existing review branch → update the existing preview → verify the live result, maintaining the single progress record within that same unit. This supersedes earlier local-only/review-before-publication wording. Do not ask again for routine publication within the approved scope. Stop for a real blocker, a change of direction, new cost or destructive action. Never merge automatically. Keep one writer; no automatic delegation or paid model fallback.
 
 Prepared 2026-10-16 from the repository, live GitHub state, this conversation and official tool documentation. **Owner choices: Bazzite Linux; free OpenCode models requiring no personal API key; autonomous routine implementation, verification and publication to the existing review branch/preview; no automatic merge.** This is a continuation package, not a claim that MATHOS is complete. Start with [RESUME.md](RESUME.md) and the [clean-machine setup](docs/handoff/SETUP.md).
 
 ## Continuing here or in OpenCode
 
-This package supports switching between ChatGPT/Codex and OpenCode; it is not a required migration. Continue development in the available environment and keep the same task cards, specifications and verification gates. After each completed unit, update RESUME.md, STATE.md, NEXT.md and affected specifications with actual changes, checks, remaining work and publication status. The next agent must inspect those files and the working tree before acting.
+This package supports switching between ChatGPT/Codex and OpenCode; it is not a required migration. Continue development in the available environment and keep the same task cards, specifications and verification gates. Maintain current work once in STATE.md as part of the same development unit. RESUME/NEXT are stable pointers; this setup/provider guide changes only when its instructions change. Do not create a separate handover milestone or duplicate status summaries. The next agent must inspect those files and the working tree before acting.
 
 Only one environment should edit a task at a time. Local workspace changes do not automatically appear on another machine. Before switching machines, verify and publish the completed checkpoint to the working GitHub branch under the standing authorization, then fetch it on the receiving machine. Check for local edits first; never overwrite them or assume a chat reset synchronized files. Distinguish unpublished edits from saved GitHub source and the exact deployed application revision.
+
+> The milestone notes below are historical context. Current work and delivery evidence live only in [STATE](docs/handoff/STATE.md). ADR0013 supersedes the separate active world/test-field direction for future implementation.
 
 ## Additional infrastructure work discovered on resumption
 
@@ -35,7 +37,7 @@ Practical allocation for **this project** (planning guidance, not an estimate of
 | Capacity situation | Spend model work on | Run without model usage / defer |
 | --- | --- | --- |
 | Very little remains | Preserve state, inspect the highest-risk learning contract, explain an unresolved design choice | Run existing tests/builds locally; postpone broad rewrites and multi-agent loops |
-| Enough for one focused unit | One L1–L6 card from [NEXT](docs/handoff/NEXT.md), its focused fix and review | Batch deterministic checks into `npm run verify`; do not stream entire passing logs into context |
+| Enough for one focused unit | One current bounded task from [STATE](docs/handoff/STATE.md), its focused fix and review | Batch deterministic checks into `npm run verify`; do not stream entire passing logs into context |
 | A new allowance window | First review the contract/invariants, then implement isolated units | Keep routine formatting, searches and repeated builds on local tools |
 | Included allowance exhausted | A separately funded provider or a local model can continue using this repository | Tests, browser preview and manual edits still work; another client using the exhausted subscription is not a bypass |
 
@@ -116,9 +118,9 @@ Agents inherit the model you select; no second provider is silently billed. Call
 
 Use `/mathos-resume` to recover state, `/mathos-unit L6` to complete the current delivery card, `/mathos-review` for the second pass, and `/mathos-checkpoint` before leaving. Commands are prompts that direct the agent; the actual pass/fail gates are the scripts and CI. The reviewer reads evidence but does not rerun commands. A same-model review is useful separation of context, not independent expertise. [Custom commands](https://opencode.ai/docs/commands/) · [rules](https://opencode.ai/docs/rules/) · [skills](https://opencode.ai/docs/skills/).
 
-The workflow is **read → plan one unit → implement → focused verification → full gate → review → repair or document blocker → update repository memory**. After two failed repairs to the same symptom, capture the failing command, minimal case, hypotheses and next diagnostic; do not spend indefinitely or weaken the gate. [Exact loop and task-card template](docs/handoff/WORKFLOW.md). [L0–L6 inputs, dependencies and done-criteria](docs/handoff/NEXT.md).
+The workflow is **read → plan one unit → implement → focused verification → full gate → review → repair or document blocker → update repository memory**. After two failed repairs to the same symptom, capture the failing command, minimal case, hypotheses and next diagnostic; do not spend indefinitely or weaken the gate. [Exact loop and task-card template](docs/handoff/WORKFLOW.md). [Current inputs, dependencies and done-criteria](docs/handoff/STATE.md).
 
-Memory is explicit: RESUME is short; STATE holds evidence and unfinished work; NEXT holds scoped task cards; ADRs hold scientific decisions. Auto compaction/pruning is enabled with a 12,000-token reserve, but written state must be updated first. Load only the relevant contracts and tests for each card. Keep passing log output short; save full logs locally under ignored `.artifacts/`. Do not auto-load every fixture, screenshot or the entire chat. One task per session gives a weaker model fewer competing obligations.
+Memory is explicit: RESUME/NEXT point to the single current STATE record; STATE holds evidence, unfinished work and the next task; ADRs hold scientific decisions. Auto compaction/pruning is enabled with a 12,000-token reserve, but written state must be updated first. Load only the relevant contracts and tests for each card. Keep passing log output short; save full logs locally under ignored `.artifacts/`. Do not auto-load every fixture, screenshot or the entire chat. One task per session gives a weaker model fewer competing obligations.
 
 Remaining gaps and compensations:
 
@@ -146,7 +148,7 @@ The latest tool-only milestone is a frozen24-run v4 factorial evaluation. Read [
 
 ## Owner-operated test field
 
-The approved configurable test-field milestone is separate from the old living-world engine. Read [owner workflow/configuration bounds](docs/test-field-guide.md), ADR0012 and STATE before modifying it. Owners can run prepared cases or make recorded edits, then copy/paste or download analytics plus the complete replay recipe. Use `npm run test:replay -- path/to/report.json` on their JSON or clipboard .txt. Investigate actual settings/edits/notes and replay mismatches before proposing model changes. No mandatory API, account or additional installation. This does not complete arbitrary universe editing or broader autonomous research. Current verification/publication evidence belongs in STATE, not earlier test-count snapshots.
+The historical ADR0012 test-field milestone was delivered separately from the living-world engine. ADR0013 now directs consolidation into one model/configuration/session; the following guide describes the existing baseline, not the target architecture. Read [owner workflow/configuration bounds](docs/test-field-guide.md), ADR0012 and STATE before modifying it. Owners can run prepared cases or make recorded edits, then copy/paste or download analytics plus the complete replay recipe. Use `npm run test:replay -- path/to/report.json` on their JSON or clipboard .txt. Investigate actual settings/edits/notes and replay mismatches before proposing model changes. No mandatory API, account or additional installation. This does not complete arbitrary universe editing or broader autonomous research. Current verification/publication evidence belongs in STATE, not earlier test-count snapshots.
 
 ## Consolidated owner placeholders — the only unresolved personal inputs
 

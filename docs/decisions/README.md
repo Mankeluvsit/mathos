@@ -26,3 +26,5 @@ The project owner approved these decisions for the Phase 1 reference substrate. 
 
 - [0011 — Bounded inherited cell genomes](0011-inherited-cell-genomes.md)
 - [0012 — Configurable, replayable test field](0012-configurable-test-field.md)
+
+- [0013: Shared world, explicit configuration and integrated progress](0013-shared-world-and-testing.md) — accepted corrective direction; scientific implementation planned.

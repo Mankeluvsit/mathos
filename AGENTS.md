@@ -10,6 +10,12 @@
 - Owner review requires recognizable organisms and observable behavior, drawing on Life Engine and The Bibites. Read docs/observable-life-plan.md. Passing accounting tests or displaying a changing pixel field is insufficient product acceptance. Preserve the mathematical laboratory and both genesis directions; never claim the references’ full feature sets are implemented.
 - Label capabilities implemented, planned, or experimental with evidence. Never present a preview as an active simulation or emergence as a guaranteed result.
 
+## Current corrective priority
+
+- Follow ADR0013: one canonical configurable world with test tools using the same engine/configuration and active session. Preserve older replays as compatibility code; do not add a new active lab for each feature. Resource/run caps and neutral versus demonstration initialization must be explicit. World feature switches and offspring-inheritance policies are separate choices.
+- This direction supersedes the separate-product implementation pattern in ADR0012. Current simulation corrections are planned until implemented and verified; do not present existing presets as neutral controls or a UI toggle as removal of hard engine/archive limits.
+- STATE.md is the single current progress/evidence record, maintained as part of the work itself. RESUME/NEXT are stable pointers. Update HANDOFF/setup only for real environment/workflow changes; no triplicated milestone summaries or separate handover-management phase. Include continuity in the same coherent work unit, not an extra status-only commit after each delivery.
+
 ## Controlled owner testing
 
 - Owner approved the dashboard/test-field proposal and requested hideable JSON, simple live controls, prepared owner-run tests, analytics and copy/paste reports. ADR0012 and docs/test-field-guide.md govern this increment; routine implementation/delivery is authorized.
@@ -43,9 +49,9 @@
 
 ## Continuation in OpenCode
 
-- Read `RESUME.md`, `docs/handoff/STATE.md` and the current task card in `docs/handoff/NEXT.md`. Update written state before ending or compacting; chat memory is not authoritative.
+- Read `RESUME.md`, `docs/handoff/STATE.md` and the current task card in `docs/handoff/NEXT.md`. Update the single STATE record before ending or compacting; chat memory is not authoritative.
 - Owner environment: Bazzite Linux. Use the documented Ubuntu Distrobox setup for development dependencies. Model access must be free and require no personal API key. Use `npm run agent`; do not enroll in paid services or silently fall back to a paid model.
-- The owner authorized autonomous routine delivery on 2026-10-17: plan → implement → verify → self-review → commit/push to the existing review branch → update the existing preview → verify the live result → refresh handoff. This supersedes earlier local-only/review-before-publication wording. Do not ask again for routine publication within the approved scope. Stop for a real blocker, a change of direction, new cost or destructive action. Never merge automatically. Keep one writer; no automatic delegation or paid model fallback.
+- The owner authorized autonomous routine delivery on 2026-10-17: plan → implement → verify → self-review → commit/push to the existing review branch → update the existing preview → verify the live result, maintaining the single progress record within that same unit. This supersedes earlier local-only/review-before-publication wording. Do not ask again for routine publication within the approved scope. Stop for a real blocker, a change of direction, new cost or destructive action. Never merge automatically. Keep one writer; no automatic delegation or paid model fallback.
 - Keep one writer and one bounded task. Subagents are optional and require an explicit request (such as `/mathos-review`) or permission; no recursive or automatic parallel writers.
 - Run `npm run verify` for complete delivery evidence; `npm run verify:core` omits real browsers. For handoff/config edits also run `npm run handoff:check` and the actual OpenCode parser via `npm run opencode:check` with version 1.19.2.
 - Distinguish catalog/configuration validation from successful model inference. The preparation workspace's free inference probe returned HTTP 403; do not claim that hosted or local inference was tested on the owner's machine.

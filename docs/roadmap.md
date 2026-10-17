@@ -53,3 +53,7 @@ Owner approved the dashboard/test-field direction, adding hidden-by-default JSON
 ## Owner-requested visual evolution legibility
 
 Read-only parent/offspring diagrams, changed growth slots, recent accepted structural births and one shared terminal/test-field organ palette improve the existing baseline. See [scope and evidence](evolution-visuals.md). This is an observability increment across Living world model4 and Test field, not a new scientific engine or completion of evolution. Persistent map family accents, lineage trees and further effects remain planned. Prioritize owner feedback/replay before the bounded behavior-diagnostic task; do not silently tune the scientific model.
+
+## Current consolidation priority
+
+[ADR0013](decisions/0013-shared-world-and-testing.md) supersedes feature expansion: one shared world/test engine/configuration, explicit food/run limits and feature/inheritance choices. These simulation corrections are planned, not yet live. Development maintains one progress record; the handover follows it. Current task/evidence: [STATE](handoff/STATE.md).
