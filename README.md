@@ -8,6 +8,8 @@ A fully local-first, browser-based platform for mathematical visualization and p
 
 Routine delivery is authorized. See RESUME.md and docs/handoff/STATE.md for the exact saved source, deployed revision and verification evidence.
 
+**Developer evaluation:** a frozen24-run v4 learning/body-mutation protocol is at [evaluation plan](docs/evaluation-plan-v4-01.md). It adds measurement tooling, not a new browser mode. From clean committed source, run `npm run experiment:evaluate -- evaluations/v4-untuned-01.json .artifacts/v4-untuned-01-new.json`; output must be new and remains local. Current outcomes/status are recorded in the handoff.
+
 **Continuing in OpenCode:** [resume here](RESUME.md) · [handoff and free-model choices](HANDOFF.md) · [Bazzite/macOS/Linux/Windows setup](docs/handoff/SETUP.md). The project is mid-development. The handoff records connected learning, tests, mixed experimental outcomes and the current review/publication gate. Use one active development environment at a time.
 
 **New visual review:** [Cogmind-inspired life presentation](docs/visual-direction-cogmind.md) · [actual activity animation](docs/previews/terminal/activity.gif). Terminal glyphs is the new default; Classic cells and reduced-motion/static viewing remain available. Scientific state is unchanged by the visual style.

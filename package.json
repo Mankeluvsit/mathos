@@ -24,7 +24,8 @@
     "opencode:check": "node scripts/check-opencode.mjs",
     "experiment:baseline": "node scripts/ecology-baseline.mjs",
     "agent": "node scripts/start-opencode.mjs",
-    "experiment:learning": "node scripts/learning-comparison.mjs"
+    "experiment:learning": "node scripts/learning-comparison.mjs",
+    "experiment:evaluate": "node scripts/evaluate-ecology.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",

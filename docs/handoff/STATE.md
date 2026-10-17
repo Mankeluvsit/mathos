@@ -4,6 +4,12 @@
 
 Snapshot date: 2026-10-17. This file is repository memory, not a claim of project completion. Check the actual branch and remote before continuing.
 
+## Active unit: untuned v4 evaluation01
+
+Owner requested continuing with task-level progress/completion reports and a short overall-project update. Protocol committed first as dcf0637, evaluations/v4-untuned-01.json and docs/evaluation-plan-v4-01.md. Six hash-derived new seeds ×four fixed learning/body-mutation treatments ×1600 ticks =24 runs/38400 transitions. No outcomes have been inspected at this snapshot. Pure bounded measurement module, CLI and six focused tests are implemented. Full local verification passed173 tests/20 files, four independent references, all old/new replays, lint/types/build and all Chromium/Firefox workflows; actual OpenCode1.19.2 parser and handoff checks passed. Scientific engines and old fixtures are unchanged. Clean-source CLI smoke and real evaluation follow. Keep raw results ignored and do not tune rules or regenerate old fixtures. Existing live app remains source06dd544 / deploymentfac4d2f unchanged; developer tooling does not require republishing identical runtime assets.
+
+Next: commit tooling cleanly, run CLI overwrite/interruption smoke, run the frozen plan once from that source, report all outcomes/contrasts/failures, update handoff and existing PR. No auto merge. No new provider, backend or dependency.
+
 ## Latest completed unit: inherited cell genomes — published and verified
 
 - Application source: `06dd5445fbced926952c09f57dbd41aa0bf315bd` on codex/integrated-life-baseline, [PR #4](https://github.com/Mankeluvsit/mathos/pull/4), open/unmerged. Existing engines/controller/fixtures1–3 remain unchanged. New v4/cell-layout@1 implements real organs/growth/inheritance, schemas/slot/observation3, readable blueprint/birth story, founder origins, illustrative draft example and correct-model comparisons. ADR0011 is authoritative. No automatic merge.
