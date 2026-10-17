@@ -1,4 +1,4 @@
-import { StrictMode } from 'react';
+import { StrictMode,act } from 'react';
 import { fireEvent,render,screen } from '@testing-library/react';
 import { expect,it,vi } from 'vitest';
 import { App } from '../src/app/App';
@@ -63,7 +63,10 @@ it('loads the body-change example as a draft and exposes a real inherited struct
  expect(screen.getByLabelText('World seed')).toHaveValue(4294967295);
  expect(screen.getByText(/Seed 42/)).toBeInTheDocument();
  fireEvent.click(screen.getByRole('button',{name:'Prepare new world'}));
- for(let i=0;i<63;i++)fireEvent.click(screen.getByRole('button',{name:'One step'}));
+ const stepButton=screen.getByRole('button',{name:'One step'});
+ // Engine transitions still run63 times; this unit checks the final inherited state.
+ // Native browser workflows separately verify intermediate rendered development.
+ act(()=>{for(let i=0;i<63;i++)fireEvent.click(stepButton);});
  fireEvent.click(screen.getByRole('button',{name:'Inspect latest body change'}));
  expect(screen.getByRole('heading',{name:'Organism #9'})).toBeInTheDocument();
  expect(screen.getByTestId('genome-development')).toHaveTextContent('4 of 4');

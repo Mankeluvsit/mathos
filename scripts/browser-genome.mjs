@@ -78,11 +78,29 @@ try{
    for(const width of [390,320]){
     await page.setViewportSize({width,height:844});const nav=page.getByRole('navigation',{name:'Living world views'});
     for(const [view,file]of [['World','phone-world'],['Organism','phone-organism'],['Results','phone-results'],['Setup','phone-setup']]){
-     await nav.getByRole('button',{name:view,exact:true}).click();assert.equal(Number(await page.getByTestId('ecology-tick').textContent()),tick);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+     await nav.getByRole('button',{name:view,exact:true}).click();assert.equal(Number(await page.getByTestId('ecology-tick').textContent()),tick);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`${type.name()} ${width}px ${view} page overflow`);
      if(view==='World'){if(!await page.locator('.world-view-controls').evaluate(d=>d.open))await page.getByText('View controls',{exact:true}).click();await page.getByLabel('World magnification',{exact:true}).selectOption('3');await page.getByRole('checkbox',{name:'Follow selected organism',exact:true}).check();}
      if(type===chromium&&width===390)await page.screenshot({path:`${captures}/${file}.png`});
     }
    }
+   // Platform font fallback must not push role chips or exact mutation events off the phone.
+   for(const font of ['DejaVu Sans','monospace']){
+    await page.evaluate(font=>document.documentElement.style.fontFamily=font,font);
+    const navigation=page.getByRole('navigation',{name:'Living world views'});
+    for(const view of ['World','Organism','Results','Setup']){
+     await navigation.getByRole('button',{name:view,exact:true}).click();
+     if(view==='Organism'){
+      // A layout-only6-role fixture, removed before any capture; no organism is fabricated.
+      const fits=await page.evaluate(()=>{const list=document.createElement('div');list.className='ecology-anatomy';
+       for(const role of ['body','mouth','motor','sensor','sensor','sensor']){const cell=document.createElement('span');cell.className=role+'-cell';cell.textContent=role;list.append(cell);}
+       document.querySelector('.ecology-inspect').append(list);const bounds=list.getBoundingClientRect();
+       const inside=[...list.children].every(cell=>{const r=cell.getBoundingClientRect();return r.width>0&&r.left>=bounds.left&&r.right<=bounds.right+1;});list.remove();return inside;
+      });assert(fits,`${font}: all6 role labels must fit`);
+     }
+     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`${font}: ${view} page overflow`);
+    }
+   }
+   await page.evaluate(()=>document.documentElement.style.fontFamily='');
    // New settings are drafts; saving, import/export and v4 slots retain both booleans.
    const nav=page.getByRole('navigation',{name:'Living world views'});await nav.getByRole('button',{name:'Setup',exact:true}).click();
    await page.getByRole('checkbox',{name:'Allow structural mutations',exact:true}).uncheck();await page.getByRole('button',{name:'Save settings',exact:true}).click();

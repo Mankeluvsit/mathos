@@ -254,9 +254,9 @@ footer { display: flex; justify-content: space-between; gap: 12px; max-width: 18
 .ecology-legend span { display: flex; align-items: center; gap: .35rem; }.ecology-legend i { width: 10px; height: 10px; display: inline-block; }
 .food-dot { background: #64d88a; border-radius: 50%; }.body-cell { background: #63c6ff; }.mouth-cell { background: #f4b75f; }.motor-cell { background: #cf88e9; }
 .ecology-dashboard label { display: block; margin: .7rem 0; }.ecology-dashboard progress { display: block; width: 100%; margin: .6rem 0; accent-color: #64d88a; }
-.ecology-anatomy { display: flex; gap: 3px; margin: 1rem 0; }.ecology-anatomy span { color: #06111b; padding: .6rem; font-weight: 700; border: 1px solid #dce5f4; }
+.ecology-anatomy { display: flex; flex-wrap: wrap; gap: 3px; margin: 1rem 0; }.ecology-anatomy span { color: #06111b; padding: .6rem; font-weight: 700; border: 1px solid #dce5f4; }
 .ecology-action { font-weight: 700; color: #f4b75f; }
-.ecology-events ol { padding-left: 1.2rem; }.ecology-events li { margin: .5rem 0; font-size: .85rem; color: #a0b2c9; }
+.ecology-events ol { padding-left: 1.2rem; }.ecology-events li { overflow-wrap: anywhere; margin: .5rem 0; font-size: .85rem; color: #a0b2c9; }
 @media(max-width:900px) {
  .ecology-dashboard { padding: .75rem .75rem 6rem; }.ecology-grid { display: block; }.ecology-grid>.panel { margin-bottom: 1rem; }
  .ecology-dashboard[data-view="world"] .ecology-inspect, .ecology-dashboard[data-view="world"] .ecology-setup,
