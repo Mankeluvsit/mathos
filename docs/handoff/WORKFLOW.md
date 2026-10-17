@@ -1,6 +1,12 @@
 # One unit of work
 
-The owner approved automatic **local** implementation and verification, followed by review before publishing. Do not repeatedly ask to run reversible local checks. Do not push, publish a preview, merge or purchase services under that local-only setting. Present the concrete result before asking to publish. Model access must stay free and require no personal API key.
+The owner authorized autonomous routine delivery on 2026-10-17: plan → implement → verify → self-review → commit/push to the existing review branch → update the existing preview → verify the live result → refresh handoff. This supersedes earlier local-only/review-before-publication wording. Do not ask again for routine publication within the approved scope. Stop for a real blocker, a change of direction, new cost or destructive action. Never merge automatically. Keep one writer; no automatic delegation or paid model fallback. Model access must stay free and require no personal API key.
+
+## Switching development environments
+
+ChatGPT/Codex and OpenCode follow the same loop. After each unit, refresh RESUME.md and STATE.md, advance NEXT.md only when its criteria pass, and update affected specifications. Record source commit, local changes, actual test results, remaining blockers and the next action. Do not copy private account usage into GitHub.
+
+Use one active writer across environments. Before switching machines, check both working trees for unfinished edits. Save the verified checkpoint to the working GitHub branch under the standing delivery authorization. Fetch that branch on the receiving machine and reconcile any local edits before continuing. A handoff file does not transfer uncommitted source or synchronize machines automatically.
 
 ## Loop
 
@@ -11,7 +17,7 @@ The owner approved automatic **local** implementation and verification, followed
 5. **Verify fully:** `npm run verify`, plus `npm run handoff:check` for handoff edits and `npm run opencode:check` for agent/config edits. Read every exit code. Never report success based only on a command being started. Save large logs under ignored `.artifacts/`, include concise results in STATE.
 6. **Review:** compare the diff with every criterion. Check cross-file contracts, version isolation, truthful labels and user-visible behavior. `/mathos-review` requests the read-only reviewer in a separate context. Without that explicit delegation, do a separate self-review and label it honestly. The reviewer returns PASS, NEEDS_CHANGES or BLOCKED; it does not run tests or publish.
 7. **Repair or stop:** fix a concrete failure and repeat the affected checks. After two unsuccessful attempts on the same symptom, record a blocker with command, environment, minimal input, expected/actual result, hypotheses tried and next diagnostic. Stop that unit; no infinite agent loop, fixture rewriting, disabled checks or broad speculative refactor.
-8. **Capture and deliver:** update STATE, RESUME and affected model/format/UX/status documents. Tell the owner what works, what was checked, what they can try and what remains. Local check success is not CI, source publication, preview deployment or owner visual approval.
+8. **Capture and deliver:** update STATE, RESUME and affected model/format/UX/status documents; commit and push the verified coherent unit to the existing PR branch. For application changes, build from a clean committed revision, publish to the existing gh-pages preview, verify the public manifest/assets and actual browser behavior, and record source/deployment/CI evidence. Preserve older hashed assets for cached HTML. Tell the owner what works, what they can try and what remains. Keep PRs unmerged; distinguish local checks, CI, deployment and owner visual acceptance. Docs-only follow-ups need not redeploy identical application code.
 
 ## Task-card template
 
@@ -45,4 +51,4 @@ Use file search to locate relevant modules; read a bounded set. Keep only the cu
 
 Before `/compact`, switching models, an interruption or leaving the terminal, use `/mathos-checkpoint`. `opencode stats` reports local client usage estimates, not remaining ChatGPT allowance or a guaranteed provider quota. Never infer a percentage from conversation length.
 
-No unattended scheduler, recursive delegation, paid fallback, or auto-publish loop is configured. The default automated work is the local edit/test/repair loop for one card. The owner can explicitly request a review subagent with `/mathos-review`; this is not blanket authorization for parallel writers.
+No unattended scheduler, recursive delegation or paid fallback is configured. Routine delivery is performed by the active agent for one approved card; this is not a background service. Verify before publication and never merge automatically. The owner can explicitly request a review subagent with `/mathos-review`; this is not blanket authorization for parallel writers.

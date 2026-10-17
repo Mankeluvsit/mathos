@@ -15,7 +15,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "check": "npm run lint && npm run typecheck && npm test && npm run build",
-    "test:browser": "node scripts/browser-smoke.mjs && node scripts/browser-repro.mjs && node scripts/browser-life.mjs && node scripts/browser-ecology.mjs",
+    "test:browser": "node scripts/browser-smoke.mjs && node scripts/browser-repro.mjs && node scripts/browser-life.mjs && node scripts/browser-ecology.mjs && node scripts/browser-learning.mjs && node scripts/browser-terminal.mjs",
     "benchmark": "node --expose-gc scripts/substrate-benchmark.mjs",
     "setup:local": "node scripts/setup.mjs",
     "verify": "node scripts/verify.mjs",
@@ -23,7 +23,8 @@
     "handoff:check": "node scripts/check-handoff.mjs",
     "opencode:check": "node scripts/check-opencode.mjs",
     "experiment:baseline": "node scripts/ecology-baseline.mjs",
-    "agent": "node scripts/start-opencode.mjs"
+    "agent": "node scripts/start-opencode.mjs",
+    "experiment:learning": "node scripts/learning-comparison.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",

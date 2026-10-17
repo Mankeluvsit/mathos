@@ -1,5 +1,20 @@
 # Local setup, with Bazzite first
 
+> Current delivery policy (2026-10-17): The owner authorized autonomous routine delivery on 2026-10-17: plan → implement → verify → self-review → commit/push to the existing review branch → update the existing preview → verify the live result → refresh handoff. This supersedes earlier local-only/review-before-publication wording. Do not ask again for routine publication within the approved scope. Stop for a real blocker, a change of direction, new cost or destructive action. Never merge automatically. Keep one writer; no automatic delegation or paid model fallback.
+
+## Existing Bazzite installation reported in PR #5
+
+PR #5 records Node 24.22.0 and OpenCode 2.0.22 on the owner's machine, with agent/skill discovery and83 tests on the older main baseline. Current scripts accept Node24, so an existing24.22.0 installation does not need replacing. The current integrated launcher/parser were independently verified against OpenCode 1.19.2. Do not automatically downgrade a working owner installation or treat that v2 report as verification of this configuration.
+
+The preparation registry returned `ETARGET` for `opencode-ai@2.0.22`; we could not reproduce that exact client here. The original PR #5 configuration is preserved as `.opencode/compatibility/opencode2-infrastructure.json`, a reference file rather than an activated profile. See [reconciliation](../ai-infrastructure/HANDOFF.md). If you explicitly want the verified1.19.2 route without changing your globally installed client, run from this project:
+
+```sh
+npm exec --yes --package=opencode-ai@1.19.2 -- node scripts/check-opencode.mjs
+npm exec --yes --package=opencode-ai@1.19.2 -- node scripts/start-opencode.mjs
+```
+
+These commands select the pinned executable within that process. They do not certify model inference or the owner's globalv2 setup. Keep model access free and without a personal API key.
+
 The owner chose **Bazzite Linux, free OpenCode models without a personal API key, and automatic local work with review before publishing**. No paid provider setup is required. These instructions also cover a fresh macOS, Ubuntu/Debian, and Windows computer. Commands operate on the current review branch, not the older `main`.
 
 ## A. Bazzite: use an Ubuntu development container

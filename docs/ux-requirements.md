@@ -55,8 +55,22 @@ Phone users receive World/Organism/Setup, magnification and optional selected-or
 
 Body outlines/cells/nose rotate together. A turn remains at the anchor; forward travel follows the nose. Mouth and sensor geometry must match the visible cells, including collision, Canvas click selection, magnification and follow. Text names the selected heading, body plan, forward distance and turn count. Slow playback makes individual actions inspectable.
 
-Inherited plans and added sensor color have text equivalents. Show the selected family path, exact mutation before/after and children, plus real plan/population history and family intake/birth/death outcomes. All graph samples have an HTML table. State that initial plans are authored, children inherit/mutate them, and lifetime learning is planned. Explicit model selector distinguishes the old fixed-facing replay from v2; changing it changes only draft settings until preparation.
+Inherited plans and added sensor color have text equivalents. Show the selected family path, exact mutation before/after and children, plus real plan/population history and family intake/birth/death outcomes. All graph samples have an HTML table. State that initial plans are authored, children inherit/mutate them, and v1/v2 controllers stay fixed. Explicit model selector distinguishes the old fixed-facing replay from v2; changing it changes only draft settings until preparation.
 
 Export observations downloads the current measured histories/family records with model provenance. Keep this separate from starting-setting export and label it as non-resumable.
 
 On phones, starting playback focuses the world viewport; bottom navigation keeps a Start/Pause action reachable while viewing bodies or inspecting. Enabling camera follow focuses the world without changing simulation state.
+
+## Connected learning inspection and comparisons (local v3)
+
+Default local setup uses model3 with learning on. Show its active on/off status beside the model identity. The labeled Enable lifetime learning checkbox edits starting settings only; Prepare new world applies it after confirming discarded progress. V1/v2 remain selectable for replay. Children inherit traits but not learned weights.
+
+In Organism, show the measured intent, actual action, reward breakdown and update count before optional detailed tables. Distinguish exploring from highest estimated value, blocked actions from intent, juvenile waiting from inactive failure, and terminal transitions from continuing ones. Explain that changed weights do not prove improved survival. Detailed inputs, four rows of weights and actual clipped changes use accessible tables and horizontal table scrolling, never page overflow.
+
+The World view provides an explicit twelve-world learning comparison, separate from the interactive world. Pause/preserve that world when starting; support cancel, hidden-tab cancellation and export of partial/completed results. Show every seed and signed on-minus-off differences only for completed pairs. Report extinction, update counts and device-dependent compute times in detailed results. No seed filtering or manufactured success message. Static captures and automated320/390px checks supplement numerical tests; full assistive-technology/device certification is not claimed.
+
+## Terminal life appearance
+
+The local default world appearance is Terminal glyphs; Classic cells preserves the prior map rendering. Appearance and Animate observed activity are labeled, keyboard-operable view controls. Organ roles have distinct shapes as well as colors. The main legend and anatomy colors agree with the active presentation. Selection brackets/ID and heading glyphs reflect the actual shared geometry.
+
+Brief travel/turn/feeding/birth/weight cues derive from observed transitions. Faster sampled playback may omit intermediate motion cues; the inspector remains authoritative for exact values. Pause produces a still exact world. Reduced motion, effects off and Classic disable the animation loop; the OS preference is respected even if changed while running. No per-frame live-region announcements or flashing full-screen effects. [Research and acceptance](visual-direction-cogmind.md).

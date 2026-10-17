@@ -99,7 +99,7 @@ export function EvolutionPanel({ world }: { world: Ecology }) {
     );
     const a = document.createElement("a");
     a.href = url;
-    a.download = "mathos-ecology-observations.v1.json";
+    a.download = `mathos-ecology-observations.v${world.definition.version === 3 ? 2 : 1}.json`;
     a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }

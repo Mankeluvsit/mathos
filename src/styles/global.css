@@ -242,7 +242,7 @@ footer { display: flex; justify-content: space-between; gap: 12px; max-width: 18
 
 .ecology-dashboard { max-width: 1800px; margin: auto; padding: 1.25rem; }
 .ecology-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(290px, 350px); gap: 1rem; align-items: start; }
-.ecology-world { grid-row: 1 / span 2; }
+.ecology-world { grid-row: 1; }
 .ecology-inspect, .ecology-setup { grid-column: 2; }
 .ecology-events { grid-column: 1; }
 .ecology-heading { display: flex; justify-content: space-between; align-items: start; gap: .5rem; }
@@ -282,3 +282,21 @@ footer { display: flex; justify-content: space-between; gap: 12px; max-width: 18
  .ecology-dashboard .mobile-navigation { gap: 4px; padding-left: 8px; padding-right: 8px; }
  .ecology-dashboard .mobile-navigation button { padding-inline: 6px; min-width: 0; }
 }
+
+.ecology-dashboard .learning-toggle { display: flex; align-items: center; gap: .6rem; min-height: 44px; }
+.learning-toggle input[type="checkbox"] { width: 24px; min-height: 24px; height: 24px; margin: 0; flex: none; }
+.learning-inspector { border-top: 1px solid #26374d; margin-top: 1rem; padding-top: .4rem; }
+.learning-inspector h3 { color: #bfa5ff; }
+
+/* Terminal-inspired life view. Role colors also have distinct geometric glyphs. */
+.ecology-dashboard[data-appearance="terminal"] .ecology-world { background: #0a120f; border-color: #2d4637; }
+.ecology-dashboard[data-appearance="terminal"] .ecology-world h2 { color: #bce794; }
+.ecology-dashboard[data-appearance="terminal"] .ecology-guide { background: #111f17; border-color: #a9df78; }
+.ecology-dashboard[data-appearance="terminal"] .body-cell { background: #a9df78; }
+.ecology-dashboard[data-appearance="terminal"] .mouth-cell { background: #ffca70; }
+.ecology-dashboard[data-appearance="terminal"] .motor-cell { background: #61d4c3; }
+.ecology-dashboard[data-appearance="terminal"] .sensor-cell { background: #bfa3ed; }
+.ecology-dashboard[data-appearance="terminal"] .food-dot { background: #65945a; border-radius: 0; }
+.world-appearance { display: flex; flex-wrap: wrap; align-items: center; gap: .2rem 1rem; margin-bottom: .7rem; }
+.world-appearance > label:first-child { flex: 1 1 190px; }
+.world-appearance > p { flex-basis: 100%; margin: .15rem 0; }

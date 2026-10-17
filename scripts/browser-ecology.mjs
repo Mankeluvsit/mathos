@@ -22,6 +22,8 @@ try {
       let accept = true;
       page.on("dialog", (d) => (accept ? d.accept() : d.dismiss()));
       await page.goto("http://127.0.0.1:4177/");
+      await page.getByLabel("Simulation model", {exact: true}).selectOption("2");
+      await page.getByRole("button", {name: "Prepare new world", exact: true}).click();
       assert.equal(
         await page.getByTestId("ecology-population").textContent(),
         "8",
@@ -29,6 +31,7 @@ try {
       await page
         .getByLabel("Select organism", { exact: true })
         .selectOption("3");
+      await page.getByRole("img", {name: /Living world/}).scrollIntoViewIfNeeded();
       const box = await page
         .getByRole("img", { name: /Living world/ })
         .boundingBox();

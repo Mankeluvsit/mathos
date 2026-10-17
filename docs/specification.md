@@ -67,3 +67,7 @@ The owner's hands-on review rejected the indistinct pixel-growth experience. The
 ## Oriented bodies and visible inheritance milestone
 
 The owner approved continuing the plan with turning added. Ecology-reference@2 now makes heading physical: rotate whole bodies, turn before forward movement, reject swept collisions, and rotate mouths/front sensing. Inherited dart/grazer/scout layouts develop functional cells with different intake/range/cost tradeoffs. Family provenance, mutation details and measured population/plan histories connect visible behavior to evolution. See ADR0009 and turning-body-plan.md. This implements the next bounded body/competition/observation milestone; lifetime learning remains the subsequent experimental milestone, not a delivered feature.
+
+## Learning preparation boundary
+
+The owner authorized continued development here while maintaining the OpenCode handoff. The [learning plan](learning-plan.md) and ADR0010 establish the next bounded milestone. L1/L2 delivered its contract and independently checked controller. The local L3–L5 implementation now connects v3 lifecycles, frozen-versus-learning comparisons and readable inspection. L6 verification and owner review remain the delivery gate. Initial outcomes are mixed; no general improvement claim follows.

@@ -3,6 +3,7 @@ import {
   body,
   cellParts,
   isOriented,
+  isLearning,
   isOrientedCreature,
   ecologyMetrics,
   parseEcology,
@@ -13,8 +14,11 @@ import {
   type Ecology,
   type EcologyDefinition,
 } from "../ecology/world";
+import { drawTerminalEcology, observedActivity, ACTIVITY_MS } from "../rendering/ecology-terminal";
 import { drawEcology } from "../rendering/ecology-renderer";
 import { DIRECTIONS } from "../ecology/oriented-geometry";
+import { LearningComparison } from "./LearningComparison";
+import { LearningPanel } from "./LearningPanel";
 import { EvolutionPanel } from "./EvolutionPanel";
 import { saveEcology, loadEcology } from "../ecology/storage";
 import { EcologyRuntime, type Rate } from "../runtime/ecology-runtime";
@@ -40,20 +44,48 @@ function EcosystemCanvas({
   world,
   selected,
   select,
+  appearance,
+  setAppearance,
+  running,
 }: {
   world: Ecology;
   selected: number;
   select: (id: number) => void;
+  appearance: "terminal" | "classic";
+  setAppearance: (value: "terminal" | "classic") => void;
+  running: boolean;
 }) {
   const ref = useRef<HTMLCanvasElement>(null),
     frame = useRef<HTMLDivElement>(null);
   const [zoom, setZoom] = useState(() => (window.innerWidth <= 900 ? 2 : 1)),
     [follow, setFollow] = useState(() => window.innerWidth <= 900);
+  const previous = useRef<Ecology | null>(null);
+  const [animate, setAnimate] = useState(true);
+  const [reduced, setReduced] = useState(() => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false);
   useEffect(() => {
-    const ctx = ref.current?.getContext("2d");
-    if (!ctx) return;
-    drawEcology(ctx, world, selected);
-  }, [world, selected]);
+    const media = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+    const changed = () => setReduced(media?.matches ?? false);
+    media?.addEventListener('change', changed);
+    return () => media?.removeEventListener('change', changed);
+  }, []);
+  useEffect(() => {
+    const canvas = ref.current, ctx = canvas?.getContext("2d");
+    if (!ctx || !canvas) return;
+    const cues = running && animate && !reduced && appearance === 'terminal' ? observedActivity(previous.current, world) : [];
+    previous.current = world;
+    const start = performance.now();
+    let request: number | null = null;
+    canvas.dataset.activity = String(cues.length);
+    const paint = (now: number) => {
+      const progress = Math.min(1, Math.max(0, (now - start) / ACTIVITY_MS));
+      if (appearance === 'terminal') drawTerminalEcology(ctx, world, selected, cues, progress);
+      else drawEcology(ctx, world, selected);
+      if (cues.length && progress < 1) request = requestAnimationFrame(paint);
+      else canvas.dataset.activity = '0';
+    };
+    paint(start);
+    return () => { if (request !== null) cancelAnimationFrame(request); canvas.dataset.activity = '0'; };
+  }, [world, selected, appearance, animate, reduced, running]);
   useEffect(() => {
     const c = world.creatures.find((c) => c.id === selected),
       box = frame.current,
@@ -70,6 +102,16 @@ function EcosystemCanvas({
   }, [world, selected, zoom, follow]);
   return (
     <>
+      <div className="world-appearance">
+        <label>World appearance
+          <select aria-label="World appearance" value={appearance} onChange={e => setAppearance(e.target.value as 'terminal' | 'classic')}>
+            <option value="terminal">Terminal glyphs</option>
+            <option value="classic">Classic cells</option>
+          </select>
+        </label>
+        <label className="learning-toggle"><input type="checkbox" checked={animate && !reduced && appearance === 'terminal'} disabled={reduced || appearance === 'classic'} onChange={e => setAnimate(e.target.checked)} /> Animate observed activity</label>
+        <p className="hint">{appearance === 'classic' ? 'Classic cells use a still presentation. Choose Terminal glyphs for activity cues.' : reduced ? 'Reduced motion: activity animations are off.' : 'Brief cues mark observed turns, travel, feeding, births and weight changes during playback. Pause gives an exact still view.'} Glyphs: square core · pointed mouth · barred motor · cross sensor.</p>
+      </div>
       <div className="ecology-camera">
         <label>
           World view
@@ -109,6 +151,7 @@ function EcosystemCanvas({
           width={W * 12}
           height={H * 12}
           className="ecology-canvas"
+          data-appearance={appearance}
           style={{ width: `${zoom * 100}%`, maxWidth: "none" }}
           role="img"
           aria-label={`Living world, step ${world.tick}, ${world.creatures.length} organisms. Use organism selection to inspect without clicking the world.`}
@@ -135,11 +178,13 @@ function EcologySession({
 }) {
   const [world, setWorld] = useState(() => runtime.snapshot()),
     [summary, setSummary] = useState(() => runtime.summary());
+  const [appearance, setAppearance] = useState<"terminal" | "classic">("terminal");
   const [view, setView] = useState<"world" | "setup" | "inspect">("world");
   const [selected, setSelected] = useState(1),
     [seed, setSeed] = useState(String(world.definition.seed)),
     [mode, setMode] = useState(world.definition.mode),
-    [modelVersion, setModelVersion] = useState(world.definition.version);
+    [modelVersion, setModelVersion] = useState(world.definition.version),
+    [learning, setLearning] = useState(world.definition.version === 3 ? world.definition.learning : true);
   const [message, setMessage] = useState(
     "Ready. Press Start world to watch the organisms search for food.",
   );
@@ -194,6 +239,7 @@ function EcologySession({
     return validateEcology({
       format: "mathos-ecology",
       version: modelVersion,
+      ...(modelVersion === 3 ? { learning } : {}),
       seed: seed.trim() ? Number(seed) : NaN,
       mode,
     });
@@ -240,7 +286,7 @@ function EcologySession({
           Open technical reference labs
         </button>
       </header>
-      <main className="ecology-dashboard" data-view={view}>
+      <main className="ecology-dashboard" data-view={view} data-appearance={appearance}>
         <section className="intro">
           <div>
             <p className="eyebrow">WATCH · SELECT · UNDERSTAND</p>
@@ -267,7 +313,7 @@ function EcologySession({
                   <strong data-testid="ecology-tick">{world.tick}</strong> /{" "}
                   {END} ·{" "}
                   <span data-testid="ecology-status">{summary.status}</span> ·
-                  model {world.definition.version}
+                  model {world.definition.version}{isLearning(world) ? ` · learning ${world.definition.learning ? "on" : "off"}` : ""}
                 </p>
               </div>
               <span className="local-badge">LOCAL ONLY</span>
@@ -331,6 +377,9 @@ function EcologySession({
               world={world}
               selected={selected}
               select={choose}
+              appearance={appearance}
+              setAppearance={setAppearance}
+              running={summary.status === "running"}
             />
             <div className="ecology-legend">
               <span>
@@ -353,7 +402,7 @@ function EcologySession({
             </div>
 
             <p className="hint">
-              White outline: selected organism. The dark nose triangle marks the
+              Selection outline/brackets mark one organism. The mouth glyph or nose triangle marks its
               front. Young bodies grow their inherited cells. Turning and moving
               happen in separate steps. The world pauses when you leave this
               browser tab.
@@ -440,7 +489,8 @@ function EcologySession({
                   The mouth takes nearby food. The motor spends energy to move.
                   The body stores resources and evaluates food signals.
                 </p>
-                <details open>
+                {isLearning(world) && <LearningPanel world={world} selected={selected} />}
+                <details open={!isLearning(world)}>
                   <summary>Inherited traits</summary>
                   <dl className="life-metrics">
                     <div>
@@ -467,11 +517,11 @@ function EcologySession({
                     )}
                   </dl>
                   <p className="hint">
-                    Children inherit these traits; some births change one trait.
-                    Lifetime learning is not implemented.
+                    Children inherit these traits; some births change one trait.{" "}
+                    {isLearning(world) ? "Learned weights are not inherited; each child starts fresh." : "This model uses fixed weights."}
                   </p>
                 </details>
-                <details>
+                {!isLearning(world) && <details>
                   <summary>Why it chose a direction</summary>
                   {orientedCreature && (
                     <p>
@@ -500,7 +550,7 @@ function EcologySession({
                     neural controller is a baseline, not a claim of
                     intelligence.
                   </p>
-                </details>
+                </details>}
               </>
             ) : (
               <p>
@@ -509,6 +559,7 @@ function EcologySession({
                   : "No organisms yet. Seeded mode starts with eight authored foragers; primordial mode has food only."}
               </p>
             )}
+            {!creature && isLearning(world) && <LearningPanel world={world} selected={selected} />}
             {orientedWorld && (
               <details>
                 <summary>Family path & inherited changes</summary>
@@ -561,9 +612,10 @@ function EcologySession({
                 aria-label="Simulation model"
                 value={modelVersion}
                 onChange={(e) =>
-                  setModelVersion(Number(e.target.value) as 1 | 2)
+                  setModelVersion(Number(e.target.value) as 1 | 2 | 3)
                 }
               >
+                <option value="3">Learning during life · model 3</option>
                 <option value="2">
                   Turning bodies & inheritance · model 2
                 </option>
@@ -572,6 +624,10 @@ function EcologySession({
                 </option>
               </select>
             </label>
+            {modelVersion === 3 && <label className="learning-toggle">
+              <input type="checkbox" checked={learning} onChange={e => setLearning(e.target.checked)} /> Enable lifetime learning
+            </label>}
+            {modelVersion === 3 && <p className="hint">Learning off keeps the same starting controller but disables weight changes. Apply draft changes with Prepare new world; the active world is unchanged until then.</p>}
             <label>
               World seed
               <input
@@ -672,7 +728,7 @@ function EcologySession({
                 replenishment has an explicit sunlight resource budget.
               </p>
               <p>
-                Predation, complex organs, lifetime neural learning, spontaneous
+                Predation, complex organs, spontaneous
                 genesis and richer development remain planned.
               </p>
             </details>
@@ -704,6 +760,7 @@ function EcologySession({
               </p>
             </details>
           </section>
+          {isLearning(world) && <LearningComparison pause={() => runtime.pause()} />}
           <EvolutionPanel world={world} />
           <section className="panel ecology-events">
             <h2>Recent life events</h2>
@@ -757,7 +814,8 @@ export function EcologyLab({ onExit }: { onExit: () => void }) {
     runtime: new EcologyRuntime(
       validateEcology({
         format: "mathos-ecology",
-        version: 2,
+        version: 3,
+        learning: true,
         seed: 42,
         mode: "seeded",
       }),

@@ -11,7 +11,7 @@ it('opens the understandable world first and supports selection and stepping in 
 });
 it('preserves progress on cancelled restart and handles storage failure without losing export',()=>{
  window.history.replaceState({},'','/');render(<App/>);fireEvent.click(screen.getByRole('button',{name:'One step'}));vi.spyOn(window,'confirm').mockReturnValue(false);fireEvent.click(screen.getByRole('button',{name:'Restart world'}));expect(screen.getByTestId('ecology-tick')).toHaveTextContent('1');
- vi.spyOn(Storage.prototype,'setItem').mockImplementation(()=>{throw Error('quota');});fireEvent.click(screen.getByRole('button',{name:'Save settings'}));expect(screen.getByRole('status')).toHaveTextContent('Export your starting settings');expect(screen.getByRole('button',{name:'Export starting settings'})).toBeEnabled();
+ vi.spyOn(Storage.prototype,'setItem').mockImplementation(()=>{throw Error('quota');});fireEvent.click(screen.getByRole('button',{name:'Save settings'}));expect(screen.getAllByRole('status').some(el => el.textContent?.includes('Export your starting settings'))).toBe(true);expect(screen.getByRole('button',{name:'Export starting settings'})).toBeEnabled();
 });
 
 it('pauses the new world when the tab is hidden',()=>{
@@ -25,4 +25,21 @@ it('keeps legacy starting files runnable and shows their fixed-facing limitation
  fireEvent.click(screen.getByRole('button',{name:'Prepare new world'}));
  expect(screen.getByText(/Legacy model 1: fixed-facing sliding bodies/)).toBeInTheDocument();
  fireEvent.click(screen.getByRole('button',{name:'One step'}));expect(screen.getByTestId('ecology-tick')).toHaveTextContent('1');
+});
+
+it('runs the learning controller and keeps draft learning changes separate until preparing a world',()=>{
+ window.history.replaceState({},'','/');render(<App/>);
+ expect(screen.getByTestId('learning-mode')).toHaveTextContent('Learning on');
+ expect(screen.getByTestId('learning-updates')).toHaveTextContent('0');
+ fireEvent.click(screen.getByRole('button',{name:'One step'}));
+ expect(screen.getByTestId('learning-updates')).toHaveTextContent('1');
+ expect(screen.getByTestId('learning-decision')).toHaveTextContent('Step 1');
+ fireEvent.click(screen.getByLabelText('Enable lifetime learning'));
+ expect(screen.getByTestId('learning-mode')).toHaveTextContent('Learning on');
+ vi.spyOn(window,'confirm').mockReturnValue(true);
+ fireEvent.click(screen.getByRole('button',{name:'Prepare new world'}));
+ expect(screen.getByTestId('learning-mode')).toHaveTextContent('Learning off');
+ fireEvent.click(screen.getByRole('button',{name:'One step'}));
+ expect(screen.getByTestId('learning-updates')).toHaveTextContent('0');
+ expect(screen.getByTestId('learning-reward')).toHaveTextContent('Reward:');
 });

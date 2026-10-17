@@ -1,18 +1,21 @@
 /** Dispatch without migrating old experiment semantics. */
 import * as legacy from "./model.ts";
+import * as learning from "./learning-model.ts";
 import * as oriented from "./oriented-model.ts";
 import { parts, type Role } from "./oriented-geometry.ts";
 export const { W, H, END } = legacy;
-export type EcologyDefinition = legacy.EcologyDefinition | oriented.Definition;
-export type Ecology = legacy.Ecology | oriented.World;
-export type Creature = legacy.Creature | oriented.Creature;
-export function isOriented(s: Ecology): s is oriented.World {
-  return s.definition.version === 2;
+export type EcologyDefinition = legacy.EcologyDefinition | oriented.Definition | learning.Definition;
+export type Ecology = legacy.Ecology | oriented.World | learning.World;
+export type Creature = legacy.Creature | oriented.Creature | learning.Creature;
+export function isOriented(s: Ecology): s is oriented.World | learning.World {
+  return s.definition.version === 2 || s.definition.version === 3;
 }
-export function isOrientedCreature(c: Creature): c is oriented.Creature {
+export function isOrientedCreature(c: Creature): c is oriented.Creature | learning.Creature {
   return "bodyPlan" in c.genes;
 }
+export function isLearning(s: Ecology): s is learning.World { return s.definition.version === 3; }
 export function validateEcology(v: unknown): EcologyDefinition {
+  if (v && typeof v === "object" && "version" in v && v.version === 3) return learning.validate(v);
   return v && typeof v === "object" && "version" in v && v.version === 2
     ? oriented.validate(v)
     : legacy.validateEcology(v);
@@ -29,12 +32,15 @@ export function parseEcology(text: string) {
   return validateEcology(value);
 }
 export function initializeEcology(d: EcologyDefinition): Ecology {
+  if (d.version === 3) return learning.initialize(d);
   return d.version === 2 ? oriented.initialize(d) : legacy.initializeEcology(d);
 }
 export function copyEcology(s: Ecology): Ecology {
+  if (isLearning(s)) return learning.copy(s);
   return isOriented(s) ? oriented.copy(s) : legacy.copyEcology(s);
 }
 export function stepEcology(s: Ecology): Ecology {
+  if (isLearning(s)) return learning.step(s);
   return isOriented(s) ? oriented.step(s) : legacy.stepEcology(s);
 }
 export function body(c: Creature): number[] {

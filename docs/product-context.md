@@ -24,7 +24,7 @@ The pixel-life concept is the relevant visual reference. The earlier illustrated
 
 - Dark by default: background `#060c14`, panel `#0c1725`, raised surfaces `#101f31`.
 - Primary text `#e0eaf6`, secondary text `#a0b2c9`, cyan `#6cdaee`, purple `#bfa5ff`, green `#81dfb5`, amber `#f5c47d`.
-- Thin panel boundaries, compact labeled controls, restrained color, and system fonts. Mathematical values use monospace. No external font/CDN or decorative animation.
+- Thin panel boundaries, compact labeled controls, restrained color, and system fonts. Mathematical values use monospace. No external font/CDN. The later Cogmind-inspired life pass permits brief optional event cues tied to observed model changes; no ambient decorative loop.
 - Spectrum, Thermal and Grayscale are view-only palettes with a fixed 0–65535 legend. A palette change cannot alter the seed, tick, active definition or values.
 - Light mode, arbitrary panel docking, advanced equation editors and other concept controls are not added merely to imitate the mockups.
 
@@ -53,3 +53,7 @@ The relevant requirement is comprehensible organism behavior: distinguish bodies
 ## Owner feedback: facing and organism movement
 
 The owner observed that bodies moved but always faced horizontally. The approved correction makes orientation functional, rather than changing the arrow alone. The next body-evolution/competition/observability milestones are connected to it. The point remains recognizable artificial life with mathematics that explains the world. No lifetime-learning claim is introduced by fixed directional controller evaluation.
+
+## Owner-requested Cogmind visual translation
+
+The owner requested a review of Cogmind's colors and animation and a translation into pixel life. The [researched visual direction](visual-direction-cogmind.md) records primary sources and actual frame inspection. The local build now offers original terminal-like geometric organ glyphs, a quieter dark/green world and bounded observation-driven effects, alongside Classic cells. This extends the established dark/colorized dashboard and keeps the Life Engine/Bibites requirement for recognizable functional organisms. [Actual review captures](previews/terminal/README.md); public deployment remains unchanged pending approval.

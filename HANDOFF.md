@@ -1,10 +1,26 @@
 # MATHOS → OpenCode handoff
 
-Prepared 2026-10-16 from the repository, live GitHub state, this conversation and official tool documentation. **Owner choices: Bazzite Linux; free OpenCode models requiring no personal API key; automatic local work with review before publishing.** This is a continuation package, not a claim that MATHOS is complete. Start with [RESUME.md](RESUME.md) and the [clean-machine setup](docs/handoff/SETUP.md).
+> Current delivery policy (2026-10-17): The owner authorized autonomous routine delivery on 2026-10-17: plan → implement → verify → self-review → commit/push to the existing review branch → update the existing preview → verify the live result → refresh handoff. This supersedes earlier local-only/review-before-publication wording. Do not ask again for routine publication within the approved scope. Stop for a real blocker, a change of direction, new cost or destructive action. Never merge automatically. Keep one writer; no automatic delegation or paid model fallback.
+
+Prepared 2026-10-16 from the repository, live GitHub state, this conversation and official tool documentation. **Owner choices: Bazzite Linux; free OpenCode models requiring no personal API key; autonomous routine implementation, verification and publication to the existing review branch/preview; no automatic merge.** This is a continuation package, not a claim that MATHOS is complete. Start with [RESUME.md](RESUME.md) and the [clean-machine setup](docs/handoff/SETUP.md).
+
+## Continuing here or in OpenCode
+
+This package supports switching between ChatGPT/Codex and OpenCode; it is not a required migration. Continue development in the available environment and keep the same task cards, specifications and verification gates. After each completed unit, update RESUME.md, STATE.md, NEXT.md and affected specifications with actual changes, checks, remaining work and publication status. The next agent must inspect those files and the working tree before acting.
+
+Only one environment should edit a task at a time. Local workspace changes do not automatically appear on another machine. Before switching machines, verify and publish the completed checkpoint to the working GitHub branch under the standing authorization, then fetch it on the receiving machine. Check for local edits first; never overwrite them or assume a chat reset synchronized files. Distinguish unpublished edits from saved GitHub source and the exact deployed application revision.
+
+## Additional infrastructure work discovered on resumption
+
+[PR #5](https://github.com/Mankeluvsit/mathos/pull/5) adds a diagnostic script and owner-supplied acceptance report for OpenCode 2.0.22 on Bazzite, based on older main. The [reconciled infrastructure record](docs/ai-infrastructure/HANDOFF.md) preserves that work locally and distinguishes its 83-test baseline from current learning development. The root launcher remains verified against1.19.2; do not downgrade the owner's working2.0.22 installation or claim a v2 migration was verified. No remote branch was changed or merged during reconciliation.
+
+Parallel development in the second shared conversation produced [PR #6](https://github.com/Mankeluvsit/mathos/pull/6), a shadow-learning demo. Its learned intent does not control organisms, and its final dashboard checks fail. The [reconciliation record](docs/handoff/CONVERSATION-RECONCILIATION.md) explains its relationship to the tested connected v3 build and preserves both histories. Continue MATHOS here; OpenCode capability research is deferred.
+
+Latest owner-requested visual unit: [Cogmind-inspired presentation](docs/visual-direction-cogmind.md), with [real playback/captures](docs/previews/terminal/README.md). Local default glyphs and bounded activity cues are renderer-only; scientific state and previous version replay remain unchanged. Consult STATE.md for completed checks and the authorized delivery checkpoint.
 
 ## 1. Usage and the practical work budget
 
-**I cannot observe your plan, usage percentage, credits, account restrictions or reset time in this session.** You report that ChatGPT only says you will hit a limit and supplies no actual numerical limit. Your stated model is “6 Astra max”; that label does not reveal an allowance and is not an OpenCode provider/model ID. The account fields at the end are deliberately unresolved. If the interface still exposes no amount/reset, record “not displayed”; there is no reliable remaining-task calculation.
+**There is no live account-usage API available to this agent.** The owner subsequently supplied a usage screenshot and later reported that allowance had reset. Screenshots and reports describe their capture time, not a continuously observable balance. Keep personal meter values and screenshots out of repository commits; check the live account interface before planning against remaining allowance. Your stated model is “6 Astra max”; that label does not reveal an allowance and is not an OpenCode provider/model ID. The account fields at the end are deliberately unresolved. If the interface still exposes no amount/reset, record “not displayed”; there is no reliable remaining-task calculation.
 
 Check the desktop account menu → **Settings → Usage** for personal Work/Codex allowances; eligible managed workspaces may show **Usage & billing**. Record each meter's label (used versus remaining), window, reset date/time/timezone and any credit/reset options. Also record the plan from Settings → Billing, the selected workspace, model, reasoning and speed. Chat model limits and Work/Codex limits can differ. [Official usage guidance](https://help.openai.com/en/articles/20001516-managing-usage-with-gpt-6-astra-in-work-and-codex) · [Managed-workspace usage view](https://help.openai.com/en/articles/20001478-reviewing-work-and-codex-usage-and-using-personal-analytics-in-chatgpt-desktop) · [Billing location](https://help.openai.com/en/articles/9039756-managing-billing-for-chatgpt-and-the-api-platform).
 
@@ -41,7 +57,7 @@ The provider/cost/OS/automation choices are now settled as stated at the top. Th
 
 ## 3. Project state and toolkit
 
-**Goal:** a local-first browser mathematical laboratory with recognizable pixel organisms. Confirmed direction: primordial and seeded genesis, pixel/organism/ecosystem scales, neural learning, evolution, morphogenesis, configurable rules and bounded autonomous experiments. Fixed directional controllers and authored body families are implemented; learning during life, arbitrary anatomy, predation, spontaneous primordial life, general rules, workers, checkpoints and installed offline caching are not. See [state](docs/handoff/STATE.md), [capabilities](docs/capability-status.md) and [master specification](docs/specification.md).
+**Goal:** a local-first browser mathematical laboratory with recognizable pixel organisms. Confirmed direction: primordial and seeded genesis, pixel/organism/ecosystem scales, neural learning, evolution, morphogenesis, configurable rules and bounded autonomous experiments. Fixed directional controllers and authored body families are implemented. The local continuation connects bounded v3 learning, readable inspection and paired comparisons. Arbitrary anatomy, predation, spontaneous primordial life, general rules, workers, checkpoints and installed offline caching remain pending. Publication of this verified continuation is authorized; consult STATE.md for current evidence. See [state](docs/handoff/STATE.md), [capabilities](docs/capability-status.md) and [master specification](docs/specification.md).
 
 The owner rejected indistinct pixel “mush” and fixed-facing bodies. Preserve readable food/body separation, actual turning/forward locomotion, functional organs, understandable decisions and observable family changes. Life Engine and The Bibites are behavioral references, not code/assets or a requirement to reproduce every feature. Use the dark cyan/purple/green/amber dashboard and separate desktop/mobile layouts. Communicate frequent plain-language progress; do not claim notifications can be enabled from an agent session. [Product context](docs/product-context.md).
 
@@ -94,7 +110,7 @@ The delivered configuration uses **OpenCode 1 conventions**: root `opencode.json
 
 Agents inherit the model you select; no second provider is silently billed. Calling a subagent can add usage, including with the same model. Delegation asks by default; `/mathos-review` explicitly requests it. Keep a single writer and at most one reviewer/scout at a time. The `steps` cap bounds agent iterations, not tokens, money or wall time. It cannot replace a provider spending limit. [Agent configuration](https://opencode.ai/docs/agents/) · [permissions](https://opencode.ai/docs/permissions/).
 
-Use `/mathos-resume` to recover state, `/mathos-unit L1` to complete one named card, `/mathos-review` for the second pass, and `/mathos-checkpoint` before leaving. Commands are prompts that direct the agent; the actual pass/fail gates are the scripts and CI. The reviewer reads evidence but does not rerun commands. A same-model review is useful separation of context, not independent expertise. [Custom commands](https://opencode.ai/docs/commands/) · [rules](https://opencode.ai/docs/rules/) · [skills](https://opencode.ai/docs/skills/).
+Use `/mathos-resume` to recover state, `/mathos-unit L6` to complete the current delivery card, `/mathos-review` for the second pass, and `/mathos-checkpoint` before leaving. Commands are prompts that direct the agent; the actual pass/fail gates are the scripts and CI. The reviewer reads evidence but does not rerun commands. A same-model review is useful separation of context, not independent expertise. [Custom commands](https://opencode.ai/docs/commands/) · [rules](https://opencode.ai/docs/rules/) · [skills](https://opencode.ai/docs/skills/).
 
 The workflow is **read → plan one unit → implement → focused verification → full gate → review → repair or document blocker → update repository memory**. After two failed repairs to the same symptom, capture the failing command, minimal case, hypotheses and next diagnostic; do not spend indefinitely or weaken the gate. [Exact loop and task-card template](docs/handoff/WORKFLOW.md). [L0–L6 inputs, dependencies and done-criteria](docs/handoff/NEXT.md).
 
@@ -110,7 +126,7 @@ Remaining gaps and compensations:
 | Local model tool use/context limits | Trial read-only mapping, one low-risk edit, and full verification first; reject the route if it repeatedly miscalls tools or omits criteria |
 | UI judgment/accessibility | Real Chromium/Firefox workflows plus actual desktop/phone review; owner remains the final judge of recognizability |
 | Correlated self-review errors | Separate reviewer context, optionally a different selected model; record when only self-review was possible |
-| Unattended loops/cost | One card, bounded agent steps, two failed-repair stop, checkpoint and explicit publishing decision |
+| Unattended loops/cost | One card, bounded agent steps, two failed-repair stop, checkpoint, verified routine delivery and no automatic merge |
 
 ## Verification and infrastructure
 

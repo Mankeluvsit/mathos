@@ -3,7 +3,7 @@ import {
   validateEcology,
   type EcologyDefinition,
 } from "./world.ts";
-const key = (version: 1 | 2) => `mathos.ecology.v${version}`;
+const key = (version: 1 | 2 | 3) => `mathos.ecology.v${version}`;
 type Port = Pick<Storage, "getItem" | "setItem">;
 export function saveEcology(port: Port, d: EcologyDefinition) {
   const text = JSON.stringify(validateEcology(d));
@@ -15,7 +15,7 @@ export function saveEcology(port: Port, d: EcologyDefinition) {
     );
   }
 }
-export function loadEcology(port: Port, version: 1 | 2 = 2) {
+export function loadEcology(port: Port, version: 1 | 2 | 3 = 2) {
   let text;
   try {
     text = port.getItem(key(version));

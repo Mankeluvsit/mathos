@@ -69,6 +69,7 @@ try {
         }
         // The renderer must color the same rotated functional cells used by the engine.
         const { drawEcology } = await import('/src/rendering/ecology-renderer.ts');
+        const { drawTerminalEcology } = await import('/src/rendering/ecology-terminal.ts');
         const canvas = document.createElement('canvas'); canvas.width = 768; canvas.height = 576;
         const ctx = canvas.getContext('2d');
         const colors = { body:[99,198,255], mouth:[244,183,95], motor:[207,136,233], sensor:[124,224,208] };
@@ -81,6 +82,16 @@ try {
             const pixel=ctx.getImageData(part.x*12+3,part.y*12+3,1,1).data;
             if (colors[part.role].some((v,i)=>pixel[i]!==v)) throw Error('Rendered cell did not follow physical body orientation');
           }
+          const beforeRender = JSON.stringify(renderWorld);
+          drawTerminalEcology(ctx,renderWorld,c.id);
+          const terminalColors = { body:[169,223,120], mouth:[255,202,112], motor:[97,212,195], sensor:[191,163,237] };
+          for (const part of oriented.parts(c)) {
+            const pixels = ctx.getImageData(part.x*12,part.y*12,12,12).data;
+            let count=0;
+            for (let i=0;i<pixels.length;i+=4) if (terminalColors[part.role].every((v,j)=>pixels[i+j]===v)) count++;
+            if (count < 4) throw Error('Terminal role glyph did not match physical part/heading');
+          }
+          if (JSON.stringify(renderWorld) !== beforeRender) throw Error('Terminal renderer changed scientific state');
         }
         const lifeBenchmarks = [];
         for (const size of [16, 64]) {
@@ -114,7 +125,7 @@ try {
           runtime.dispose(); samples.sort((a, b) => a - b);
           batches.push({ size, callbacks: samples.length, p95Ms: samples[Math.floor(samples.length * .95)], maxMs: samples.at(-1) });
         }
-        return { orientedGoldenPassed: true, orientedRenderingPassed: true, ecologyGoldenPassed: true, lifeGoldenPassed: true, lifeBenchmarks, vectorsPassed: true, goldenFieldsPassed: true, userAgent: navigator.userAgent, benchmarks, batches };
+        return { terminalRenderingPassed: true, orientedGoldenPassed: true, orientedRenderingPassed: true, ecologyGoldenPassed: true, lifeGoldenPassed: true, lifeBenchmarks, vectorsPassed: true, goldenFieldsPassed: true, userAgent: navigator.userAgent, benchmarks, batches };
       }, { reference, example, lifeReference, lifeExample, ecologyReference, orientedReference });
       assert.equal(result.vectorsPassed, true); assert.equal(result.goldenFieldsPassed, true);
       console.log(JSON.stringify({ browser: type.name(), version: browser.version(), ...result }));

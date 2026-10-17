@@ -15,7 +15,7 @@ This table describes code on this branch; it becomes the default-branch baseline
 | Primordial and seeded genesis | Experimental baseline | Life lab executes resource recipe/center-cell template; full Phase 2 remains planned |
 | Multi-scale simulation | Experimental baseline | Pixel/organism/ecosystem inspection; full Phase 3 remains planned |
 | Morphogenesis and evolution | Experimental baseline | Bounded growth/reproduction/mutation; full Phase 4 remains planned |
-| Neural lifetime learning | Planned | Phase 5 |
+| Neural lifetime learning | Experimental, implemented locally | v3 bounded updates, fresh newborn controllers, on/off inspection and six-seed comparisons; outcomes mixed, public preview still v2 pending approval |
 | OpenCode continuation and fixed-controller measurements | Implemented development tooling | Pinned agent configuration, setup/verification workflow, six-seed v2 CLI measurements; no learning treatment or app runtime service |
 | Autonomous experiments and checkpoints | Partial baseline | Local seed comparisons implemented; checkpoints and full Phase 6 planned |
 | Worker execution, IndexedDB, installed offline caching | Planned decisions | Add only with evidence; not shipped |
@@ -52,3 +52,11 @@ This does not implement The Bibites/Life Engine feature sets, predation, arbitra
 ## Turning, inherited bodies and measured evolution
 
 Implemented on the current review branch: ecology-reference@2 whole-body cardinal rotation, separate quarter-turn/forward actions, conservative turn collision, rotating mouths and front-half-plane sensing, higher-cadence normal playback, heritable dart/grazer/scout plans, juvenile motor/accessory development, per-cell costs, mutation before/after provenance, family path, offspring/deaths/intake and bounded population/body-plan histories. V1 definitions and trajectories remain available explicitly. Three authored plan families are a bounded genome/development encoding, not arbitrary anatomy or proof of open-ended evolution. Lifetime neural learning, predation and broader autonomy remain planned.
+
+## Connected learning (local v3)
+
+Ecology-reference@3 integrates linear-td@1 updates with the actual lifecycle, separate random streams, inherited-trait initialization and fresh child weights. The UI defaults to v3 locally, exposes learning on/off as starting settings, and shows real intent/action/reward/update/weight diagnostics. A separate cancellable runner compares both arms across six seeds and exports all outcomes/provenance. V1/v2 remain selectable and replayable. See [verification](learning-verification.md) for actual checks and mixed experiment outcomes; this is not proof of intelligence, general improvement or a published preview update.
+
+## Cogmind-inspired life presentation (local review build)
+
+Implemented locally: original role glyphs, a dark green terminal world, geometry-aligned selection brackets, classic/terminal view selection and bounded cues for observed travel/turns, feeding, births and actual weight changes. Pause/effects off/reduced motion stop the overlay animation. [Research and verification contract](visual-direction-cogmind.md) and [actual captures](previews/terminal/README.md). Simulation rules/trajectories remain unchanged; public preview awaits publishing approval.

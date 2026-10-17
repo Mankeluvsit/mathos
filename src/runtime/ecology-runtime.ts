@@ -66,7 +66,7 @@ export class EcologyRuntime {
         if (this.scheduler.now() - started >= 8) break;
       }
       if (count) this.draw();
-      if ((this.state.definition.version === 2 ? count > 0 && time - this.published >= 80 : time - this.published >= 250) || this.status !== 'running') { this.published = time; this.publish(); }
+      if ((this.state.definition.version >= 2 ? count > 0 && time - this.published >= 80 : time - this.published >= 250) || this.status !== 'running') { this.published = time; this.publish(); }
       if (this.status === 'running') this.schedule();
       else this.cancel();
     });

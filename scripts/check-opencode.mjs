@@ -20,6 +20,8 @@ for (const profile of [undefined, 'ollama', 'playwright']) {
   assert.equal(c.agent['mathos-review'].mode, 'subagent');
   assert.equal(c.agent['mathos-review'].permission.edit, 'deny');
   assert.equal(c.agent['mathos-scout'].permission.task, 'deny');
+  assert.equal(c.agent.reviewer.mode, 'subagent');
+  assert.equal(c.agent.reviewer.permission.edit, 'deny');
   for (const command of ['mathos-resume', 'mathos-unit', 'mathos-review', 'mathos-checkpoint']) assert.ok(c.command[command]?.template);
   if (profile === 'ollama') {
     assert.equal(c.model, 'ollama/mathos-qwen35-9b');
@@ -30,4 +32,5 @@ for (const profile of [undefined, 'ollama', 'playwright']) {
 }
 const skills = JSON.parse(inspect(['debug', 'skill']));
 assert.ok(skills.some((skill) => skill.name === 'mathos-verification'));
-console.log('OpenCode discovered mathos-verification. No model inference or provider authentication was performed.');
+assert.ok(skills.some((skill) => skill.name === 'mathos-handoff'));
+console.log('OpenCode discovered mathos-verification and mathos-handoff. No model inference or provider authentication was performed.');

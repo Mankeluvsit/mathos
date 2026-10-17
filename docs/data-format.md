@@ -69,3 +69,23 @@ Export observations produces mathos-ecology-observations version1: ecology-refer
 ## Development measurement export v1
 
 `scripts/ecology-baseline.mjs` writes export-only `mathos-ecology-baseline` version1. It records ecology-reference@2/mulberry32@1, fixed-controller identity and `learning:false`, source commit/dirty flag, Node version, the six declared seeds and 1,600-step horizon. Each run has its validated starting definition, actual ticks/termination, first extinction tick (or null), peak population, total lineage intake, exact endpoint metrics, and populationTicks (sum of living population after ticks1 through the horizon, excluding tick0). It reports every seed and continues to the declared horizon after extinction. Results are local development measurements, not a checkpoint, imported format, learning comparison or proof of improvement. Output files must be new and stay out of source control. [Task/evidence contract](handoff/NEXT.md).
+
+## Implemented locally: ecology definition v3
+
+Exactly five required keys, canonical order as shown:
+
+```json
+{"format":"mathos-ecology","version":3,"seed":42,"mode":"seeded","learning":true}
+```
+
+`format` and integer `version` are literals; `seed` is uint32; `mode` is `seeded` or `primordial`; `learning` is a required boolean (no default or coercion). Reject extra keys, non-finite values, unsupported versions and imports over 64 KiB. V3 selects ecology-reference@3, linear-td@1, mulberry32@1 and ecology-streams@1 from ADR0010; algorithm parameters are fixed by version, not editable unchecked fields. Both arms use the same controller, changing only whether updates apply. Primordial creates no organisms or learning activity.
+
+The v3 schema, example, frozen canonical validator, dispatcher and `mathos.ecology.v3` storage are implemented together. A stored definition must match its slot version. Export/import restart at tick0; no weights, current RNG states or learned memories are in starting definitions. Keep v1/v2 slots and fixtures unchanged. V1/v2 imports retain their existing semantics.
+
+V3 observation exports use `mathos-ecology-observations` version2 with v3 definition and engine/controller/RNG-stream provenance; version1 remains the v2-only export. Each bounded lineage entry includes update count and its latest decision: tick, pre-action scaled input, raw food signals, relative intent, heading before, actual action text, exploration flag, actual intake/mechanical cost/upkeep, clipped reward, pre-update selected Q, next Q, delta, actual six weight changes, next input (null at terminal), and terminal flag. Records and arrays are copied. This export omits live weights/world grids and cannot resume a world.
+
+## Learning comparison export v1
+
+Export-only `mathos-learning-comparison` version1 names ecology-reference@3, linear-td@1, mulberry32@1 and ecology-streams@1; source revision/dirty flag, the six declared seeds, ticksPerRun (UI1600; runner validated1–1600), status completed|cancelled|failed and reason. Each run includes its validated v3 definition, status, actual ticks, populationTicks, peakPopulation, firstExtinctionTick (null means not observed), totalIntake, total lineage updates, measured computeMs, and complete exact ecology metrics. The CLI additionally records its Node runtime. All frames/outputs are separate from the interactive state.
+
+A cancelled/failed batch keeps finished runs and a partial active run when available. Differences are computed only from two completed arms for the same seed; absent pairs remain incomplete, not zero. No comparison importer, checkpoint resume or silent result persistence. New CLI output files refuse overwrites. Source dirty=true identifies uncommitted changes; it is provenance, not a claim that the base commit alone reproduces that build. Compute time measures engine/measurement work outside the model and varies with device and trajectories; it is not an isolated learning-only overhead estimate.

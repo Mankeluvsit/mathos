@@ -2,11 +2,15 @@
 
 A fully local-first, browser-based platform for mathematical visualization and pixel-level artificial-life experimentation.
 
-**Status: turning bodies and inherited body plans on this review branch.** Organisms rotate their entire body before moving forward. Mouths and sensing rotate too. Dart, grazer and scout body plans are inherited and can mutate, with resource-funded development and different costs/capabilities. Select an organism for heading, family and traits, or inspect measured population/body-plan histories. Earlier models remain replayable. Lifetime neural learning, arbitrary organs, predation and spontaneous genesis remain planned.
+**Status: experimental connected lifetime learning and terminal life presentation.** Organisms rotate their entire body before moving forward. Mouths and sensing rotate too. Dart, grazer and scout body plans are inherited and can mutate, with resource-funded development and different costs/capabilities. Select an organism for heading, family and traits, or inspect measured population/body-plan histories. Earlier models remain replayable. Model3 now adds bounded learning, fresh newborn controllers, readable decision/reward inspection and learning-on/off comparisons. Initial outcomes are mixed. Arbitrary organs, predation and spontaneous genesis remain planned.
 
-[Open the browser preview](https://mankeluvsit.github.io/mathos/) · [Correction plan](docs/observable-life-plan.md) · [Review evidence](docs/turning-body-verification.md)
+[Open MATHOS](https://mankeluvsit.github.io/mathos/?v=learning-terminal3) · [Simple learning plan](docs/learning-plan.md) · [Connected learning review](docs/learning-verification.md)
 
-**Continuing in OpenCode:** [resume here](RESUME.md) · [handoff and free-model choices](HANDOFF.md) · [Bazzite/macOS/Linux/Windows setup](docs/handoff/SETUP.md). The project is mid-development; lifetime learning is the next milestone. The handoff also supplies a six-seed fixed-controller measurement baseline, without changing the live simulation.
+Routine delivery is authorized. See RESUME.md and docs/handoff/STATE.md for the exact saved source, deployed revision and verification evidence.
+
+**Continuing in OpenCode:** [resume here](RESUME.md) · [handoff and free-model choices](HANDOFF.md) · [Bazzite/macOS/Linux/Windows setup](docs/handoff/SETUP.md). The project is mid-development. The handoff records connected learning, tests, mixed experimental outcomes and the current review/publication gate. Use one active development environment at a time.
+
+**New visual review:** [Cogmind-inspired life presentation](docs/visual-direction-cogmind.md) · [actual activity animation](docs/previews/terminal/activity.gif). Terminal glyphs is the new default; Classic cells and reduced-motion/static viewing remain available. Scientific state is unchanged by the visual style.
 
 ## Run locally
 
