@@ -1,7 +1,7 @@
 {
   "format": "mathos-preview-build",
   "sourceRepository": "Mankeluvsit/mathos",
-  "sourceCommit": "bf94feb4e1c540589e310d7da9dc672bb406455a",
+  "sourceCommit": "73b4a245af57f88b3a8335a941adc069ff22526f",
   "experimental": true,
   "openingExperience": "ecology-reference@4",
   "bodyGenome": "cell-layout@1",
@@ -9,9 +9,9 @@
   "appearance": "terminal-glyphs",
   "mobile": "world-organism-results-setup; persistent playback",
   "files": {
-    "assets/index-CohImGpq.css": "1a6c1c310d3b8aafe529870d5d6108cb793803c07bb071439014da9e9b4fd3be",
-    "assets/index-Q7W6cp5r.js": "018d53c0165f50f772163655a9690c01745e269f7064e19f31fb90181c637cc3",
-    "index.html": "adde9f24cb2525cc2ecc12284cd4ad2860471202c839c69c2243e626b80eaab9"
+    "assets/index-BD4pYc5h.js": "019b7c7beca6ddaf6a5d9cc2503401a53fe8d7b4158be6829cd881f245857427",
+    "assets/index-C73LMgmH.css": "2a1b7f9a133c33f6b63c00f5072841e9b4bf9c2710c25084f73a7cbb9daf0367",
+    "index.html": "9cd93114c718abc6c8b418f28f416f315db90838ed0d206415ec692f1de21a94"
   },
   "testField": "test-field-reference@1",
   "testConfiguration": "mathos-test-field@1",
