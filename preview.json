@@ -1,14 +1,15 @@
 {
   "format": "mathos-preview-build",
   "sourceRepository": "Mankeluvsit/mathos",
-  "sourceCommit": "d7b631a5f0cf331cdd3d8b6b0fe7ff44e473a942",
+  "sourceCommit": "2ef4ed50021bc0a52aaed01e1e1f16f5d3f9373a",
   "experimental": true,
   "openingExperience": "ecology-reference@3",
   "controller": "linear-td@1",
   "appearance": "terminal-glyphs",
+  "mobile": "world-organism-results-setup; persistent playback; activity highlights",
   "files": {
-    "assets/index-CVHC5vJM.js": "244fa66773cc23362cbd297a165088db68f233deea0a093bb2bb24c99e4852fa",
-    "assets/index-D27rKb-g.css": "b84c7b840f32ea07a94bb6919751ab45028e1a715a7c1e7dbe7abe07dbe51962",
-    "index.html": "ad44e0b715d2b92563067197724478248327ac5353de2bb0827eb852ccadddd6"
+    "assets/index-CfKcWrFC.js": "d824f061bd6fe2ddb1a81befffbd95c10893b272f59c0f3743f50de2cd145830",
+    "assets/index-RsPiwIYN.css": "1bcb0ab96e79711e04c672b7c7bf1c19e438bace508ab406b3e6a4f85ac11a98",
+    "index.html": "00d7b2c54c889f54e364454592615c3a25dfc93b3f7066f57e555b8c4a1c60b0"
   }
 }
