@@ -51,7 +51,8 @@ export function update(weights: Weights, previousObservation: Observation, selec
   const oldQ = values(weights, previousObservation);
   integer(selectedAction, 'action'); integer(reward, 'reward');
   if (selectedAction < 0 || selectedAction >= ACTIONS || reward < -32 || reward > 32) throw Error('Action/reward out of range');
-  const successor = values(weights, nextObservation);\n  const nextQ = terminal ? 0 : Math.max(...successor);
+  const successor = values(weights, nextObservation);
+  const nextQ = terminal ? 0 : Math.max(...successor);
   const delta = clamp(256 * reward + Math.trunc(3 * nextQ / 4) - oldQ[selectedAction]!, -16384, 16384);
   const result = weights.map(row => [...row]);
   if (enabled) for (let j = 0; j < INPUTS; j++)
