@@ -1,3 +1,4 @@
+import { InheritanceComparison } from './InheritanceComparison';
 import {forwardCost,roleCounts} from '../ecology/body-genome';
 import type {World} from '../ecology/genome-model';
 const marks={body:'B',mouth:'M',motor:'T',sensor:'S'};
@@ -30,6 +31,7 @@ export function GenomePanel({world,selected}:{world:World;selected:number}){
   <p className="hint">Blueprint faces north; the world shows the actual heading. Solid cells are grown; dashed cells are waiting. B core · M mouth · T motor · S sensor.</p>
   <p data-testid="genome-functions">Developed: {counts.mouth} mouths · {counts.motor} motors · {counts.sensor} sensors. Upkeep: {developed}/step. {counts.motor?`Forward move: ${forwardCost(pose)} energy.`:'Movement waits for a motor.'} Each new cell takes8 energy.</p>
   <p className="hint">Extra mouths collect food; sensors extend forward sensing; extra motors reduce movement cost. Larger bodies cost more upkeep. Founding template: {genes.bodyPlan}; the genome above determines its actual body.</p>
+  <InheritanceComparison world={world} selected={selected} />
   <details><summary>Exact inherited blueprint</summary><div className="life-table-scroll"><table><thead><tr><th>Order</th><th>x</th><th>y</th><th>Role</th><th>Developed</th></tr></thead><tbody>
    {genes.layout.map((p,i)=><tr key={i}><td>{i+1}</td><td>{p.x}</td><td>{p.y}</td><td>{p.role}</td><td>{i<developed?'Yes':'Not yet'}</td></tr>)}
   </tbody></table></div></details>

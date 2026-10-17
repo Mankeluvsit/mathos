@@ -84,3 +84,7 @@ Separate src/ecology/evaluation.ts validates small copied/frozen plans and seque
 ## Configurable test workspace
 
 ADR0012 adds separate src/testfield configuration, dimension-aware lifecycle/mechanics, tick-addressed session edits and report/replay modules. It shares bounded genome geometry and controller arithmetic with the preserved ecology, not its mutable state. React's TestFieldLab owns bounded playback scheduling and copied rendering/analytics snapshots; Node replay verifies copied or downloaded recipes. App preserves and pauses Living world/Test field independently. Local small config saving uses its own slot; reports download rather than entering browser persistence. No runtime API, backend or dependency.
+
+## Readable inherited-body differences
+
+Living world model4 and Test field show read-only north-facing parent/offspring birth blueprints, explicit ordered-locus differences and a bounded recent accepted-change list. Growth, learning and inherited changes remain distinct; selection cannot alter scientific state. Missing parents and dead selections are handled explicitly. Family map accents, lineage trees and new effects remain planned. [Visual contract and verification](evolution-visuals.md); actual delivery status is in handoff/STATE.md.

@@ -41,6 +41,18 @@ try{
    await lab.getByRole('button',{name:'Copy test report',exact:true}).click();await lab.getByLabel('Report text · select and copy',{exact:true}).waitFor();
    const copied=type===chromium?await page.evaluate(()=>navigator.clipboard.readText()):await page.evaluate(()=>window.__testCopy);
    const second=parseReport(copied);assert.equal(second.metrics.updates,updates);await verifyReport(second,async text=>createHash('sha256').update(text).digest('hex'));
+   // Inspect real birth blueprints in the controlled field without changing its recipe.
+   await lab.getByLabel('Prepared scenario',{exact:true}).selectOption('inheritance');
+   await lab.getByLabel('Test step limit',{exact:true}).fill('40');
+   await lab.getByRole('button',{name:'Prepare test · reset field',exact:true}).click();
+   await lab.getByRole('button',{name:'Run prepared test',exact:true}).click();
+   await lab.getByTestId('test-field-progress').filter({hasText:'40 / 40'}).waitFor();
+   await lab.getByLabel('Compare inherited organism',{exact:true}).selectOption('5');
+   const parentComparison=lab.getByRole('region',{name:'Parent and offspring comparison'});
+   assert(await parentComparison.getByRole('img',{name:/Offspring #5 inherited blueprint/}).isVisible());
+   assert.match(await parentComparison.textContent(),/Same inherited body layout/);
+   const inheritanceDownload=page.waitForEvent('download');await lab.getByRole('button',{name:'Save test report',exact:true}).click();
+   await verifyReport(JSON.parse(readFileSync(await (await inheritanceDownload).path(),'utf8')),async text=>createHash('sha256').update(text).digest('hex'));
    // A genuinely controllable empty field: placement, rotation, food, undo and replay.
    await lab.getByLabel('Prepared scenario',{exact:true}).selectOption('empty');await lab.getByLabel('Test step limit',{exact:true}).fill('16');
    await lab.getByRole('button',{name:'Prepare test · reset field',exact:true}).click();

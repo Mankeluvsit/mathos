@@ -76,3 +76,7 @@ Developer tooling now validates explicit seed/horizon plans and runs all four le
 ## Controlled owner testing (implemented locally; delivery in STATE)
 
 Separate prepared test-field workspace with bounded live-safe environment/organism/test controls, optional synchronized JSON/files, author tools and undo, measured analytics and copy/download reports. Reports carry exact edit recipes, observed outcomes and final-state fingerprints and replay in Node. Existing living-world behavior is preserved. This is a bounded configurable laboratory, not arbitrary scientific code, anatomy editing, checkpoint resume or open-ended research. See test-field-guide.md and test-field-verification.md.
+
+## Readable inherited-body differences
+
+Living world model4 and Test field show read-only north-facing parent/offspring birth blueprints, explicit ordered-locus differences and a bounded recent accepted-change list. Growth, learning and inherited changes remain distinct; selection cannot alter scientific state. Missing parents and dead selections are handled explicitly. Family map accents, lineage trees and new effects remain planned. [Visual contract and verification](evolution-visuals.md); actual delivery status is in handoff/STATE.md.

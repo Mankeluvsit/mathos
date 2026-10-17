@@ -1,3 +1,5 @@
+import { ORGAN_COLORS as COLORS } from '../rendering/organ-colors';
+import { InheritanceComparison, RecentInheritedChanges } from './InheritanceComparison';
 import {useEffect,useRef,useState} from 'react';
 import {parseConfig,presetConfig,serializeConfig,validateConfig,needsRestart,PRESETS,PRESET_HELP,type Configuration,type Preset} from '../testfield/config';
 import {parts,type World} from '../testfield/engine';
@@ -5,7 +7,6 @@ import {TestSession,metrics,type Edit} from '../testfield/session';
 import {makeReport,reportText,type TestReport} from '../testfield/report';
 import type {BodyPlan} from '../ecology/oriented-geometry';
 declare const __MATHOS_SOURCE__:{revision:string;dirty:boolean};
-const COLORS={body:'#9cdb77',mouth:'#ffc76a',motor:'#cc84d9',sensor:'#61d9e8'};
 function download(name:string,text:string){
   const url=URL.createObjectURL(new Blob([text],{type:'application/json'})),a=document.createElement('a');
   a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
@@ -156,6 +157,9 @@ export function TestFieldLab({onExit,active}:{onExit:()=>void;active:boolean}){
           <div className="test-tools"><button className="primary" disabled={busy} onClick={()=>void createReport(true)}>Copy test report</button><button disabled={busy} onClick={()=>void createReport(false)}>Save test report</button></div>
           <p className="hint">Paste the whole copied report into this chat, or attach the JSON file. It includes settings, edits, actual results, errors and replay details.</p>
           {copiedReport&&<label>Report text · select and copy<textarea aria-label="Report text · select and copy" ref={fallback} readOnly value={copiedReport} onFocus={e=>e.target.select()}/></label>}
+          <RecentInheritedChanges world={world} inspect={setSelected} />
+          <label>Compare inherited organism<select aria-label="Compare inherited organism" value={world.lineage.some(l=>l.id===selected)?selected:''} onChange={e=>setSelected(Number(e.target.value))}><option value="" disabled>Select a recorded organism</option>{world.lineage.map(l=><option key={l.id} value={l.id}>#{l.id} · generation {l.generation}{l.died===null?'':' · died'}</option>)}</select></label>
+          <InheritanceComparison world={world} selected={selected} />
           <svg className="test-history" viewBox="0 0 600 130" role="img" aria-label="Sampled population over test steps"><title>Population from0 to48; step0 through the current test</title><path d="M25 5 V110 H590" fill="none" stroke="#5c7185"/><text x="0" y="12" fill="#b4c7dc" fontSize="12">48</text><text x="8" y="110" fill="#b4c7dc" fontSize="12">0</text><polyline fill="none" stroke="#7ed5bb" strokeWidth="2" points={world.history.map(s=>`${25+s.tick/Math.max(1,world.tick)*565},${110-s.population/48*100}`).join(' ')}/></svg>
           <details><summary>Detailed analytics</summary><dl>{Object.entries(m).map(([key,value])=><div key={key}><dt>{key}</dt><dd>{String(value)}</dd></div>)}</dl><table><caption>Sampled population history · every20 steps</caption><thead><tr><th>Step</th><th>Population</th><th>Food sites</th></tr></thead><tbody>{world.history.map(s=><tr key={s.tick}><td>{s.tick}</td><td>{s.population}</td><td>{s.pellets}</td></tr>)}</tbody></table></details>
         </section>

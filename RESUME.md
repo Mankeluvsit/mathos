@@ -1,5 +1,12 @@
 # Resume MATHOS here
 
+## Active owner request: make evolution visually understandable
+
+Owner said continue after the visual direction. Implemented read-only parent/offspring blueprint comparisons and a bounded actual accepted-birth list in Living world model4 and Test field Results. No model/RNG/fixture/report changes. See docs/evolution-visuals.md. Full verification passed191 tests/22 files, all independent references/goldens, lint/types/build and every native Chromium/Firefox workflow, including keyboard comparison,320/390px diagrams and actual Node report replay. Final shared-palette/capture refinements passed against a fresh build with genome, test-field and layout suites in both native browsers. Actual capture and honest precommit source are in docs/previews/inheritance. Logs /tmp/mathos-inheritance-verify.log and /tmp/mathos-inheritance-final-{genome,testfield,layout}.log. Handoff links and OpenCode1.19.2 parser passed. Do not call this published yet. Keep world family accents, new mutation/death effects and new biological rules planned.
+
+Previous spacing source CI39055214492: Linux/Windows passed, macOS failed during server readiness with Node24.21.0 Undici setTypeOfService EINVAL. scripts/browser-server.mjs now probes loopback with core HTTP instead; browser assertions are unchanged. The subsequent documentation-only source4c775e0 CI39055325855 passed all three platforms, confirming the failure was intermittent; new-source remote verification is still required for the readiness fix. Prior live preview still source73b4a24/deployment5cc762c. Overall project remains a local-first experimental baseline; this unit improves legibility, not evolutionary capability.
+
+
 ## Current delivery: spacing fix live and verified (2026-10-17)
 
 Review https://mankeluvsit.github.io/mathos/?v=spacing2. Clean app source73b4a245af57f88b3a8335a941adc069ff22526f; Pages deployment5cc762cb57fcf5f8138b12518d7f389899b52170 (built). The large gap below Living world is fixed with independent world/results and inspector/setup stacks. Phone destinations/state remain intact. No simulation rules changed.

@@ -79,3 +79,7 @@ The owner authorized continuing from richer-body development. ADR0011 and inheri
 ## Owner-approved configurable testing increment
 
 The owner approved the desktop/mobile concept and requested optional JSON, dashboard controls and a test field prepared for hands-on testing with copy/paste analytics for the agent. ADR0012 is the exact contract. Acceptance includes valid JSON/control synchronization with hidden draft preservation; bounded live-safe edits and explicit reset-only settings; four prepared cases and accessible field tools; exact resource accounting and deterministic edit replay; completed/partial/edited labels; useful metrics/notes and one-action report copy/download with fallback; desktop and short-phone verification. This is a bounded local laboratory, not a completed arbitrary universe editor or autonomous research system.
+
+## Readable inherited-body differences
+
+Living world model4 and Test field show read-only north-facing parent/offspring birth blueprints, explicit ordered-locus differences and a bounded recent accepted-change list. Growth, learning and inherited changes remain distinct; selection cannot alter scientific state. Missing parents and dead selections are handled explicitly. Family map accents, lineage trees and new effects remain planned. [Visual contract and verification](evolution-visuals.md); actual delivery status is in handoff/STATE.md.

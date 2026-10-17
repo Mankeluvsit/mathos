@@ -390,3 +390,18 @@ footer { display: flex; justify-content: space-between; gap: 12px; max-width: 18
 
 .test-phone-json { display:none; }
 @media(max-width:900px) { .test-phone-json { display:block;width:100%; } }
+
+/* Read-only inheritance diagrams use canonical north-facing birth layouts. */
+.inheritance-comparison { border-top: 1px solid #35536f; margin-top: 1rem; padding-top: .5rem; }
+.inheritance-comparison h4 { color: #e0eaf6; margin: .6rem 0; }
+.inheritance-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+.inheritance-pair figure { margin: 0; min-width: 0; }
+.inheritance-pair figcaption { font-size: .85rem; color: #e0eaf6; overflow-wrap: anywhere; }
+.inheritance-pair small { display: block; color: #a0b2c9; margin: .25rem 0; }
+.inheritance-blueprint { display: block; width: 100%; max-width: 160px; border: 1px solid #35536f; background: #050907; }
+.inheritance-differences { padding-left: 1.2rem; font-size: .85rem; overflow-wrap: anywhere; }
+.inheritance-recent { margin: 1rem 0; border-block: 1px solid #26374d; padding: .5rem 0; }
+.inheritance-recent ol { list-style: none; padding: 0; display: grid; gap: .75rem; }
+.inheritance-recent li { padding: .75rem; border: 1px solid #35536f; border-radius: 6px; background: #101f1a; }
+.inheritance-recent li span { display: block; color: #b9cadd; font-size: .85rem; margin: .35rem 0; }
+.inheritance-recent button { min-height: 44px; }

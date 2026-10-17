@@ -70,15 +70,31 @@ try{
    for(let i=43;i<63;i++)await page.getByRole('button',{name:'One step',exact:true}).click();
    const tick=Number(await page.getByTestId('ecology-tick').textContent());
    assert.match(await page.getByTestId('genome-development').textContent(),/4 of 4/);
+   const inherited=page.getByRole('region',{name:'Parent and offspring comparison'});
+   assert.match(await inherited.textContent(),/mouth \(1, 0\) → mouth \(1, -1\)/);
+   assert(await inherited.getByRole('img',{name:/Parent #8 inherited blueprint, 4 cells/}).isVisible());
+   assert(await inherited.getByRole('img',{name:/Offspring #9 inherited blueprint, 4 cells/}).isVisible());
+   assert.equal(await inherited.locator('rect[stroke="#fff"]').count(),2,'Both changed loci must have a non-color border cue');
+   await page.getByLabel('Select organism',{exact:true}).selectOption('1');
+   const compare=page.getByRole('button',{name:'Compare body change for organism 9',exact:true});
+   await compare.focus();await page.keyboard.press('Enter');
+   assert.equal(await page.getByLabel('Select organism',{exact:true}).inputValue(),'9');
+   assert.equal(Number(await page.getByTestId('ecology-tick').textContent()),tick,'Comparison must not advance the world');
    await page.getByText('Body inheritance at birth',{exact:true}).click();assert.match(await page.getByTestId('genome-birth').textContent(),/mouth moved from \(1,0\) to \(1,-1\)/);
    const [d]=await Promise.all([page.waitForEvent('download'),page.getByRole('button',{name:'Export observations',exact:true}).click()]);const data=JSON.parse(readFileSync(await d.path(),'utf8'));
    assert.equal(data.version,3);assert.equal(data.bodyGenome,'cell-layout@1');assert.equal(data.engine,'ecology-reference@4');
    let expected=initialize({format:'mathos-ecology',version:4,seed:4294967295,mode:'seeded',learning:true,structuralMutation:true});while(expected.tick<tick)expected=step(expected);assert.deepEqual(data.lineage,expected.lineage);
    if(type===chromium){await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:`${captures}/desktop.png`,fullPage:true});await page.locator('.genome-inspector').screenshot({path:`${captures}/blueprint-detail.png`});}
+   if(type===chromium&&!publicReview){
+    mkdirSync('docs/previews/inheritance',{recursive:true});
+    await inherited.screenshot({path:'docs/previews/inheritance/parent-offspring.png'});
+    writeFileSync('docs/previews/inheritance/capture-state.json',JSON.stringify({engine:'ecology-reference@4',seed:4294967295,tick,selected:9,parent:8,born:40,status:'paused',browser:'Chromium',diagrams:'complete inherited north-facing targets, not current world poses',context:'Existing illustrative development seed, not held-out evaluation. Local precommit capture; dirty source recorded honestly.'},null,2)+'\n');
+   }
    for(const width of [390,320]){
     await page.setViewportSize({width,height:844});const nav=page.getByRole('navigation',{name:'Living world views'});
     for(const [view,file]of [['World','phone-world'],['Organism','phone-organism'],['Results','phone-results'],['Setup','phone-setup']]){
      await nav.getByRole('button',{name:view,exact:true}).click();assert.equal(Number(await page.getByTestId('ecology-tick').textContent()),tick);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`${type.name()} ${width}px ${view} page overflow`);
+     if(view==='Organism')for(const svg of await inherited.getByRole('img').all()){const r=await svg.boundingBox();assert(r&&r.width>=70&&r.x>=0&&r.x+r.width<=width,'Both blueprint diagrams must fit phone width');}
      if(view==='World'){if(!await page.locator('.world-view-controls').evaluate(d=>d.open))await page.getByText('View controls',{exact:true}).click();await page.getByLabel('World magnification',{exact:true}).selectOption('3');await page.getByRole('checkbox',{name:'Follow selected organism',exact:true}).check();}
      if(type===chromium&&width===390)await page.screenshot({path:`${captures}/${file}.png`});
     }
@@ -117,6 +133,7 @@ try{
    if(publicReview){const manifest=await page.evaluate(async()=>{const response=await fetch(new URL('preview.json?v=genomes4',location.href));return response.json();});assert.equal(comparison.source.revision,manifest.sourceCommit);assert.equal(comparison.source.dirty,false);}
    if(type===chromium&&!publicReview)for(const fixture of golden.cases.filter(f=>!f.structuralMutation)){const run=comparison.runs.find(r=>r.definition.seed===fixture.seed&&r.definition.learning===fixture.learning);assert.deepEqual(run.metrics,fixture.frames.at(-1).metrics);}
    if(type===chromium)writeFileSync(`${captures}/capture-state.json`,JSON.stringify({engine:'ecology-reference@4',bodyGenome:'cell-layout@1',seed:4294967295,tick,selected:9,status:'paused',illustration:'Predeclared development seed chosen to show an early relocated-mouth birth at40 and actual resource-funded fourth-cell development by63; not representative performance evidence.'},null,2)+'\n');
+   if(type===chromium&&!publicReview){const p='docs/previews/inheritance/capture-state.json';writeFileSync(p,JSON.stringify({...JSON.parse(readFileSync(p,'utf8')),source:comparison.source},null,2)+'\n');}
    assert.deepEqual(errors,[]);assert.deepEqual(external,[]);console.log(JSON.stringify({browser:type.name(),genomeUI:'actual inherited change and growth passed',v4Persistence:'passed',comparison:type===chromium&&!publicReview?'12 v4 runs complete':'v4 cancellation',responsive:'320/390',externalRequests:0}));
   }finally{await browser.close();}
  }

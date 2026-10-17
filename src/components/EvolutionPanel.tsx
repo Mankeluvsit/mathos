@@ -1,3 +1,4 @@
+import { RecentInheritedChanges } from './InheritanceComparison';
 import { layoutKey } from "../ecology/body-genome";
 import { isGenome, isOriented, type Ecology } from "../ecology/world";
 import type { Sample } from "../ecology/oriented-model";
@@ -131,6 +132,7 @@ export function EvolutionPanel({ world, inspect }: { world: Ecology; inspect?: (
       </p>
       {isGenome(world) && <p data-testid="genome-population">Living blueprints: {new Set(world.creatures.map(c=>layoutKey(c.genes.layout))).size}. Accepted structural births: {world.lineage.filter(l=>l.layoutMutation).length} of {world.lineage.filter(l=>l.layoutAttempt&&!l.layoutAttempt.includes("disabled")).length} enabled structural proposals. Current body sizes: {[...new Set(world.creatures.map(c=>c.size))].sort((a,b)=>a-b).join(' / ')||'none'}. Counts below group founding templates, not actual anatomy.</p>}
       {isGenome(world) && inspect && <button disabled={!world.lineage.some(l=>l.layoutMutation)} onClick={()=>{const latest=world.lineage.filter(l=>l.layoutMutation).at(-1);if(latest)inspect(latest.id);}}>Inspect latest body change</button>}
+      {isGenome(world) && <RecentInheritedChanges world={world} inspect={inspect} />}
       <div className="ecology-stats">
         {PLANS.map((plan) => (
           <p key={plan}>

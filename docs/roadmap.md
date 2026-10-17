@@ -49,3 +49,7 @@ The separate24-run v4 learning/body-mutation evaluation completed without tuning
 ## Current configurable testing milestone
 
 Owner approved the dashboard/test-field direction, adding hidden-by-default JSON and prepared owner-run tests with easily shared analytics. ADR0012 and test-field-guide.md define the bounded delivered slice. Current work connects configuration → controlled trial → actual metrics → replayable owner feedback, preserving old models. Advanced controller/rule editors, checkpoints, arbitrary anatomy and broader research remain later work; full phases2–6 are not marked complete.
+
+## Owner-requested visual evolution legibility
+
+Read-only parent/offspring diagrams, changed growth slots, recent accepted structural births and one shared terminal/test-field organ palette improve the existing baseline. See [scope and evidence](evolution-visuals.md). This is an observability increment across Living world model4 and Test field, not a new scientific engine or completion of evolution. Persistent map family accents, lineage trees and further effects remain planned. Prioritize owner feedback/replay before the bounded behavior-diagnostic task; do not silently tune the scientific model.

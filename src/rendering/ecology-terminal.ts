@@ -1,10 +1,11 @@
+import { ORGAN_COLORS } from './organ-colors';
 /** Original MATHOS glyphs and event cues; Cogmind-inspired presentation only. */
 import { cellParts, W, H, type Ecology } from '../ecology/world';
 import { ECOLOGY_CELL } from './ecology-renderer';
 
 export const TERMINAL_COLORS = {
   background: '#050907', grid: '#122018', food: '#65945a',
-  body: '#a9df78', mouth: '#ffca70', motor: '#61d4c3', sensor: '#bfa3ed',
+  ...ORGAN_COLORS,
   selection: '#e6f4df', silhouette: '#355441',
 } as const;
 export interface ActivityCue {

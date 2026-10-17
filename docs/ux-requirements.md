@@ -96,3 +96,7 @@ Living world and Test field are separate preserved/paused workspaces. Desktop qu
 ## Independent desktop life columns
 
 Living world and its results stack independently of the organism/setup sidebar. Expanding an inspector must not insert a blank grid row below the world. Retain the bounded desktop content width; zooming out naturally makes it visually smaller. On phones, the existing four destinations remain separate with preserved state. Native layout regression checks cover1024,1600 and6400 CSS-pixel widths plus phone navigation.
+
+## Readable inherited-body differences
+
+Living world model4 and Test field show read-only north-facing parent/offspring birth blueprints, explicit ordered-locus differences and a bounded recent accepted-change list. Growth, learning and inherited changes remain distinct; selection cannot alter scientific state. Missing parents and dead selections are handled explicitly. Family map accents, lineage trees and new effects remain planned. [Visual contract and verification](evolution-visuals.md); actual delivery status is in handoff/STATE.md.
