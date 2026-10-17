@@ -83,3 +83,7 @@ The owner approved the desktop/mobile concept and requested optional JSON, dashb
 ## Readable inherited-body differences
 
 Living world model4 and Test field show read-only north-facing parent/offspring birth blueprints, explicit ordered-locus differences and a bounded recent accepted-change list. Growth, learning and inherited changes remain distinct; selection cannot alter scientific state. Missing parents and dead selections are handled explicitly. Family map accents, lineage trees and new effects remain planned. [Visual contract and verification](evolution-visuals.md); actual delivery status is in handoff/STATE.md.
+
+## Shared configurable world (ADR0013 implementation)
+
+Default entry now uses one mathos-world@1 engine/session, neutral initialization, explicit food/replenishment/stop policies and independent reproduction/mutation/inheritance choices. Testing tools act on that same state; prior labs are explicit legacy references/replayers. Long-run history is bounded without stopping births; reports verify a recent captured segment and state its limits. [Owner guide and exact boundaries](shared-world-guide.md). Browser/mobile behavior belongs to the automatic baseline. Current delivery facts are in the preview manifest/PR, and progress is recorded once in handoff/STATE.md.

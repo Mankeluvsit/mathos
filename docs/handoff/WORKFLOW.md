@@ -8,6 +8,10 @@ ChatGPT/Codex and OpenCode follow the same loop. Maintain the single STATE.md pr
 
 Use one active writer across environments. Before switching machines, check both working trees for unfinished edits. Save the verified checkpoint to the working GitHub branch under the standing delivery authorization. Fetch that branch on the receiving machine and reconcile any local edits before continuing. A handoff file does not transfer uncommitted source or synchronize machines automatically.
 
+## Baseline verification
+
+Browser/mobile assertions run inside the normal verify/CI baseline. The agent maintains them with the relevant behavior; the owner manages neither a separate browser-check phase nor a viewport matrix. Report a failure when it affects delivery, otherwise summarize verification once. Scope public smoke checks to the shipped default behavior; historical reference checks remain automated compatibility tests.
+
 ## Loop
 
 1. **Recover:** read AGENTS.md, RESUME.md and STATE.md; inspect `git status`, recent commits and the actual affected files. Preserve unfinished work. Find the active task in STATE.md. Newer code/GitHub evidence beats a stale handoff statement.

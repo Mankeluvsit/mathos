@@ -1,30 +1,29 @@
 # Current development progress
 
-## Active priority: consolidate the world and its testing
+## Delivered implementation: one shared configurable world
 
-Owner feedback supersedes feature expansion: multiple active simulation experiences and implicit rules muddy a neutral playing field. Tests must evaluate the same configurable world. Food limits, optional step limits, feature adoption and offspring inheritance must be explicit choices. Continuity must follow ordinary development progress rather than become a separate management project.
+ADR0013 is implemented as `mathos-world@1`, the canonical path in src/world and the default WorldLab dashboard. Testing tools reveal controls on the same active session, without a second world or a reset. Old engines, fixtures and replay formats remain compatible behind explicit legacy/reference URLs. Follow [the shared-world guide](../shared-world-guide.md) for the actual settings and limitations.
 
-[ADR0013](../decisions/0013-shared-world-and-testing.md) records the accepted direction, actual shortcomings, delivery sequence and acceptance criteria. Its simulation changes are **planned**, not live. Workflow correction and single-record continuity are implemented in this documentation/agent-instruction unit. No app/engine/schema changes in this unit; the preview retains the verified baseline below.
+- Rules/JSON/files expose replenishment, standing food-energy cap, cumulative automatic-supply budget and optional stopping. Each cap/endpoint can be disabled. Applying live rules preserves the run; changing initial conditions requires an explicit reset. Invalid drafts are retained, never exported as accidental unlimited settings.
+- Neutral founders share genes/energy with balanced headings and no individual food gifts; authored demonstrations are labeled. This reduces known setup bias; it is not a claim that every model rule is unbiased.
+- Reproduction, learning, scalar/structural mutation and offspring body/trait/controller inheritance are separate switches. Actual inheritance choices are recorded at birth. Controller copying is experimental, not demonstrated adaptive success.
+- Runs continue past1600 ticks and256 historical identities. Monotonic IDs, bounded archives and rotating processing remove the prior artificial stops. Population/numeric/resource limits remain explicit. Reports verify genesis or the latest bounded checkpoint segment; earlier summarized history is not independently verified by a recent-segment report. Reload does not restore a running world.
+- World / Rules / Results share state on phones, with persistent playback and hideable JSON. Results include notes, ledger/behavior analytics and copy/save reports for owner feedback. No telemetry or mandatory service.
 
-## This corrective unit
+## Verification and delivery evidence
 
-Completed: ADR0013, one current progress record, stable RESUME/NEXT entry points, and aligned development/OpenCode instructions. Verification: npm run check passed191 tests/22 files plus lint, strict types and production build; handoff links and actual OpenCode1.19.2 parsing passed all profiles/agents/commands. No app/engine/test/schema files changed, so existing native/public/three-platform evidence below remains the runtime baseline. No preview redeployment or separate handover-only commit is needed. The new simulation policies remain planned.
+Starting source: 3f1995d4c8347138246e0a81606b9f2ed92846b4; the current checkout and preview manifest are authoritative.
 
-## Verified baseline
+The implementation unit passed `npm run verify`:205 tests in24 files; lint, TypeScript, production build; independent references and frozen fixtures; native Chromium/Firefox workflows, including the default shared world, touch controls, report replay and desktop/phone layouts. CLI replay also matched a2201-tick latest-segment report. Handoff/config checks passed, including the actual OpenCode1.19.2 parser. A separate self-review checked version isolation, exact accounting, control semantics and truthful report scope. No physical-device or Safari certification is claimed.
 
-- Review: https://mankeluvsit.github.io/mathos/?v=inheritance1
-- App source: c3e7ebc1751b7435bd9b2e5ae6b627fe218e8e10; Pages deployment: e0848b97fca8215e5234f94c3f572562c4ccbad8.
-- Source CI39056254497 passed Linux, Windows and macOS. Full local gate passed191 tests/22 files, four independent references/old fixtures and native Chromium/Firefox workflows. Public Chromium verified diagrams, Node lineage/report replay, phone layout and all current artifact hashes, with no external runtime requests.
-- Current behavior: separate Living world model4 and test-field-reference@1; body inheritance, bounded lifetime learning, prepared tests, JSON/files and copyable replay reports. Authored food placement aids demonstrations. No user food-supply cap or optional hard endpoint. Old archive limits affect reproduction; these must be addressed before advertising run-until-paused.
-- [Visual contract/capture](../evolution-visuals.md), [test-field guide](../test-field-guide.md), [untuned evaluation outcomes](../evaluation-results-v4-01.md). Mixed outcomes; no general adaptive-improvement claim. Physical-device/Safari certification remains unavailable.
-- PR4 remains open/unmerged. Preserve old engines, fixtures and replay formats. Existing source/preview publication remains authorized; never auto merge.
+Publication is the final step of the same unit, not another handover task. For exact current source/deployment/CI facts, inspect the [public preview manifest](https://mankeluvsit.github.io/mathos/preview.json), [existing review PR4](https://github.com/Mankeluvsit/mathos/pull/4) and its checks. Source is built from a clean commit; public smoke must verify that manifest and the shipped controls. Do not infer live delivery merely from this file or a screenshot. Review URL: https://mankeluvsit.github.io/mathos/?v=shared1 . PR4 stays open/unmerged.
 
-## Next bounded implementation
+## Next action
 
-Implement the shared next-version rule/configuration contract and pure engine before another visual feature. Start by inventorying the duplicated lifecycle and defining exact food-cap/budget, stop policy, neutral initialization and archive/offspring-ID behavior. Separate biological rules from runtime/storage protection; define compatible report replay before exposing a run-until-paused switch. Do not add another user-facing engine/workspace. ADR0013 defines the choices, not final numerical defaults or an already implemented format.
+On resumption, fetch GitHub, inspect local changes and compare the preview manifest with the branch before editing. If publication/live verification is still pending, finish it first under standing authorization. Otherwise continue the next small model-observation task: investigate behavior traces and map-family effects using this shared world, preserving untuned outcomes and old replay boundaries. Prioritize actual owner-reported failures or shared-world test reports over adding another workspace. Do not infer a new visual or scientific claim from accounting tests alone.
 
-Done: one pure canonical implementation, dashboard/JSON-ready validated settings, exact resource-accounting tests at cap boundaries, deterministic longer-than1600 continuation without an archive-induced reproduction stop, explicit resource pauses and unchanged old replays. Follow with one dashboard/session and common test protocols; then expose supported feature/inheritance options incrementally. The bounded behavior-trace investigation and map-family effects are lower priority until this correction is coherent.
+The broader project remains active: arbitrary anatomy, predation, true primordial genesis, multi-scale simulation and autonomous research remain planned. Existing learning is bounded linear TD; no claim of generally improving intelligence. Historical evaluation outcomes remain in [evaluation-results-v4-01.md](../evaluation-results-v4-01.md), not a validation of new-world neutrality or success.
 
 ## Working convention
 
-This is the single current progress/evidence record. Update it once per coherent unit or actual interruption using the work already done. RESUME/NEXT are stable pointers; setup/HANDOFF changes only for real environment/workflow changes. Include the next action and failed/unrun checks here. No owner-maintained handover task or separate handover-only milestone. Historical delivery snapshots remain in Git; inspect actual code/GitHub rather than reconstructing them from chat.
+Maintain this single progress record within normal implementation work. RESUME/NEXT remain stable pointers. Setup/HANDOFF changes only for actual environment/workflow changes. Browser/mobile checks are an automatic verify/CI baseline, not an owner-managed workstream. Never merge automatically, introduce paid services or silently replace old fixtures. Preserve unfinished work when switching machines or agents.

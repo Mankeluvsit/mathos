@@ -21,7 +21,7 @@ try {
       page.on('pageerror',e=>errors.push(String(e)));
       page.on('request',r=>{if(!r.url().startsWith('http://127.0.0.1:4179/'))external.push(r.url());});
       page.on('dialog',d=>d.accept());
-      await page.goto('http://127.0.0.1:4179/');
+      await page.goto('http://127.0.0.1:4179/?lab=legacy');
       await page.getByLabel('Simulation model',{exact:true}).selectOption('3');
       await page.getByRole('button',{name:'Prepare new world',exact:true}).click();
       await page.getByText('View controls',{exact:true}).click();
@@ -93,7 +93,7 @@ try {
       const context=await browser.newContext({viewport:{width:1100,height:780},recordVideo:{dir:'.artifacts/terminal-video',size:{width:1100,height:780}}});
       const page=await context.newPage();
       await page.emulateMedia({reducedMotion:'no-preference'});
-      await page.goto('http://127.0.0.1:4179/');
+      await page.goto('http://127.0.0.1:4179/?lab=legacy');
       await page.getByLabel('Simulation model',{exact:true}).selectOption('3');
       await page.getByRole('button',{name:'Prepare new world',exact:true}).click();
       await page.getByText('View controls',{exact:true}).click();

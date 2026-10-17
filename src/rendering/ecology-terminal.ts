@@ -1,3 +1,4 @@
+import {drawOrganGlyph} from './organ-glyph';
 import { ORGAN_COLORS } from './organ-colors';
 /** Original MATHOS glyphs and event cues; Cogmind-inspired presentation only. */
 import { cellParts, W, H, type Ecology } from '../ecology/world';
@@ -100,18 +101,7 @@ export function drawTerminalEcology(
       if (!occupied.has(`${p.x},${p.y+1}`)) {ctx.moveTo(x+.5,y+z-.5);ctx.lineTo(x+z-.5,y+z-.5);}
       if (!occupied.has(`${p.x-1},${p.y}`)) {ctx.moveTo(x+.5,y+.5);ctx.lineTo(x+.5,y+z-.5);}
       ctx.stroke();
-      ctx.save();ctx.translate(x+6,y+6);ctx.rotate(c.direction*Math.PI/2);
-      ctx.fillStyle=color[p.role];ctx.strokeStyle=color[p.role];ctx.lineWidth=1;
-      if (p.role==='body') {
-        ctx.fillRect(-3,-3,6,1);ctx.fillRect(-3,2,6,1);ctx.fillRect(-3,-2,1,4);ctx.fillRect(2,-2,1,4);ctx.fillRect(-1,-1,2,2);
-      } else if (p.role==='mouth') {
-        ctx.beginPath();ctx.moveTo(-3,2);ctx.lineTo(0,-3);ctx.lineTo(3,2);ctx.stroke();ctx.fillRect(-1,1,2,2);
-      } else if (p.role==='motor') {
-        ctx.fillRect(-3,-2,6,2);ctx.fillRect(-2,1,1,3);ctx.fillRect(1,1,1,3);
-      } else {
-        ctx.fillRect(-3,-1,6,2);ctx.fillRect(-1,-3,2,6);
-      }
-      ctx.restore();
+      drawOrganGlyph(ctx,p.role,c.direction,x+6,y+6);
     }
     if (c.id===selected) {
       const minX=Math.min(...parts.map(p=>p.x))*z,minY=Math.min(...parts.map(p=>p.y))*z;

@@ -1,0 +1,45 @@
+{
+  "source": {
+    "revision": "3f1995d4c8347138246e0a81606b9f2ed92846b4",
+    "dirty": true
+  },
+  "engine": "mathos-world@1",
+  "tick": 1,
+  "initial": {
+    "format": "mathos-world",
+    "version": 1,
+    "name": "Shared world",
+    "seed": 42,
+    "world": {
+      "width": 32,
+      "height": 24
+    },
+    "rules": {
+      "foodEnergy": 24,
+      "spawnAttempts": 2,
+      "upkeep": 1,
+      "initialFood": 150,
+      "replenishment": true,
+      "foodCap": 4096,
+      "supplyBudget": 12000
+    },
+    "organisms": {
+      "startingEnergy": 120,
+      "learning": true,
+      "structuralMutation": false,
+      "reproduction": true,
+      "traitMutation": true,
+      "inheritBody": true,
+      "inheritTraits": true,
+      "inheritWeights": false,
+      "bodyPlan": "dart",
+      "count": 4
+    },
+    "test": {
+      "preset": "neutral",
+      "steps": 1600
+    }
+  },
+  "finalHash": "ceab5a8f49999b43ae9dd1a4ceb03111ce8038d081dfbf2f48a270c4c6e2386f",
+  "context": "Default neutral profile, step1, no author interventions. Functional capture, not a fairness evaluation."
+}

@@ -7,7 +7,7 @@ const args = process.argv.slice(2);
 assert(args.length === 0 || (args.length === 1 && args[0] === '--public'), 'Usage: node scripts/browser-layout.mjs [--public]');
 const live = args[0] === '--public';
 const stop = live ? async () => {} : await startServer('preview', 4184);
-const url = live ? 'https://mankeluvsit.github.io/mathos/?v=spacing2' : 'http://127.0.0.1:4184/';
+const url = live ? 'https://mankeluvsit.github.io/mathos/?lab=legacy&v=spacing2' : 'http://127.0.0.1:4184/?lab=legacy';
 mkdirSync('.artifacts/layout', { recursive: true });
 try {
   for (const type of live ? [chromium] : [chromium, firefox]) {

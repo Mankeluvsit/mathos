@@ -1,3 +1,4 @@
+import { WorldLab } from '../components/WorldLab';
 import { useRef, useState } from 'react';
 import { EcologyLab } from '../components/EcologyLab';
 import { TestFieldLab } from '../components/TestFieldLab';
@@ -145,6 +146,11 @@ function ReferenceApp({ onLife, onEcology }: { onLife: () => void; onEcology: ()
 }
 
 export function App() {
+  const lab=new URLSearchParams(window.location.search).get('lab');
+  return lab==='reference'||lab==='legacy'?<LegacyApp/>:<WorldLab/>;
+}
+
+function LegacyApp() {
   const [life, setLife] = useState(false);
   const [ecology, setEcology] = useState(() => new URLSearchParams(window.location.search).get('lab') !== 'reference');
   const [testField,setTestField]=useState(false),[testOpened,setTestOpened]=useState(false);

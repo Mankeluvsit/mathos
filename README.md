@@ -2,23 +2,17 @@
 
 A fully local-first, browser-based platform for mathematical visualization and pixel-level artificial-life experimentation.
 
-**Status: bounded inherited bodies and lifetime learning.** Model4 uses3–6-cell connected genomes, resource-funded growth and structural birth mutations. Mouths, motors and sensors affect real feeding, movement, sensing and upkeep; all geometry turns together. The inspector shows the birth blueprint versus developed cells and actual changes. Learning is bounded and resets in children. Earlier models remain replayable. Six-seed outcomes are mixed; arbitrary anatomy, predation, spontaneous genesis and checkpoints remain planned.
+**Status: one configurable world with shared testing tools.** The default dashboard uses mathos-world@1: neutral starting conditions, optional food caps/supply budgets and stopping steps, independent learning/reproduction/mutation choices, and explicit body/trait/controller inheritance. Testing tools operate this same active run. Old models remain replay-compatible technical references; arbitrary anatomy, predation and spontaneous primordial emergence remain planned.
 
-[Open MATHOS](https://mankeluvsit.github.io/mathos/?v=genomes4) · [Simple learning plan](docs/learning-plan.md) · [Connected learning review](docs/learning-verification.md)
+[Open MATHOS](https://mankeluvsit.github.io/mathos/?v=shared1) · [World controls and reports](docs/shared-world-guide.md) · [Current development progress](docs/handoff/STATE.md)
 
-Routine delivery is authorized. See RESUME.md and docs/handoff/STATE.md for the exact saved source, deployed revision and verification evidence.
+Choose Rules → edit controls or optional JSON → Apply, or Prepare for starting conditions. **Testing tools · same world** reveals authoring tools. World / Rules / Results on phones preserve the same run. Results → Copy test report shares actual settings, edits, measurements and bounded replay evidence. **Run until paused** is an option; history limits no longer stop reproduction. Reports state whether verification starts at genesis or a later saved boundary.
 
-**Developer evaluation:** a frozen24-run v4 learning/body-mutation protocol is at [evaluation plan](docs/evaluation-plan-v4-01.md). It adds measurement tooling, not a new browser mode. From clean committed source, run `npm run experiment:evaluate -- evaluations/v4-untuned-01.json .artifacts/v4-untuned-01-new.json`; output must be new and remains local. [All24 outcomes](docs/evaluation-results-v4-01.md) and current source/CI status are recorded in the handoff.
+The running app needs no backend, API key, account, remote font or telemetry. Save small configurations in the browser or export JSON; live runs do not automatically survive reload. Newborn controller weights reset by default; copying them is an explicit experimental option. No learning/evolution success is guaranteed.
 
-**Controlled testing:** Open MATHOS → **Open test field**. Choose a prepared scenario, Prepare, Run/Step/Edit, then **Copy test report** and paste it into the project chat. JSON is optional and hideable. [Simple workflow and configuration limits](docs/test-field-guide.md) · [Verification](docs/test-field-verification.md). The test field is separate from the preserved living world; publication evidence is in STATE.
+Normal development uses `npm run verify` for the automatic test/browser/mobile baseline. The owner does not manage a separate device-check workstream. [Resume](RESUME.md) and [setup/provider reference](HANDOFF.md) use the single progress record; continuity is part of development, not a separate management phase.
 
-**Continuing in OpenCode:** [resume here](RESUME.md) · [handoff and free-model choices](HANDOFF.md) · [Bazzite/macOS/Linux/Windows setup](docs/handoff/SETUP.md). The project is mid-development. The handoff records connected learning, tests, mixed experimental outcomes and the current review/publication gate. Use one active development environment at a time.
-
-**New visual review:** [Cogmind-inspired life presentation](docs/visual-direction-cogmind.md) · [actual activity animation](docs/previews/terminal/activity.gif). Terminal glyphs is the new default; Classic cells and reduced-motion/static viewing remain available. Scientific state is unchanged by the visual style.
-
-**Phone controls:** World / Organism / Results / Setup. **Start world** moves the organisms; **Activity highlights** only adds visual cues. Start/Pause, One step and speed stay reachable across all four views. [Mobile changes and verification](docs/mobile-ux-verification.md) · [Actual phone captures](docs/previews/mobile/README.md).
-
-**Try an inherited change:** Setup → Try a body-change example → Load body-change example → Prepare new world. Around step40, use Results → Inspect latest body change. Organism9 inherits a relocated mouth; by63 its fourth cell has developed. This is a labeled illustration, not representative survival evidence. [Rules and plan](docs/inherited-body-plan.md) · [Checks and six-seed outcomes](docs/inherited-body-verification.md) · [Actual captures](docs/previews/genomes/README.md).
+Earlier verified biology and evaluation context remain in [inherited-body rules](docs/inherited-body-verification.md), [learning plan](docs/learning-plan.md), [all24 untuned v4 outcomes](docs/evaluation-results-v4-01.md), and [original visual research](docs/visual-direction-cogmind.md). These historical results do not evaluate the new configurable policies. Explicit `?lab=legacy` and `?lab=reference` URLs preserve technical compatibility views; they are not default product workspaces.
 
 ## Run locally
 

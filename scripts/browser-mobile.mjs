@@ -21,7 +21,7 @@ try {
       page.on('request', r => {if(!r.url().startsWith(base))external.push(r.url());});
       page.on('dialog', d => d.accept());
       await page.emulateMedia({reducedMotion:'no-preference'});
-      await page.goto(base+(publicReview ? '?v=genomes4' : ''));
+      await page.goto(base+(publicReview ? '?lab=legacy&v=genomes4' : '?lab=legacy'));
       const nav = page.getByRole('navigation',{name:'Living world views'});
       const tick = async()=>Number(await page.getByTestId('ecology-tick').textContent());
       const canvas = page.getByRole('img',{name:/Living world/});

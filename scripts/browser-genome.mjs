@@ -56,7 +56,7 @@ try{
   const browser=await type.launch();try{
    const page=await browser.newPage({viewport:{width:1600,height:1050}}),errors=[],external=[];
    page.on('pageerror',e=>errors.push(String(e)));page.on('request',r=>{if(!r.url().startsWith(base))external.push(r.url());});page.on('dialog',d=>d.accept());
-   await page.goto(base+(publicReview?'?v=genomes4':''));
+   await page.goto(base+(publicReview?'?lab=legacy&v=genomes4':'?lab=legacy'));
    assert.equal(await page.getByLabel('Simulation model',{exact:true}).inputValue(),'4');
    await page.getByText('Try a body-change example',{exact:true}).click();
    await page.getByRole('button',{name:'Load body-change example',exact:true}).click();

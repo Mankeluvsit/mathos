@@ -15,7 +15,7 @@ try{
    if(type===chromium)await context.grantPermissions(['clipboard-read','clipboard-write']);
    else await context.addInitScript(()=>{Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.__testCopy=text;}}});});
    const page=await context.newPage(),external=[];page.on('request',r=>{if(!r.url().startsWith(publicReview?'https://mankeluvsit.github.io/':'http://127.0.0.1:4183/')&&!r.url().startsWith('blob:')&&!r.url().startsWith('data:'))external.push(r.url());});
-   await page.goto(publicReview?'https://mankeluvsit.github.io/mathos/?v=testfield1':'http://127.0.0.1:4183/');
+   await page.goto(publicReview?'https://mankeluvsit.github.io/mathos/?lab=legacy&v=testfield1':'http://127.0.0.1:4183/?lab=legacy');
    await page.getByRole('button',{name:'One step',exact:true}).click();
    const livingTick=await page.getByTestId('ecology-tick').textContent();
    await page.getByRole('button',{name:'Open test field',exact:true}).click();const lab=page.locator('.test-lab');

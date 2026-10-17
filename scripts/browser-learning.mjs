@@ -15,7 +15,7 @@ try {
       page.on('pageerror', e => errors.push(String(e)));
       page.on('request', r => { if (!r.url().startsWith('http://127.0.0.1:4178/')) external.push(r.url()); });
       page.on('dialog', d => d.accept());
-      await page.goto('http://127.0.0.1:4178/');
+      await page.goto('http://127.0.0.1:4178/?lab=legacy');
       await page.getByLabel('Simulation model',{exact:true}).selectOption('3');
       await page.getByRole('button',{name:'Prepare new world',exact:true}).click();
       assert.match(await page.getByTestId('learning-mode').textContent(), /Learning on/);

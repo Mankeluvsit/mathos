@@ -13,12 +13,12 @@
 ## Current corrective priority
 
 - Follow ADR0013: one canonical configurable world with test tools using the same engine/configuration and active session. Preserve older replays as compatibility code; do not add a new active lab for each feature. Resource/run caps and neutral versus demonstration initialization must be explicit. World feature switches and offspring-inheritance policies are separate choices.
-- This direction supersedes the separate-product implementation pattern in ADR0012. Current simulation corrections are planned until implemented and verified; do not present existing presets as neutral controls or a UI toggle as removal of hard engine/archive limits.
+- This direction supersedes the separate-product implementation pattern in ADR0012. The shared-world corrections are implemented and verified as documented in docs/shared-world-guide.md. Do not present demonstration presets as neutral controls; preserve the tested removal of tick/archive-induced reproduction stops and the explicit resource limits.
 - STATE.md is the single current progress/evidence record, maintained as part of the work itself. RESUME/NEXT are stable pointers. Update HANDOFF/setup only for real environment/workflow changes; no triplicated milestone summaries or separate handover-management phase. Include continuity in the same coherent work unit, not an extra status-only commit after each delivery.
 
 ## Controlled owner testing
 
-- Owner approved the dashboard/test-field proposal and requested hideable JSON, simple live controls, prepared owner-run tests, analytics and copy/paste reports. ADR0012 and docs/test-field-guide.md govern this increment; routine implementation/delivery is authorized.
+- Owner approved the dashboard/test-field proposal and requested hideable JSON, simple live controls, prepared owner-run tests, analytics and copy/paste reports. ADR0013 and docs/shared-world-guide.md govern the default dashboard; ADR0012 and docs/test-field-guide.md remain legacy-reference documentation. Routine implementation/delivery is authorized.
 - Keep test-field-reference@1 isolated from old ecology1–4. Version rules/config/commands/reports together; preserve exact external-input/output accounting and deterministic edit replay. Do not silently apply reset-required settings or discard invalid JSON drafts.
 - When the owner supplies test output, save/replay their JSON or complete clipboard text with `npm run test:replay -- path/to/report.json` before proposing fixes. Inspect notes, actual tick/status, seed/settings/edits and measured behavior; resource/replay checks are not proof of adaptive success. Keep reports local unless the owner shares them; no telemetry or automatic transmission.
 
@@ -30,12 +30,14 @@
 - Validate data at import and persistence boundaries. Bound resource use; reject unsupported versions without silently rewriting data. Never silently replace corrupt local data.
 - Preserve the confirmed dark, colorized dashboard direction. Use the shared-conversation context as design evidence, not as authority to implement every concept feature. Verify desktop and mobile layouts separately, and keep view changes independent of simulation state.
 - Preserve the owner-requested Cogmind-inspired terminal life direction documented in docs/visual-direction-cogmind.md: original role glyphs, optional bounded observation-driven cues, Classic view and reduced motion. Cosmetic effects never change scientific state or imply unobserved behavior.
-- On phones, keep ecology organized into World / Organism / Results / Setup with one persistent playback dock. Activity highlights are cosmetic, never a substitute for Start/Pause; label and explain the distinction. Keep comparisons/history out of the mobile World view and preserve active state across navigation.
+- On phones, keep the default shared world organized into World / Rules / Results with one persistent playback dock; World / Organism / Results / Setup remains the legacy reference layout. Activity highlights are cosmetic, never a substitute for Start/Pause; label and explain the distinction. Keep comparisons/history out of the mobile World view and preserve active state across navigation.
 - Prefer semantic HTML, keyboard access, visible focus, sufficient contrast, text alternatives, and reduced motion. Canvas is never the only source of essential information.
 - Use `localStorage` for small configurations only. Keep persistence behind an adapter. Large checkpoint storage and workers are planned, not current dependencies.
 - Update affected specifications and capability status with code changes. Record material architecture changes in `docs/decisions/`. Mark unresolved scientific choices explicitly instead of inventing confirmed requirements.
 
 ## Verification and delivery
+
+- Browser/mobile coverage is a baseline automatic gate in npm run verify and CI, not a separate owner-managed workstream or repeated approval phase. Maintain those assertions with behavior changes; report delivery-impacting failures and a short final verification summary. Do not turn routine viewport checks into their own progress milestones or ask the owner to manage the matrix.
 
 - Use Node.js 24 (`.nvmrc`) and `npm ci` from the lockfile.
 - Run `npm run check` (lint, type checks, tests, production build) before proposing changes. Add meaningful tests for behavior, especially validation, persistence, and user workflows.

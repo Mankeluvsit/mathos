@@ -91,4 +91,8 @@ Living world model4 and Test field show read-only north-facing parent/offspring 
 
 ## Current consolidation priority
 
-[ADR0013](decisions/0013-shared-world-and-testing.md) supersedes feature expansion: one shared world/test engine/configuration, explicit food/run limits and feature/inheritance choices. These simulation corrections are planned, not yet live. Development maintains one progress record; the handover follows it. Current task/evidence: [STATE](handoff/STATE.md).
+[ADR0013](decisions/0013-shared-world-and-testing.md) supersedes feature expansion: one shared world/test engine/configuration, explicit food/run limits and feature/inheritance choices. The shared-world increment now implements this direction on the working branch; the preview manifest and PR identify the delivered build. Development maintains one progress record; the handover follows it. Current task/evidence: [STATE](handoff/STATE.md).
+
+## Shared configurable world (ADR0013 implementation)
+
+Default entry now uses one mathos-world@1 engine/session, neutral initialization, explicit food/replenishment/stop policies and independent reproduction/mutation/inheritance choices. Testing tools act on that same state; prior labs are explicit legacy references/replayers. Long-run history is bounded without stopping births; reports verify a recent captured segment and state its limits. [Owner guide and exact boundaries](shared-world-guide.md). Browser/mobile behavior belongs to the automatic baseline. Current delivery facts are in the preview manifest/PR, and progress is recorded once in handoff/STATE.md.

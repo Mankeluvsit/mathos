@@ -1,0 +1,45 @@
+{
+  "source": {
+    "revision": "3f1995d4c8347138246e0a81606b9f2ed92846b4",
+    "dirty": true
+  },
+  "engine": "mathos-world@1",
+  "tick": 12,
+  "initial": {
+    "format": "mathos-world",
+    "version": 1,
+    "name": "empty demonstration",
+    "seed": 42,
+    "world": {
+      "width": 32,
+      "height": 24
+    },
+    "rules": {
+      "foodEnergy": 24,
+      "spawnAttempts": 2,
+      "upkeep": 1,
+      "initialFood": 0,
+      "replenishment": true,
+      "foodCap": 25,
+      "supplyBudget": 25
+    },
+    "organisms": {
+      "startingEnergy": 120,
+      "learning": true,
+      "structuralMutation": false,
+      "reproduction": true,
+      "traitMutation": true,
+      "inheritBody": true,
+      "inheritTraits": true,
+      "inheritWeights": false,
+      "bodyPlan": "dart",
+      "count": 0
+    },
+    "test": {
+      "preset": "empty",
+      "steps": 6
+    }
+  },
+  "report": "9f926ec59f54e9aab30d413fc8edb4d599af76081ecee782c23281ed4b4c724d",
+  "context": "Actual bounded cap test continued without endpoint; one authored organism and recorded field edits. Not a neutral evaluation outcome."
+}

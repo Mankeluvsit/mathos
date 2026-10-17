@@ -2,6 +2,9 @@ import { ORGAN_COLORS as colors } from '../rendering/organ-colors';
 import type { Layout } from '../ecology/body-genome';
 import type { World } from '../ecology/genome-model';
 
+type LineageRecord=World['lineage'][number]&{inheritance?:{body:boolean;traits:boolean;weights:boolean}|null};
+type InspectionWorld={lineage:LineageRecord[]};
+function BirthPolicy({record}:{record:LineageRecord}){return record.inheritance?<p className="hint">At this birth: body {record.inheritance.body?'copied from parent':'reset to founder baseline'}; scalar traits {record.inheritance.traits?'copied':'reset'}; controller weights {record.inheritance.weights?'copied before the parent update':'reset'}. Child update count starts at0.</p>:null;}
 const marks = { body: 'B', mouth: 'M', motor: 'T', sensor: 'S' };
 /** Compare the ordered inherited program, including position, role and growth order. */
 function changedLoci(before: Layout, after: Layout): number[] {
@@ -20,27 +23,28 @@ function Blueprint({ layout, other, changed, label }: { layout: Layout; other: L
     </g>)}
   </svg>;
 }
-export function InheritanceComparison({ world, selected }: { world: Pick<World, 'lineage'>; selected: number }) {
+export function InheritanceComparison({ world, selected }: { world: InspectionWorld; selected: number }) {
   const child = world.lineage.find(l => l.id === selected);
   if (!child || child.parent === null) return null;
   const parent = world.lineage.find(l => l.id === child.parent);
-  if (!parent) return <section className="inheritance-comparison" aria-label="Parent and offspring comparison"><h4>What changed from its parent?</h4><p>Parent #{child.parent} is unavailable in this bounded archive. No comparison can be drawn.</p></section>;
+  if (!parent) return <section className="inheritance-comparison" aria-label="Parent and offspring comparison"><h4>What changed from its parent?</h4><p>Parent #{child.parent} is unavailable in this bounded archive. No comparison can be drawn.</p><BirthPolicy record={child}/></section>;
   const before = parent.genes.layout, after = child.genes.layout, changed = changedLoci(before, after);
   const point = (p: Layout[number]) => `${p.role} (${p.x}, ${p.y})`;
   return <section className="inheritance-comparison" aria-label="Parent and offspring comparison">
     <h4>What changed from its parent?</h4>
+    <BirthPolicy record={child}/>
     <p>Born at step {child.born} · generation {child.generation} · family #{child.family}</p>
     <div className="inheritance-pair">
       <figure><figcaption>Parent #{parent.id}<small>{before.length}-cell blueprint</small></figcaption><Blueprint layout={before} other={after} changed={changed} label={`Parent #${parent.id} inherited blueprint, ${before.length} cells; north faces up`} /></figure>
       <figure><figcaption>Offspring #{child.id}<small>{after.length}-cell blueprint</small></figcaption><Blueprint layout={after} other={before} changed={changed} label={`Offspring #${child.id} inherited blueprint, ${after.length} cells; north faces up`} /></figure>
     </div>
     <p className="hint">North ↑ in both blueprints. White borders mark changed growth slots; a dashed × marks a position present only in the other blueprint. These show inherited targets, not current grown bodies.</p>
-    {changed.length ? <ul className="inheritance-differences">{changed.map(i => <li key={i}>Growth slot {i + 1}: {before[i] ? point(before[i]!) : 'absent'} → {after[i] ? point(after[i]!) : 'absent'}.</li>)}</ul> : <p>Same inherited body layout. Growing or turning does not change this blueprint.</p>}
-    <p className="hint">B body · M mouth · T motor · S sensor. An inherited change is not proof of improvement. Learning changes decisions during life; offspring start with fresh controller weights.</p>
+    {changed.length ? <ul className="inheritance-differences">{changed.map(i => <li key={i}>Growth slot {i + 1}: {before[i] ? point(before[i]!) : 'absent'} → {after[i] ? point(after[i]!) : 'absent'}.</li>)}</ul> : <p>{child.inheritance?'Same recorded body layout.':'Same inherited body layout.'} Growing or turning does not change this blueprint.</p>}
+    <p className="hint">B body · M mouth · T motor · S sensor. An inherited change is not proof of improvement. Learning changes decisions during life; {child.inheritance?.weights?'this offspring copied controller weights at birth.':'this offspring started with fresh controller weights.'}</p>
   </section>;
 }
 
-export function RecentInheritedChanges({ world, inspect }: { world: Pick<World, 'lineage'>; inspect?: (id: number) => void }) {
+export function RecentInheritedChanges({ world, inspect }: { world: InspectionWorld; inspect?: (id: number) => void }) {
   return <section className="inheritance-recent" aria-label="Recorded inherited body changes">
         <h3>Recent inherited body changes</h3>
         <p className="hint">Actual accepted changes at birth, newest first. Growth and learning are separate. Showing at most six records from this run.</p>

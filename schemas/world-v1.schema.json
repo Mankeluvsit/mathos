@@ -1,0 +1,193 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "name",
+    "seed",
+    "world",
+    "rules",
+    "organisms",
+    "test"
+  ],
+  "properties": {
+    "format": {
+      "const": "mathos-world"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "\\S"
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4294967295
+    },
+    "world": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 16,
+          "maximum": 64
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 16,
+          "maximum": 48
+        }
+      }
+    },
+    "rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "foodEnergy",
+        "spawnAttempts",
+        "upkeep",
+        "initialFood",
+        "replenishment",
+        "foodCap",
+        "supplyBudget"
+      ],
+      "properties": {
+        "foodEnergy": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 96
+        },
+        "spawnAttempts": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8
+        },
+        "upkeep": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "initialFood": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3072
+        },
+        "replenishment": {
+          "type": "boolean"
+        },
+        "foodCap": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 294912
+        },
+        "supplyBudget": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1000000000
+        }
+      }
+    },
+    "organisms": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "startingEnergy",
+        "learning",
+        "structuralMutation",
+        "reproduction",
+        "traitMutation",
+        "inheritBody",
+        "inheritTraits",
+        "inheritWeights",
+        "bodyPlan",
+        "count"
+      ],
+      "properties": {
+        "startingEnergy": {
+          "type": "integer",
+          "minimum": 40,
+          "maximum": 300
+        },
+        "learning": {
+          "type": "boolean"
+        },
+        "structuralMutation": {
+          "type": "boolean"
+        },
+        "reproduction": {
+          "type": "boolean"
+        },
+        "traitMutation": {
+          "type": "boolean"
+        },
+        "inheritBody": {
+          "type": "boolean"
+        },
+        "inheritTraits": {
+          "type": "boolean"
+        },
+        "inheritWeights": {
+          "type": "boolean"
+        },
+        "bodyPlan": {
+          "enum": [
+            "dart",
+            "grazer",
+            "scout"
+          ]
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8
+        }
+      }
+    },
+    "test": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "preset",
+        "steps"
+      ],
+      "properties": {
+        "preset": {
+          "enum": [
+            "neutral",
+            "feeding",
+            "growth",
+            "inheritance",
+            "empty"
+          ]
+        },
+        "steps": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "maximum": 1000000000
+        }
+      }
+    }
+  }
+}

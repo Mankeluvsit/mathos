@@ -21,7 +21,7 @@ try {
       });
       let accept = true;
       page.on("dialog", (d) => (accept ? d.accept() : d.dismiss()));
-      await page.goto("http://127.0.0.1:4177/");
+      await page.goto("http://127.0.0.1:4177/?lab=legacy");
       await page.getByLabel("Simulation model", {exact: true}).selectOption("2");
       await page.getByRole("button", {name: "Prepare new world", exact: true}).click();
       assert.equal(

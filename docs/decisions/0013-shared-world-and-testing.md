@@ -1,6 +1,6 @@
 # ADR0013 — one world model, explicit choices, integrated progress
 
-Status: accepted product direction from owner feedback. Simulation changes below are planned, not implemented. Supersedes ADR0012's separate active product workspace/model direction for future development; existing formats and scientific replays remain preserved.
+Status: accepted product direction from owner feedback. The shared-world increment is implemented on the working branch; deployment is verified through the preview manifest and PR. See ../shared-world-guide.md for exact delivered controls and boundaries. Supersedes ADR0012's separate active product workspace/model direction for future development; existing formats and scientific replays remain preserved.
 
 ## Problem observed in the repository
 
