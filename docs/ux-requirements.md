@@ -100,3 +100,7 @@ Living world and its results stack independently of the organism/setup sidebar. 
 ## Readable inherited-body differences
 
 Living world model4 and Test field show read-only north-facing parent/offspring birth blueprints, explicit ordered-locus differences and a bounded recent accepted-change list. Growth, learning and inherited changes remain distinct; selection cannot alter scientific state. Missing parents and dead selections are handled explicitly. Family map accents, lineage trees and new effects remain planned. [Visual contract and verification](evolution-visuals.md); actual delivery status is in handoff/STATE.md.
+
+## Unified presentation language
+
+[Design system and staged component plan](design-system.md) defines a calm dashboard by default, shared semantic tokens and a reversible World-only view retaining playback and contextual tools. The first token/style/view slice is implemented; further control grouping, camera navigation and observation overlays remain planned. Presentation remains outside mathos-world configuration/RNG/state/report hashes. Browser/mobile assertions stay in the automatic baseline.

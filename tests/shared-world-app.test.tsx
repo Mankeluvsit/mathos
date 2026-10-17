@@ -26,3 +26,21 @@ it('does not export an accidentally unlimited rule when a nullable numeric limit
  expect(screen.getByRole('button',{name:'Save in browser'})).toBeDisabled();
  expect(screen.getByTestId('test-field-progress')).toHaveTextContent('0 / 1600');
 });
+it('world-only is reversible, preserves a hidden invalid draft and keeps the same active run',()=>{
+ vi.spyOn(window,'scrollTo').mockImplementation(()=>{});
+ window.history.replaceState({},'','/');render(<App/>);
+ fireEvent.click(screen.getByRole('button',{name:'One world step'}));
+ fireEvent.click(screen.getAllByRole('button',{name:'Show JSON'})[0]!);
+ fireEvent.change(screen.getByLabelText('Editable configuration JSON'),{target:{value:'{unfinished'}});
+ const canvas=screen.getByRole('img',{name:'Shared organism world'});
+ fireEvent.click(screen.getByRole('button',{name:'World only'}));
+ expect(screen.getByRole('button',{name:'Show dashboard'})).toHaveAttribute('aria-pressed','true');
+ expect(screen.queryByRole('heading',{name:'World rules'})).not.toBeInTheDocument();
+ expect(screen.getByRole('img',{name:'Shared organism world'})).toBe(canvas);expect(canvas).toHaveFocus();
+ fireEvent.click(screen.getByRole('button',{name:'One world step'}));expect(screen.getByTestId('test-field-progress')).toHaveTextContent('2 / 1600');
+ fireEvent.keyDown(document,{key:'Escape'});
+ expect(screen.getByRole('button',{name:'World only'})).toHaveFocus();
+ expect(screen.getByLabelText('Editable configuration JSON')).toHaveValue('{unfinished');
+ expect(screen.getByRole('button',{name:'Apply live settings'})).toBeDisabled();
+ expect(screen.getByRole('img',{name:'Shared organism world'})).toBe(canvas);
+});

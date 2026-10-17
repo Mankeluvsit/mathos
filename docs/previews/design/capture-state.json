@@ -1,0 +1,11 @@
+{
+  "source": {
+    "revision": "406fd65e192d346ebf83a5b66788e07a34a2d265",
+    "dirty": true
+  },
+  "engine": "mathos-world@1",
+  "presentation": "mathos-presentation@1",
+  "tick": 1,
+  "finalHash": "ceab5a8f49999b43ae9dd1a4ceb03111ce8038d081dfbf2f48a270c4c6e2386f",
+  "context": "Actual default neutral world, paused at step1. World-only changes presentation, not scientific state."
+}

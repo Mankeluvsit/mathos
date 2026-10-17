@@ -1,3 +1,4 @@
+import {PRESENTATION, PRESENTATION_STYLE} from '../design/presentation';
 import {drawOrganGlyph} from '../rendering/organ-glyph';
 import { ORGAN_COLORS as COLORS } from '../rendering/organ-colors';
 import { InheritanceComparison, RecentInheritedChanges } from './InheritanceComparison';
@@ -17,6 +18,8 @@ export function WorldLab(){
   const active=true;
   const [appearance,setAppearance]=useState<'terminal'|'classic'>('terminal');
   const [testing,setTesting]=useState(false);
+  const [worldOnly,setWorldOnly]=useState(false),[contextOpen,setContextOpen]=useState(true);
+  const viewToggle=useRef<HTMLButtonElement>(null),previousWorldOnly=useRef(false);
   const [session,setSession]=useState(()=>new TestSession(presetConfig('neutral')));
   const [world,setWorld]=useState(()=>session.snapshot()),[draft,setDraft]=useState(()=>world.definition);
   const [json,setJson]=useState(()=>serializeConfig(draft)),[showJson,setShowJson]=useState(false),[jsonError,setJsonError]=useState('');
@@ -60,23 +63,23 @@ export function WorldLab(){
   useEffect(()=>{const hidden=()=>{if(document.hidden)setRunning(false);};document.addEventListener('visibilitychange',hidden);return()=>document.removeEventListener('visibilitychange',hidden);},[]);
   useEffect(()=>{
     const c=canvas.current;if(!c)return;const ctx=c.getContext('2d');if(!ctx)return;
-    const {width,height}=world.definition.world;c.width=width*16;c.height=height*16;ctx.fillStyle='#050e09';ctx.fillRect(0,0,c.width,c.height);
-    ctx.strokeStyle='#132d22';ctx.lineWidth=1;
+    const {width,height}=world.definition.world;c.width=width*16;c.height=height*16;ctx.fillStyle=PRESENTATION.world.background;ctx.fillRect(0,0,c.width,c.height);
+    ctx.strokeStyle=PRESENTATION.world.grid;ctx.lineWidth=1;
     for(let x=0;x<=width;x++){ctx.beginPath();ctx.moveTo(x*16+.5,0);ctx.lineTo(x*16+.5,c.height);ctx.stroke();}
     for(let y=0;y<=height;y++){ctx.beginPath();ctx.moveTo(0,y*16+.5);ctx.lineTo(c.width,y*16+.5);ctx.stroke();}
-    world.food.forEach((amount,i)=>{if(amount){ctx.fillStyle='#79d95c';ctx.fillRect(i%width*16+6,Math.floor(i/width)*16+6,4,4);}});
+    world.food.forEach((amount,i)=>{if(amount){ctx.fillStyle=PRESENTATION.world.food;ctx.fillRect(i%width*16+6,Math.floor(i/width)*16+6,4,4);}});
     for(const organism of world.creatures)for(const p of parts(organism)){
-      if(appearance==='classic'){ctx.fillStyle=COLORS[p.role];ctx.fillRect(p.x*16+2,p.y*16+2,12,12);}else{ctx.strokeStyle='#355441';ctx.strokeRect(p.x*16+.5,p.y*16+.5,15,15);drawOrganGlyph(ctx,p.role,organism.direction,p.x*16+8,p.y*16+8,1.2);}
-      if(organism.id===selected){ctx.strokeStyle='#55ddf3';ctx.strokeRect(p.x*16+.5,p.y*16+.5,15,15);}
+      if(appearance==='classic'){ctx.fillStyle=COLORS[p.role];ctx.fillRect(p.x*16+2,p.y*16+2,12,12);}else{ctx.strokeStyle=PRESENTATION.world.bodyOutline;ctx.strokeRect(p.x*16+.5,p.y*16+.5,15,15);drawOrganGlyph(ctx,p.role,organism.direction,p.x*16+8,p.y*16+8,1.2);}
+      if(organism.id===selected){ctx.strokeStyle=PRESENTATION.world.selection;ctx.strokeRect(p.x*16+.5,p.y*16+.5,15,15);}
     }
-    ctx.strokeStyle='#e0eaf5';ctx.strokeRect(point.x*16+1,point.y*16+1,14,14);
+    ctx.strokeStyle=PRESENTATION.world.cursor;ctx.strokeRect(point.x*16+1,point.y*16+1,14,14);
   },[world,selected,point,appearance]);
   useEffect(()=>{
     const field=canvas.current,dock=document.querySelector('.test-playback');if(!field||!dock)return;
     const fit=()=>{
-      if(innerWidth>900){field.style.width='100%';return;}
+      if(innerWidth>900&&!worldOnly){field.style.width='100%';return;}
       if(!field.getClientRects().length)return;
-      const available=Math.max(24,dock.getBoundingClientRect().top-field.getBoundingClientRect().top-10);
+      const available=Math.max(24,dock.getBoundingClientRect().top-field.getBoundingClientRect().top-(worldOnly?140:10));
       const parent=field.parentElement!;
       const css=getComputedStyle(parent),width=parent.clientWidth-parseFloat(css.paddingLeft)-parseFloat(css.paddingRight);
       field.style.width=`${Math.floor(Math.min(width,available*world.definition.world.width/world.definition.world.height))}px`;
@@ -84,7 +87,17 @@ export function WorldLab(){
     };
     fit();const observer=typeof ResizeObserver==='undefined'?null:new ResizeObserver(fit);observer?.observe(dock);window.addEventListener('resize',fit);
     return()=>{observer?.disconnect();window.removeEventListener('resize',fit);};
-  },[view,active,world.definition.world.width,world.definition.world.height]);
+  },[view,active,worldOnly,world.definition.world.width,world.definition.world.height]);
+  function setPresentation(only:boolean){
+    setWorldOnly(only);setView('field');setContextOpen(!only);window.scrollTo(0,0);
+  }
+  useEffect(()=>{
+    if(worldOnly)canvas.current?.focus({preventScroll:true});
+    else if(previousWorldOnly.current)viewToggle.current?.focus({preventScroll:true});
+    previousWorldOnly.current=worldOnly;
+    const escape=(event:KeyboardEvent)=>{if(event.key==='Escape'&&worldOnly){event.preventDefault();setWorldOnly(false);setContextOpen(true);}};
+    document.addEventListener('keydown',escape);return()=>document.removeEventListener('keydown',escape);
+  },[worldOnly]);
   function edit(payload:Omit<Edit,'tick'>){action(()=>{session.edit({tick:session.tick,...payload});setMessage(`Edit applied before step${world.tick+1}. It is included in the replay report.`);});}
   function applyTool(x:number,y:number){
     setPoint({x,y});
@@ -104,10 +117,10 @@ export function WorldLab(){
   }
   function numeric(label:string,value:number,min:number,max:number,onChange:(n:number)=>void){return <label>{label}<input type="number" min={min} max={max} step="1" value={Number.isFinite(value)?value:''} onChange={e=>onChange(e.target.value===''?NaN:Number(e.target.value))}/></label>;}
   function navigate(next:typeof view){setView(next);window.scrollTo(0,0);}
-  return <>
-    <header className="masthead test-masthead"><div className="wordmark">MATHOS <small>ONE CONFIGURABLE WORLD</small></div><label className="world-test-switch"><input type="checkbox" checked={testing} onChange={e=>{setTesting(e.target.checked);setTool('select');}}/>Testing tools · same world</label><span className="local-badge">LOCAL ONLY</span></header>
+  return <div className="mathos-shell" style={PRESENTATION_STYLE} data-world-only={worldOnly}>
+    <header hidden={worldOnly} className="masthead test-masthead"><div className="wordmark">MATHOS <small>ONE CONFIGURABLE WORLD</small></div><label className="world-test-switch"><input type="checkbox" checked={testing} onChange={e=>{setTesting(e.target.checked);setTool('select');}}/>Testing tools · same world</label><span className="local-badge">LOCAL ONLY</span></header>
     <main className="test-lab world-lab" data-view={view} data-json={showJson}>
-      <section className="test-intro"><div><p className="eyebrow">PREPARE → TRY → COPY RESULTS</p><h1>Configure the world. Test its rules.</h1></div><p>One active run · explicit limits · shared test tools</p></section>
+      <section hidden={worldOnly} className="test-intro"><div><p className="eyebrow">PREPARE → TRY → COPY RESULTS</p><h1>Configure the world. Test its rules.</h1></div><p>One active run · explicit limits · shared test tools</p></section>
       <section className="test-playback panel" aria-label="World playback">
         <button className="primary" aria-label={running?'Pause world':'Start world'} disabled={complete||Boolean(session.failure)} onClick={()=>setRunning(!running)}><span className="test-wide-label">{running?'Pause world':'Start world'}</span><span className="test-short-label">{running?'Pause':'Run'}</span></button>
         <button aria-label="One world step" disabled={running||complete} onClick={()=>action(()=>session.advance())}><span className="test-wide-label">One world step</span><span className="test-short-label">Step</span></button>
@@ -116,7 +129,7 @@ export function WorldLab(){
         <strong data-testid="test-field-progress">{world.tick} / {world.definition.test.steps??'until paused'} steps</strong><span>{session.failure?'Error':complete?'Complete':running?'Running':'Paused'}{edited?' · Recorded changes':''}</span>
       </section>
       <div className="test-layout">
-        <section className="panel test-controls" aria-labelledby="test-controls-title"><h2 id="test-controls-title">World rules</h2><p className="hint">Edit the draft, then Apply. Starting conditions require Prepare. Testing tools use this same world.</p><button className="test-phone-json" aria-expanded={showJson} aria-controls="test-json-panel" onClick={()=>setShowJson(!showJson)}>{showJson?'Hide JSON':'Show JSON'}</button>
+        <section hidden={worldOnly} className="panel test-controls" aria-labelledby="test-controls-title"><h2 id="test-controls-title">World rules</h2><p className="hint">Edit the draft, then Apply. Starting conditions require Prepare. Testing tools use this same world.</p><button className="test-phone-json" aria-expanded={showJson} aria-controls="test-json-panel" onClick={()=>setShowJson(!showJson)}>{showJson?'Hide JSON':'Show JSON'}</button>
           <label>Starting profile<select aria-label="Starting profile" disabled={Boolean(jsonError)} value={draft.test.preset} onChange={e=>changeDraft(presetConfig(e.target.value as Preset))}>{PRESETS.map(p=><option key={p} value={p}>{p==='neutral'?'Neutral starting profile':p==='feeding'?'Demo: feeding':p==='growth'?'Demo: growth':p==='inheritance'?'Demo: reproduction':'Empty field'}</option>)}</select></label>
           <p className="hint">{PRESET_HELP[draft.test.preset]}</p>
           <fieldset disabled={Boolean(jsonError)}><legend>World · reset required</legend>
@@ -155,14 +168,15 @@ export function WorldLab(){
           <input className="file-input" type="file" ref={file} accept=".json,application/json" aria-label="Import test configuration file" onChange={async e=>{const f=e.target.files?.[0];e.target.value='';if(!f)return;const token=++importEpoch.current;try{if(f.size>65536)throw Error('Configuration exceeds64KiB.');const c=parseConfig(await f.text());if(token===importEpoch.current){changeDraft(c);setMessage('JSON imported as a draft; active test unchanged.');}}catch(cause){if(token===importEpoch.current)fail(cause);}}}/>
         </section>
         <div className="world-main">
-        <section className="panel test-field" aria-labelledby="test-field-title"><div className="test-title-row"><h2 id="test-field-title">Shared world</h2><button aria-expanded={showJson} aria-controls="test-json-panel" onClick={()=>setShowJson(!showJson)}>{showJson?'Hide JSON':'Show JSON'}</button></div>
+        <section className="panel test-field" aria-labelledby="test-field-title"><div className="test-title-row"><h2 id="test-field-title">Shared world</h2><div className="world-view-actions"><button ref={viewToggle} aria-pressed={worldOnly} onClick={()=>setPresentation(!worldOnly)}>{worldOnly?'Show dashboard':'World only'}</button><button hidden={worldOnly} aria-expanded={showJson} aria-controls="test-json-panel" onClick={()=>setShowJson(!showJson)}>{showJson?'Hide JSON':'Show JSON'}</button></div></div>
 
           <div className="world-surface" data-testing={testing}>
           {testing&&<div className="test-tools" role="group" aria-label="Field tools">{(['select','food','add','erase'] as const).map(t=><button key={t} aria-pressed={tool===t} onClick={()=>setTool(t)}>{t==='food'?'Add food':t==='add'?'Add organism':t==='erase'?'Erase':'Select'}</button>)}</div>}
           <canvas ref={canvas} tabIndex={0} role="img" aria-label="Shared organism world" aria-describedby="test-field-help" onClick={e=>{const r=e.currentTarget.getBoundingClientRect();applyTool(Math.min(world.definition.world.width-1,Math.max(0,Math.floor((e.clientX-r.left)/r.width*world.definition.world.width))),Math.min(world.definition.world.height-1,Math.max(0,Math.floor((e.clientY-r.top)/r.height*world.definition.world.height))));}} onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();applyTool(point.x,point.y);}if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();setPoint(p=>({x:Math.max(0,Math.min(world.definition.world.width-1,p.x+(e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0))),y:Math.max(0,Math.min(world.definition.world.height-1,p.y+(e.key==='ArrowDown'?1:e.key==='ArrowUp'?-1:0)))}));}}}/>
           </div>
-          <p id="test-field-help" className="hint">Tap a cell to use the chosen tool. Keyboard: arrows move the cursor, Enter applies. Coordinates below offer the same tools without Canvas.</p>
-          <details><summary>Appearance & reading guide</summary><label>World appearance<select aria-label="World appearance" value={appearance} onChange={e=>setAppearance(e.target.value as typeof appearance)}><option value="terminal">Terminal organ glyphs</option><option value="classic">Classic cells</option></select></label><p className="hint">Lime core · amber pointed mouth · teal motor bars · lavender sensor cross. Body and glyphs turn together.</p></details>
+          <p hidden={worldOnly} id="test-field-help" className="hint">Tap a cell to use the chosen tool. Keyboard: arrows move the cursor, Enter applies. Coordinates below offer the same tools without Canvas.</p>
+          <details hidden={worldOnly}><summary>Appearance & reading guide</summary><label>World appearance<select aria-label="World appearance" value={appearance} onChange={e=>setAppearance(e.target.value as typeof appearance)}><option value="terminal">Terminal organ glyphs</option><option value="classic">Classic cells</option></select></label><p className="hint">Lime core · amber pointed mouth · teal motor bars · lavender sensor cross. Body and glyphs turn together.</p></details>
+          <details className="world-context" open={contextOpen} onToggle={e=>setContextOpen(e.currentTarget.open)}><summary>Inspect & tool options</summary>
           {testing&&<>
           <div className="test-coordinates">{numeric('Cell X',point.x,0,world.definition.world.width-1,x=>setPoint({...point,x}))}{numeric('Cell Y',point.y,0,world.definition.world.height-1,y=>setPoint({...point,y}))}<button onClick={()=>applyTool(point.x,point.y)}>Use tool at coordinates</button></div>
           <details><summary>Organism placement</summary><label>Body preset<select aria-label="Body preset" value={plan} onChange={e=>setPlan(e.target.value as BodyPlan)}><option>dart</option><option>grazer</option><option>scout</option></select></label><label>Placement heading<select aria-label="Placement heading" value={direction} onChange={e=>setDirection(Number(e.target.value))}>{['North','East','South','West'].map((d,i)=><option key={d} value={i}>{d}</option>)}</select></label></details>
@@ -172,9 +186,10 @@ export function WorldLab(){
             {creature&&<><p>#{creature.id} · {['North','East','South','West'][creature.direction]} · energy {creature.energy} · {creature.size}/{creature.genes.layout.length} cells</p><p>{creature.action}</p><p className="hint">Updates {creature.controller.updates} · last reward {creature.lastDecision?.reward??'not yet measured'}</p>
               {testing&&<><button onClick={()=>action(()=>session.edit({tick:session.tick,kind:'rotate',id:creature.id,turn:'left'}))}>Rotate left</button><button onClick={()=>action(()=>session.edit({tick:session.tick,kind:'rotate',id:creature.id,turn:'right'}))}>Rotate right</button></>}</>}
           </div>
+          </details>
         </section>
 
-        <section className="panel test-results" aria-labelledby="test-results-title"><h2 id="test-results-title">Results & reports</h2>
+        <section hidden={worldOnly} className="panel test-results" aria-labelledby="test-results-title"><h2 id="test-results-title">Results & reports</h2>
           <div className="test-metrics">{[['Organisms',m.population],['Births',m.births],['Deaths',m.deaths],['Food intake',m.intake],['Learning updates',m.updates],['Body changes',m.acceptedChanges]].map(([label,value])=><div key={label}><strong>{value}</strong><span>{label}</span></div>)}</div>
           <p>Automatic food supplied: {world.sunlight} / {world.definition.rules.supplyBudget??'no budget'} · available energy {m.food} / {world.definition.rules.foodCap??'no cap'}. Detailed lineage retains256 records; {world.retired.records} older records summarized. Population capacity48 is an explicit world rule.</p>
           <p><strong>Resource check: {m.exact?'exact':'FAILED'}</strong> · {m.supplied} supplied / {m.accounted} accounted</p><p className="hint">Authored additions/removals are counted separately. More survivors or updates alone do not prove better learning.</p>
@@ -190,11 +205,11 @@ export function WorldLab(){
           <details><summary>Detailed analytics</summary><dl>{Object.entries(m).map(([key,value])=><div key={key}><dt>{key}</dt><dd>{String(value)}</dd></div>)}</dl><table><caption>Recent population history · every20 steps</caption><thead><tr><th>Step</th><th>Population</th><th>Food sites</th></tr></thead><tbody>{world.history.map(s=><tr key={s.tick}><td>{s.tick}</td><td>{s.population}</td><td>{s.pellets}</td></tr>)}</tbody></table></details>
         </section>
         </div>
-        {showJson&&<section className="panel test-json" id="test-json-panel"><h2>Configuration JSON</h2><p className="hint">Draft only. Valid JSON updates the controls; Apply changes the active test.</p><label>Editable configuration JSON<textarea aria-label="Editable configuration JSON" spellCheck={false} value={json} onChange={e=>{setJson(e.target.value);try{const c=parseConfig(e.target.value);setDraft(c);setJsonError('');}catch(cause){setJsonError(errorText(cause));}}}/></label><p role="status">{jsonError||draftError||'Valid configuration'}</p><button className="primary" disabled={Boolean(jsonError||draftError)||restart} onClick={applyLive}>Apply JSON settings</button><button onClick={()=>changeDraft(world.definition)}>Revert JSON draft</button><button onClick={()=>setShowJson(false)}>Hide JSON editor</button></section>}
+        {showJson&&<section hidden={worldOnly} className="panel test-json" id="test-json-panel"><h2>Configuration JSON</h2><p className="hint">Draft only. Valid JSON updates the controls; Apply changes the active test.</p><label>Editable configuration JSON<textarea aria-label="Editable configuration JSON" spellCheck={false} value={json} onChange={e=>{setJson(e.target.value);try{const c=parseConfig(e.target.value);setDraft(c);setJsonError('');}catch(cause){setJsonError(errorText(cause));}}}/></label><p role="status">{jsonError||draftError||'Valid configuration'}</p><button className="primary" disabled={Boolean(jsonError||draftError)||restart} onClick={applyLive}>Apply JSON settings</button><button onClick={()=>changeDraft(world.definition)}>Revert JSON draft</button><button onClick={()=>setShowJson(false)}>Hide JSON editor</button></section>}
       </div>
       <p role="status" className="feedback test-feedback">{busy?'Preparing reproducible report…':message}</p>
-      <nav className="test-mobile-nav" aria-label="World views">{(['field','controls','results'] as const).map(v=><button key={v} aria-pressed={view===v} onClick={()=>navigate(v)}>{v==='field'?'World':v==='controls'?'Rules':'Results'}</button>)}</nav>
+      <nav hidden={worldOnly} className="test-mobile-nav" aria-label="World views">{(['field','controls','results'] as const).map(v=><button key={v} aria-pressed={view===v} onClick={()=>navigate(v)}>{v==='field'?'World':v==='controls'?'Rules':'Results'}</button>)}</nav>
     </main>
-  </>;
+  </div>;
 }
 export type {TestReport,World};

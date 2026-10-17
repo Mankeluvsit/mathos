@@ -7,6 +7,7 @@ import {presetConfig,validateConfig} from '../src/world/config.ts';
 import {parseReport,verifyReport} from '../src/world/report.ts';
 const live=process.argv.includes('--public'),base=live?'https://mankeluvsit.github.io/mathos/':'http://127.0.0.1:4185/';
 const stop=live?async()=>{}:await startServer('preview',4185),folder=live?'.artifacts/world-public':'docs/previews/world';mkdirSync(folder,{recursive:true});
+const designFolder=live?'.artifacts/design-public':'docs/previews/design';mkdirSync(designFolder,{recursive:true});
 const digest=async text=>createHash('sha256').update(text).digest('hex');
 try{for(const type of live?[chromium]:[chromium,firefox]){
  const browser=await type.launch();try{
@@ -18,12 +19,21 @@ try{for(const type of live?[chromium]:[chromium,firefox]){
   const downloadReport=async()=>{await page.getByRole('button',{name:'Save test report',exact:true}).evaluate(el=>el.scrollIntoView({block:'center'}));const d=page.waitForEvent('download');await page.getByRole('button',{name:'Save test report',exact:true}).click();const report=JSON.parse(readFileSync(await(await d).path(),'utf8'));await verifyReport(report,digest);return report;};
   await page.getByRole('button',{name:'One world step',exact:true}).click();const initial=await downloadReport();
   if(type===chromium){await page.screenshot({path:`${folder}/default-world.png`,fullPage:true});writeFileSync(`${folder}/default-capture-state.json`,JSON.stringify({source:initial.source,engine:initial.engine,tick:initial.tick,initial:initial.initial,finalHash:initial.finalHash,context:'Default neutral profile, step1, no author interventions. Functional capture, not a fairness evaluation.'},null,2)+'\n');}
+  const sameCanvas=await page.locator('canvas').elementHandle();
+  await page.getByRole('button',{name:'World only',exact:true}).click();
+  assert(await page.getByRole('button',{name:'Show dashboard',exact:true}).isVisible());
+  assert.equal(await page.getByRole('heading',{name:'World rules',exact:true}).isVisible(),false);
+  assert(await page.locator('canvas').evaluate((el,previous)=>el===previous,sameCanvas));
+  assert(await page.locator('canvas').evaluate(el=>document.activeElement===el));
+  if(type===chromium){await page.screenshot({path:`${designFolder}/world-only-desktop.png`,fullPage:true});writeFileSync(`${designFolder}/capture-state.json`,JSON.stringify({source:initial.source,engine:initial.engine,presentation:'mathos-presentation@1',tick:initial.tick,finalHash:initial.finalHash,context:'Actual default neutral world, paused at step1. World-only changes presentation, not scientific state.'},null,2)+'\n');}
+  await page.keyboard.press('Escape');assert(await page.getByRole('button',{name:'World only',exact:true}).evaluate(el=>document.activeElement===el));
+  assert.equal((await downloadReport()).finalHash,initial.finalHash,'World-only must preserve scientific state');
   await page.getByRole('checkbox',{name:'Testing tools · same world',exact:true}).check();await page.getByRole('checkbox',{name:'Testing tools · same world',exact:true}).uncheck();assert.equal((await downloadReport()).finalHash,initial.finalHash,'Test tools must not make another world or alter this one');
   await page.getByRole('button',{name:'Show JSON',exact:true}).click();const editor=page.getByLabel('Editable configuration JSON',{exact:true});
   const capped=structuredClone(presetConfig('empty'));capped.rules.foodCap=25;capped.rules.supplyBudget=25;capped.test.steps=6;
   await editor.fill(JSON.stringify(capped));await page.getByRole('button',{name:'Prepare world · reset',exact:true}).click();
   await page.getByRole('button',{name:'Hide JSON',exact:true}).click();
-  await page.getByLabel('Playback speed',{exact:true}).selectOption('30');await page.getByRole('button',{name:'Start world',exact:true}).click();await progress.filter({hasText:'6 / 6'}).waitFor();
+  await page.getByLabel('Playback speed',{exact:true}).selectOption('30');await page.getByRole('button',{name:'World only',exact:true}).click();await page.getByRole('button',{name:'Start world',exact:true}).click();await progress.filter({hasText:'6 / 6'}).waitFor();await page.getByRole('button',{name:'Show dashboard',exact:true}).click();
   const capReport=await downloadReport();assert.equal(capReport.status,'completed');assert.equal(capReport.metrics.food,25);assert.equal(capReport.metrics.sunlight,25);
   await page.getByRole('checkbox',{name:'Stop at chosen step',exact:true}).uncheck();await page.getByRole('button',{name:'Apply live settings',exact:true}).click();await page.getByRole('button',{name:'Start world',exact:true}).click();await page.waitForFunction(()=>Number(document.querySelector('[data-testid="test-field-progress"]').textContent.split(' / ')[0])>=10);await page.getByRole('button',{name:'Pause world',exact:true}).click();
   const continued=await downloadReport();assert(continued.tick>6);assert.equal(continued.status,'paused');assert.equal(continued.requestedSteps,null);
@@ -46,8 +56,19 @@ try{for(const type of live?[chromium]:[chromium,firefox]){
     const apply=page.getByRole('button',{name:'Apply live settings',exact:true});await apply.evaluate(el=>el.scrollIntoView({block:'center'}));await apply.tap();
     await nav.getByRole('button',{name:'Results',exact:true}).tap();const phoneReport=await downloadReport();assert.equal(phoneReport.edits.at(-1).config.rules.replenishment,true,'Phone rule control must change the same scientific world');
    }
+   await nav.getByRole('button',{name:'World',exact:true}).tap();
+   await page.getByRole('button',{name:'World only',exact:true}).tap();
+   assert.equal(await nav.isVisible(),false);
+   const focusCanvas=await canvas.boundingBox(),focusDock=await page.getByRole('region',{name:'World playback'}).boundingBox();
+   assert(focusCanvas&&focusDock&&focusCanvas.y+focusCanvas.height<=focusDock.y,`World-only map above playback ${width}px`);
+   const contextSummary=await page.locator('.world-context>summary').boundingBox();assert(contextSummary&&focusDock&&contextSummary.y+contextSummary.height<=focusDock.y,'Context tools reachable above playback');
+   const restore=page.getByRole('button',{name:'Show dashboard',exact:true}),restoreBox=await restore.boundingBox();
+   assert(restoreBox&&restoreBox.height>=44&&restoreBox.y>=0&&restoreBox.y+restoreBox.height<=height);
+   if(type===chromium&&width===390)await page.screenshot({path:`${designFolder}/world-only-phone.png`});
+   await page.getByRole('button',{name:'One world step',exact:true}).tap();
+   await restore.tap();assert(await nav.isVisible());
    for(const name of ['Start world','One world step']){const r=await page.getByRole('button',{name,exact:true}).boundingBox();assert(r&&r.height>=44&&r.y>=0&&r.y+r.height<=height,`Playback reachable ${width}px`);}
   }
-  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);console.log(JSON.stringify({browser:type.name(),oneWorld:'passed',caps:'25 exact',endpoint:'continued',inheritanceControls:'passed',JSON:'hide/invalid/sync',editsAndReports:'Node replay matched',phone:'320/390/430/landscape',externalRequests:external.length,live}));
+  assert.deepEqual(errors,[]);assert.deepEqual(external,[]);console.log(JSON.stringify({browser:type.name(),oneWorld:'passed',worldOnly:'same canvas/state, playback, keyboard and touch restore passed',caps:'25 exact',endpoint:'continued',inheritanceControls:'passed',JSON:'hide/invalid/sync',editsAndReports:'Node replay matched',phone:'320/390/430/landscape',externalRequests:external.length,live}));
  }finally{await browser.close();}
 }}finally{await stop();}

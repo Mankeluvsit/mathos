@@ -61,3 +61,7 @@ Read-only parent/offspring diagrams, changed growth slots, recent accepted struc
 ## Shared configurable world (ADR0013 implementation)
 
 Default entry now uses one mathos-world@1 engine/session, neutral initialization, explicit food/replenishment/stop policies and independent reproduction/mutation/inheritance choices. Testing tools act on that same state; prior labs are explicit legacy references/replayers. Long-run history is bounded without stopping births; reports verify a recent captured segment and state its limits. [Owner guide and exact boundaries](shared-world-guide.md). Browser/mobile behavior belongs to the automatic baseline. Current delivery facts are in the preview manifest/PR, and progress is recorded once in handoff/STATE.md.
+
+## Unified presentation language
+
+[Design system and staged component plan](design-system.md) defines a calm dashboard by default, shared semantic tokens and a reversible World-only view retaining playback and contextual tools. The first token/style/view slice is implemented; further control grouping, camera navigation and observation overlays remain planned. Presentation remains outside mathos-world configuration/RNG/state/report hashes. Browser/mobile assertions stay in the automatic baseline.

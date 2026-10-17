@@ -78,3 +78,5 @@ npm run benchmark
 ```
 
 The browser suite needs a production build (`npm run check` builds it) and free local ports 4173/4174/4176/4177. Linux CI may need `npx playwright install --with-deps chromium firefox`; package installation can require administrator access. Tests compare independent RNG/field fixtures in both browsers and exercise the production UI. No new runtime dependency or network service was added.
+
+Visual language and implementation plan: [unified design system](docs/design-system.md). The default dashboard offers World only / Show dashboard without replacing the running world.
