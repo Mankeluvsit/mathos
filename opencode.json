@@ -34,7 +34,16 @@
       "git push*": "ask",
       "gh pr merge*": "deny",
       "git reset --hard*": "deny",
-      "git clean*": "deny"
+      "git clean*": "deny",
+      "git add *": "allow",
+      "git commit *": "allow",
+      "git fetch origin*": "allow",
+      "git worktree list*": "allow",
+      "git worktree add --detach *": "allow",
+      "git push origin HEAD:refs/heads/codex/integrated-life-baseline": "allow",
+      "git push origin HEAD:refs/heads/gh-pages": "allow",
+      "git push --force*": "deny",
+      "git push -f*": "deny"
     },
     "task": { "*": "deny", "mathos-review": "ask", "mathos-scout": "ask" },
     "external_directory": "ask",

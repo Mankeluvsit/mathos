@@ -1,6 +1,6 @@
 # Connected learning: review evidence
 
-Local changes based on source `1fd0802` with a dirty working tree. This is not a published source revision or a deployed preview. No parameters were changed after inspecting these outcomes. Controller linear-td@1 and RNG streams ecology-streams@1 follow ADR0010.
+The first measurements below were captured locally from changes based on source `1fd0802` with a dirty working tree. The unchanged controller/model is now published at `d7b631a5f0cf331cdd3d8b6b0fe7ff44e473a942`; see [current delivery evidence](handoff/STATE.md) for preview and CI. Historical local logs are not retroactively labeled as clean-source runs. No parameters were changed after inspecting these outcomes. Controller linear-td@1 and RNG streams ecology-streams@1 follow ADR0010.
 
 ## What changed
 
@@ -31,8 +31,8 @@ Learning finished with more survivors in one seed, the same in one and fewer in 
 
 One browser test initially clicked an off-screen canvas after switching to the legacy model. Scrolling the canvas into view corrected the test interaction; both browsers subsequently passed. Screenshot review led to a more compact checkbox, earlier learning details, closer desktop comparison placement and a separate progress meter that does not repeatedly announce percentages. Final focused UI rechecks passed:143-test lint/types/test/build gate, then old and new ecology workflows in both browsers after the layout/progress adjustments.
 
-The OpenCode 1.19.2 actual parser passed all profiles/agents/commands/skill; handoff links and diff whitespace checks passed. Separate self-review checked ADR equations/lifecycle order, update eligibility, child reset, copied diagnostics, cancellation and truthful labels. No second agent/model review was performed. No remote CI or owner-device Bazzite run has occurred for this unpublished change.
+The OpenCode 1.19.2 actual parser passed all profiles/agents/commands/skill; handoff links and diff whitespace checks passed. Separate self-review checked ADR equations/lifecycle order, update eligibility, child reset, copied diagnostics, cancellation and truthful labels. No second agent/model review was performed. This paragraph describes the original local checks. Subsequent remote CI/preview evidence is recorded in handoff/STATE.md; no owner-device Bazzite run is claimed.
 
 ## Owner review
 
-Use the [capture index](previews/learning/README.md) for actual desktop/phone states when available. Check whether the explanation connects visibly to one organism's behavior and whether learning on/off is understandable. Captures cannot prove ecological improvement. The existing public Pages link is unchanged until owner approval to publish this build. No automatic merge.
+Use the [capture index](previews/learning/README.md) for actual desktop/phone states when available. Check whether the explanation connects visibly to one organism's behavior and whether learning on/off is understandable. Captures cannot prove ecological improvement. [Live MATHOS](https://mankeluvsit.github.io/mathos/?v=learning-terminal3) now serves the published connected build. Routine delivery is authorized; visual feedback remains welcome. No automatic merge.

@@ -16,6 +16,10 @@ assert.equal(inspect(['--version']), '1.19.2', 'This package is verified against
 for (const profile of [undefined, 'ollama', 'playwright']) {
   const c = JSON.parse(inspect(['debug', 'config'], profile));
   assert.equal(c.default_agent, 'mathos');
+  assert.equal(c.permission.bash['git push origin HEAD:refs/heads/codex/integrated-life-baseline'], 'allow');
+  assert.equal(c.permission.bash['git push origin HEAD:refs/heads/gh-pages'], 'allow');
+  assert.equal(c.permission.bash['gh pr merge*'], 'deny');
+  assert.equal(c.permission.bash['git push --force*'], 'deny');
   assert.equal(c.agent.mathos.mode, 'primary');
   assert.equal(c.agent['mathos-review'].mode, 'subagent');
   assert.equal(c.agent['mathos-review'].permission.edit, 'deny');

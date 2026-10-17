@@ -52,3 +52,26 @@ Use file search to locate relevant modules; read a bounded set. Keep only the cu
 Before `/compact`, switching models, an interruption or leaving the terminal, use `/mathos-checkpoint`. `opencode stats` reports local client usage estimates, not remaining ChatGPT allowance or a guaranteed provider quota. Never infer a percentage from conversation length.
 
 No unattended scheduler, recursive delegation or paid fallback is configured. Routine delivery is performed by the active agent for one approved card; this is not a background service. Verify before publication and never merge automatically. The owner can explicitly request a review subagent with `/mathos-review`; this is not blanket authorization for parallel writers.
+
+## Exact existing-branch delivery commands
+
+After the source diff and all required checks pass, from the source worktree:
+
+```sh
+git add AGENTS.md HANDOFF.md README.md RESUME.md .opencode docs examples schemas scripts src tests package.json vite.config.ts opencode.json
+git diff --cached --stat
+git commit -m "Describe the verified coherent change"
+git push origin HEAD:refs/heads/codex/integrated-life-baseline
+```
+
+Stage only paths actually belonging to the reviewed task; inspect existing user edits first. The broad path list above is the integrated release example, not permission to include unrelated edits. Never add .artifacts, dependencies or build output to source. OpenCode permits routine commits and exact pushes to the existing review branch and gh-pages; other pushes still ask. Force pushes and automatic merging remain denied.
+
+For a changed application, build while the source worktree is clean (`git status --porcelain` must be empty), using `npm run build`. Identify the application revision with `git rev-parse HEAD`. In a separate detached worktree based on the latest origin/gh-pages, copy the new dist/index.html and dist/assets into its root/assets, preserving old hashed assets. Update preview.json with the exact application source and SHA256 of every current build file, retain .nojekyll, then commit and push from that preview worktree:
+
+```sh
+git add index.html assets preview.json README.md .nojekyll
+git commit -m "Publish verified MATHOS preview"
+git push origin HEAD:refs/heads/gh-pages
+```
+
+This preview is optional hosting, not the source baseline. Verify Pages reports built, fetch the public preview.json and verify its current index/assets hashes, then exercise actual public browser behavior. Record any certificate/network limitation without disabling TLS verification. Keep the source PR open and unmerged; a later docs-only checkpoint does not require publishing identical application code again.

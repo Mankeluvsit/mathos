@@ -10,9 +10,9 @@ Context supplied by the owner on 2026-10-17: [shared conversation](https://chatg
 - Keep mathematical experiments modular within MATHOS. The other conversation used “K” for that research; it is not a new backend or a separate runtime dependency.
 - Defer OpenCode capability research while developing MATHOS here. Autonomy/delegation remain a separate future tooling workstream; this does not enable unattended system work or automatic subagents.
 - Explain progress in brief, plain language. Supply an understandable visual result and explain what tests establish.
-- Save project work in GitHub, preserve review proposals and never merge automatically. The current local-before-publication preference still requires an explicit publication decision for this workspace's pending build; a quotation from the shared history is not silently treated as new publishing approval.
+- Save project work in GitHub, preserve review proposals and never merge automatically. The later owner instruction explicitly authorizes routine verified publication. That current policy supersedes earlier local-only wording; no automatic merge.
 
-## Verified branches and boundaries
+## Historical branch inspection before delivery
 
 | Location | Evidence at inspection | Meaning |
 | --- | --- | --- |
@@ -37,4 +37,4 @@ Retain PR #6 and its history untouched. No source files were copied from it, no 
 
 Read root RESUME.md, STATE.md, learning-plan.md and learning-verification.md. Continue from the connected local build, not the older L1 candidate or shadow-only checkpoint. Keep the latest numerical contract in ADR0010 authoritative within this build; do not duplicate competing equations in handoff notes.
 
-The connected learning result is ready for owner review. Publication of source and the updated Pages preview remains the next approval decision already presented to the owner. If approved, save the complete tested checkpoint to GitHub, rebuild with published source provenance, update the preview, verify the live URL and retain manual merge review. Do not restart OpenCode/system-permission investigations as part of that work.
+The connected learning and terminal result is now saved to PR #4 and published to the existing preview. See STATE.md for exact source/deployment, public verification and CI. The owner authorized autonomous routine delivery; retain manual merge review. Do not restart OpenCode/system-permission investigations as part of that work.

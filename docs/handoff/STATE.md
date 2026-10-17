@@ -4,13 +4,19 @@
 
 Snapshot date: 2026-10-17. This file is repository memory, not a claim of project completion. Check the actual branch and remote before continuing.
 
-## Authoritative locations
+## Current published checkpoint
 
-- Repository: [Mankeluvsit/mathos](https://github.com/Mankeluvsit/mathos).
-- Latest simulation source before this handoff: `19a52a124a615b51611c4af4acbd6550058c22fd`, on `codex/integrated-life-baseline`, [PR #4](https://github.com/Mankeluvsit/mathos/pull/4), **open and unmerged** when inspected.
-- `main`: `070eefec4a62ad600dac76af7e969b121c11e261`, merged Phase 1. PRs #1/#3 merged; #2 superseded. `main` is not the full current organism experience.
-- Static preview: [Pages](https://mankeluvsit.github.io/mathos/?v=turning2), `gh-pages` deployment `8f378cf2963cce47f673d80b72c1d8aef7074db4`, serving source `19a52a1`. Development-tool additions do not alter that build.
-- Handoff working branch in preparation workspace: `codex/opencode-handoff`; target publication is the existing PR #4 source branch. Resolve the latest handoff commit with `git log -1 --format=fuller`; a file cannot contain the hash of its own commit.
+- Application source: `d7b631a5f0cf331cdd3d8b6b0fe7ff44e473a942` on `codex/integrated-life-baseline`, [PR #4](https://github.com/Mankeluvsit/mathos/pull/4), open and unmerged.
+- [Live MATHOS](https://mankeluvsit.github.io/mathos/?v=learning-terminal3), deployment `088a87b58d1600cc1f2888e1986a7f7f98effeae` on gh-pages. Public preview.json and every current asset SHA256 match the clean source build. Older hashed assets are retained for cached HTML.
+- Public Chromium verification passed:20 actual learning updates, Node lineage replay agreement, Classic/Terminal observation equality, cancelled comparison export with source revision/dirty=false, reduced motion,320/390px navigation and zero external runtime requests. Public Firefox navigation is blocked by this workspace's certificate trust (`SEC_ERROR_UNKNOWN_ISSUER`); TLS checks were not bypassed. Full local Firefox tests passed separately.
+- Complete local gate passed149 tests/17 files, lint/types/build, three independent Python references, v1/v2/v3 goldens and all Chromium/Firefox workflows. Expanded heading glyph checks passed both browsers. Actual pinned OpenCode1.19.2 parser and handoff checks passed after policy changes. Self-review, not a second model review.
+- [Remote source CI](https://github.com/Mankeluvsit/mathos/actions/runs/38998336843): pending at this documentation checkpoint; inspect the actual run before claiming a final result. PR #4 remains unmerged. Future docs-only commits can leave the application serving the precisely identified source above.
+- `main` remains Phase1 (`070eefe`); PR #5/#6 are preserved unchanged and unmerged. The active source is PR #4, not main.
+- Next action: finish recording source CI, then continue the next bounded roadmap unit under standing delivery authorization. No further publication approval is needed. Visual feedback may guide refinement, but routine delivery is not blocked on another permission question.
+
+## Historical preparation evidence
+
+The sections below retain development chronology. References to local-only work, publication pending, old source1fd0802 or v2 Pages describe earlier checkpoints, not the current delivery policy or live build.
 
 ## Owner decisions and communication
 
@@ -88,7 +94,7 @@ Done-criteria: documented three-OS setup with Bazzite first; real OpenCode forma
 
 Remaining access limits: hosted free inference probe from this workspace returned HTTP 403, despite models listing as free and the provider's documented anonymous path. This is not a successful model session and does not establish access on the owner's machine. Actual Bazzite host/GPU, macOS/Windows installer dialogs and local-model inference are unavailable here. Record CI OS execution separately from owner-device testing. Optional local Qwen profile is configured, not quality-certified.
 
-## Next exact action
+## Historical delivery action (now completed)
 
 Publish [terminal animation/captures](../previews/terminal/README.md), [visual research](../visual-direction-cogmind.md) and [connected learning evidence](../learning-verification.md) with their tested implementation. The owner has now authorized autonomous routine publication. Rebuild the clean committed revision, update the existing Pages preview, verify live assets/browser behavior and record source/deployment/CI evidence here. Keep PR #4 unmerged. Do not restart L3 or silently tune the parameters.
 

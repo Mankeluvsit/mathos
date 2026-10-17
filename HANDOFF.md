@@ -134,7 +134,7 @@ After setup, **`npm run verify`** is the complete local gate. It must exit zero;
 
 App development needs a normal computer capable of Node and two test browsers, free localhost ports 5173 and 4173/4174/4176/4177, internet for installation and GitHub, and local disk for dependencies/browsers. No database, Docker, GPU, Python package dependencies, mandatory backend, API key or authentication is needed for the app. A local **AI model** is the only optional part with materially larger RAM/VRAM requirements; evaluate your hardware before downloading it. No cross-hardware model performance guarantee is made.
 
-Public preview is [GitHub Pages](https://mankeluvsit.github.io/mathos/?v=turning2). New development-tool changes do not require redeploying it. Use `npm run dev` locally. Production hosting stays optional; do not create new infrastructure. Source truth is the review branch/PR, not compiled files on `gh-pages`. Browser storage is origin-specific; export starting definitions before changing origins. No guaranteed offline reload or resume-from-checkpoint exists.
+Public preview is [GitHub Pages](https://mankeluvsit.github.io/mathos/?v=learning-terminal3). Application source/deployment and checks are recorded in STATE.md; documentation-only changes do not require redeploying identical application code. Use `npm run dev` locally. Production hosting stays optional; do not create new infrastructure. Source truth is the review branch/PR, not compiled files on `gh-pages`. Browser storage is origin-specific; export starting definitions before changing origins. No guaranteed offline reload or resume-from-checkpoint exists.
 
 ## Consolidated owner placeholders — the only unresolved personal inputs
 

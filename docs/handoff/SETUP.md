@@ -15,7 +15,7 @@ npm exec --yes --package=opencode-ai@1.19.2 -- node scripts/start-opencode.mjs
 
 These commands select the pinned executable within that process. They do not certify model inference or the owner's globalv2 setup. Keep model access free and without a personal API key.
 
-The owner chose **Bazzite Linux, free OpenCode models without a personal API key, and automatic local work with review before publishing**. No paid provider setup is required. These instructions also cover a fresh macOS, Ubuntu/Debian, and Windows computer. Commands operate on the current review branch, not the older `main`.
+The owner chose **Bazzite Linux, free OpenCode models without a personal API key, and autonomous routine implementation, verification and publication; no automatic merge**. No paid provider setup is required. These instructions also cover a fresh macOS, Ubuntu/Debian, and Windows computer. Commands operate on the current review branch, not the older `main`.
 
 ## A. Bazzite: use an Ubuntu development container
 
@@ -231,7 +231,7 @@ node scripts/start-opencode.mjs --browser
 
 On Windows, use `npm.cmd exec` for the first line. Linux browser libraries were installed by E. Start `npm run dev` in another project terminal; ask the agent to open `http://127.0.0.1:5173`, inspect the world, and report console errors. Browser MCP tools ask before acting. `--local --browser` combines the profiles. MCP is development-only; it adds no browser runtime dependency. [Official MCP documentation](https://opencode.ai/docs/mcp-servers/) · [pinned Microsoft server](https://github.com/microsoft/playwright-mcp/tree/v0.0.83).
 
-## J. Save local work and publish only after review
+## J. Save, verify and deliver under standing authorization
 
 Before changes, create a separate local branch for the next unit:
 
@@ -248,7 +248,7 @@ git config user.name "OWNER_GIT_NAME"
 git config user.email "OWNER_GIT_EMAIL"
 ```
 
-A commit is a local saved revision. A push sends commits to GitHub. A pull request presents proposed changes for review. A merge adopts them into its target branch. The agent should show the actual changed files and check results before asking to publish; never merge automatically. Keep branch/base choices explicit because the active source is still PR #4.
+A commit is a local saved revision. A push sends commits to GitHub. A pull request presents proposed changes for review. A merge adopts them into its target branch. After verification and self-review, the agent may commit/push to the existing PR branch and update the existing preview without another permission question. Verify live and record source/deployment evidence; never merge automatically. Keep branch/base choices explicit because the active source is still PR #4.
 
 GitHub CLI is optional: install from [cli.github.com](https://cli.github.com/) using its platform installer, then `gh auth login --hostname github.com --git-protocol https --web` and `gh auth setup-git`. This browser login is separate from model access and does not require inventing an API token. `gh pr view 4 --repo Mankeluvsit/mathos` shows the current review. No publishing credential is required to run the project or free OpenCode.
 

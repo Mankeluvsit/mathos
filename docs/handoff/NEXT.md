@@ -48,7 +48,7 @@ Depends on L3; comparison UI also depends on L4. Read EcologyLab/EvolutionPanel/
 
 Done: browser tests for setup/version choice, inspect/update text, paused exact step, mobile navigation/follow/playback, save/import/export, comparison/cancel and zero runtime external requests. Capture actual desktop, 320/390px phone World/Organism/Setup. No invented activity visualization. Keyboard, text alternatives and reduced motion remain usable.
 
-## L6 — evidence and owner review (current delivery gate)
+## L6 — evidence and delivery (implemented; see STATE for CI)
 
 Inputs: all cards and real verification output. Run full gate, old/new browser replay, declared comparisons and a small measured compute budget. Update specification/model/format/architecture/UX/capabilities, current memory and review description. Distinguish within-life weight updates from heritable variation and measured outcomes from general improvement.
 
@@ -62,4 +62,4 @@ Next refinement must follow the owner's review. Do not silently retune the rewar
 
 ## Owner-requested visual review
 
-The Cogmind-inspired presentation is implemented locally on top of connected v3 learning. Review [sources/translation](../visual-direction-cogmind.md) and [actual animation](../previews/terminal/README.md). Keep scientific acceptance and visual feedback separate: changing glyphs/effects does not tune the controller or improve comparison results. Current next action is owner visual review and the existing publication decision, not restarting L1 or importing PR #6's parallel controller.
+The Cogmind-inspired presentation is implemented locally on top of connected v3 learning. Review [sources/translation](../visual-direction-cogmind.md) and [actual animation](../previews/terminal/README.md). Keep scientific acceptance and visual feedback separate: changing glyphs/effects does not tune the controller or improve comparison results. Current next action is recorded in STATE; routine verified publication is authorized, not restarting L1 or importing PR #6's parallel controller.
