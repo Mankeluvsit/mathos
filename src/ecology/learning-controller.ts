@@ -39,11 +39,19 @@ export function choose(weights: Weights, observation: Observation): number {
   const q = values(weights, observation);
   return q.indexOf(Math.max(...q));
 }
+/** Signed net energy flow observed in one tick; structural/reproductive costs excluded. */
+export function rewardFromOutcome(intake: number, actionCost: number, metabolism: number): number {
+  for (const [name, value] of [['intake', intake], ['actionCost', actionCost], ['metabolism', metabolism]] as const) {
+    integer(value, name);
+    if (value < 0 || value > 600) throw Error(name + ' out of range');
+  }
+  return clamp(intake - actionCost - metabolism, -32, 32);
+}
 export function update(weights: Weights, previousObservation: Observation, selectedAction: number, reward: number, nextObservation: Observation, terminal = false, enabled = true) {
   const oldQ = values(weights, previousObservation);
   integer(selectedAction, 'action'); integer(reward, 'reward');
   if (selectedAction < 0 || selectedAction >= ACTIONS || reward < -32 || reward > 32) throw Error('Action/reward out of range');
-  const nextQ = terminal ? 0 : Math.max(...values(weights, nextObservation));
+  const successor = values(weights, nextObservation);\n  const nextQ = terminal ? 0 : Math.max(...successor);
   const delta = clamp(256 * reward + Math.trunc(3 * nextQ / 4) - oldQ[selectedAction]!, -16384, 16384);
   const result = weights.map(row => [...row]);
   if (enabled) for (let j = 0; j < INPUTS; j++)
