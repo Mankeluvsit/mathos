@@ -1,6 +1,17 @@
-# Next milestone: learning that can be inspected and compared
+# MATHOS task cards and next work
 
 > Current delivery policy (2026-10-17): The owner authorized autonomous routine delivery on 2026-10-17: plan → implement → verify → self-review → commit/push to the existing review branch → update the existing preview → verify the live result → refresh handoff. This supersedes earlier local-only/review-before-publication wording. Do not ask again for routine publication within the approved scope. Stop for a real blocker, a change of direction, new cost or destructive action. Never merge automatically. Keep one writer; no automatic delegation or paid model fallback.
+
+## Current starting point
+
+Inherited-body G0–G3 implementation and full local verification are complete. G4 corrected-source publication/live verification/three-platform CI is complete; exact revisions and evidence are in STATE. The older L0–L6 cards below are completed learning history. Do not restart them.
+
+After G4, the next bounded unit is an untuned v4 evaluation, not a new scientific engine:
+
+1. **Predeclare.** Inputs: ADR0011, the current clean source and all development results. Write a versioned evaluation plan with a fixed non-development seed set,1600-tick horizon, both learning flags × both structural flags, measured endpoints and bounded total run count before inspecting outcomes. Done: seeds, variants, metrics and handling of extinction/failure are frozen in Git; no coefficient changes.
+2. **Add a bounded developer runner.** Existing scripts/genome-baseline.mjs hardcodes the six development seeds and learning on; scripts/learning-comparison.mjs defaults to v3 and the same seeds. They cannot already perform this new evaluation. Reuse pure v4 initialization/step/metrics, but add explicit validated evaluation inputs in separate tooling, source/engine/config provenance and refusal to overwrite output. Keep old commands/results unchanged. Done: deterministic small cases, invalid-input/budget rejection, exact accounting and independent result copies pass; no new runtime dependency.
+3. **Run and report.** Run only the predeclared plan from clean committed source; keep raw results ignored. Report every seed/variant, failures/extinction and signed comparisons, including regressions. Done: exact accounting on completed runs, reproducible exports and clear distinction between development and evaluation evidence. Any later tuning invalidates calling those seeds unseen for that tuned model.
+4. **Choose the next behavior improvement from evidence.** Update STATE, capabilities and the roadmap; preserve the immutable old-engine baselines. No general-improvement claim, automatic reward tuning or implementation of all deferred phase tracks. Follow the normal verification/publication loop for any new tool code.
 
 User authorization: continue the plan after the turning/body-inheritance milestone, while preparing this handoff. The owner now requests autonomous routine implementation, verification and delivery to the existing review branch and preview. The published package provides measurement preparation; the local continuation connects the learning controller, versioned lifecycle, comparison runner and browser inspection. L6 implementation, verification and publication are complete; owner visual feedback can guide further refinement without becoming a repeated publication gate. Do not restart Phase 0 or rewrite the working ecology.
 
@@ -66,4 +77,4 @@ The Cogmind-inspired presentation is implemented locally on top of connected v3 
 
 ## G0–G4 — inherited-body milestone (current)
 
-Owner explicitly said Continue after the richer-body development outline. Exact scope is ADR0011/inherited-body-plan.md; older learning cards are completed history, not the current starting point. G0 contract/independent anchors, G1 pure genome/mechanics and isolated v4 lifecycle, G2 data/UI/versioned comparison integration are implemented locally. G3 full verification/capture self-review is active; G4 publication/live evidence/handoff follows automatically after gates. Do not silently retune on six development seeds or merge. See STATE for actual commands/results and source status.
+Owner explicitly said Continue after the richer-body development outline. Exact scope is ADR0011/inherited-body-plan.md; older learning cards are completed history, not the current starting point. G0 contract/independent anchors, G1 pure genome/mechanics and isolated v4 lifecycle, G2 data/UI/versioned comparison integration are implemented locally. G3 full verification/capture self-review passed167 tests, four independent references and both browser suites, including targeted CI corrections. G4 source/preview publication, public verification, handoff and all three platform CI jobs passed. Do not silently retune on six development seeds or merge. See STATE for actual commands/results and source status.
